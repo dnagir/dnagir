@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: frustration | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/frustration/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Developer abuse]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/03/29/developer-abuse/"/>
+    <updated>2010-03-29T23:19:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/03/29/developer-abuse</id>
+    <content type="html"><![CDATA[<div class='post'>
+Have just watched the Developer Abuse video.<br />
+Though it is probably meant to be funny, it made me very sad. Sad from the fact that there are a lot non-professional approaches to such a simple and well know IT area (and yes, it <i><b>IS</b></i> simple, it is not a rocket science). Sad due to the fact that I sometimes am in such situations and some of my friends are.<br />
+And very sad because of very little number of universities actually promote the Agility and instead concentrate heavily just on the technology (which will become obsolete anyway very soonish). Thus newcomers often just have to educate themselves again to face the real-world (which changes continuously and all the time).<br />
+<br />
+<object height="385" width="480"><param name="movie" value="http://www.youtube.com/v/LYlhCGng5Mk&hl=en_US&fs=1&rel=0">
+
+
+
+</param>
+<param name="allowFullScreen" value="true">
+
+
+
+</param>
+<param name="allowscriptaccess" value="always">
+
+
+
+</param>
+<embed src="http://www.youtube.com/v/LYlhCGng5Mk&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>wsxwhx690</div>
+<div class='content'>
+IS VERY GOOD<a href="http://x121.22vt.com/" rel="nofollow">.</a><a href="http://x122.22vt.com/" rel="nofollow">.</a><a href="http://x123.22vt.com/" rel="nofollow">.</a><a href="http://x124.22vt.com/" rel="nofollow">.</a><a href="http://x125.22vt.com/" rel="nofollow">.</a><a href="http://x126.22vt.com/" rel="nofollow">.</a><a href="http://x127.22vt.com/" rel="nofollow">.</a><a href="http://x128.22vt.com/" rel="nofollow">.</a><a href="http://x129.22vt.com/" rel="nofollow">.</a><a href="http://x130.22vt.com/" rel="nofollow">.</a><a href="http://x131.22vt.com/" rel="nofollow">.</a><a href="http://x132.22vt.com/" rel="nofollow">.</a><a href="http://x133.22vt.com/" rel="nofollow">.</a><a href="http://x134.22vt.com/" rel="nofollow">.</a><a href="http://x135.22vt.com/" rel="nofollow">.</a><a href="http://x136.22vt.com/" rel="nofollow">.</a><a href="http://x137.22vt.com/" rel="nofollow">.</a><a href="http://x138.22vt.com/" rel="nofollow">.</a><a href="http://x139.22vt.com/" rel="nofollow">.</a><a href="http://x140.22vt.com/" rel="nofollow">.</a><a href="http://x141.22vt.com/" rel="nofollow">.</a><a href="http://x142.22vt.com/" rel="nofollow">.</a><a href="http://x143.22vt.com/" rel="nofollow">.</a><a href="http://x144.22vt.com/" rel="nofollow">.</a><a href="http://x145.22vt.com/" rel="nofollow">.</a><a href="http://x146.22vt.com/" rel="nofollow">.</a><a href="http://x147.22vt.com/" rel="nofollow">.</a><a href="http://x148.22vt.com/" rel="nofollow">.</a><a href="http://x149.22vt.com/" rel="nofollow">.</a><a href="http://x150.22vt.com/" rel="nofollow">.</a></div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+The video is basically an advertisement of the company called ThoughtWorks. They heavily promote <a href="http://dnagir.blogspot.com/2010/02/agile-manifesto-reminder.html" rel="nofollow">Agile</a> style of work.<br />On the video there is a guy who wants to work that way but just cannot due to the environment he is being put in.</div>
+</div>
+<div class='comment'>
+<div class='author'>Viktor</div>
+<div class='content'>
+what&#39;s that? didn&#39;t get it.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Content Management/Publishing System Problems]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/10/24/content-managementpublishing-system/"/>
+    <updated>2009-10-24T01:20:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/10/24/content-managementpublishing-system</id>
+    <content type="html"><![CDATA[<div class='post'>
+Reading the <a href="http://www.codinghorror.com/blog/archives/001306.html">Treating user Myopia</a> I remembered one thing I has been thinking about lately: the problems of all Content Management Systems.<br />
+Please note that I will be talking about Web Content Publishing which produces (as an end result) a web page represented with HTML.<br />
+<br />
+Since first CMS the bunch of issues started to arise and most of them are related to basic things:<br />
+<ol>
+<li>How user should edit the content?</li>
+<li>How the content provided by user should be represented as HTML?</li>
+</ol>
+<h4>
+
+
+Editing user content</h4>
+<div>
+The most popular options to edit the content are:</div>
+<div>
+<ol>
+<li><b>Poor HTML</b> - user can provide HTML as it is.</li>
+<li><b>Plain text</b> - the text is rendered as-as. Similar to 1, but is HTML encoded, so this is really 1-to-1 match of the text.</li>
+<li><b>Plain text with formatting</b> - user edits the plain text according to specific rules, then the text is parsed and renders as HTML.</li>
+<li><b>Rich Editing (WYSIWYG)</b> - is basically user friendly poor HTML. The main difference is that user should not know the HTML itself (with all its pros and cons).</li>
+<li><b>Preprocessed HTML</b> - this is mix of Poor HTML/Rich Editing and Plain text with formatting. The edited content is in format of HTML but reserves special markup to be parsed dynamically. (Think of ASP.NET, JSP or any other dynamic page generated on server, but provided by user)</li>
+</ol>
+<div>
+To give you an idea where each of them is used and its benefits or issues:</div>
+<div>
+<ol>
+<li><b>Poor HTML</b>&nbsp;- usually used in primitive/simple management systems. But is always (&gt;99%) used as a back-door when options 4 is available. Characteristics:</li>
+<br />
+<ol>
+<li>Very customisable (anything that can be represented with HTML can be done in this mode).</li>
+<li>Requires knowledge from the users.</li>
+<li>The actual output is 100% corresponds to the edited content.</li>
+<li>Easily overused (users can apply fonts/colors/text size etc with no actual need).</li>
+<li>Previous point leads to non-maintainable CMS itself as it is technically very hard change common layout with this approach.</li>
+<li>No way to enforce web-standards.</li>
+<li>No way to enforce common site layout rules.</li>
+</ol>
+<br />
+<li><b>Plain text.</b>&nbsp;Is actually part of any system (not only CMS). We can see that everywhere where users' input is shown on a page. It anything from Contact Us and Registration form a real CMS. Its characteristics:</li>
+<br />
+<ol>
+<li>Easy to edit.</li>
+<li>No customisation points at all. The output will always be plain text.</li>
+<li>The actual output will often be different (newlines and space in plain text are in most cases displayed as such, but just ignored by browsers).</li>
+<li>Web-standards are automatically enforced.</li>
+<li>Common site layout rules are N/A.</li>
+</ol>
+<br />
+<li><b>Plain text with formatting.</b> Is used in most of Wiki sites. Often called Markdown. The aim is to allow user to edit content in plain text, but reformat it to rich (HTML) content according to the rules of Markdown. Characteristics:</li>
+<br />
+<ol>
+<li>Requires users' knowledge of the markdown.</li>
+<li>There are a lot differen mark-ups/downs which increases learning curve for end-users overall.</li>
+<li>Really describes the content and NOT how to represent the content.</li>
+<li>Has limited customisation. Only set of particular HTML tags can be rendered as a result.</li>
+<li>Easy to enforce web-standards.</li>
+<li>Easy to enforce common site layout rules.</li>
+</ol>
+<br />
+<li><b>Rich Editing (WYSIWYG).</b>&nbsp;The aim is to provide users ability to edit content and see how it looks just in place. What You See Is What you get. Used in most of CMS systems, blogs, forums etc where there is a requirement to publish something better than just a plain text. Considered to be the must-have option and is a de-facto standard for content publishing these days. Characteristics (some inherited from Poor HTML):</li>
+<br />
+<ol>
+<li>Very customisable.</li>
+<li>Does not requires knowledge from the users (easy to use).</li>
+<li>The actual output in most cases is &gt; 90% similar to the edited content (which is pretty good).</li>
+<li>Easily overused (users can apply fonts/colors/text size etc with no actual need).</li>
+<li>Previous point leads to non-maintainable CMS itself as it is technically very hard change common layout with this approach.</li>
+<li>Issues with the editors.</li>
+<li>No way to enforce web-standards.</li>
+<li>No way to enforce common site layout rules.</li>
+<li>Copy-paste from other documents is very buggy.</li>
+</ol>
+<br />
+<li><b>Preprocessed HTML/MarkDown</b>&nbsp;- this can used in systems that dynamically build online forms or are in some way application builders. The idea is to allow user to provide a content but still make it dynamic. Usually used in pretty complex applications. Typical example I can take from top of my head is <a href="http://www.mindtouch.com/">DekiWiki</a>. Characteristics:</li>
+<br />
+<ol>
+<li>Requires knowledge of the markup.</li>
+<li>Customisation points are limited.</li>
+<li>Content is always mixed with dynamic&nbsp;behavior&nbsp;which leads to painful&nbsp;maintainability.</li>
+<li>The actual output is often totally different comparing to the original content.</li>
+<li>No way to enforce web-standards.</li>
+<li>No way to enforce common site layout rules.</li>
+</ol>
+</ol>
+</div>
+<div>
+Probably, the Rich Editor is the golden middle here. But the things go wrong when people try to copy-paste content (very rich-formatted), let's say, from MS Word. Hardly any WYSIWYG editor can handle that. And the result output will be awful. Forget about web standards....</div>
+<div>
+<br /></div>
+<div>
+The point I want to make here is that there is no unique option for all possible solutions. If you create a system for geeks - use mardown, for normal users - use Rich Editor and be prepared to review its content.</div>
+<div>
+<br /></div>
+<div>
+But generally, I feel there is a lack of science behind this. We need to analyse this area to provide a good solution for both users and developers, so they can live happy lives and not bother writing posts like the&nbsp;<a href="http://www.codinghorror.com/blog/archives/001306.html">Treating user Myopia</a>.</div>
+</div>
+<br />
+For any ideas on how to solve this publishing issue I promise beer.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dividing integers in C# are evil]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/10/08/dividing-integers-in-c-are-evil/"/>
+    <updated>2009-10-08T10:56:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/10/08/dividing-integers-in-c-are-evil</id>
+    <content type="html"><![CDATA[<div class='post'>
+If you have ever worked with arithmetical operations in C# you probably know this. But it is the thing that can easily be slept from you and not even mentioned.<br />
+What do you think the code will print? True or False?<br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;">Console.WriteLine(5/2 &gt; 2); // <span style="color: blue;">True</span> <span style="color: blue;">or</span> <span style="color: blue;">False</span>?</pre>
+</div>
+The result is, of course, <b>FALSE</b>. You should never forget the TYPE. Integer 5 divided by integer 2 returns <b>INTEGER</b>. And it is truncated integer, so the value will be 2 and not 2.5.<br />
+This fact that division operator returns INTEGER in my opinion is just wrong. There is no ANY guarantee at all that result will ever be integer. In other languages (including Pascal/Delphi) the division returns floating-point result. Which IS correct.<br />
+So in real live: <b>INT/INT=REAL</b>, in C# <b>INT/INT=INT</b>. Just wrong. No math behind such kind of division.<br />
+I have just faced this issue (just totally forgot about INT/INT=INT) trying to calculate an angle between 2 points on the Bitmap. It is simple:<br />
+<pre class="csharpcode">Point p1 = GetIt();
+Point p2 = GetIt();
+var radians = Math.Atan( (p1.X-p2.X) / (p2.Y-p1.Y) ); // Atan( INT/INT)!!</pre>
+As we can see the error is unavoidable. We will end up with wrong result.<br />
+So you should remember once and forever: <b>Be explicit about type when using division</b>.<br />
+And the code snippets should look like this to work correctly:<br />
+<pre class="csharpcode">Console.WriteLine(5.0/2.0 &gt; 2.0); <span class="rem">// This  correctly becomes "True"</span>
+
+<span class="rem">// casting of one division argument is enough, but better be explicit</span>
+Math.Atan( (<span class="kwrd">double</span>)(p1.X-p2.X) / (<span class="kwrd">double</span>)( p2.Y-p1.Y) ); 
+
+<span class="rem">// or if casting bothers you:</span>
+Math.Atan( (0.0 + p1.X-p2.X) / (0.0 + p2.Y-p1.Y) );</pre>
+<br />
+Additional note is that ReSharper greatly warns you saying “Possible loss of fraction”. I love it more and more every day.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Well - to me the problem here is just in overloading the operators. <br /><br />Going backwards - Pascal (hehe) has 2 different ops for wholenum division and normal one - <br /><br />div <br />/<br /><br />And there were no problems at all about the division. To me - also - this decision - to use same symbol for wholenum and normal division - was just a mistake. I have myself ran into some problems with this.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+It&#39;s wrong to bring Significant Figures into this. SigFigs says 5/2 = 2, but 5/2.0 is also 2. SigFigs is probably only taught in engineering, chemistry and physics schools - it&#39;s not usually a topic in computer science. At any rate, it&#39;s not the right reasoning here.<br /><br />Rather, I believe the real reason to simply in the hardware - Integer division is simpler and faster. Floating points are a different beast, and are slower for performance and use more energy due to the more complex circuitry involved. Difference in a single operation is microscopic at the desktop app level, but do a lot of these computations, or if you&#39;re writing for hardware, it makes a significant difference. <br /><br />This is part of the reason most  mobile device platforms had no support for floating point computations (if anything, they were fixed point computations emulated using integers).<br /><br />In C#, double and float are floating points, and decimal is a fixed point. For historical reasons, VB differentiates the two by providing the / operator as floating point division, and the \ operator as integer division.<br /><br />For better or for worse, this is how they&#39;ve implemented it. Ours not to reason why; ours but to do or... yeah :-/</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+In math from school 5/2 is equal to 2.5. This is not possible when the result of the division operation is always INT. So give me the math that always defines the result of the division operation equal to Integer?<br /><br />In addition to that, tell me why most of other programming languages have Integer as a result of division operation?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I have no idea why you think IRL int/int=real, that&#39;s definitely not correct maths. Least significant number decides what the significance of the outcome will be. int = no decimals, so no decimals in the result. Back to school you go!</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Image.GetBounds always returns value in Pixels]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/10/01/imagegetbounds-always-returns-value-in/"/>
+    <updated>2009-10-01T14:20:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/10/01/imagegetbounds-always-returns-value-in</id>
+    <content type="html"><![CDATA[<div class='post'>
+Ok. Looking at the method <a href="http://msdn.microsoft.com/en-us/library/system.drawing.image.getbounds.aspx">Image.GetBounds</a> I see:<br />
+Return value:<br />
+<blockquote>
+The <a href="http://msdn.microsoft.com/en-us/library/system.drawing.rectanglef.aspx">RectangleF</a> that represents the bounds of the image, <b>in the specified unit</b>.</blockquote>
+So far so good. But please notice the signature of the method:<br />
+<pre class="csharpcode"><span class="kwrd">public</span> RectangleF GetBounds(<span class="kwrd">ref</span> GraphicsUnit pageUnit)</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+We need to pass the unit of measurement BY REFERENCE. I had no idea why.<br />
+It turns out this method <b>ALWAYS RETURNS THE VALUE IN PIXELS</b>. Additionally the unit parameter is always set to Pixel instead.<br />
+And there is no ANY information about it on the documentation at all. Great. I wasted 2 hours for this.<br />
+Again have to <a href="http://dnagir.blogspot.com/2009/09/aspnet-mvc-most-annoying-issues.html">patch, fix, extend</a>.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+You are welcome. Glad the post has helped you.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Very unfortunate. But I appreciate the light rant. You&#39;ve saved me from wasting 2 hours trying to fix the exact same thing- which would have been the end of my sanity.  I have been working on my project for 48+ hours.  Thank you! :)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC Most annoying issues]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/09/29/aspnet-mvc-most-annoying-issues/"/>
+    <updated>2009-09-29T13:16:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/09/29/aspnet-mvc-most-annoying-issues</id>
+    <content type="html"><![CDATA[<div class='post'>
+<ul>
+<li>No support for SSL in routing&nbsp; (no URL generation configured in a single place). One big hack is <a href="http://dnagir.blogspot.com/2008/08/fixing-https-support-in-aspnet-mvc.html">here</a>.</li>
+<li>No support for (non)SSL redirect using RedirectToRoute (so it is not possible to redirect to (non)SSL page from controller action, except generating absolute link manually). </li>
+<li>HttpExeption is handled as any other one except if its Code is 404. Inconsistent. But is “as designed” in ASP.NET generally (FTW again). </li>
+<li>It reuses interface of the HttpContext class just acting as a proxy (HttpContextBase). Thus it inherits all the issues it has. It had to be different interface that abstracts from HttpContext (in particular the ApplicationPath’s trailing slash issue). </li>
+<li>No support for Fragment part of URL in routing. </li>
+<li>Weird ValueProvider – sometimes its value is array, sometimes string. The <a href="http://dnagir.blogspot.com/2009/01/aspnet-mvc-request-valueproviderresult.html">behaviour is consistent</a>, but not naturally understandable. Have to wrap all that stuff with my own utility to unwrap that. </li>
+<li><a href="http://dnagir.blogspot.com/2009/04/nullreferenceexception-accessing-aspnet.html">NullReferenceException occurs</a> accessing routes if not properly used. </li>
+<li>Annoying RenderPartial with model. <a href="http://dnagir.blogspot.com/2009/05/aspnet-mvc-renderpartial-with-null.html">Has to create a new ViewDataDictionary</a>. </li>
+<li><a href="http://dnagir.blogspot.com/2009/09/aspnet-mvc-empty-values-and-string.html">Empty values are used instead of NULLs</a>. By default if user leaves a field blank (non-mandatory) empty string is bound to the property. It will be fixed in MVC2. </li>
+<li>In <b>reality</b>, rarely you can use the typed C# 3.5 syntax for routing MvcContrib fixes that and I <a href="http://dnagir.blogspot.com/2008/05/annoying-untyped-redirects-in-aspnet.html">did</a> it. </li>
+<li>The default data binding <a href="http://dnagir.blogspot.com/2008/03/mvc-concerns-databinding-and-security.html">is NOT secure</a> and it is often encouraged. This also applies to Castle MonoRail. To protect it we need to specify white-list (which leads to another problem) or use ViewModel/DTO (which I do) and thus write more code. </li>
+<li>The white-list of databinding properties is array of STRINGS. No type sefety. I write my wrapper to convert Expression&lt;Func&gt; to string. Fixing and patching again. </li>
+</ul>
+And this is the list I only remember now…<br />
+Generally the idea behind ASP.NET MVC is great. Even <a href="http://dnagir.blogspot.com/2008/03/mvc-controller-action-return-values.html">one of my ideas had been implemented</a> in it.<br />
+But the delivered implementation has to be patched and wrapped with your own utils. Only after that it can be used consistently.<br />
+I am using ASP.NET MVC for about half a year or so and I still do prefer it instead of WebForms. Probably I just had to choose <a href="http://www.castleproject.org/MonoRail/" target="_blank">Castle MonoRail</a>. I have never used it, only looked around, read blogs and looked into code samples, but it seems to be a bit more mature. It probably has less “features” (one is worth noting - routing), but I believe it at least performs consistently everywhere.<br />
+I am just so tired of patching, wrapping, extending, fixing all the Microsoft things…<br />
+I probably just need to go to holidays for a while to cool down a bit.<br />
+I should also mention the most positive tools I used with ASP.NET MVC:<br />
+<ul>
+<li><a href="http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid" target="_blank">MvcContrib’s grid</a>. </li>
+<li><a href="http://code.google.com/p/nhaml/" target="_blank">NHAML</a> view engine – this is a real relief. I don't even need the previous “tool” with it. Such a <i>times and mood</i> saver. It sill has some things I am missing heavily:       <br />
+<ul>
+<li><a href="http://code.google.com/p/nhaml/issues/detail?id=56" target="_blank">parameterised partial</a> views; </li>
+<li><a href="http://code.google.com/p/nhaml/issues/detail?id=5" target="_blank">multiple content placeholders</a>; </li>
+<li>intellisence support; </li>
+</ul>
+</li>
+</ul>
+<b>I do encourage you to contribute to NHAMl in any possible way. </b><a href="http://dnagir.blogspot.com/2009/07/nhaml-impressions.html"><b>That is a real thing</b></a><b>.</b><br />
+<hr />
+<b>Ohh. And I have a great idea. Let’s rewrite all the tools we find <i>design </i>issues in? Huh?</b><br />
+Are you brave enough to tell that?<br />
+…hmm… <i>I</i> am probably <i>not</i>.     <br />Though I want to.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>ds r4</div>
+<div class='content'>
+that SSL certification problem is such annoying. It gets problemetic even if you change the browser.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Upps. Sorry. I really thought fragment IS sent to server as part of the URL.<br /><br />Well, then there is really no way we can get the fragment on the server. But it should still be possible to generate the fragment so it can be used on the client.</div>
+</div>
+<div class='comment'>
+<div class='author'>Haacked</div>
+<div class='content'>
+That&#39;s not the case at all. Try the following experiment. Open up Fiddler2. In your browser, type in any URL with a URL fragment. For example, I chose http://haacked.com/default.aspx#foo<br /><br />Fiddler shows the following request being made:<br /><br />  GET /default.aspx HTTP/1.1<br /><br />Notice that #foo is not included as part of the request.<br /><br />Check out the Wikipedia entry on &quot;Fragment identifier&quot; which states: http://en.wikipedia.org/wiki/Fragment_identifier<br /><br />&quot;The fragment identifier functions differently than the rest of the URI: namely, its processing is exclusively client-side with no participation from the server.&quot;</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Hello Phil,<br /><br />For the Fragment, it is part of the URL and is sent to the server and thus can be used. Not too sure what you mean.<br /><br />Ideally the the fragment part shuold be defined as part of the route:<br />&quot;{controller}/{id}/{action}#{fragment}&quot;<br /><br />So the &#39;#&#39; should be taken into account when it is absent when matching/generating routes. So that all of the follwoing URL will match the route:<br />Product/123/List<br />Product/123/List#actions<br />Product/123/List?page=5#actions</div>
+</div>
+<div class='comment'>
+<div class='author'>Haacked</div>
+<div class='content'>
+Thanks for the feedback. Regarding the Fragment part in URL Routing, how could we support that? The URL fragment is *not sent to the server*. <br /><br />The fragment is interpreted by the browser and is not sent over HTTP to the server.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

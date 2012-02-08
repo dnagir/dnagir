@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: svn | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/svn/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SVN-Monitor]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2008/12/18/svn-monitor/"/>
+    <updated>2008-12-18T13:02:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2008/12/18/svn-monitor</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h4>
+Description</h4>
+<ul>
+<li>Perform all your commonly-used svn-actions (update, commit, revert, diff ...) </li>
+<li>Keep your source up-to-date with minimum conflicts and manual merges </li>
+<li>Browse and search the svn log from your computer while offline (disconnected from the svn repository) </li>
+<li>Be constantly aware of your local source modifications, without using any Visual Studio plugin </li>
+<li>Keep a local updated mirror of the repository, while not affecting your changes, without the need to commit </li>
+<li><b>Monitor</b> the source for certain events </li>
+<li>Receive notifications of any kind (balloon popups, tray icons, email, sounds, ...) when certain events occur </li>
+</ul>
+<h4>
+&nbsp;</h4>
+<h4>
+References</h4>
+Main web site: <a href="http://www.svnmonitor.com/" title="http://www.svnmonitor.com">http://www.svnmonitor.com</a><br />
+<br />
+<h4>
+Licensing</h4>
+Free (what exactly?)</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Where TortoiseSVN name came from?]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from/"/>
+    <updated>2008-12-16T14:59:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from</id>
+    <content type="html"><![CDATA[<div class='post'>
+I has just been asked that this question. And I haven't really known the answer. One supposition that made me smile "<i>Is it because of it is very slow?</i>"<a href="http://tortoisesvn.tigris.org/" target="_blank"><img align="right" src="http://upload.wikimedia.org/wikipedia/commons/1/1d/Tortoisesvn_logo_hor468x64.PNG" /></a><br />
+Ok, I suspected the <a href="http://tortoisesvn.net/node/61" target="_blank">answer is</a>...<br />
+<blockquote>
+<i>The name of the program was fixed when we started, because the CVS counterpart is called </i><a href="http://www.tortoisecvs.org/"><i>TortoiseCVS</i></a><i>.</i></blockquote>
+&nbsp; <br />
+But I don't really see where <a href="http://www.tortoisecvs.org/">TortoiseCVS</a> came from? As <a href="http://en.wikipedia.org/wiki/TortoiseCVS" target="_blank">Wiki says</a>:<a href="http://www.tortoisecvs.org/" target="_blank"><img align="right" src="http://upload.wikimedia.org/wikipedia/en/6/61/TortoiseCVS-Logo.jpeg" /></a><br />
+<blockquote>
+<i>The name is a pun on the word </i><a href="http://en.wikipedia.org/wiki/Shell_%28computing%29"><i>shell</i></a></blockquote>
+Which doesn't make a lot of sense for me. So what's the truth?</div>
+
+]]></content>
+  </entry>
+  
+</feed>

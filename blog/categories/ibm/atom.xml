@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ibm | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/ibm/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IBM is moving to Firefox]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/07/02/ibm-is-moving-to-firefox/"/>
+    <updated>2010-07-02T08:54:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/07/02/ibm-is-moving-to-firefox</id>
+    <content type="html"><![CDATA[<div class='post'>
+The big corporations are usually very conservative and in order to change something inside the huge bureaucracy people have to go through many obstacles and justify their decisions.<br />
+I wonder how ones could justify that <a href="http://www.sutor.com/c/2010/07/ibm-moving-to-firefox-as-default-browser/" target="_blank">IBM is moving to the Firefox web browser</a>. Whatever the justification is I believe it the positive decision for the word-wide-web and normal people using the web.<br />
+Do the corporations still have a passion and not only the financial benefits? Maybe both: complementing each other? That would be an idealistic world.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

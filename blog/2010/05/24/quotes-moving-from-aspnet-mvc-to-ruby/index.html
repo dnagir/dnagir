@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Quotes: Moving from ASP.NET MVC to Ruby On Rails - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="I am being reading the Architecting TekPub - Moving from ASP.NET MVC to Ruby on Rail. There are number of interesting things in there that I would &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/2010/05/24/quotes-moving-from-aspnet-mvc-to-ruby">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Quotes: Moving From ASP.NET MVC to Ruby on Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-24T09:33:00+10:00" pubdate data-updated="true">May 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>I am being reading the <a href="http://www.infoq.com/articles/architecting-tekpub">Architecting TekPub - Moving from ASP.NET MVC to Ruby on Rail</a>. There are number of interesting things in there that I would like to quote.</p>  <p>First most notable is COST. ASP.NET MVC and thus Microsoft stack is pretty expensive and you cannot always justify the cost:</p>  <blockquote>   <p><em><strong>RB:</strong> If the platform [ASP.NET MVC] was holding up fine, what prompted the change of architecture?</em></p>    <p><strong>RC: </strong>Money. We were enrolled in <a href="http://www.microsoft.com/bizspark/">Microsoft BizSpark Program</a> and it was great for getting off the ground, but projecting into the future we realized that everything - from our database down to our development environment would have to be paid for after 3 years. This might not be an issue for a large company, but when we sat down to assess what the bills would be - well let&#8217;s just say that it was about 5 figures. We put our business hats on and <strong>tried to justify that cost - and we couldn&#8217;t</strong>.</p> </blockquote>  <p>Additionally the tooling around Ruby On Rails is just great:</p>  <blockquote>   <p><em><strong>RB:</strong> Why did you choose Ruby on Rails?</em></p>    <p><strong>RC: </strong>It&#8217;s what James and I both knew, and the plug-in story is very compelling. For instance - New Relic is a god-send. I don&#8217;t worry about the server freaking out, and I can see the &quot;choke points&quot; of all the code. They also track the highest-occurring queries and will even suggest improvements.</p>    <p>MongoMapper is an incredible data tool and MongoDB itself is faster than lightning. The Rails platform has matured to the point where it&#8217;s almost <strong>difficult to justify *not* using it</strong>. </p>    <p><strong>JA:</strong> All the problems we had (licensing, testing, deployments) could have been overcome. We could have used workarounds, written our own deployment framework, etc. What is comes down to is that we both really enjoy working with Rails and we enjoy the Rails community and the tools and libraries available. One of the best parts about running the show is that we get to do what <strong>makes us happy</strong>.</p> </blockquote>  <p>&#160;</p>  <p>And the benefits seem to be huge. I am looking at that from the perspective of a TDD developer:</p>  <blockquote>   <p><em><strong>RB:</strong> What immediate benefits have you seen from the rewrite and the new design?</em></p>    <p><strong>RC: </strong>Immediate - the first thing people notice is the <strong>speed of it all</strong>. They also notice a bit of a &quot;tighter&quot; design which we were allowed to focus on a bit more as <strong>the server-side stuff is really trivial</strong>, to be honest.</p>    <p>Not only that - but we&#8217;ve had some <strong>issues that we were able to iron out within seconds</strong> as the deployment story is so very, very simple with Capistrano. Issue a fix and push - takes seconds.</p>    <p>Our testing suite grew tremendously as well - Cucumber is a joy to use and lets you do some things that are a bit hard with ASP.NET MVC. For instance - <strong>testing PayPal&#8217;s IPN posts are pretty tough with ASP</strong>. It&#8217;s possible to do - if you create a FormCollection and push it through - but couple that with the anti-forgery protection and the story gets a bit more difficult.</p>    <p>With Rails/Cucumber/Webrat, <strong>it&#8217;s a matter of filling out a hash and posting it…</strong>.</p>    <p><strong>JA:</strong> The most immediate benefit has been the <strong>speed at which we are making changes</strong> and <strong>pushing them up to production</strong>. On the ASP.NET MVC site I would often write SQL scripts to handle complicated support requests, like changing someone&#8217;s OpenID or combining accounts, but now I just spend the 30-60 minutes to write a couple of lines of Ruby and push it up.</p> </blockquote>  <p>&#160;</p>  <p>And of course I could not miss quoting the comparison of Microsoft-based technologies with Ruby-based:</p>  <blockquote>   <p><em><strong>RB:</strong> How does your current testing methods compare to what you had on Microsoft?</em></p>    <p><strong>RC:</strong> 100% difference. It was a <strong>pain to test with the Microsoft</strong> stuff and when you&#8217;re poor and have 3 months until the money runs out, <strong>testing is something that you have a hard time justifying</strong>&#8230;&#160; [Then talking about ASP.NET MVC testing]… So I had some tests, but nothing to gives me the comfort I wanted. We did wrap the PayPal stuff in a ton of tests, you have to. When it comes to their API and I torched their sandbox environment for 3 straight days and STILL had issues rolling live.&#160; </p>    <p><strong>JA:</strong> <strong>Microsoft testing is always a fight, mainly because C# and static languages</strong> don&#8217;t lend themselves well to testing. It always feels like you are jumping through hoops when testing on .NET. That being said the SpecFlow framework on .NET does look very promising, but I doubt it can overcome all of the drawbacks of testing in .NET.</p> </blockquote>  <p>&#160;</p>  <p>And this is probably really what it means to be Agile:</p>  <blockquote>   <p><em><strong>RB:</strong> What lessons or takeaways have you gotten from a total redesign?</em></p>    <p><strong>RC: </strong>None really - I think both James and I knew that we&#8217;d hit a point where we would need to adjust and rewrite…</p>    <p>We were lucky in that the idea took hold - we then moved into &quot;<strong>OK let&#8217;s plan for the next 3-5 years and go into controlled-growth mode</strong>&quot; - which is where we are now. We <strong>don&#8217;t want to be huge, we don&#8217;t want IT people or a group of developers who work on stuff</strong>. We want to <strong>do it ourselves and stay small</strong> - focusing on the idea that got us here.</p> </blockquote>  <p>&#160;</p>  <p>And the lessons learned are just a ton of satisfaction:</p>  <blockquote>   <p><em><strong>RB:</strong> Do you see any weaknesses to the current architecture?&#160; What would you change if you were starting over again today?</em></p>    <p><strong>RC:</strong> Nothing on my end - I love it all. It&#8217;s weird for me - I&#8217;ve been a Microsoft person for a long time but putting on my business hat&#8230; well it just doesn&#8217;t make any sense at all for us. I like the idea that scaling comes at the cost of hardware&#160; - and it will be a really long time that we&#8217;ll need any. Our servers are essentially &quot;liquid&quot; and we can buff as needed. Can&#8217;t do that with the Microsoft boxes (from what I know) and if you try to latch on separate machines, you end up with a big bill. </p>    <p><strong>JA:</strong> The only change I would like to the current architecture is to break out MongoDB from our single server, it makes sense to run MongoDB in a pair whenever possible but with replica pairs being depreciated it makes sense for us to wait on the MongoDB team to develop their new pairing strategy and start with that. The cost of an addition two VMs and the fact that everything is running fine on our single server also deters us from doing this right now.</p></blockquote>  </div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-24T09:33:00+10:00" pubdate data-updated="true">May 24<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dnagir.github.com/dnagir/blog/2010/05/24/quotes-moving-from-aspnet-mvc-to-ruby/" data-via="" data-counturl="http://dnagir.github.com/dnagir/blog/2010/05/24/quotes-moving-from-aspnet-mvc-to-ruby/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/04/20/html-5-readiness/" title="Previous Post: HTML 5 Readiness">&laquo; HTML 5 Readiness</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/06/19/agile-manifesto-to-agile-principles/" title="next Post: Agile Manifesto to Agile Principles">Agile Manifesto to Agile Principles &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

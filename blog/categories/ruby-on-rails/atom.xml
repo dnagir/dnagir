@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby-on-rails | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano/"/>
+    <updated>2011-05-19T00:58:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.
+
+</p>
+
+<p>
+Now I am going to describe the Nginx configuration and example of Capistrano deployment file.
+</p>
+
+<p>
+One thing that I don't want to do for every new app I deploy is to go to the web server and change the settings (as a root user) so that the web server picks the Rails application.
+</p>
+
+<p>
+In order to avoid that I decided to use nginx's <a href="http://wiki.nginx.org/CoreModule#include">include</a> command. It allows to add include multiple nginx config files using UNIX wildcards.
+</p>
+
+<p>
+So by simply adding this line to the nginx.config I make it possible to configure Nginx from Rails applicatoins themselves:
+<code>include /home/*/apps/*/current/nginx.conf;</code>.
+
+I decided to include all configs within <code>http</code> tag so that a Rails app can configure multiple servers for itself.
+</p>
+
+<p>
+There are obvious drawbacks for this:
+
+<ol>
+<li>It is less "safe" as on application might affect others if you will start adding Nginx settings outside of the <code>server</code> tag. But I am ready to sacrifice this for the sake of having more flexibility by assuming all server citizens are good guys.</li>
+<li>We still need to have root access to restart the Nginx. We shouldn't need to do it often, so that's ok with me.</li>
+</ol>
+
+Now relying on a very simple conventions, I can configure Nginx from within the app. Just in case you've missed it, the conventions are:
+
+<ol>
+<li>To deploy a rails app (and any Rack based app), user should put the app under his home directory in <code>apps/[name]/current</code>.</li>
+<li>To "enable" an app, user should put <code>nginx.conf</code> file in <code>apps/[name]/current</code>.</li></ol>
+
+</p>
+
+
+<p>
+But for now, all this cool structure isn't very helpful unless we deploy the app.
+</p>
+
+<p>
+I went with the Ruby de-facto deployment tool - Capistrano. There are enough resources on the net on how to "Capify" your application, so I won't go into details. I assume you have just done <code>capify .</code> and understand what is going in there.
+</p>
+
+<p>
+Briefly, what I need to do is following:
+
+<ol>
+<li>Deploy the app explicitly to a particular domain (staging, production, local server etc).</li>
+<li>On every deployment - backup SQLite database (I know, I'll use something better when I'll have 1 million users).</li>
+<li>Prepare Nginx config file for the server (it depends on the domain we deploy at).</li>
+<li>Pre-Compile assets (SCSS in my case).</li>
+</ol>
+
+</p>
+
+<p>
+So grab <a href="https://gist.github.com/978737">the gist</a> (embedded below) with all the details and let me know what can be improved there. The usage is pretty simple: 
+</p>
+
+<p>
+<code>cap deploy user=dnagir domain=connecty.approache.com</code>
+</br />
+You can deploy the same app multiple times to the same server with different subdomains and they will not conflict:
+<br />
+
+<code>cap deploy user=dnagir domain=staging.connecty.approache.com</code>
+<br />
+<code>cap deploy user=dnagir domain=demo.connecty.approache.com</code>
+
+</p>
+
+<p>
+The most interesting I think is that the <code>nginx.conf</code> file is created during deployment using default Ruby templating engine and transfered over to the right location on the server. (But still remember root-ed Nginx restart is still required).
+</p>
+
+<p>You can look at the complete source in the <a href="https://github.com/dnagir/connecty/tree/bdd10b8e2bcd946a62cc66075d87ac107e513305">Connecty project</a> at Github.
+</p>
+
+<p>Please feel free to tell me what you think about this process.</p>
+
+<script src="https://gist.github.com/978737.js?file=deploy.rb"></script>
+<script src="https://gist.github.com/978737.js?file=nginx.production.conf.erb"></script></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>jlertle</div>
+<div class='content'>
+Love it!</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up Ubuntu 11.04 server for Rails with RVM]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails/"/>
+    <updated>2011-05-19T00:09:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+I had to set up the server (Ubuntu 11.04) for running couple of Rails apps and thought I could share the notes I've written while doing that. 
+
+Any feedback and improvements are welcome.
+
+</p>
+
+<p>
+
+<code>
+<pre>
+apt-get update ; apt-get upgrade
+
+# set timezone
+dpkg-reconfigure tzdata
+
+
+# RVM
+bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+
+# update /etc/bash.bashrc
+
+
+# -y to answer YES for questions
+aptitude -y install build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
+
+rvm install 1.9.2; rvm use 1.9.2 --default
+
+# while ruby is being installed prepare nginx
+cd /usr/src
+wget http://nginx.org/download/nginx-1.0.0.tar.gz
+tar -xf nginx-1.0.0.tar.gz
+cd nginx-1.0.0
+
+# Use one place for installation
+rm -r /opt/ && ln -fs /usr/local /opt
+
+gem update --system ; gem update
+gem install bundler
+#install imagemagic
+apt-get -y install imagemagick
+
+# proceed with passenger
+apt-get -y install libcurl4-openssl-dev
+gem install passenger
+passenger-install-nginx-module
+# additional otions:
+# --prefix=/opt/nginx
+# --with-http_gzip_static_module --with-http_stub_status_module --with-http_sub_module
+
+
+# add nginx autostart script: http://wiki.nginx.org/Nginx-init-ubuntu
+# verify the correct paths
+cd /opt && \
+wget -O init-deb.sh http://library.linode.com/assets/602-init-deb.sh && \
+mv /opt/init-deb.sh /etc/init.d/nginx && \
+chmod +x /etc/init.d/nginx && \
+/usr/sbin/update-rc.d -f nginx defaults
+
+
+# add to /opt/nginx/conf/nginx.conf
+include /home/*/apps/*/current/nginx.conf;
+/etc/init.d/nginx restart
+
+
+
+# copy ssh keys (from local computer)
+cat ~/.ssh/id_rsa.pub | ssh root@my.server.com "mkdir ~/.ssh ; cat - >> ~/.ssh/authorized_keys"
+
+# change default ssh port from 22 to something to get rid of nasty attacks
+vim /etc/ssh/sshd_config # change the port number
+service ssh reload
+
+#install firewall?? No need for now as only openning 80,443 ports
+# apt-get install ufw
+</pre>
+</code>
+
+</p>
+
+<p>
+That should be enough for you to start using the server.
+In the <a href="http://blog.approache.com/2011/05/easy-rails-deployment-with-capistrano.html">future post I plan to describe my setup to make deploying new applications easier</a>.
+</p></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step &quot;use one place for installation&quot; wipes everything out for some reason so I skip that part but otherwise thanks.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unix - do not reinvent the wheel]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel/"/>
+    <updated>2011-05-19T00:00:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
+This is just a quick list of notes to keep it mind. So you will have to Google if something catches your attention.
+</p>
+
+<p>
+
+<code>
+<pre>
+
+Scheduling tasks with Cron
+==========================
+- define all tasks in cron
+- don't make Ruby do scheduling
+
+
+Background processing with ATD daemon
+======================================
+echo "convert image.jpg image.png" | batch
+
+
+Logging with syslog
+======================================
+- don't use rails log
+
+Resource limiting with rlimit
+======================================
+ulimit -v 102400
+ruby -e "' ' * 1024 * 1024 * 1024 *1"
+failed to allocate memory (NoMemoryError)
+
+CPU and Disk IO priorities
+======================================
+nice -n 19 rake xapian:update # run rake with priority 19
+ionice -c3 rake xapian:update # same for disk IO
+
+
+Atomic renames
+======================================
+- don't use locks
+- write to temp then rename
+
+Secure self-cleaning temporary files
+======================================
+- create temp fie
+- delete it while holding it open
+- write/read securely
+
+
+Page cache expiry with find
+======================================
+find public/cache -type f --mmin +10 -delete # del all files 10 mins old in a "transaction"
+
+Log rotation with logrotate
+======================================
+- Rails sucks at it, use time proven and tested UNIX
+
+
+Managing daemons with start-stop-daemon
+==========================================
+- don't reinvent the wheel starting/stoping daemons (mogrels etc)
+    start-stop-daemon -d $railsdir -b -o -p $pidfile --start --starts rake xapian:update
+- run cron tasks using start-stop-daemon to avoid race condition (it will exit if process already runs)
+
+
+Real time signals
+==========================================
+use it in ruby:
+trap("USR1") { reopen_xapian_db }
+
+
+Raliable messaging with... SMTP!
+==========================================
+Due to atomic and reliable delivery it can be use as a message queue.
+Can replace RabbitHQ etc
+
+
+dbus
+==========================================
+UNIX based Messaging system
+
+
+Self-organising systems with AVAHI
+==========================================
+Bonjour??
+
+
+Modularised config files
+==========================================
+/etc/cron.d/rails-myapp
+/etc/logrotate.d/rails-myapp
+
+
+Watchdog daemon
+==========================================
+
+
+
+
+
+</pre>
+</code>
+
+</p></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf/"/>
+    <updated>2011-05-18T23:52:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
+</p>
+
+<p>
+
+<code>
+<pre>
+
+Harmony for browser testing
+
+Capybara.driver = :rack_test # uses Harmony and can run JS
+
+Good talk about Arel: 1LT_04-mp4_500mbs.mp4
+
+Rack GeoIP.
+Rack GoogleAnalytics
+Rack::Cache (standard)
+Rack::CacheBuster
+
+Server side include to render page without parts of content that fail
+(Nginx + Rack)
+
+EvenMachine:: WebSockets add-on uses JS like API.
+Other options:
+-em-websocket
+-cramp (higher level websocket)
+-sunshowers
+-node.js
+pusherapp.com
+
+Initialise multiple variables in JS:
+var a = 1, b = 2, noInitialised;
+jQuery has "end" method to go up in the chain.
+
+
+
+VIM
+:copen - opens the console output
+f - find next occurence of char in this line
+dap - delete paragraph
+cap - change
+yap - yank
+ytCHAR - yank from here to next CHAR
+Ctrl-v - visual block mode
+:split, :sp, :vspilt, :vsp - split into 2 wins
+ls - list buffers touched
+q1, q2, q3... - record macro into register
+@1, @2, @3... - play the macro from register
+
+:R - Rails related file
+:A - Rails alternate file
+:Rextract - Rails partial extract
+Shift-k - integrated Ruby ri
+
+figutive.vim - more extensions: Glog, Gblame, Gstatus, Gdiff, Ggrep etc
+snippets.vim
+nerdtree.vim - files tree view
+surround.vim
+unimpaired.vim - auto-brackets
+Hashrocket configured Vim at Github hashrocket/dotmatrix
+Vimium, Vimperator - Vim in browser
+Remotely connect and pair in Vim
+
+
+UTF-8 is backwards compatible with ASCII
+Ruby doesn't know about UTF-16 - it's messy
+
+Globalization TODO:
+- Do same as .NET CultureInfo
+- Do different ways to localize different kinds of langs
+
+
+You can generate UML model of Rails model using:
+railroad -M | dot Tpng > model.png
+uml dumper
+
+Metrics:
+- rake stats # LOCs
+- FLOG Weighting the code AST - Assignment Branch Condition (ABC)
+- FLAY - code similarities
+- Saikuro - cyclomatic complexity
+- Roodi - design issues
+- Reek - design issues and specific smells
+- Churn - changes to file with Git
+- Rcov - test coverage
+- Heckle - test coverage with code mutation
+- metric_fu
+
+
+</pre>
+</code>
+
+</p>
+
+<p>
+You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope you find some moment useful.
+</p></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Screencasts for this weekend]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <updated>2010-12-13T09:53:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
+
+]]></content>
+  </entry>
+  
+</feed>

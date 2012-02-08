@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: skills | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/skills/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rules of Productivity]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity/"/>
+    <updated>2010-11-29T15:29:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>How do we get more work done? It is a question that every manager and every passionate worker faces. Yet, for the most part, teams operate on gut instinct and habit. The results are less than optimal. [<a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">source</a>]</p>  <h2></h2>  <h2>What is productivity?</h2>  <ul>   <li>+ Work accomplished </li>    <li>- Work required to fix defects </li>    <li>- Work required to fix bad design decisions </li> </ul>  <p>Productivity can be <strong><em>negative </em></strong>when there is more harm than good.</p>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsQV26e9I/AAAAAAAAEx4/W_cKdhYLIEc/s1600-h/image%5B9%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsREicCvI/AAAAAAAAEx8/UGFxiCYKKxc/image_thumb%5B5%5D.png?imgmax=800" width="455" height="347" /></a> </p>  <h2>&#160;</h2>  <h2>Experiment 1: Overtime</h2>  <p>Working more than&#160; 40 hours a week leads to decreased productivity.</p>  <ul>   <li>&lt; 40 hours/week – working not “enough”. </li>    <li>&gt; 60 hours/week – small productivity boost. </li> </ul>  <p>The boost only lasts for 3 to 4 weeks and then turns <em><strong>negative</strong></em>. Though can be used for a short-time productivity increase.</p>  <p>So, work 40 hours a week with time for rest and family. Never work 2 months of 60 hrs/week. Overall productivity will be lower, despite the initial boost.</p>  <h2></h2>  <h2>Experiment 2: Work harder in bursts.</h2>  <ul>   <li>Take advantage of the burst during overtime. </li>    <li>Crunch for a week and work only 40 hrs on another week. </li>    <li>Any more efficient work patterns? </li> </ul>  <p>Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.<a href="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsSG9AnZI/AAAAAAAAEyA/Wq0Ax8mVAgc/s1600-h/image%5B5%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsS0R9wwI/AAAAAAAAEyE/3C1FYViAnek/image_thumb%5B3%5D.png?imgmax=800" width="468" height="357" /></a></p>  <p>So:</p>  <ul>   <li>Raise productivity immediately with short spurts &lt; 3 weeks. </li>    <li>Overtime temporarily to meet deadlines. </li>    <li>Plan for the reduction in productivity immediately afterwards. </li>    <li>Consider 4-day work week as a flexitime option. </li> </ul>  <p>&#160;</p>  <h2>Experiment 3:&#160; Performance for knowledge workers declines after 35 hrs, not 40.</h2>  <ul>   <li>Creativity and problem solving decreases faster with fatigue than manual labour. </li>    <li>Grinding&#160; out problems by working longer&#160; on average result in inferior solutions. </li>    <li>Lack of sleep is particularly damaging. </li> </ul>  <p>So:</p>  <ul>   <li>Overtime kills creativity. </li>    <li>If you are stuck on a problem, go home or take a break. </li>    <li>Get 8 hrs of sleep to improve your problem solving abilities. </li> </ul>  <p>&#160;</p>  <h2>Experiment 4: Teams on overtime feel like they are doing more, but actually accomplish less.</h2>  <ul>   <li>Team with overtime feels like they are doing much more than the team without overtime. </li>    <li>Team without overtime produces the better product and accomplishes more. </li> </ul>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsTkqVtLI/AAAAAAAAEyI/HZvCvNe_lNY/s1600-h/image%5B13%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_6a0bIbZ1HXw/TPMsUp4sGLI/AAAAAAAAEyM/IHbhVUR7D-k/image_thumb%5B7%5D.png?imgmax=800" width="476" height="363" /></a> </p>  <p>Humans ignore the systematic costs and physiological biases:</p>  <ul>   <li>Failure to measure (cost of defects, bad design decisions, missed opportunities). </li>    <li>Linear extrapolation (initial productivity boost is seen as same in the future). </li>    <li>Habit (a bad one!). </li>    <li>Self reported excellence (behaviour rewarded independent of the results). </li> </ul>  <p>So:</p>  <ul>   <li>The feeling of increased long-term productivity is FALSE. </li>    <li>Use customer metrics to determine the productivity. </li> </ul>  <p>&#160;</p>  <h2>Experiment 5: Productivity is maximised in small teams of 4-8 people.</h2>  <ul>   <li>Productivity of a small group is 30-50% higher than groups over 10 people. </li>    <li>Too high cost of communication for groups with &gt; 10 people. </li>    <li>Smaller teams don’t have enough breadth to solve a wide array of problems. </li> </ul>  <p>So:</p>  <ul>   <li>Split your teams into cross-functional teams. </li>    <li>Link small teams using '”scrum-of-scrums”. </li>    <li>Create processes for:      <ul>       <li>growing new teams; </li>        <li>splitting large teams; </li>        <li>transitioning to new projects; </li>     </ul>   </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Seat people on the same team together in a closed team room.</h2>  <ul>   <li><em><strong>100% increase </strong></em>in productivity. </li>    <li>Faster communication and problem-solving. </li>    <li>Fewer external interruptions to the team increase overall productivity. </li> </ul>  <p>So:</p>  <ul>   <li>Seat the team in their own room. With walls. </li>    <li>Give at least 5 sqr/meters per person. </li>    <li>Create side rooms for private conversations, phone calls, meetings. </li>    <li>Minimise non-team distractions. </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Cross-functional teams outperform siloed teams</h2>  <ul>   <li>Produced more effective solutions in the same time. </li>    <li>Much more likely to generate breakthrough solutions. </li>    <li>Short-term loss of negotiation of norms. </li> </ul>  <p>This is why:</p>  <ul>   <li>Fewer external dependencies mean fewer lengthy blockages. </li>    <li>Team has the breadth to see the forest, not just the trees. </li>    <li>Different perspectives mean lower chance of groupthink. </li> </ul>  <p>So:</p>  <ul>   <li>Create the team where every skill needed to solve the problem at hand is in the same room. </li>    <li>Limit the charter: “Do everything = big team”. </li>    <li>Fulltime: focused team member efforts. <em><strong>Multitasking = 15% drop in productivity</strong></em>. </li> </ul>  <p>&#160;</p>  <h2>Experiment 8: Scheduling at 80% of team capacity produces better products.</h2>  <ul>   <li>Scheduling at 100% doesn’t give space to creativity. </li>    <li>No lost time: passionate workers keep thinking. </li>    <li>The 20% goes into new idea generation and process improvements. </li>    <li><em><strong>Producing 20 great features is usually far more profitable than 100 competent features</strong></em>. </li> </ul>  <p>Why?</p>  <ul>   <li>Allows employees to explore many options cheaply. </li>    <li>Gives time to prototype breakthrough solutions that sound crazy on paper. </li>    <li><em><strong>Allows people to pursue passions</strong></em>. </li> </ul>  <p>So:</p>  <ul>   <li>Schedule 20% below possible velocity. </li>    <li>Hold periodic reviews of side projects and award interesting ideas. </li>    <li>Publicise and reward side projects that make their way into production. </li>    <li>Keep a public list of important things if anyone runs out of work (happens rarely). </li> </ul>  <p>&#160;</p>  <h2>Other productivity Techniques</h2>  <h3>Experimentation culture:</h3>  <ul>   <li>Fail faster to find success sooner. </li>    <li>Short iterations. </li>    <li>User metrics such as A/B testing. </li>    <li>State gate portfolio management. </li> </ul>  <h3>Safety nets:</h3>  <ul>   <li>Test-Driven-Development. </li>    <li>Daily/weekly access to real customers. </li> </ul>  <h3>Empower the team</h3>  <ul>   <li>Constraints-based requirements, not mandates from above. </li>    <li>Training. </li> </ul>  <p>See the original <a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">PDF</a>.</p>  </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Shame on me: AI with ApplicationException]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/09/23/shame-on-me-ai-with-applicationexceptio/"/>
+    <updated>2009-09-23T15:37:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/09/23/shame-on-me-ai-with-applicationexceptio</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have just found a piece of code which is probably about 3 years old. This is active project that I work on it almost day by day.<br />
+The method below is a helper utility for unit testing (and for that matter is used only for unit testing) to compare 2 value wrapped in IElement (Enterprise Core Objects).<br />
+<pre class="csharpcode"><span class="kwrd">private</span> <span class="kwrd">static</span> <span class="kwrd">bool</span> CheckOclEqual(IElement expectedElement, IElement actualElement)
+{
+    <span class="kwrd">if</span> (expectedElement == <span class="kwrd">null</span> &amp;&amp; actualElement == <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> <span class="kwrd">true</span>;
+
+    <span class="kwrd">if</span> (expectedElement == <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> <span class="kwrd">false</span>;
+    <span class="kwrd">if</span> (actualElement == <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> <span class="kwrd">false</span>;
+
+    <span class="kwrd">object</span> o1 = expectedElement.AsObject;
+    <span class="kwrd">object</span> o2 = actualElement.AsObject;
+
+    <span class="kwrd">if</span> (o1 == <span class="kwrd">null</span> &amp;&amp; o2 == <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> <span class="kwrd">true</span>;
+
+    <span class="kwrd">if</span> (o1 != <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> o1.Equals(o2);
+    <span class="kwrd">if</span> (o2 != <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> o2.Equals(o1);
+        
+    <span class="kwrd">throw</span> <span class="kwrd">new</span> ApplicationException(<span class="str">"Implementation bug: Invalid logic in this method."</span>);
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+Do you see this “<b>Implementation bug: Invalid logic in this method.</b>”. Now, do you see the <b>ApplicationException</b>? That is ridiculous!<br />
+If I would ever get this exception i would think: <i><b>System</b> found a bug for me.</i> <i>It must be <a href="http://draft.blogger.com/en.wikipedia.org/wiki/Artificial_intelligence" target="_blank">AI</a>.</i><br />
+Instead of writing this stupid message wrapped in the system exception the last lines of the method should just look like:<br />
+<pre class="csharpcode">    <span class="kwrd">if</span> (o1 != <span class="kwrd">null</span>)
+        <span class="kwrd">return</span> o1.Equals(o2);
+    <span class="kwrd">return</span> o2.Equals(o1);
+    // No need <span class="kwrd">in</span> that stupid exception at all here</pre>
+Well, nothing to say on this except:<br />
+<ul>
+<li>shame on me;</li>
+<li>it made me smile;</li>
+<li>strangely, I have never got this exception :);</li>
+<li>it overlived .NET 1.1, .NET 2.0, .NET 3.0 and jumped straight into .NET 3.5;</li>
+<li>it is not yet a legacy code.</li>
+</ul>
+And BTW, ReSharper pointed me to this; I doubt I would ever look into that method/class.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Huh, I hope I was the same person as I am now. Probably with different expectations and expirience :)<br /><br />I cannot live without TDD at all. &quot;Stressed? Write a test!&quot;.<br /><br />The thing I like the most is that after writing set of tests for a feature, making them pass I finally come to implementing UI. It turns out to be as easy as hooking up UI elements together with newly implemented and well tested functionality.<br />No logic there (except some obvious things). After that, the application with a new feature &quot;just works&quot;.<br /><br />Haven&#39;t really came to BDD. It really looks like another view on TDD doing pretty much the same job but using different ideology.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Shame on you :) <br /><br />Though, I don&#39;t think that 3-yr old code can be considered &#39;your&#39; code. <br /><br />It&#39;s code of other person, you have been this person 4 yr before. <br /><br />And yes - tools are good. Reshaper helped you, or whatever. I&#39;m now crazy about TDD and BDD - tried this in a little learning project, and, damn, I like the way it works.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Prefer C# cast but not AS operator]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/09/22/prefer-c-cast-but-not-as-operator/"/>
+    <updated>2009-09-22T09:27:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/09/22/prefer-c-cast-but-not-as-operator</id>
+    <content type="html"><![CDATA[<div class='post'>
+I see misuse of these 2 operators on every and each forum approximately at least couple of times a week. People don’t know/realise (or don’t want to) that there is significant difference in two code snippets below (I found similar on one of the forums):<br />
+<pre class="csharpcode">var unknown = (<span class="kwrd">object</span>)<span class="kwrd">new</span> List&lt;<span class="kwrd">string</span>&gt;();
+
+<span class="rem">// Snippet 1: as operator</span>
+<span class="kwrd">foreach</span> (var item <span class="kwrd">in</span> unknown <span class="kwrd">as</span> IList&lt;<span class="kwrd">int</span>&gt;) {
+ <span class="rem">// Do something with item</span>
+}
+
+
+<span class="rem">// Snippet 2: cast operator</span>
+<span class="kwrd">foreach</span> (var item <span class="kwrd">in</span> (IList&lt;<span class="kwrd">int</span>&gt;)unknown) {
+ <span class="rem">// Do something with item</span>
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style><br />
+Both snippets will throw an exception. But, there is a big BUT.<br />
+The first snippet will throw <b>NullReferenceException (Object reference not set to an instance of an object)</b>. Go and guess what’s going on. Especially in production when you probably don’t have call stack with code line information, especially in just a bit more complex scenario. <b>No useful information here at all.</b><br />
+The second one will throw too, but it will be <b>InvalidCastException (Unable to cast object of type 'System.Collections.Generic.List`1[System.String]' to type 'System.Collections.Generic.IList`1[System.Int32]')</b>.<br />
+See the difference? The later one tells you what exactly is wrong so you have a good starting point of fixing the issue.<br />
+Generally I would tell to <b>never use AS operator</b> (even if you <i><b>think you know</b></i> the exact type NOW, you cannot be sure tomorrow) unless:<br />
+<ol>
+<li>You explicitly expect different type(s).</li>
+<li>You want to determine type using IS operator (really bad practice, consider simple polymorphism instead).</li>
+<li>You want to improve performance (though it is really, really rarely worth it).</li>
+</ol>
+<br />
+Additionally, <b>in any case</b> you should <b>check the casting result for null</b>. Always check it for null. Do you hear me? <b>ALWAYS!</b></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Rick, you are absolutly right. There is no reason to use casting in the foreach as it will implicitly call GetEnumerator on the object which in turn can give NullReferenceException.<br /><br />The code I showed here is an example I saw on a forum, so just reused it. The issue you pointed out is a valid and major one. But I did not terget it in my post here... Well... I at least told to ALWAYS check for null :)... Should just add to check for null everything.</div>
+</div>
+<div class='comment'>
+<div class='author'>Rick W</div>
+<div class='content'>
+Hmmm, I would say &quot;Never write it either of these ways if there is any chance it will throw an exception&quot;. If you are not in 100% control of what object is being used as the enumerable object, you should use var LoopObj = obj as TypeX and then check Abc for null before you use it in the loop. If you are in control of the object, then it still depends on if it is possible that the object might be possibly be null on it&#39;s own, in which case I will still do it as I advise.<br /><br />Rick W (from Eco forum)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

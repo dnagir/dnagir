@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: wiki | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/wiki/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Enterprise Core Objects on Wiki]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki/"/>
+    <updated>2007-01-21T23:14:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki</id>
+    <content type="html"><![CDATA[<div class='post'>
+It is very pleasant to see ECO on the Wiki.
+Thanks for that Oleg Zhukov (regular on borland MDA newgroups).
+
+So let's start learning more about ECO from <a href="http://en.wikipedia.org/wiki/CodeGear_ECO">http://en.wikipedia.org/wiki/CodeGear_ECO</a>.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

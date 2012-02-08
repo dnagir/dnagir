@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Please refer to the ADO .NET Entity Framework Vote of No Confidence if you care about quality of the Microsoft Entity Framework. There are a lot of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/page/12">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/26/ado-net-entity-framework-vote-of-no/">ADO .NET Entity Framework Vote of No Confidence</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-26T11:16:00+10:00" pubdate data-updated="true">Jun 26<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Please refer to the <a href="http://stevenharman.net/blog/archive/2008/06/23/entity-framework-vote-of-no-confidence.aspx">ADO .NET Entity Framework Vote of No Confidence</a> if you care about quality of the Microsoft Entity Framework.</p>  <p>There are a lot of concerns around it. Lots of it came from the community and is not likely to be heard by Microsoft.   <br /></p>  <p>So the community puts an open letter to Microsoft which is really very diplomatic and constructive.</p>  <blockquote>   <p><em>Every effort has been made to balance honesty with diplomacy and cooperation.</em></p> </blockquote>  <p>   <br />Since the letter itself is pretty long (which I still strongly <strong>recommend to read</strong>), I&#8217;m putting summary of it here. And <strong>if you agree, please <a href="http://efvote.wufoo.com/forms/ado-net-entity-framework-vote-of-no-confidence/">vote</a> for it</strong>.</p>  <h4></h4>  <h4>PUT ASPECT ON THE MODEL INSTEAD OF DATA THE DATA</h4>  <p>EF is data advocates Database driven design, not Model Driven Architecture or Object Oriented. This leads to following the problem that Objects become just Data objects and not really business objects.</p>  <p>&#160;</p>  <h4>SUPPORT <strong>IMPLICIT</strong> LAZY LOADING</h4>  <p>Without lazy loading applications will have to include unnecessary prescriptive data loading procedures for every possible business scenario in which the business entities will be used. The business logic of an entity-based app that is not empowered by lazy loading becomes polluted with data access code.</p>  <p>&#160;</p>  <h4>SHARED, CANONICAL MODEL CONTRADICTS SOFTWARE PRACTICES</h4>  <p>We have found, through years of trial and error, that using separate models for each individual context in which a canonical data model might be used is the least complex approach, is the least costly approach, and the one that leads to greater maintainability and extensibility of the applications and endpoints using contextual models, and it&#8217;s an approach that doesn&#8217;t encourage the software entropy that canonical models do.</p>  <p>&#160;</p>  <h4>PERSISTENCE IGNORANCE</h4>  <p>The short story is: Entity Framework classes are too tightly coupled to the persistence. Entity objects should know nothing about where they will be stored where from they will be retrieved.</p>  <blockquote>   <p>The tight coupling of the persistence infrastructure to the entity classes largely eliminates the ability to efficiently use very tight feedback cycles on the business logic with automated testing. In its current state, EF entity classes cannot be effectively unit tested independently of the database.</p> </blockquote>  <p>&#160;</p>  <h4>EXCESSIVE MERGE CONFLICTS WITH SOURCE CONTROL IN TEAM ENVIRONMENTS</h4>  <p>&#8230;whenever two developers make changes to an entity diagram&#8230; The resulting merge conflicts require merging by hand to avoid corrupting the entity model, as these conflicts are too drastic to be automated by the merge resolution built into modern source control systems</p>  <p>&#160;</p>  <p>Add yourself to the <a href="http://efvote.wufoo.com/forms/ado-net-entity-framework-vote-of-no-confidence/">open letter</a> if you do agree with these points.</p>  <p>&#160;</p>  <h3>WHAT IS A REALITY - RESPONSE FROM MICROSOFT</h3>  <p>Also please make sure you read the <a href="http://blogs.msdn.com/timmall/archive/2008/06/24/vote-of-no-confidence.aspx">response</a> from Microsoft. In a short - they tell the deeply care about all the stuff mentioned which sounds really promising.</p>  <p>And it is really a step forward that EF Team &quot;<em>have a new advisory council to be more proactive in getting thoughts on our work and our directions</em>&quot;. This council will include such a great people like:</p>  <ul>   <li>Eric Evans - <a href="http://www.domainlanguage.com/about/ericevans.html">http://www.domainlanguage.com/about/ericevans.html</a></li>    <li>Stephen Forte - <a href="http://www.stephenforte.net/">http://www.stephenforte.net/</a></li>    <li>Martin Fowler - <a href="http://martinfowler.com/">http://martinfowler.com/</a></li>    <li>Pavel Hruby - <a href="http://www.phruby.com/">http://www.phruby.com/</a></li>    <li>Jimmy Nilsson - <a href="http://jimmynilsson.com/">http://jimmynilsson.com/</a></li> </ul>  <p>It looks like Microsoft is changing; in a good way.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/24/building-web-applications-with-aspnet/">Building Web Applications With ASP.NET MVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-24T11:26:00+10:00" pubdate data-updated="true">Jun 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have just read a nice article: <a href="http://msdn.microsoft.com/en-us/magazine/cc337884.aspx">Building Web Apps without WebForms</a>. As always, I like to use blog as a notebook to remember something for the future.</p>  <p>It mostly shows how to develop ASP.NET MVC application and has simple and useful samples.</p>  <p>I just want to quote couple of paragraphs from the topic.</p>  <blockquote>   <p>ASP.NET Web Forms made it <strong>very easy to get started</strong>, but, in other ways, trying to apply my design principles to Web apps <strong>was a struggle</strong>. Web Forms are relentlessly <strong>UI focused</strong>; the fundamental atom is the page. You <strong>start by designing your UI and dragging controls</strong>. It&#8217;s very seductive to just start slapping your application logic into the page&#8217;s event handlers (much like Visual Basic&#174; enabled for Windows&#174; apps).</p>    <p>On top of that, <strong>unit testing of pages is often difficult</strong>. You can&#8217;t run a Page object through its lifecycle without spinning up all of ASP.NET. While it is possible to test Web apps by sending HTTP requests to a server or automating a browser, <strong>that kind of testing is fragile</strong> (change one control ID and the test breaks), hard to set up (you have to set up the <strong>server on every developer&#8217;s machine</strong> exactly the same way), and slow to run.</p> </blockquote>  <p>Cannot agree more with all that. And read this:</p>  <blockquote>   <p>I had to figure out how to <strong>reduce the view state size</strong> to get my pages to load faster. Web Forms require that a<strong> physical file</strong> exist at every URL, something that dynamic sites (like a wiki, for example) make difficult. And successfully writing a custom WebControl is a remarkably complex process that requires a comprehensive understanding of both page lifecycle and the Visual Studio&#174; designer.</p> </blockquote>  <p>This ViewState&#8230; Have a look at <a href="http://dnagir.blogspot.com/2007/06/undestanding-aspnets-viewstate.html">this article</a> just to understand how the ViewState works. While many of us (WebForm devs) have already got it, but it&#8217;s just ridiculous. On the other hand there&#8217;s still a big disadvantage of using ASP.NET MVC instead of WebForms. <a href="http://dnagir.blogspot.com/2007/10/monorail-second-look.html">There&#8217;re no</a> large UI controls set available for it.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>ftorres</div>
+<div class='content'>
+For functional web testing of asp.net web form app or MVC app in C# or VB.NET check out http://www.InCisif.net.<BR/><BR/>InCisif.net does support ASP.NET&#8217;s ID and is integrated with Visual Studio.<BR/><BR/>http://www.incisif.net/blog/entries/2008-02-08%20Web_Testing_and_ASP.NET_ID.htm</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/20/css-cross-browser-compatibility-tips/">CSS Cross Browser Compatibility Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-20T13:57:00+10:00" pubdate data-updated="true">Jun 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have been reading the very interesting <a href="http://anthonyshort.com.au/blog/comments/how-to-get-cross-browser-compatibility-everytime/">topic</a> and just decided to keep a note on that. Just for myself. Blog is sometimes useful&#160; as a notebook for myself. And it might help other people.</p>  <p>So what I want to note here: I often fight with different issues across Firefox and Internet Explorer (only these 2 browsers, but it&#8217;s already enough for me).</p>  <p>I prefer to style pages in Firefox (just because it&#8217;s more convenient using Firebug). Then I hope everything will work in IE (6,7) as well. But it has have did.   <br />So I have to tweak CSS for IE and watch not to break what&#8217;s done for FF. It&#8217;s just a real PITA.</p>  <p>There are <a href="http://www.google.com/search?q=cross+browser+css">tons</a> of guides how to write cross browser CSS.</p>  <p>But the <a href="http://anthonyshort.com.au/blog/comments/how-to-get-cross-browser-compatibility-everytime/">one</a> I particularly like has some short and useful tips. Let&#8217;s quickly move through them:</p>  <ul>   <li><strong>Reset styles</strong> to make consistent look in all browsers. <a href="http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/">Sample</a>. Note: <em>Most JS libraries (YUI, ExtJS etc) provide reset CSS rules.</em></li>    <li><strong>Do not resize images</strong> via CSS/HTML because not all browsers do it well.</li>    <li><strong>Do not use light font on dark background</strong> because of issues in Safari that causes other issues fixing this one.</li>    <li><strong>Use only common fonts</strong> (Arial, Georgia, Verdana etc) because of different browsers and OS&#8217;s render it differently. </li>    <li><strong>Size font</strong> in <strong>em</strong> through the page, but initialise in <strong>%</strong> for body. <em>I&#8217;m not exactly sure about this, but the reason is that &quot;The ability to resize text differs amongst browsers and OS&#8217;s&quot;.</em></li>    <li>All layout divs that are floated <strong>should include display:inline and overflow:hidden</strong>. This is due to IE doubles margins on the float side and IE 6 layout problems.</li>    <li><strong>Carefully clear floats</strong> using <font face="Courier New">overflow:auto</font> or <font face="Courier New">overflow:hidden</font>. Be aware of issues. See <a href="http://www.sitepoint.com/blogs/2005/02/26/simple-clearing-of-floats/">Samle</a>.</li>    <li>Use CSS selectors subset that all of your browser support. See <a href="http://www.evotech.net/blog/2008/05/browser-css-selector-support/">browser CSS selectors support</a>.</li>    <li><strong>Do not use PNG transparency</strong> if you need to support <strong>IE 6</strong>.</li> </ul>  <p>The general idea I prefer to stick is just using minimum subset of a features available in all supported browsers intersected with W3C standard.</p>  <p>So if one browser doesn&#8217;t support particular descendant selector - never use it. If there&#8217;s no such W3C description - never use it (<em>not always possible</em>).</p>  <p>But still the biggest problem is when browsers behave different ways with the same supported feature.   <br />I hope couple of these tips and links will help to solve you (and me) some of the cross-browser compatibility issues.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Thanks Alexander. I&#8217;ll remember the fix.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+btw, ie6 png transparency is easily fixed with applying specific htc behaviour for the img element, see http://www.twinhelix.com/css/iepngfix/<BR/><BR/>seems to work at our&#8217;s</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/29/annoying-untyped-redirects-in-aspnet/">Annoying Untyped Redirects in ASP.NET MVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-29T23:42:00+10:00" pubdate data-updated="true">May 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>The .NET 3.5 is so powerful, you rarely need to use hardcoded strings now. But in ASP.NET MVC you still have to.</p>  <p>The sample that annoys me:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> ActionResult LogIn(<span style="color: #0000ff">string</span> username, <span style="color: #0000ff">string</span> password) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>     var user = EcoSpace.Query(<span style="color: #006080">&quot;User.allInstances-&gt;select(Username = un)&quot;</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>         .WithConstant(<span style="color: #006080">&quot;un&quot;</span>, username)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>         .FromPersistence()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>         .AsList&lt;User&gt;()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>         .FirstOrDefault();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>&#160; </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>     <span style="color: #0000ff">if</span> (user == <span style="color: #0000ff">null</span> || !user.CheckPassword(password)) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>         <span style="color: #008000">// Error</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>         <span style="color: #0000ff">return</span> View(<span style="color: #006080">&quot;Index&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>     } <span style="color: #0000ff">else</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>         <span style="color: #008000">// Ok.</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>         <span style="color: #0000ff">return</span> RedirectToAction(<span style="color: #006080">&quot;Index&quot;</span>, <span style="color: #006080">&quot;UserSummary&quot;</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>     }</pre>
+  </div>
+</div>
+
+<p>See the lines 10 and 13. That&#8217;s it. Hardcoded View name and Controller name.</p>
+
+<p>I added an overload for RedirectToAction and it line 13 has changed to:</p>
+
+<div>
+  <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">return</span> RedirectToAction&lt;UserSummaryController&gt;(s =&gt; s.Index());</pre>
+</div>
+
+<p>Ahh! Sweet.</p>
+
+<p>Not sure yet what I can do with View method.</p>
+
+<p>Here is the code snippet for RenderToAction:</p>
+
+<div>
+  <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> RedirectToRouteResult RedirectToAction&lt;TController&gt;(Expression&lt;Action&lt;TController&gt;&gt; exp) <span style="color: #0000ff">where</span> TController : Controller {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>     MethodCallExpression mce = exp.Body <span style="color: #0000ff">as</span> MethodCallExpression;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>     <span style="color: #0000ff">if</span> (mce == <span style="color: #0000ff">null</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>         <span style="color: #0000ff">throw</span> <span style="color: #0000ff">new</span> InvalidOperationException(<span style="color: #006080">&quot;Expression should represent a method call.&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     var controllerName = mce.Object.Type.Name;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>     controllerName = controllerName.Substring(0, controllerName.Length - 10); <span style="color: #008000">// This is how it's done in ASP.NET :)</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>&#160; </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>     RouteValueDictionary values = <span style="color: #0000ff">null</span>; <span style="color: #008000">// Not supported yet</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>     <span style="color: #0000ff">return</span> RedirectToAction(mce.Method.Name, controllerName, values); </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span> }</pre>
+  </div>
+</div>
+
+<p>Enjoy.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks! ASP.NET MVC is a good thing, but I hate all these strings every where.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/14/extending-linq-duplicates/">Extending Linq - Duplicates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-14T13:18:00+10:00" pubdate data-updated="true">May 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Linq is so easy to extend. But the <em>right</em> way to do it is to use and rely on existing infrastructure. Let&#8217;s take as an example <em>Duplicate</em> extension that return all duplicates from a collection.</p>  <p>One example is <a href="http://blogs.msdn.com/stevecook/archive/2007/09/02/using-linq-to-write-constraints-in-ocl-style-v4.aspx">here</a>. For convenience I&#8217;m copying the code here.</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> HashSet&lt;T&gt; Duplicates&lt;T&gt;(<span style="color: #0000ff">this</span> IEnumerable&lt;T&gt; source)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>   HashSet&lt;T&gt; items = <span style="color: #0000ff">new</span> HashSet&lt;T&gt;();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>   HashSet&lt;T&gt; duplicates = <span style="color: #0000ff">new</span> HashSet&lt;T&gt;();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>   <span style="color: #0000ff">foreach</span> (T item <span style="color: #0000ff">in</span> source)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>   {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>     <span style="color: #0000ff">if</span> (!items.Add(item))</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         duplicates.Add(item);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>   }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>   <span style="color: #0000ff">return</span> duplicates;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span> }</pre>
+  </div>
+</div>
+
+<p>Yes, this code works but only in-memory. It will not work in the Database (it will not generate SQL, but will be evaluated in the memory instead).
+  <br /></p>
+
+<p>Let&#8217;s compare this solution to the one below:</p>
+
+<div>
+  <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> IQueryable&lt;TSource&gt; Duplicates&lt;TSource&gt;(<span style="color: #0000ff">this</span> IEnumerable&lt;TSource&gt; source) <span style="color: #0000ff">where</span> TSource : IComparable {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>     <span style="color: #0000ff">if</span> (source == <span style="color: #0000ff">null</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>         <span style="color: #0000ff">throw</span> <span style="color: #0000ff">new</span> ArgumentNullException(<span style="color: #006080">&quot;source&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     <span style="color: #0000ff">return</span> source.Where(x =&gt; source.Count(y=&gt;y.Equals(x)) &gt; 1)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>         .AsQueryable&lt;TSource&gt;();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span> }</pre>
+  </div>
+</div>
+
+<p>This is much easier to implement (actually one line of code) and is based on existing Linq infrastructure. I believe it might be optimised, but you get the points.</p>
+
+<ol>
+  <li>Don&#8217;t hurry to invent the wheel.</li>
+
+  <li>Use <em>standard</em> Linq convention with IQueryable interface whenever possible.</li>
+</ol>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/07/unit-test-granular-expected-exception/">Unit Test - Granular Expected Exception</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-07T20:14:00+10:00" pubdate data-updated="true">May 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Most common .NET Unit testing frameworks (referring to NUnit, MbUnit) use <a href="http://www.nunit.org/index.php?p=exception&amp;r=2.4.3" target="_blank">ExpectedException</a> attribute to set the expectation that test should throw an exception. (<em>There are some with another approach, but I forgot their names</em>).</p>  <p>While this is easy to use, it is not clear at which line we really do expect the exception to be raise. Let&#8217;s have a look at an example (just imaging it):</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> [Test]</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> [ExpectedException(<span style="color: #0000ff">typeof</span>(InvalidCreditCardException))]</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> PayWithInvalidCreditCard_ProducesError()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span> {    </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     Product product = GetProductUnderTest();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>     Customer customer = GetCustomer();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>     CreditCardPayment payment = CreateCreditCardPayment(<span style="color: #006080">&quot;1234567812345678&quot;</span>, <span style="color: #006080">&quot;05&quot;</span>, <span style="color: #006080">&quot;1999&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>     customer.BuyProduct(product, payment)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span> }</pre>
+  </div>
+</div>
+
+<p>In .NET 1.1 I usually rewrite this code like so:</p>
+
+<div>
+  <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> [Test]   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> <span style="color: #008000">// Note: the attribute is removed   </span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> PayWithInvalidCreditCard_ProducesError()   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span> {   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     Product product = GetProductUnderTest();      </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>     Customer customer = GetCustomer();      </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>     CreditCardPayment payment = CreateCreditCardPayment(<span style="color: #006080">&quot;1234567812345678&quot;</span>, <span style="color: #006080">&quot;05&quot;</span>, <span style="color: #006080">&quot;1999&quot;</span>);      </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>     <span style="color: #008000">// Explicitly define the line with expected exception   </span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>     Exception wrongError = <span style="color: #0000ff">null</span>;  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>     <span style="color: #0000ff">bool</span> isRaised = <span style="color: #0000ff">true</span>;  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>     <span style="color: #0000ff">try</span> {  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>         customer.BuyProduct(product, payment);  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>         isRaised = <span style="color: #0000ff">false</span>;  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>     } <span style="color: #0000ff">catch</span>(InvalidCreditCardException) {  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span>         <span style="color: #008000">// That's what we expect.  </span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  16:</span>     } <span style="color: #0000ff">catch</span>(Exception ex) {  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  17:</span>         <span style="color: #008000">// Wrong exception raised  </span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  18:</span>         wrongError = ex;  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  19:</span>     };  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  20:</span>     <span style="color: #008000">// Assert exception  </span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  21:</span>     Assert.IsTrue(isRaised &amp;&amp; wrongError == <span style="color: #0000ff">null</span>,   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  22:</span>         <span style="color: #006080">&quot;Wrong exception raised: {0}.&quot;</span>,   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  23:</span>         wrongError == <span style="color: #0000ff">null</span> ? <span style="color: #006080">&quot;&lt;null&gt;&quot;</span> : wrongError.ToString());  </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  24:</span> }</pre>
+  </div>
+</div>
+
+<p>&#160;</p>
+
+<p>While this really defines exact point at which we expect exception (line 12), there&#8217;s much code for it.</p>
+
+<p>With .NET 3.5 we can greatly simplify this just by adding one simple helper method:</p>
+
+<div>
+  <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> ExpectException&lt;TException&gt;(Action failureBlock) <span style="color: #0000ff">where</span> TException: Exception {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>     <span style="color: #0000ff">try</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>         failureBlock.Invoke();                </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     } <span style="color: #0000ff">catch</span> (TException) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>         <span style="color: #008000">// Good. That's what we expect</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>         <span style="color: #0000ff">return</span>;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>     } <span style="color: #0000ff">catch</span> (Exception ex) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         Assert.Fail(<span style="color: #006080">&quot;Expected exception: {0}, but was {1}.&quot;</span>, <span style="color: #0000ff">typeof</span>(TException).FullName, ex.ToString());</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>     }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>     Assert.Fail(<span style="color: #006080">&quot;Expected exception {0} has not been raised.&quot;</span>, <span style="color: #0000ff">typeof</span>(TException).FullName);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span> }</pre>
+  </div>
+</div>
+
+<p>Let&#8217;s see how we can improve our test using this helper method. Please note that it is easily reusable everywhere.</p>
+
+<div>
+  <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> [Test]   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> PayWithInvalidCreditCard_ProducesError()   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> {       </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     Product product = GetProductUnderTest();   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     Customer customer = GetCustomer();   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>     CreditCardPayment payment = CreateCreditCardPayment(<span style="color: #006080">&quot;1234567812345678&quot;</span>, <span style="color: #006080">&quot;05&quot;</span>, <span style="color: #006080">&quot;1999&quot;</span>);   </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>&#160; </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>     ExpectException&lt;InvalidCreditCardException&gt;(() =&gt; {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>         customer.BuyProduct(product, payment); <span style="color: #008000">// Very explicit and easy to define expectation</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>     });       </pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span> }</pre>
+  </div>
+</div>
+
+<p>Note how we define expected exception in line 8.&#160; We only verify for an error explicitly in code block (line 9).</p>
+
+<p>First thing to improve is to add some overrides to the ExpcetException method to support message formatting. It is some minutes work stuff, so you&#8217;ll do it :)</p>
+
+<p>Enjoy the code!</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+Very nice.  Thank you!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/07/playing-with-linq2sql-no-inserts-on/">Playing With Linq2Sql - No INSERTs on SubmitChanges</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-07T11:54:00+10:00" pubdate data-updated="true">May 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I spent the whole evening trying to figure out what&#8217;s going on when I run the code:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">private</span> <span style="color: #0000ff">static</span> Product GetProduct(MyDbDataContext db)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>     Product p = db.Products.FirstOrDefault(x =&gt; <span style="color: #0000ff">true</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     <span style="color: #0000ff">if</span> (p == <span style="color: #0000ff">null</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>         <span style="color: #008000">// Insert a a product if not available yet</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>         p = <span style="color: #0000ff">new</span> Product</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>             Name = <span style="color: #006080">&quot;PROD &quot;</span> + DateTime.Now.ToString()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>         };</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>         db.Products.InsertOnSubmit(p);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>         db.UpdateDatabase();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>     }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>     <span style="color: #0000ff">return</span> p;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span> }</pre>
+  </div>
+</div>
+
+<p>After I run the code and check the database there are <strong>no records</strong> available in the table.
+
+  <br />What can be wrong with this really simple code? (Well, I&#8217;m just playing with it so there&#8217;s lots of place of improvement).</p>
+
+<p>The answer is <em>nothing</em>. It is a console application and uses a database copied to Debug directory. So the debug database is used instead of the one you design and work with.</p>
+
+<p><strong>Solutions.</strong></p>
+
+<ol>
+  <li>User absolute path in the connection string. So instead of this one &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>DataDirectory</strong>|\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot; use something like &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>D:\YourPath</strong>\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot;</li>
+
+  <li>Override DataDirectory at runtime (step 2 directories up from current path .\bin\Debug) using <font face="Courier New">AppDomain.CurrentDomain.SetData(&quot;DataDirectory&quot;, Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName);</font></li>
+
+  <li>Something else?</li>
+</ol>
+
+<p>Thanks to this <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3208988&amp;SiteID=1" target="_blank">forum post</a> for figuring it out.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/06/learning-linq-101-samples/">Learning LINQ - 101 Samples</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-06T18:20:00+10:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have just found very useful page on MSDN: <a href="http://msdn.microsoft.com/en-us/vcsharp/aa336746.aspx" target="_blank">101 Linq Samples</a>. Should be very useful reference for lots devs.</p>  <p>Here&#8217;s just a quick copy-paste:</p>  <h5>Restriction Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple1">Where - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple2">Where - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple3">Where - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereDrilldown">Where - Drilldown</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereIndexed">Where - Indexed</a></li> </ul>  <h5>Projection Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple1">Select - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple2">Select - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectTransformation">Select - Transformation</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes1">Select - Anonymous Types 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes2">Select - Anonymous Types 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes3">Select - Anonymous Types 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectIndexed">Select - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectFiltered">Select - Filtered</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom1">SelectMany - Compound from 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom2">SelectMany - Compound from 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom3">SelectMany - Compound from 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyfromAssignment">SelectMany - from Assignment</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyMultiplefrom">SelectMany - Multiple from</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyIndexed">SelectMany - Indexed</a></li> </ul>  <h5>Partitioning Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeSimple">Take - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeNested">Take - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipSimple">Skip - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipNested">Skip - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeWhileSimple">TakeWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileSimple">SkipWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileIndexed">SkipWhile - Indexed</a></li> </ul>  <h5>Ordering Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple1">OrderBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple2">OrderBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple3">OrderBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#comparer">OrderBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple1">OrderByDescending - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple2">OrderByDescending - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descComparer">OrderByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenBySimple">ThenBy - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByComparer">ThenBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescendingSimple">ThenByDescending - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescComparer">ThenByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#reverse">Reverse</a></li> </ul>  <h5>Grouping Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple1">GroupBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple2">GroupBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple3">GroupBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#nested">GroupBy - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparer">GroupBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparerMapped">GroupBy - Comparer, Mapped</a></li> </ul>  <h5>Set Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct1">Distinct - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct2">Distinct - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union1">Union - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union2">Union - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect1">Intersect - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect2">Intersect - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except1">Except - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except2">Except - 2</a></li> </ul>  <h5>Conversion Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToArray">To Array</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToList">To List</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToDictionary">To Dictionary</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#OfType">OfType</a></li> </ul>  <h5>Element Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstSimple">First - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstIndexed">First - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultSimple">FirstOrDefault - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultCondition">FirstOrDefault - Condition</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultIndexed">FirstOrDefault - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#aa336750#">ElementAt</a></li> </ul>  <h5>Generation Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#range">Range</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#repeat">Repeat</a></li> </ul>  <h5>Quantifiers</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anySimple">Any - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyIndexed">Any - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyGrouped">Any - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allSimple">All - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allIndexed">All - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allGrouped">All - Grouped</a></li> </ul>  <h5>Aggregate Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countSimple">Count - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countConditional">Count - Conditional</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#CountIndexed">Count - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countNested">Count - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countGrouped">Count - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumSimple">Sum - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumProjection">Sum - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumGrouped">Sum - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minSimple">Min - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minProjection">Min - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minGrouped">Min - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minElements">Min - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxSimple">Max - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxProjection">Max - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxGrouped">Max - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxElements">Max - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgSimple">Average - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgProjection">Average - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgGrouped">Average - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSimple">Fold - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSeed">Fold - Seed</a></li> </ul>  <h5>Miscellaneous Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#Concat1">Concat - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#concat2">Concat - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll1">EqualAll - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll2">EqualAll - 2</a></li> </ul>  <h5>Custom Sequence Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336749#combine">Combine</a></li> </ul>  <h5>Query Execution</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Deferred">Deferred</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Immediate">Immediate</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#QueryReuse">Query Reuse</a></li> </ul>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Evan</div>
+<div class='content'>
+Great reference Dmitriy, I found it really useful.  Nice blog too by the way, good posts.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/02/contributing-information-via-recaptcha/">Contributing Information via reCAPTCHA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-02T11:14:00+10:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Computers are very powerful these days. But it&#8217;s not still enough to solve <a href="http://en.wikipedia.org/wiki/Mathematical_problem" target="_blank">mathematical problems</a>. One way to leverage the calculating power is distributing it among users all around the world.</p>  <p>People can just run small applications to help scientific world. Not a problem at all. The software will just do its stuff silently.</p>  <p>Also people can help science manually. Who is going to spend time for that? Will you do it? Well, maybe. But there is very good solution to this problem: <strong>let people contribute even not letting them know about it</strong>.</p>  <p>This is exactly what <a href="http://recaptcha.net/learnmore.html" target="_blank">reCAPTCHA</a> is doing. It digitises old books using <a href="http://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">OCR</a>. But prompts users to decipher unrecognised words.</p>  <p><strong>What does user see?</strong></p>  <p>Users generally see prompt to enter two words to prove they are not robots, but humans. Nothing special. Nothing at all.</p>  <p><a href="http://lh3.ggpht.com/dnagir/SBpq3RS_uAI/AAAAAAAAC3E/rtTOhIwKdNU/s1600-h/reCAPTCHA-Sample%5B3%5D.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="127" alt="reCAPTCHA Sample" src="http://lh4.ggpht.com/dnagir/SBpq4hS_uBI/AAAAAAAAC3M/Nshg9b367lc/reCAPTCHA-Sample_thumb%5B1%5D.png?imgmax=800" width="317" border="0" /></a></p>  <p><strong>What is behind the scene?</strong></p>  <p>This is the most interesting thing. reCAPTCHA has its own <a href="http://recaptcha.net/apidocs/captcha/client.html" target="_blank">API</a> (ASP.NET Control is also <a href="http://recaptcha.net/plugins/aspnet/" target="_blank">available</a>), so it is easy to integrate it with any server.</p>  <p>And here&#8217;s how it works:</p>  <ol>   <li>User enters TWO words.</li>    <li>One of the words is <em>known</em> for reCAPTCHA, another - isn&#8217;t (<em>unknown)</em>.</li>    <li>If the <em>known</em> word is correct, reCAPTCHA assumes that user entered <em>unknown</em> word correctly. It also tells user about correct answer.</li>    <li>To be more confident that <em>unknown</em> word is deciphered correctly it is shown on other images.</li> </ol>  <p>As simple as that.</p>  <p>We also can try to enter <strong>only</strong> one word correctly and after several times we will pass the CAPTCHA! It doesn&#8217;t look good for the user, but it still does the job. You have to be a human to recognise at least one word. And wrong word should not abuse the system because of it will be sent to many people and it is so unlikely they all will provide the same and wrong word.</p>  <p>There&#8217;s one note about it. If you want to distribute your (web) application you will push your clients to obtain public key for their domain in order to use the reCAPTCHA.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/05/01/telerik-on-google-picasa/">Telerik on Google Picasa</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-01T10:04:00+10:00" pubdate data-updated="true">May 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have received announcement from <a href="http://www.telerik.com" target="_blank">Telerik</a>. Lots of interesting and exciting stuff is there. But there&#8217;s one thing that caught my eyes - a link to Google Picasa Web Album (<a href="http://picasaweb.google.com/telerikwatch" target="_blank">TelerikWatch</a>). They host some screenshots and pictures related to the products and company in general.</p>  <p>Nothing really special but it seems even so &quot;Microsoft-ish&quot; company uses Google services and even for public newsletter.</p>  <p>Some pictures from the album:</p>  <p><img alt="Telerik at DevConnections 2008" src="http://lh4.ggpht.com/telerikwatch/SAy6dsTRqUI/AAAAAAAACXU/QPo9Xx5zi7w/IMG_0263.JPG?imgmax=400" /> <img alt="RadTreeView on the iPhone" src="http://lh3.ggpht.com/telerikwatch/Rqpt6fc_o0I/AAAAAAAAB1k/QOajoOucnYY/TelerikOnIPhone_Part3 019.jpg?imgmax=400" /></p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/13/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/11/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

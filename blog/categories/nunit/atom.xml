@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nunit | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/nunit/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with/"/>
+    <updated>2011-03-18T11:35:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> CurrentUserController controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> Mock&lt;ICurrentUserService&gt; userService;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> FakeHttpContext http;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService = <span style="color: #0000ff">new</span> Mock&lt;ICurrentUserService&gt;();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller = <span style="color: #0000ff">new</span> CurrentUserController(Services.Account, userService.Object)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .FakeContext(context =&gt; http = context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CanSeeSecuritySettingsPage() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService.Setup(x =&gt; x.ViewUser()).Returns(<span style="color: #0000ff">new</span> User {SecurityQuestion = &quot;<span style="color: #8b0000">sq</span>&quot;});
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.SecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldHaveModel&lt;CurrentUserController.SecuritySettingsInfo&gt;()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .User.SecurityQuestion.Should().Be(&quot;<span style="color: #8b0000">sq</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> SuccesfulUpdateRedirects() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.UpdateSecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldRedirectTo(action: &quot;<span style="color: #8b0000">Index</span>&quot;, controller: &quot;<span style="color: #8b0000">Dashboard</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>The most relevant piece of code here is the extension method <strong>FakeContext</strong>. It ensures the controller is not going to access real HttpContext. The main difference between MVC2 and 3 is that the latter uses HttpContext in FormValueProviderFactory and QueryStringValueProviderFactory. So we need to get rid of it. And of course we don’t want to modify all our tests and complicate them providing explicitly <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx#six">FormCollection</a>. Additionally we definitely do not want to go into trouble <a href="http://stackoverflow.com/questions/1686778/why-mock-httpcontext-if-it-can-be-constructed">instantiating HttpContext</a>.</p>
+
+<p>Fortunately MVC is extensible enough and has number of hook that we can use. In this case we need to replace those two bustards (FormValueProviderFactory and QueryStringValueProviderFactory). Which can be done with this simple extension method:</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ValueProviderFactoresExtensions {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> ValueProviderFactoryCollection ReplaceWith&lt;TOriginal&gt;(<span style="color: #0000ff">this</span> ValueProviderFactoryCollection factories, Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        var original = factories.FirstOrDefault(x =&gt; <span style="color: #0000ff">typeof</span>(TOriginal) == x.GetType());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">if</span> (original != <span style="color: #0000ff">null</span>) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            var index = factories.IndexOf(original);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            factories[index] = <span style="color: #0000ff">new</span> TestValueProviderFactory(sourceAccessor);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">return</span> factories;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">class</span> TestValueProviderFactory : ValueProviderFactory {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> TestValueProviderFactory(Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.sourceAccessor = sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> IValueProvider GetValueProvider(ControllerContext controllerContext) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> NameValueCollectionValueProvider(sourceAccessor(controllerContext), CultureInfo.CurrentCulture);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>&#160;</p>
+
+<p>And the final implementation of FakeContext extension that I use (you will need to trim it to your particular case) is:</p>
+
+<p>&#160;</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> TController FakeContext&lt;TController&gt;(this TController controller, Action&lt;FakeHttpContext&gt; exposeAction = null) where TController: Controller {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ApplicationMetaData.RegisterAll(); // Additionally register all ModelBinder so tests behave <span style="color: #0000ff">is</span> <span style="color: #0000ff">in</span> production
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (ViewEngines.Engines.Where(x =&gt; x <span style="color: #0000ff">is</span> SparkViewEngine).Empty()) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        // We only use Spar view engine that can render view during testing
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Clear();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Insert(0, GetTestViewFactory());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }            
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // That <span style="color: #0000ff">is</span> the entry <span style="color: #0000ff">to</span> all the fakes, implementation <span style="color: #0000ff">is</span> trivial so <span style="color: #0000ff">not</span> here
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var context = <span style="color: #0000ff">new</span> FakeHttpContext();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.ControllerContext = <span style="color: #0000ff">new</span> ControllerContext(context, <span style="color: #0000ff">new</span> RouteData(), controller);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.Url = <span style="color: #0000ff">new</span> UrlHelper(<span style="color: #0000ff">new</span> RequestContext(context, <span style="color: #0000ff">new</span> RouteData()));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // <span style="color: #0000ff">And</span> <span style="color: #0000ff">finally</span>, here we ensure no ValueProviders access HttpContext
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ValueProviderFactories.Factories
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;FormValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.Form))
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;QueryStringValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.QueryString));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (exposeAction != null)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        exposeAction.Invoke(context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}        </pre></pre>
+
+<p>&#160;</p>
+
+<p>Hope that helps. Have fun!</p>  </div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I can&#39;t remember already, but there are couple of the ValueProviders that you need to replace. Just look at the exceptions you get. Should be pretty straight forward. Worked for all other people.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+duzn&#39;t work</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Testing expected exception, revisited]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/10/16/testing-expected-exception-revisited/"/>
+    <updated>2009-10-16T14:40:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/10/16/testing-expected-exception-revisited</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have been using NUnit for a long time and really got used to it. Nowadays it is very sweet, especially with NUnitEx.<br />
+It does have a simple syntax for testing exception. Pretty much <a href="http://dnagir.blogspot.com/2008/05/unit-test-granular-expected-exception.html" target="_blank">what I did</a> long time ago.<br />
+It looks like this:<br />
+<pre class="csharpcode">[Test]
+<span class="kwrd">public</span> <span class="kwrd">void</span> ThrowsAndGivesMessage() {
+    Assert.Throws&lt;FormModelProviderException&gt;(() =&gt; <span class="kwrd">new</span> XmlFormModelProvider().CreateModel());
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>BUT, it does not allow me to <i><b>verify the actual message</b></i> of the exception. I want to write the code like this to do that:<br />
+<pre class="csharpcode">[Test]
+<span class="kwrd">public</span> <span class="kwrd">void</span> ThrowsAndGivesMessage() {
+    Action act = () =&gt; <span class="kwrd">new</span> XmlFormModelProvider().CreateModel();
+    act.Throws&lt;FormModelProviderException&gt;()
+        .Message
+        .Should().Contain(<span class="str">"Form/Form element is not found"</span>);
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+The point here is that I <i><b>verify the exception type</b></i> thrown AND get the <i><b>TYPED exception as the result</b></i> of the verification so I can do whatever I want with it. One more thing I like is that we explicitly see the <b><i>acting code</i></b>.<br />
+Ohh, yes. The code to support this:<br />
+<pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">static</span> TExpected Throws&lt;TExpected&gt;(<span class="kwrd">this</span> Action a) <span class="kwrd">where</span> TExpected : Exception {
+    <span class="kwrd">try</span> {
+        a.Invoke();
+    } <span class="kwrd">catch</span> (TExpected expected) {
+        <span class="kwrd">return</span> expected;     
+    } <span class="kwrd">catch</span> (Exception other) {
+        Assert.Fail(<span class="kwrd">string</span>.Format(<span class="str">"Expected exception of type {0} but {1} was raised."</span>, <span class="kwrd">typeof</span>(TExpected).Name, other.GetType().Name));
+    }
+    Assert.Fail(<span class="kwrd">string</span>.Format(<span class="str">"The expected exception {0} has not been raised"</span>, <span class="kwrd">typeof</span>(TExpected).Name));
+    <span class="kwrd">return</span> <span class="kwrd">null</span>; <span class="rem">// This NULL smells - should be refactored :)</span>
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+Enjoy.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[From MsTest to NUnit]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/04/21/from-mstest-to-nunit/"/>
+    <updated>2009-04-21T17:32:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/04/21/from-mstest-to-nunit</id>
+    <content type="html"><![CDATA[<div class='post'>
+That’s pretty easy to switch from MsTest to NUnit (or other xUnit framework, but I’ve decided I want NUnit). You need to do following steps:<br />
+<ol>
+<li>Change the Visual Studio project type:</li>
+<br />
+<ol>
+<li>Unload the project with tests.</li>
+<li>Remove &lt;ProjectTypeGuids&gt; node from there.</li>
+<li>Save and reload the project.</li>
+</ol>
+<br />
+<li>Replace Reference from MsTest to your xUnit.</li>
+<li>Replace using statements (Remove Microsoft.VisualStudio.TestTools.UnitTesting, add NUnit.Framework and optionally NUnit.Framework.SyntaxHelpers).</li>
+<li>Replace (just use Find and Replace in Files) [TestClass] to [TestFixture].</li>
+<li>Replace [TestMethod] to [Test].</li>
+<li>Replace [TestInitialize] to [SetUp].</li>
+<li>Replace [TestCleanup] to [TearDown]</li>
+<li>Now you should be able to compile the tests.</li>
+<li>Clean all the stuff from MsTest (TestResults folder, Solution Items that describe test data).</li>
+</ol>
+Pretty easy.<br />
+The note is (if you don’t know) that there’s no build-in runner for Visual Studio (unlike MsTes), so you’ll need to run tests:<br />
+<ol>
+<li>from outside of Visual Studio by GUI runner</li>
+<li>using <a href="http://testdriven.net/" target="_blank">TestDriven.NET</a></li>
+<li>using <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a>.</li>
+</ol>
+That’s it. I’m back with old good NUnit.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kit</div>
+<div class='content'>
+Very handy, thanks :)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MsTest - Not Executed – Time to go to normal xUnit]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/04/21/mstest-not-executed-time-to-go-to/"/>
+    <updated>2009-04-21T13:45:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/04/21/mstest-not-executed-time-to-go-to</id>
+    <content type="html"><![CDATA[<div class='post'>
+For last couple of days I was trying to figure out why I’m getting “Not Executed” result for all my tests in a project.<br />
+The <a href="http://stackoverflow.com/questions/525578/why-are-all-my-visual-studio-test-results-not-executed" target="_blank">solution</a> (Is it that <a href="http://mrpmorris.blogspot.com/" target="_blank">Peter Morris</a> who posted it?) is to Unblock an assembly (in my case it was Microsoft.Web.Mvc.dll).<br />
+This issue, probably,&nbsp; is a typical example when exceptions are handled and eaten.<br />
+I’m not sure i want something similar to occur again and will probably move to more common unit testing framework like nUnit, MbUnit or xUnit later.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Convert class library to MS Test project]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2009/01/08/convert-class-library-to-ms-test/"/>
+    <updated>2009-01-08T16:50:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2009/01/08/convert-class-library-to-ms-test</id>
+    <content type="html"><![CDATA[<div class='post'>
+If you:<br />
+<ul>
+<li>Use MS Test.</li>
+<li>Create Class Library instead of Test Project.</li>
+</ul>
+You need to know how to <a href="http://beta.blogs.microsoft.co.il/blogs/dhelper/archive/2008/12/08/how-to-convert-a-net-class-library-to-ms-test-project.aspx" target="_blank">convert Class Library to MS-Test project</a>.<br />
+Thanks to the post.<br />
+The guy says "simple isn't it?". I say NO!</div>
+
+]]></content>
+  </entry>
+  
+</feed>

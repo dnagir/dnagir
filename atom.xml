@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video/"/>
+    <updated>2011-12-22T20:31:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div>
+If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
+<br />
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/cJzQl-bpmUI?hd=1" frameborder="0" allowfullscreen></iframe>
+
+<div>
+Have a look at the <a href="https://github.com/dnagir/knockout-rails">knockout-rails</a> project for more details.
+</div>
+
+</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+This is actually <a href="https://gist.github.com/9ca5dce0524927d69655" rel="nofollow">one of the options</a> of validating in the background: <br /><br />It doesn&#39;t include the bindings, but gives idea how it can be done. Easier than I thought actually.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Pre-validating on the server can technically be done with the Model Events. But it&#39;s not supported out of the box.<br /><br />It is a good idea, but there&#39;s a bit more complexity involved on both client and server. But I&#39;ll gladly accept pull requests to knockout-rails if somebody needs to support that.</div>
+</div>
+<div class='comment'>
+<div class='author'>Aleksey Gureiev</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/"/>
+    <updated>2011-11-29T11:51:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
+<br />
+This is just a quick recap of what issues I have had trying to switch existing app from MRI Ruby (1.9.3) to JRuby (1.6.4).<br />
+<br />
+Unfortunately I stepped back and didn&#8217;t want to spend more time as it felt an unbreakable chain of issues. Resolving one, you think &#8220;huh, awesome&#8221;. But very soon you hit the next.<br />
+And I couldn&#8217;t see it stopping.<br />
+<br />
+<b>But PLEASE bear in mind</b> that I only spent a couple of hours on that. With a little bit more persistence, you may be able to the end of the tunnel.<br />
+<br />
+The overall impression is that it is not a big deal really. The problems arise when trying to use other libraries. And unfortunately, not all of the gems <b>care deep enough to support JRuby</b>. And this is the biggest issue in my opinion, there are very little issues with JRuby itself. The transition (from the syntax perspective) was extremely easy.<br />
+<br />
+The application is pretty standard Rails 3.1 app that uses gems like Dragonfly, inherited_resources, cancan, paper_trail, Authlogic, CoffeeScript, Haml, Sass, Formtastic etc. For testing - things like rspec-rails, cucumber-rails, capybara-webkit, guard (rspec and cucumber), database_cleaner etc.<br />
+<br />
+So here is a quick list of the things that I faced on my way.<br />
+<br />
+Before everything else I enabled support for 1.9 syntax in JRuby (export JRUBY_OPTS=&#8211;1.9).<br />
+<br />
+It all first started with <a href="https://gist.github.com/1402753">the weird issue</a> where the <b>wrong arguments were passed to RSpec shared example</b>.<br />
+Unfortunately I did not figure out why it happened and just patched it as you can see in the comments there.<br />
+<script src="https://gist.github.com/1402753.js?file=sample_spec.rb">
+</script>
+
+<br />
+<br />
+<br />
+After fixing this issue I had another one related to <b>database_cleaner</b>. So I ended up with a <a href="https://github.com/bmabey/database_cleaner/pull/83">pull request</a> that worked for me.<br />
+<br />
+The other issue was a<b> huge stack trace</b>. I scrolled 3 pages in the terminal to get to the top. Most of that stack trace is deep inside Java. Additionally I got <b>wrong line number</b> on exception. This &#8220;features/step_definitions/company_steps.rb:234&#8221; makes me thing that the exception is at line 234. But that file only had 49 lines of code. Now, go figure.<br />
+<br />
+Going on&#8230; <a href="https://github.com/colszowka/simplecov">SimpleCov</a> gem didn&#8217;t work out of the box and gave the warning that I need to enable debugging. That&#8217;s fine and understandable. But after half an hour of debugging of unrelated exception, it turned out that <b>SimpleCove threw an exception</b> because of that. So had to go and explicitly disable it.<br />
+<br />
+Then I managed to run all of my specs. But I was pretty surprised how <b>slow</b> it was:<br />
+<pre><code>
+# rvm use 1.9.3
+# time rspec # real=14s, rspec time ~ 12s
+
+# rvm use jruby
+# time rspec # real=52s, rspec time ~ 30s
+
+</code>
+</pre>
+But this is expected as JRuby doesn&#8217;t have enough time to optimise here. It should be much better in production. But it will be also shit slow after deployment.<br />
+Ok. That&#8217;s fine. <b>I can trust it&#8217;s fast</b>.<br />
+<br />
+Then I tried running the cucumber specs and had to file the <a href="http://jira.codehaus.org/browse/JRUBY-6237">issue</a> to support <b>new Ruby 1.9.3 syntax</b> (a = b = f 1). Not a big deal, easily fixed with parens: a = b = f(1).<br />
+<br />
+Next and the <b>final issue</b> - I could not run the <b>headless cucumber specs</b> (capybara-webkit). It just got stuck (no CPU used) and feels like there is a <b>dead-lock</b> or something similar.<br />
+<br />
+I couldn&#8217;t see way of fixing it easily and decided that for now I am <b>done with</b> it. So going <b>back to Ruby 1.9.3</b>.<br />
+<br />
+<br />
+<b>To summarise</b>, I <b>did not feel like it&#8217;s a problem</b> to switch to JRuby. But it&#8217;s really a <b>big deal to actually use</b> it due to the number of <b>C extensions</b> that JRuby doesn&#8217;t really support.<br />
+<br />
+Again, to emphasise, there is nothing horribly wrong with JRuby and it seems to be pretty good. But the real showstoppers are the C extensions.</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Totally with you on this. But real world seems to be a bit different :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Postmodern</div>
+<div class='content'>
+Yet another reason to avoid C-extensions. When selecting dependencies for a new project, I prefer to select pure-Ruby libraries or FFI bindings (https://github.com/ffi/ffi#readme). Pure-Ruby libraries should be faster on Rubinius/JRuby. FFI bindings work perfectly on both MRI and JRuby.<br /><br />If developers want faster Ruby code, they should help make MRI faster (or switch to Rubinius/JRuby), instead of writing more code in C.</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets/"/>
+    <updated>2011-11-19T20:47:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
+<br />
+How do they do all those small things? What tricks do they have? How would they approach that problem?<br />
+<br />
+Unfortunately, I can&#8217;t remember seeing people sharing the way they actually work (unless they pair). I want to see what mistakes they make, how they fix those, how they try to come up with a word erasing a line 10 times.<br />
+I believe all this is of a great value for a lot of us.<br />
+<br />
+What I described is <i>partially</i>&nbsp;done by PeepCode&#8217;s Play By Play series and Tekpub. Those are amazing (usually). But that&#8217;s not exactly what I am after. Those screencasts are high quality, polished and prepared ones. YOU are NOT featuring there. I want to see YOU there. All of you, guys.<br />
+<br />
+<br />
+So I decided to make a first step (or maybe not so) and screencast myself while working on a Rails Plugin.<br />
+<br />
+This is mostly real-time work. You&#8217;ll see how I fail, you&#8217;ll spot the mistakes I&#8217;ve done and did not even notice, you&#8217;ll see how I write README. And, most importantly, you will hopefully see some of the things that will help <i>yourself</i>.<br />
+<br />
+This video features the following tools/technologies:<br />
+<br />
+<ul style="text-align: left;">
+<li>Ruby, Ruby On Rails</li>
+<li>CoffeeScript</li>
+<li>SASS</li>
+<li>Git, Github</li>
+<li>Vim (MacVim and Terminal)</li>
+<li>Jasmine and basic testing of JavaScript and even CSS assets</li>
+<li>etc</li>
+</ul>
+<div>
+Additionally, before watching, make sure you Turn On the Volume. Rare person doesn&#8217;t like the music that my wife helped me prepare. Even if you don&#8217;t not like the video, you should like the music :)</div>
+<div>
+<br /></div>
+<div>
+I hope you enjoy it. <strong>UPDATE: Please watch it in full screen as the quality is lower than I expected.</strong>
+</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/MWvLofLz04k?hd=1" frameborder="0" allowfullscreen></iframe>
+
+
+</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+P.S.: Screencasting is really hard. And that&#8217;s my first. So&nbsp;apologies&nbsp;if something isn&#8217;t in-place.</div>
+<div>
+(If you can&#8217;t see the video here, open it on&nbsp;<a href="http://vimeo.com/32357445">Vimeo</a>. Alternatively, try <a href="http://www.youtube.com/watch?v=MWvLofLz04k">YouTube</a> - it should work with HTML5-only browser).</div>
+<br />
+<br />
+<br />
+<br /></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Pleased to know that you liked it. Yeah, the music sometimes goes a bit off. But it is still fun as for me :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Flaviu Simihaian</div>
+<div class='content'>
+Great video. I also love the music. Beethoven seems to get extra-dramatic near the testing pain point :)<br /><br />Look forward to seeing more in the future and hope to do some  myself.<br /><br />Thanks,<br /><br />Flaviu</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Sorry about that. I&#39;ve embedded the YouTube version of the video. It is of a little better quality.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Video on vimeo is bad quality, I had to watch it on Youtube. Thanks for videolesson.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+If more people will need it, I will probably upload higher resolution somewhere. Have you tried <a href="http://www.youtube.com/watch?v=MWvLofLz04k" rel="nofollow">YouTube</a>?<br /><br />And in the future I will have to record at much lower screen resolution</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+If see screencast from page - text is unreadable and font size is too small, at full screen (1080p) - too blur and unreadable too. may be if i&#39;ll have possibility to view at custom player size - it&#39;s will be ok.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Try it on YouTube: http://www.youtube.com/watch?v=MWvLofLz04k<br /><br />I&#39;ll update the post a bit later with both links.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Unfortunately vimeo does not support html5 video</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac/"/>
+    <updated>2011-10-04T12:53:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div>
+Keep your config in a separate dotfiles directory and under source control with the structure like:<br />
+
+<pre><code>
+~/dotfiles:
+--+ bashrc, bash_profile
+--+ ssh/config
+-->--bash -&gt; (env, config, aliases). bash has source bach/env, bash/config etc.
+</code></pre>
+
+<br />
+Then:<br />
+<code>ln -s ~/.bashrc ~/bin/dotfiles</code>
+<br />
+<code>echo ". ~/.bashrc" > ~/.bash_profile</code>
+
+<br />
+<br />
+
+Put everything into .bashrc except any long running tasks.<br />
+.bash_profile - for interactive shells. But you can just usually source .bashrc.<br />
+
+Now some keyboard shortcuts:<br />
+<br />
+
+<ul>
+<li>Cntrl-a - go to the beginning of line</li>
+<li>Cntrl-e - go to the end of line</li>
+<li>Cntrl-k - delete everything to the right</li>
+<li>Cntrl-w - delete previous word</li>
+<li>ESC->-b - go back one word</li>
+<li>ESC->-f - go forward one word</li>
+</ul>
+
+<br />
+If you often connect via SSH like so:
+<code>ssh -p 2323 username@my-server.example.com</code>
+
+Then you can shorten it to <code>ssh my-server</code> if you will add entry to <code>~/.ssh/config</code>:
+<pre><code>
+Host my-server
+    HostName my-server.example.com
+    Port 2323
+    User username
+</code></pre>
+
+Then you can use it as:
+
+<pre><code>
+# Tunnelling
+ssh -L7997:127.0.0.1:7979 my-server
+
+# Copy folder to server
+scp my_folder my-server:my_other_folder/
+
+# Or even use it with git
+git clone my-server:repo-name.git
+
+</code></pre>
+
+<br /><br />
+
+Now some useful things you can do in the terminal:
+
+<ul>
+<li><code>!!</code> - run previously executed command (you can do `sudo !!` for example)</li>
+<li><code>!$</code> - last argument of previous command</li>
+<li><code>!60</code> - run the command #60. Number comes from <code>history</code> command</li>
+(for example: run <code>tail file.log</code> and then <code>cat !$</code> is same as <code>cat file.log</code></li>
+<li><code>!echo</code> - rerun last command starting with echo</li>
+<li>Ctrl-r - interactive search on history of commands; Use Ctrl-j to abandon.</li>
+<li><code>!?file.log?!</code> - run the last matching command (not interactive)</li>
+<li><code>^file.log^another-file.log</code> - run the last matching command replacing file.log with another-file.log</li>
+<li><code>!?file.log?!</code> - run the last matching command (not interactive)</li>
+<li><code>mv README.{txt,markdown}</code> - same as <code>mv README.txt README.markdown</code>.</li>
+</ul>
+
+<br /><br />
+
+You will also appreciate power of the shell when using aliases and functions:
+<pre><code>
+alias ss=&quot;./script/server&quot;
+alias s=&quot;git status&quot;
+alias gca=&quot;git commit -am&quot;
+alias zipr=&quot;zip -r&quot;
+
+function take {
+  mkdir $1
+  cd $1
+}
+# take create-and-go-here
+
+function gg() {
+  git commit -v -a -m &quot;$*&quot;
+}
+# gg Commit message with no quotes
+</code></pre>
+
+<br /> <br />
+But when functions get more complicated, you might want to use a scripting language (Ruby, Python etc).
+
+<br />
+Put those scripts into your ~/bin directory and add it to your PATH variable.
+
+<br /><br />
+There are also number of Mac specific tricks.
+<br />
+One is is <code>open anything</code> command that will open the file/directory in the default application.
+<br />
+You can also force it to use a specific app:
+<code>open -a /Applications/Firefox.app index.html</code>.
+<br />
+This one becomes a good candiate for an alias.
+
+<br /> <br />
+You can also pipe output of any command into <code>pbcopy</code> command to copy it to the clipboard.
+<br />
+For example:
+<code>cat index.html | pbcopy</code> will copy the content of the file into clipboard.
+<br /><br />
+You can also do it the other way around: <code>pbpaste &gt; index.html</code> or 
+<code>pbpaste | grep "jquery"</code>.
+<br /><br /><br />
+
+Another useful thing <a href='http://homepage.mac.com/thomasw/OpenTerminal/'>OpenTerminal</a> (drag the app to finder toolbar).
+It allows you to open terminal with the current directory set to the Finder window.
+
+<br /><br /><br />
+You can also use the keyboard to open terminal using <a href='http://www.obdev.at/products/launchbar/'>LaunchBar</a>. It does much more though. It acts like a global terminal for the system.
+
+
+<br /><br /><br />
+You can also try to use <code>zsh</code> shell. It will work with the existing bash aliases just fine.
+<br /><br /><br />
+
+Most of the tips here come from the PeepCode&#8217;s Advanced Command Line screencast.
+<br />
+
+Hope this helps you on your way to becoming a Terminal Guru.
+
+</div></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Templating done easy - JavaScript HAML with Rails]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/08/19/templating-done-easy-javascript-haml/"/>
+    <updated>2011-08-19T19:26:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/08/19/templating-done-easy-javascript-haml</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h3>
+HAML templating with no worries: native, precompiled HAML. Blazing fast and as easy to use as it can be. </h3>
+
+<h3>
+<strong>
+<em>UPDATE: this functionality moved into <a href='https://github.com/dnagir/ruby-haml-js'>ruby-haml-js</a> gem, please use it instead.</em>
+</strong>
+</h3>
+
+Recently I have been working on a Ruby gem that packs a set of common JavaScript libraries in one place so you can just reference those easily from <b>Rails 3.1</b> app.  But now I want to write a bit about a very handy tool that the gem includes.  I needed to work on a <a href='http://documentcloud.github.com/backbone'>Backbone</a> app and, unfortunately, there was no very simple and easy way of using HAML markup for my client side templates. Main problems: <ol>
+<li>I don&#8217;t want to <b>embed</b> the template into the document.</li>
+<li>The Underscore.js templating is ok, but it is <b>too verbose</b> for me (as most of others).</li>
+<li>The <a href="https://github.com/creationix/haml-js">haml-js</a> is great, but I do not want to bother <b>precompiling</b> the templates.</li>
+<li>I do not want to think about templating as another layer or component. I want it to <b>just work</b>.</li>
+</ol>
+
+<div>
+Fortunately it was pretty easy solve these <em>problems</em> with the <a href="https://github.com/sstephenson/sprockets">Sprockets</a> and Rails 3.1.
+</div>
+
+<div>
+So from now on you can just write normal HAML templates and consume those with no worries from JavaScript.
+</div>
+
+<div>
+All you need to do, is to add <a href="https://github.com/dnagir/pakunok">pakunok</a> gem to your Rails 3.1 Gemfile.  This will give you templates as <b>native JavaScript functions</b> that you can use.
+</div>
+
+
+<div>
+It&#8217;s better to <a href='https://gist.github.com/1156409'>see than hear</a>
+</div>
+
+<div>
+<script src="https://gist.github.com/1156409.js">
+</script>
+</div>
+
+<div>
+ Feel free to head to the <a href="https://github.com/dnagir/pakunok/issues">issues</a> and provide some feedback or <a href="https://github.com/dnagir/pakunok/">read more</a>.</div></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano/"/>
+    <updated>2011-05-19T00:58:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.
+
+</p>
+
+<p>
+Now I am going to describe the Nginx configuration and example of Capistrano deployment file.
+</p>
+
+<p>
+One thing that I don&#8217;t want to do for every new app I deploy is to go to the web server and change the settings (as a root user) so that the web server picks the Rails application.
+</p>
+
+<p>
+In order to avoid that I decided to use nginx&#8217;s <a href="http://wiki.nginx.org/CoreModule#include">include</a> command. It allows to add include multiple nginx config files using UNIX wildcards.
+</p>
+
+<p>
+So by simply adding this line to the nginx.config I make it possible to configure Nginx from Rails applicatoins themselves:
+<code>include /home/*/apps/*/current/nginx.conf;</code>.
+
+I decided to include all configs within <code>http</code> tag so that a Rails app can configure multiple servers for itself.
+</p>
+
+<p>
+There are obvious drawbacks for this:
+
+<ol>
+<li>It is less &#8220;safe&#8221; as on application might affect others if you will start adding Nginx settings outside of the <code>server</code> tag. But I am ready to sacrifice this for the sake of having more flexibility by assuming all server citizens are good guys.</li>
+<li>We still need to have root access to restart the Nginx. We shouldn&#8217;t need to do it often, so that&#8217;s ok with me.</li>
+</ol>
+
+Now relying on a very simple conventions, I can configure Nginx from within the app. Just in case you&#8217;ve missed it, the conventions are:
+
+<ol>
+<li>To deploy a rails app (and any Rack based app), user should put the app under his home directory in <code>apps/[name]/current</code>.</li>
+<li>To &#8220;enable&#8221; an app, user should put <code>nginx.conf</code> file in <code>apps/[name]/current</code>.</li></ol>
+
+</p>
+
+
+<p>
+But for now, all this cool structure isn&#8217;t very helpful unless we deploy the app.
+</p>
+
+<p>
+I went with the Ruby de-facto deployment tool - Capistrano. There are enough resources on the net on how to &#8220;Capify&#8221; your application, so I won&#8217;t go into details. I assume you have just done <code>capify .</code> and understand what is going in there.
+</p>
+
+<p>
+Briefly, what I need to do is following:
+
+<ol>
+<li>Deploy the app explicitly to a particular domain (staging, production, local server etc).</li>
+<li>On every deployment - backup SQLite database (I know, I&#8217;ll use something better when I&#8217;ll have 1 million users).</li>
+<li>Prepare Nginx config file for the server (it depends on the domain we deploy at).</li>
+<li>Pre-Compile assets (SCSS in my case).</li>
+</ol>
+
+</p>
+
+<p>
+So grab <a href="https://gist.github.com/978737">the gist</a> (embedded below) with all the details and let me know what can be improved there. The usage is pretty simple: 
+</p>
+
+<p>
+<code>cap deploy user=dnagir domain=connecty.approache.com</code>
+</br />
+You can deploy the same app multiple times to the same server with different subdomains and they will not conflict:
+<br />
+
+<code>cap deploy user=dnagir domain=staging.connecty.approache.com</code>
+<br />
+<code>cap deploy user=dnagir domain=demo.connecty.approache.com</code>
+
+</p>
+
+<p>
+The most interesting I think is that the <code>nginx.conf</code> file is created during deployment using default Ruby templating engine and transfered over to the right location on the server. (But still remember root-ed Nginx restart is still required).
+</p>
+
+<p>You can look at the complete source in the <a href="https://github.com/dnagir/connecty/tree/bdd10b8e2bcd946a62cc66075d87ac107e513305">Connecty project</a> at Github.
+</p>
+
+<p>Please feel free to tell me what you think about this process.</p>
+
+<script src="https://gist.github.com/978737.js?file=deploy.rb"></script>
+<script src="https://gist.github.com/978737.js?file=nginx.production.conf.erb"></script></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>jlertle</div>
+<div class='content'>
+Love it!</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up Ubuntu 11.04 server for Rails with RVM]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails/"/>
+    <updated>2011-05-19T00:09:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+I had to set up the server (Ubuntu 11.04) for running couple of Rails apps and thought I could share the notes I&#8217;ve written while doing that. 
+
+Any feedback and improvements are welcome.
+
+</p>
+
+<p>
+
+<code>
+<pre>
+apt-get update ; apt-get upgrade
+
+# set timezone
+dpkg-reconfigure tzdata
+
+
+# RVM
+bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+
+# update /etc/bash.bashrc
+
+
+# -y to answer YES for questions
+aptitude -y install build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
+
+rvm install 1.9.2; rvm use 1.9.2 --default
+
+# while ruby is being installed prepare nginx
+cd /usr/src
+wget http://nginx.org/download/nginx-1.0.0.tar.gz
+tar -xf nginx-1.0.0.tar.gz
+cd nginx-1.0.0
+
+# Use one place for installation
+rm -r /opt/ && ln -fs /usr/local /opt
+
+gem update --system ; gem update
+gem install bundler
+#install imagemagic
+apt-get -y install imagemagick
+
+# proceed with passenger
+apt-get -y install libcurl4-openssl-dev
+gem install passenger
+passenger-install-nginx-module
+# additional otions:
+# --prefix=/opt/nginx
+# --with-http_gzip_static_module --with-http_stub_status_module --with-http_sub_module
+
+
+# add nginx autostart script: http://wiki.nginx.org/Nginx-init-ubuntu
+# verify the correct paths
+cd /opt && \
+wget -O init-deb.sh http://library.linode.com/assets/602-init-deb.sh && \
+mv /opt/init-deb.sh /etc/init.d/nginx && \
+chmod +x /etc/init.d/nginx && \
+/usr/sbin/update-rc.d -f nginx defaults
+
+
+# add to /opt/nginx/conf/nginx.conf
+include /home/*/apps/*/current/nginx.conf;
+/etc/init.d/nginx restart
+
+
+
+# copy ssh keys (from local computer)
+cat ~/.ssh/id_rsa.pub | ssh root@my.server.com "mkdir ~/.ssh ; cat - >> ~/.ssh/authorized_keys"
+
+# change default ssh port from 22 to something to get rid of nasty attacks
+vim /etc/ssh/sshd_config # change the port number
+service ssh reload
+
+#install firewall?? No need for now as only openning 80,443 ports
+# apt-get install ufw
+</pre>
+</code>
+
+</p>
+
+<p>
+That should be enough for you to start using the server.
+In the <a href="http://blog.approache.com/2011/05/easy-rails-deployment-with-capistrano.html">future post I plan to describe my setup to make deploying new applications easier</a>.
+</p></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step &quot;use one place for installation&quot; wipes everything out for some reason so I skip that part but otherwise thanks.</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unix - do not reinvent the wheel]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel/"/>
+    <updated>2011-05-19T00:00:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
+This is just a quick list of notes to keep it mind. So you will have to Google if something catches your attention.
+</p>
+
+<p>
+
+<code>
+<pre>
+
+Scheduling tasks with Cron
+==========================
+- define all tasks in cron
+- don't make Ruby do scheduling
+
+
+Background processing with ATD daemon
+======================================
+echo "convert image.jpg image.png" | batch
+
+
+Logging with syslog
+======================================
+- don't use rails log
+
+Resource limiting with rlimit
+======================================
+ulimit -v 102400
+ruby -e "' ' * 1024 * 1024 * 1024 *1"
+failed to allocate memory (NoMemoryError)
+
+CPU and Disk IO priorities
+======================================
+nice -n 19 rake xapian:update # run rake with priority 19
+ionice -c3 rake xapian:update # same for disk IO
+
+
+Atomic renames
+======================================
+- don't use locks
+- write to temp then rename
+
+Secure self-cleaning temporary files
+======================================
+- create temp fie
+- delete it while holding it open
+- write/read securely
+
+
+Page cache expiry with find
+======================================
+find public/cache -type f --mmin +10 -delete # del all files 10 mins old in a "transaction"
+
+Log rotation with logrotate
+======================================
+- Rails sucks at it, use time proven and tested UNIX
+
+
+Managing daemons with start-stop-daemon
+==========================================
+- don't reinvent the wheel starting/stoping daemons (mogrels etc)
+    start-stop-daemon -d $railsdir -b -o -p $pidfile --start --starts rake xapian:update
+- run cron tasks using start-stop-daemon to avoid race condition (it will exit if process already runs)
+
+
+Real time signals
+==========================================
+use it in ruby:
+trap("USR1") { reopen_xapian_db }
+
+
+Raliable messaging with... SMTP!
+==========================================
+Due to atomic and reliable delivery it can be use as a message queue.
+Can replace RabbitHQ etc
+
+
+dbus
+==========================================
+UNIX based Messaging system
+
+
+Self-organising systems with AVAHI
+==========================================
+Bonjour??
+
+
+Modularised config files
+==========================================
+/etc/cron.d/rails-myapp
+/etc/logrotate.d/rails-myapp
+
+
+Watchdog daemon
+==========================================
+
+
+
+
+
+</pre>
+</code>
+
+</p></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf/"/>
+    <updated>2011-05-18T23:52:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>
+I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
+</p>
+
+<p>
+
+<code>
+<pre>
+
+Harmony for browser testing
+
+Capybara.driver = :rack_test # uses Harmony and can run JS
+
+Good talk about Arel: 1LT_04-mp4_500mbs.mp4
+
+Rack GeoIP.
+Rack GoogleAnalytics
+Rack::Cache (standard)
+Rack::CacheBuster
+
+Server side include to render page without parts of content that fail
+(Nginx + Rack)
+
+EvenMachine:: WebSockets add-on uses JS like API.
+Other options:
+-em-websocket
+-cramp (higher level websocket)
+-sunshowers
+-node.js
+pusherapp.com
+
+Initialise multiple variables in JS:
+var a = 1, b = 2, noInitialised;
+jQuery has "end" method to go up in the chain.
+
+
+
+VIM
+:copen - opens the console output
+f - find next occurence of char in this line
+dap - delete paragraph
+cap - change
+yap - yank
+ytCHAR - yank from here to next CHAR
+Ctrl-v - visual block mode
+:split, :sp, :vspilt, :vsp - split into 2 wins
+ls - list buffers touched
+q1, q2, q3... - record macro into register
+@1, @2, @3... - play the macro from register
+
+:R - Rails related file
+:A - Rails alternate file
+:Rextract - Rails partial extract
+Shift-k - integrated Ruby ri
+
+figutive.vim - more extensions: Glog, Gblame, Gstatus, Gdiff, Ggrep etc
+snippets.vim
+nerdtree.vim - files tree view
+surround.vim
+unimpaired.vim - auto-brackets
+Hashrocket configured Vim at Github hashrocket/dotmatrix
+Vimium, Vimperator - Vim in browser
+Remotely connect and pair in Vim
+
+
+UTF-8 is backwards compatible with ASCII
+Ruby doesn't know about UTF-16 - it's messy
+
+Globalization TODO:
+- Do same as .NET CultureInfo
+- Do different ways to localize different kinds of langs
+
+
+You can generate UML model of Rails model using:
+railroad -M | dot Tpng > model.png
+uml dumper
+
+Metrics:
+- rake stats # LOCs
+- FLOG Weighting the code AST - Assignment Branch Condition (ABC)
+- FLAY - code similarities
+- Saikuro - cyclomatic complexity
+- Roodi - design issues
+- Reek - design issues and specific smells
+- Churn - changes to file with Git
+- Rcov - test coverage
+- Heckle - test coverage with code mutation
+- metric_fu
+
+
+</pre>
+</code>
+
+</p>
+
+<p>
+You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope you find some moment useful.
+</p></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with/"/>
+    <updated>2011-03-18T11:35:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> CurrentUserController controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> Mock&lt;ICurrentUserService&gt; userService;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> FakeHttpContext http;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService = <span style="color: #0000ff">new</span> Mock&lt;ICurrentUserService&gt;();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller = <span style="color: #0000ff">new</span> CurrentUserController(Services.Account, userService.Object)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .FakeContext(context =&gt; http = context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CanSeeSecuritySettingsPage() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService.Setup(x =&gt; x.ViewUser()).Returns(<span style="color: #0000ff">new</span> User {SecurityQuestion = &quot;<span style="color: #8b0000">sq</span>&quot;});
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.SecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldHaveModel&lt;CurrentUserController.SecuritySettingsInfo&gt;()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .User.SecurityQuestion.Should().Be(&quot;<span style="color: #8b0000">sq</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> SuccesfulUpdateRedirects() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.UpdateSecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldRedirectTo(action: &quot;<span style="color: #8b0000">Index</span>&quot;, controller: &quot;<span style="color: #8b0000">Dashboard</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>The most relevant piece of code here is the extension method <strong>FakeContext</strong>. It ensures the controller is not going to access real HttpContext. The main difference between MVC2 and 3 is that the latter uses HttpContext in FormValueProviderFactory and QueryStringValueProviderFactory. So we need to get rid of it. And of course we don’t want to modify all our tests and complicate them providing explicitly <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx#six">FormCollection</a>. Additionally we definitely do not want to go into trouble <a href="http://stackoverflow.com/questions/1686778/why-mock-httpcontext-if-it-can-be-constructed">instantiating HttpContext</a>.</p>
+
+<p>Fortunately MVC is extensible enough and has number of hook that we can use. In this case we need to replace those two bustards (FormValueProviderFactory and QueryStringValueProviderFactory). Which can be done with this simple extension method:</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ValueProviderFactoresExtensions {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> ValueProviderFactoryCollection ReplaceWith&lt;TOriginal&gt;(<span style="color: #0000ff">this</span> ValueProviderFactoryCollection factories, Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        var original = factories.FirstOrDefault(x =&gt; <span style="color: #0000ff">typeof</span>(TOriginal) == x.GetType());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">if</span> (original != <span style="color: #0000ff">null</span>) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            var index = factories.IndexOf(original);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            factories[index] = <span style="color: #0000ff">new</span> TestValueProviderFactory(sourceAccessor);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">return</span> factories;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">class</span> TestValueProviderFactory : ValueProviderFactory {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> TestValueProviderFactory(Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.sourceAccessor = sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> IValueProvider GetValueProvider(ControllerContext controllerContext) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> NameValueCollectionValueProvider(sourceAccessor(controllerContext), CultureInfo.CurrentCulture);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>&#160;</p>
+
+<p>And the final implementation of FakeContext extension that I use (you will need to trim it to your particular case) is:</p>
+
+<p>&#160;</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> TController FakeContext&lt;TController&gt;(this TController controller, Action&lt;FakeHttpContext&gt; exposeAction = null) where TController: Controller {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ApplicationMetaData.RegisterAll(); // Additionally register all ModelBinder so tests behave <span style="color: #0000ff">is</span> <span style="color: #0000ff">in</span> production
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (ViewEngines.Engines.Where(x =&gt; x <span style="color: #0000ff">is</span> SparkViewEngine).Empty()) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        // We only use Spar view engine that can render view during testing
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Clear();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Insert(0, GetTestViewFactory());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }            
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // That <span style="color: #0000ff">is</span> the entry <span style="color: #0000ff">to</span> all the fakes, implementation <span style="color: #0000ff">is</span> trivial so <span style="color: #0000ff">not</span> here
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var context = <span style="color: #0000ff">new</span> FakeHttpContext();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.ControllerContext = <span style="color: #0000ff">new</span> ControllerContext(context, <span style="color: #0000ff">new</span> RouteData(), controller);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.Url = <span style="color: #0000ff">new</span> UrlHelper(<span style="color: #0000ff">new</span> RequestContext(context, <span style="color: #0000ff">new</span> RouteData()));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // <span style="color: #0000ff">And</span> <span style="color: #0000ff">finally</span>, here we ensure no ValueProviders access HttpContext
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ValueProviderFactories.Factories
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;FormValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.Form))
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;QueryStringValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.QueryString));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (exposeAction != null)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        exposeAction.Invoke(context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}        </pre></pre>
+
+<p>&#160;</p>
+
+<p>Hope that helps. Have fun!</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I can&#39;t remember already, but there are couple of the ValueProviders that you need to replace. Just look at the exceptions you get. Should be pretty straight forward. Worked for all other people.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+duzn&#39;t work</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Screencasts for this weekend]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <updated>2010-12-13T09:53:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stuff learned today - Ruby and Rails]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails/"/>
+    <updated>2010-12-09T09:50:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails</id>
+    <content type="html"><![CDATA[<div class='post'>
+<ol>
+<li>Ruby ignores underscores in numbers, so you can write 53782156 as&nbsp;53_782_156 which is much nicer.</li>
+<li><a href="https://groups.google.com/group/formtastic/browse_thread/thread/d4b200e3d8073329">Suggested</a> localisation for Formtastic&#8217;s collections.&nbsp;Not sure whether it is important as it is still pretty easy to workaround.</li>
+<li>To use all the ActiveSupport (v3), do <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">require &#8216;active_support/all&#8217;</span> (note the underscore!).</li>
+<li>We can add methods to associations by opening a block and (but scopes are much cleaner on the other end of association class).</li>
+<li>Testing &#8220;access denied&#8221; and &#8220;requires user&#8221; is easier with custom matchers.</li>
+<li>Rails URL helpers are not available in custom matchers for some reason.</li>
+<li>Shoulda&#8217;s RSpec matcher validates_presence_of does not work with non-persistent models.</li>
+<li>Rails params hash has string keys, not symbols. Got issues with it when relying on keys being symbols.</li>
+</ol></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rules of Productivity]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity/"/>
+    <updated>2010-11-29T15:29:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>How do we get more work done? It is a question that every manager and every passionate worker faces. Yet, for the most part, teams operate on gut instinct and habit. The results are less than optimal. [<a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">source</a>]</p>  <h2></h2>  <h2>What is productivity?</h2>  <ul>   <li>+ Work accomplished </li>    <li>- Work required to fix defects </li>    <li>- Work required to fix bad design decisions </li> </ul>  <p>Productivity can be <strong><em>negative </em></strong>when there is more harm than good.</p>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsQV26e9I/AAAAAAAAEx4/W_cKdhYLIEc/s1600-h/image%5B9%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsREicCvI/AAAAAAAAEx8/UGFxiCYKKxc/image_thumb%5B5%5D.png?imgmax=800" width="455" height="347" /></a> </p>  <h2>&#160;</h2>  <h2>Experiment 1: Overtime</h2>  <p>Working more than&#160; 40 hours a week leads to decreased productivity.</p>  <ul>   <li>&lt; 40 hours/week – working not “enough”. </li>    <li>&gt; 60 hours/week – small productivity boost. </li> </ul>  <p>The boost only lasts for 3 to 4 weeks and then turns <em><strong>negative</strong></em>. Though can be used for a short-time productivity increase.</p>  <p>So, work 40 hours a week with time for rest and family. Never work 2 months of 60 hrs/week. Overall productivity will be lower, despite the initial boost.</p>  <h2></h2>  <h2>Experiment 2: Work harder in bursts.</h2>  <ul>   <li>Take advantage of the burst during overtime. </li>    <li>Crunch for a week and work only 40 hrs on another week. </li>    <li>Any more efficient work patterns? </li> </ul>  <p>Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.<a href="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsSG9AnZI/AAAAAAAAEyA/Wq0Ax8mVAgc/s1600-h/image%5B5%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsS0R9wwI/AAAAAAAAEyE/3C1FYViAnek/image_thumb%5B3%5D.png?imgmax=800" width="468" height="357" /></a></p>  <p>So:</p>  <ul>   <li>Raise productivity immediately with short spurts &lt; 3 weeks. </li>    <li>Overtime temporarily to meet deadlines. </li>    <li>Plan for the reduction in productivity immediately afterwards. </li>    <li>Consider 4-day work week as a flexitime option. </li> </ul>  <p>&#160;</p>  <h2>Experiment 3:&#160; Performance for knowledge workers declines after 35 hrs, not 40.</h2>  <ul>   <li>Creativity and problem solving decreases faster with fatigue than manual labour. </li>    <li>Grinding&#160; out problems by working longer&#160; on average result in inferior solutions. </li>    <li>Lack of sleep is particularly damaging. </li> </ul>  <p>So:</p>  <ul>   <li>Overtime kills creativity. </li>    <li>If you are stuck on a problem, go home or take a break. </li>    <li>Get 8 hrs of sleep to improve your problem solving abilities. </li> </ul>  <p>&#160;</p>  <h2>Experiment 4: Teams on overtime feel like they are doing more, but actually accomplish less.</h2>  <ul>   <li>Team with overtime feels like they are doing much more than the team without overtime. </li>    <li>Team without overtime produces the better product and accomplishes more. </li> </ul>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsTkqVtLI/AAAAAAAAEyI/HZvCvNe_lNY/s1600-h/image%5B13%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_6a0bIbZ1HXw/TPMsUp4sGLI/AAAAAAAAEyM/IHbhVUR7D-k/image_thumb%5B7%5D.png?imgmax=800" width="476" height="363" /></a> </p>  <p>Humans ignore the systematic costs and physiological biases:</p>  <ul>   <li>Failure to measure (cost of defects, bad design decisions, missed opportunities). </li>    <li>Linear extrapolation (initial productivity boost is seen as same in the future). </li>    <li>Habit (a bad one!). </li>    <li>Self reported excellence (behaviour rewarded independent of the results). </li> </ul>  <p>So:</p>  <ul>   <li>The feeling of increased long-term productivity is FALSE. </li>    <li>Use customer metrics to determine the productivity. </li> </ul>  <p>&#160;</p>  <h2>Experiment 5: Productivity is maximised in small teams of 4-8 people.</h2>  <ul>   <li>Productivity of a small group is 30-50% higher than groups over 10 people. </li>    <li>Too high cost of communication for groups with &gt; 10 people. </li>    <li>Smaller teams don’t have enough breadth to solve a wide array of problems. </li> </ul>  <p>So:</p>  <ul>   <li>Split your teams into cross-functional teams. </li>    <li>Link small teams using &#8216;”scrum-of-scrums”. </li>    <li>Create processes for:      <ul>       <li>growing new teams; </li>        <li>splitting large teams; </li>        <li>transitioning to new projects; </li>     </ul>   </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Seat people on the same team together in a closed team room.</h2>  <ul>   <li><em><strong>100% increase </strong></em>in productivity. </li>    <li>Faster communication and problem-solving. </li>    <li>Fewer external interruptions to the team increase overall productivity. </li> </ul>  <p>So:</p>  <ul>   <li>Seat the team in their own room. With walls. </li>    <li>Give at least 5 sqr/meters per person. </li>    <li>Create side rooms for private conversations, phone calls, meetings. </li>    <li>Minimise non-team distractions. </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Cross-functional teams outperform siloed teams</h2>  <ul>   <li>Produced more effective solutions in the same time. </li>    <li>Much more likely to generate breakthrough solutions. </li>    <li>Short-term loss of negotiation of norms. </li> </ul>  <p>This is why:</p>  <ul>   <li>Fewer external dependencies mean fewer lengthy blockages. </li>    <li>Team has the breadth to see the forest, not just the trees. </li>    <li>Different perspectives mean lower chance of groupthink. </li> </ul>  <p>So:</p>  <ul>   <li>Create the team where every skill needed to solve the problem at hand is in the same room. </li>    <li>Limit the charter: “Do everything = big team”. </li>    <li>Fulltime: focused team member efforts. <em><strong>Multitasking = 15% drop in productivity</strong></em>. </li> </ul>  <p>&#160;</p>  <h2>Experiment 8: Scheduling at 80% of team capacity produces better products.</h2>  <ul>   <li>Scheduling at 100% doesn’t give space to creativity. </li>    <li>No lost time: passionate workers keep thinking. </li>    <li>The 20% goes into new idea generation and process improvements. </li>    <li><em><strong>Producing 20 great features is usually far more profitable than 100 competent features</strong></em>. </li> </ul>  <p>Why?</p>  <ul>   <li>Allows employees to explore many options cheaply. </li>    <li>Gives time to prototype breakthrough solutions that sound crazy on paper. </li>    <li><em><strong>Allows people to pursue passions</strong></em>. </li> </ul>  <p>So:</p>  <ul>   <li>Schedule 20% below possible velocity. </li>    <li>Hold periodic reviews of side projects and award interesting ideas. </li>    <li>Publicise and reward side projects that make their way into production. </li>    <li>Keep a public list of important things if anyone runs out of work (happens rarely). </li> </ul>  <p>&#160;</p>  <h2>Other productivity Techniques</h2>  <h3>Experimentation culture:</h3>  <ul>   <li>Fail faster to find success sooner. </li>    <li>Short iterations. </li>    <li>User metrics such as A/B testing. </li>    <li>State gate portfolio management. </li> </ul>  <h3>Safety nets:</h3>  <ul>   <li>Test-Driven-Development. </li>    <li>Daily/weekly access to real customers. </li> </ul>  <h3>Empower the team</h3>  <ul>   <li>Constraints-based requirements, not mandates from above. </li>    <li>Training. </li> </ul>  <p>See the original <a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">PDF</a>.</p>  </div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc/"/>
+    <updated>2010-11-28T23:59:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
+So here we go:<br />
+<blockquote>
+Rails was extracted from the real world work sweat, blood, tears, everything..</blockquote>
+And it feels like it is.<br />
+<blockquote>
+ASP.NET MVC is a &#8220;me too&#8221; framework - trying to compete with other solutions. ASP.NET MVC is not part of the story for WebForms, not quite fit.</blockquote>
+Aha. Try to tell WebForms guy about MVC :)<br />
+<blockquote>
+Microsoft promotes it as an option. Option for what?</blockquote>
+These words from Rob Conery probably mean that MVC is something that was not “designed” to be mainstream. But rather an “option” for… well web development on .NET.<br />
+<blockquote>
+[About TekPub]…rewrite point for startup - reconsidered BizSpark. We wanted to stay small.We needed fast, easy framework. Up in the cloud, scalable, zero cost, everything.</blockquote>
+There was a lot of buzz behind the <a href="http://blog.approache.com/2010/05/quotes-moving-from-aspnet-mvc-to-ruby.html">decision to move to Rails</a> by Rob Conery who was a .NET advocate. But it was a happy business AND technical decision.<br />
+<blockquote>
+Rails came out of a need. MVC hasn&#8217;t. NHibernate came out of a need. Entity Framework hasn&#8217;t. It&#8217;s always the same: solving problems they personally don&#8217;t have, so they are not in the context of their problems.<br />
+Microsoft projects often come out of suppositions.</blockquote>
+That is very common with Microsoft. They have to be everywhere and at the same time nowhere. Anything “new” that comes out from Microsoft has already been adopted and they are just catching up.<br />
+<blockquote>
+Dell is rebuilding everything in <a href="http://asp.net/">ASP.NET</a> MVC (instead of WebForms).</blockquote>
+Good for them. In any case, ASP.NET MVC&nbsp; IS a good thing to have in .NET world. And that’s my preference for Web development in .NET. Probably same goes with Dell.<br />
+<blockquote>
+MVC redirected the attention back to .NET after .NET Web developers started moving to Rails.</blockquote>
+True. And in fact, most of the features of ASP.NET MVC were borrowed from Rails. So that was one of the easiest ways to hold .NET gurus back.<br />
+<blockquote>
+Why would .NET developers move to Rails?      <br />Testing in rails is…uhh… it’s something you realise when you do it. Testing tools like RSpec and Cucumbet are just natural.       <br />Deployment – Capistrano, Heroku – just unbelievable.</blockquote>
+Cannot agree more on this. Testing “just works”, deployment “just works” it all “just works”.<br />
+<blockquote>
+In .NET we like to overcomplicate ourselves. Something too simplistic can’t be good. [No worries with SRP principle – objects aware of the persistence and similar].      <br />In .NET we question more.</blockquote>
+Speaking about myself, I do agree with it. Partially due to the nature of .NET (C#), partially because testing is harder, but also just because .NET developers try to solve problems in advance assuming those will exists (while in many cases they will not).<br />
+<blockquote>
+The MVC/MonoRail and Ruby On Rails have the same features.</blockquote>
+Read on…<br />
+<blockquote>
+You have the same names of the features, but the experience is dramatically different. There’s incredible amount of software out of the box to do anything.      <br />ASP.NET NVC hasn’t even got a plug-in mechanism.</blockquote>
+So true! So true!<br />
+<blockquote>
+Why do we have to wait for 2 years to get the innovation that we already have available to us right now in Rails?</blockquote>
+The rails community moves with small changes all the time, while .NET – with large in couple of years time. So for Rails it is a normal evolution, while for .NET it is rather a revolution.<br />
+<blockquote>
+[about Rails]… it means you are building a web site, and you are not rebuilding the stuff that has already been built. You are building Business.</blockquote>
+Oh, yes. Having higher level plug-ins (nearly as Service-Oriented-Architecture components) it opens much more opportunities for business.<br />
+<blockquote>
+Not everybody is fortunate of making decisions at work [on choosing technology].</blockquote>
+Try to push a new technology in a corporate environment with all the bureaucratic procedures. No f…ing way! Unless you are the one who decides.<br />
+<blockquote>
+Building web sites on .NET is about building web sites in a corporate environment. And that’s not about productivity. That’s not about really, really, really compressed budget where every decision is your life and death decision…[and then] It’s like we have a budget, but is is rather a suggestion.</blockquote>
+Not much to comment on here. Don’t care about money – you are a .NET shop. Otherwise – probably Rails.<br />
+<blockquote>
+It’s about how fast you can turn your ideas into money.</blockquote>
+Well said!<br />
+<blockquote>
+Most of the cost of long lived projects is re-learning. Ruby code is just scan and get it.</blockquote>
+Indeed, Rails, would not even exist without such a beautiful language as Ruby. It makes code easy to understand.<br />
+<blockquote>
+In Ruby there is just less code to see where a problem might be. A lot less code! And the code is so usable that you can really spot the problems really quickly.</blockquote>
+Again so true. Just have a look, for example, at some OSS projects. They do so much with so little code. That’s just amazing.<br />
+<br />
+At the end, I must admit that I do like the .NET platform, but Ruby and Rails just feels much better to me and ALL of the things I currently do for myself, I do using Ruby/Rails.<br />
+It is just much more fun!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Twitter &#8230;<br /><br />Remember running your site in .NET or RoR is not going to make a whole lot of difference in speed if your database architecture sucks or your website does alot of IO.<br /><br />ex. alot of Google&#39;s products are written in Python but thats just a front alot of the actual business logic is probably implemented in the back in Java or whatever they prefer.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Check benchmarks on the web, java and .net have better performance.<br /><br />Also, i&#39;d like to know a big app (300 tables and millions of entries) on RoR.<br /><br />Visual Studio is a big thing also.<br /><br />But, normally i use rails for blogs and websites x)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I expected a serious comparison but instead I get an idiot ranting about no further innovation needed because he found something he likes.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+So biased. One more thing, rails is designed as dsl for web apps while .net is platform for everything in windows.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+haha, soooo biased&#8230;. and lame.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alex Kaushovik</div>
+<div class='content'>
+Rails is the best!</div>
+</div>
+<div class='comment'>
+<div class='author'>4nkh</div>
+<div class='content'>
+Long live to ROR!!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>p()thesis</div>
+<div class='content'>
+Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET development, so I find this helpful.</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Render any ASP.NET MVC ActionResult to a string]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to/"/>
+    <updated>2010-11-11T17:05:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>I often see questions on the net about how to render a view to a string so it can be used somewhere.</p>  <p>My approach allows doing it without thinking about all the boilerplate code. Additionally not only the ViewResult can be rendered into a string but just about any type of the result. Here is example on how to return a JSON including the result of the view as additional information:</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #008000">// Controller Action:</span>
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> JsonResult DoSomething() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var viewString = View(&quot;<span style="color: #8b0000">TheViewToRender</span>&quot;).Capture(ControllerContext);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> JsonResult {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        Data = <span style="color: #0000ff">new</span> {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            time = DateTime.Now,
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            html = viewString
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    };
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre></pre>
+
+<p>&#160;</p>
+
+<p>This can be done with 2 simple utility classes below. Just include them somewhere into your project.</p>
+
+<p>&#160;</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> ResponseCapture : IDisposable {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> HttpResponseBase response;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> TextWriter originalWriter;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> StringWriter localWriter;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> ResponseCapture(HttpResponseBase response) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.response = response;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            originalWriter = response.Output;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            localWriter = <span style="color: #0000ff">new</span> StringWriter();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            response.Output = localWriter;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">string</span> ToString() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            localWriter.Flush();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> localWriter.ToString();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> Dispose() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">if</span> (localWriter != <span style="color: #0000ff">null</span>) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">                localWriter.Dispose();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">                localWriter = <span style="color: #0000ff">null</span>;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">                response.Output = originalWriter;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ActionResultExtensions {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">string</span> Capture(<span style="color: #0000ff">this</span> ActionResult result, ControllerContext controllerContext) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">using</span> (var it = <span style="color: #0000ff">new</span> ResponseCapture(controllerContext.RequestContext.HttpContext.Response)) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">                result.ExecuteResult(controllerContext);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">                <span style="color: #0000ff">return</span> it.ToString();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre></pre>
+
+<p>Enjoy and let me know if it works for you.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>The Dode</div>
+<div class='content'>
+Never mind. I found the problem. I miss the @model.</div>
+</div>
+<div class='comment'>
+<div class='author'>The Dode</div>
+<div class='content'>
+Does this work with Razor?<br /><br />Compiler Error Message: CS1973: &#39;System.Web.Mvc.HtmlHelper&#39; has no applicable method named &#39;TextBox&#39; but appears to have an extension method by that name. Extension methods cannot be dynamically dispatched. Consider casting the dynamic arguments or calling the extension method without the extension method syntax.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+After very long looking at the code, I noticed that I typed &quot;@Model&quot;. it should be &quot;@model&quot;.<br />I didn&#39;t know model is case-sensitive.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Email me a sample project and I will have a look. Hard to say anything without seeing it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+It almost works.. <br />If my view contains &quot;@Model&quot; on the first line. This line will be also in the output.<br /><br />&quot;@Model x.y&quot; will be in the string as &quot;x.y x.y&quot;<br /><br />any ideas ?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks a lot, this helped!</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+For the .NET 3.5 it will be needed to substitute the HttpContext on the controller and involves a bit more code, but still is possible. Have a look for an <a href="http://www.klopfenstein.net/lorenz.aspx/render-partial-view-to-string-in-asp-net-mvc" rel="nofollow">example</a></div>
+</div>
+<div class='comment'>
+<div class='author'>tecnocrata</div>
+<div class='content'>
+Hello<br />I have a question. How can I do it in .NET Framework 3.5? in thi, Output property doesn&#39;t have a setter method.<br />Could you help me please?</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+You can write:<br /><br />View(&quot;ViewName&quot;).With(&quot;name&quot;, &quot;Dima&quot;).With(&quot;likes&quot;, &quot;Ruby&quot;).Capture(ControllerContext)<br /><br /><br />with this simple extension method:<br /><br />public static ViewResult With(this ViewResult vr, string key, object value) {<br />  vr[key] = value;<br />  return vr;<br />}</div>
+</div>
+<div class='comment'>
+<div class='author'>Gabriel</div>
+<div class='content'>
+This is a cleaner solution that others out there.  Does anyone have an example if the Action also uses parameters?</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RSpec 2.0 cheat sheet by example]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/11/05/rspec-hints-and-techniques/"/>
+    <updated>2010-11-05T20:33:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/11/05/rspec-hints-and-techniques</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>The Ruby developers know and hear a lot of buzz about RSpec BDD framework. The RSpec specifications code is so easy to read, but for my it is often hard to write. So I intend to produce a small cheat-sheet for RSpec syntax for myself.</p>  <p>Most of it come from the <a href="http://www.pragprog.com/titles/achbd/the-rspec-book">RSpec Book</a> in rather unusual way. As a RSpec itself (unfortunately not runnable for now).</p>  <p>Please feel free to use it in any way you want and correct the mistakes.</p>  <p>So <a href="https://gist.github.com/663876">here we go</a>:</p> <script src="https://gist.github.com/663876.js?file=rspec-syntax-cheat-sheet.rb"></script>  </div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Securities and Exchange Commission – comment on comment]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission/"/>
+    <updated>2010-10-19T10:30:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>I have been going through the <a href="http://www.sec.gov/comments/s7-08-10/s70810-89.pdf">comments submitted</a> to the US Securities and Exchange Commission.</p>  <p>I feel like I have to add my 2 cents on it. My first <em>impression </em>is that the analysis was not performed in full and the authors are being very affiliated with a company (which seems to be Microsoft).</p>  <p>One and most important issue with this document is that authors do not seem to fully understand the dynamic languages and they have not even taken into account (possibly) the most suited language for the task – <a href="http://www.ruby-lang.org/">Ruby</a>. Of course I may be wrong.</p>  <p>I have to say that I have nothing against authors or anything like that.</p>  <p>My point is that <em>I believe</em> that the analysis could have been performed more deeply with close interaction with professionals of the particular languages.</p>  <p>So now, I would like to comment on the submission:</p>  <blockquote>   <p>Safe execution of code written by one party on a machine owned by a different party was not a strong concern in the design of Python. It was a strong concern in the design of other systems, including Java and the .Net framework</p> </blockquote>  <p>This is neither sufficient nor necessary to achieve the security. The security is the effort of the developers, IT administrators and the people working with the system. Even when using an interpreted language it can be executed inside a virtual machine (be it JVM, .NET, SmallTalk etc) providing that sandbox mentioned above. Most common examples are – Jython, IronPython, JRuby, IronRuby etc. This cannot be served as a decision point.</p>  <blockquote>   <p>A domain-specific language would support writing waterfall programs that are shorter and easier to read, and should help ensure consistency between the program and the narrative description.</p> </blockquote>  <p>This is exactly what Ruby, Python and other dynamic languages are good at. And this is exactly what C#, Java and other static typed languages are bad at. Not sure why having it as a crucial requirements the wrong tool for the job is advocated.</p>  <blockquote>   <p><strong>Efficiency</strong>. … Java, C#, and F# are designed to be executed efficiently, Python and Perl implementations are significantly less efficient.</p> </blockquote>  <p>This is true in many cases. But having the requirements in mind, the language inefficiency can be compensated with additional hardware. Its cost is significantly less than the cost of development time using strongly/statically typed languages.    <br />If additional performance needed – then the just-in-time compiler can be used instead of interpretation (this includes Rubinius, IronRuby, JRuby, MacRuby etc)</p>  <blockquote>   <p><strong>Typing</strong>. Statically typed languages are generally considered to produce more reliable and easier to maintain code, while dynamically typed languages are generally considered to produce more flexible code and to be better suited for prototyping. Java, C#, F# are statically typed; Python and Perl are dynamically typed.</p> </blockquote>  <p>This can phrase exactly the other way around and is neither sufficient nor necessary to achieve supportability.</p>  <p>The wording is rather weird here:&#160; “<em>…languages are .. considered to produce more reliable and easier to maintain code</em>”. The languages do NOT produce code. It is a developer who does it.</p>  <blockquote>   <p><strong>Security</strong>. Some programming languages have been designed with security in mind, and some of their implementations include “sandboxes” that can securely execute untrusted code. Java, C#, and F# are such languages; Python and Perl are not.</p> </blockquote>  <p>As I mentioned above it cannot be the the deciding point because most of the dynamically typed languages can be easily run inside that sandbox using either a JVM, JIT or just a virtual machine; also sandboxing in the sense above does not eliminate the security issues. And we have a <a href="http://weblogs.asp.net/scottgu/archive/2010/09/18/important-asp-net-security-vulnerability.aspx">fairly recent example</a> of that.</p>  <blockquote>   <p><strong>Domain-specific languages</strong>. Any programming language can serve as a basis for a domain-specific language by augmenting it with suitable libraries. Experience seems to show that higher-order programming languages such as F# provide a particularly good basis for domain-specific languages. There are financial domain-specific languages available in F#.</p> </blockquote>  <p>I don’t understand why F# is the only recommendation here. Ruby is one of the greatest languages to produce DSLs. Clojure may also be considered. For that matter Martin Fowler’s Domain Specific Languages book can be used as the starting point.</p>  <p>&#160;</p>  <p>I do advocate Ruby language here and believe it can be used with a great success. Only one huge disadvantage of it is the absence of a formal specification (which in my opinion is the advantage as it allows better evolution of the language).</p>  <p>And of course there are many factors that have to be taken into account that may roll Ruby out, but it must be considered at least.</p>  <p>Additionally inviting professionals from Ruby, Python, Perl communities to suggest on the subject will provide much more information and will allow making an informative decision.</p>  </div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Challenge for Newbies reborn]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn/"/>
+    <updated>2010-08-09T18:53:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>A question has been raised whether or not <a href="http://ruby-challenge.rubylearning.org/">Ruby Challenge for Newbies</a> should exist or not. The main concern is:</p>  <blockquote>   <p>…today, probably due to lack of time or other commitments, not many experienced Rubyists are willing to set a Ruby challenge for the newbies</p> </blockquote>  <p>I guess many Rubysts DO want to set the challenges, but unfortunately very few people these days have enough time.</p>  <p>Another problem with such challenges is that they are somewhat “detached” from the real life. Though I am not saying they are not interesting or educating. Don’t get me wrong, definitely they ARE. But still, I guess, many people would love to see how Ruby should be used correctly (the Rubyish way) in real-world applications. Especially in web apps.</p>  <p>So if there is the problem trying to find new challenges, then either WE need to set up new challenges and recommend people who can do that or, if that is not possible, the challenge itself might need to be &quot;converted&quot; to something different.</p>  <p>It seems the latter is the better choice at this moment.</p>  <p>Having said that, I believe that a good challenge should have attributes:</p>  <ul>   <li>driven by people; </li>    <li>not dependent on one person (though may be controlled by one or a group); </li>    <li>winner(s) appointed by the people (though influenced by the owner/controller); </li>    <li>collaborative; </li>    <li>“shareable”; </li>    <li>role-playing; </li> </ul>  <p>These are the ideas from the top of my head, but it is possible to play around those…</p>  <p>I personally feel like it brings us to the following idea of a challenge: <strong>Ruby Project Development challenge</strong>.</p>  <p>Somebody suggests an idea to implement (interesting web application, some kind of useful tool, etc). Then the challenge becomes a project that people have to deliver. There are main two roles in this challenge:</p>  <ol>   <li>product owners; </li>    <li>development team. </li> </ol>  <p>The <em>product owners</em> group consists of number of people who do like the idea but may not have time, ability to develop that. This group decides where the <em>development team</em> is heading to, and negotiates the requirements.</p>  <p>The <em>development team</em> is a group of self-organised people who do the actual development. Multiple development teams may exist to develop the same application.</p>  <p>The duration for the challenge may vary from weeks to couple of months. The winner of the challenge is the person who gets most number of votes from either product owners/development team or both (not sure yet). If there are multiple teams – then the winning team may also be chosen.</p>  <p>So the process of the challenge would be something like this:</p>  <ol>   <li>Somebody comes up with a project idea. </li>    <li>People join this project either as <em>product owner</em> or as <em>development team</em>. </li>    <li>People get organised in couple of development teams and a couple of product owners if too many guys have joined. </li>    <li>The countdown begins: <em>product owners</em> and <em>development teams</em> start working together (not necessarily at the same time). </li>    <li>During the work people should be able to see what others do, and help each other to deliver the product. </li>    <li>At the end of the challenge winners in following categories may be selected:      <ul>       <li>best developer; </li>        <li>best team; </li>        <li>best team-mate; </li>        <li>incredible inventor; </li>        <li>etc </li>     </ul>   </li> </ol>  <p>This of course is the basic idea, but it has sooo many variations.</p>  <p>So I propose the first challenge of this kind: <strong>Web applications supporting the challenge itself</strong>.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Thanks for your comment, nice to know about all that.<br /><br />My idea was to start the challenge for a real application so that people can discuss what is happening.<br />The Ruby quiz and similar are pretty isolated (though a reaaallly interesting).<br />TopCoder is probably a good choice here, I was not aware of that at the moment I wrote the article.<br /><br />Thanks again for the suggestions.</div>
+</div>
+<div class='comment'>
+<div class='author'>spyromus</div>
+<div class='content'>
+Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions there, but they do have .Net and Java (and now Objective-C) and they pay real money for your time. So you can combine the pleasure of learning with receiving money for your work.<br /><br />As for the Ruby Challenge, there&#39;s enough groups like that around. Take Ruby Quiz for instance, that is out there what it seems for ages. They pose interesting challenges and discuss the solutions. Also, you can turn to Code Kata which is intended to develop the sense of the problem and practise your ability to think, while giving you a real-world problems to toy with.<br /><br />As I said, there&#39;s plenty, and there&#39;s totally no need to drive anything in existence to what you think the ideal. If you can&#39;t find what you need, imagine it as your next assignment &#8211; to create a web site like what you just described &#8211; and go implement it.<br /><br />Satish doesn&#39;t have time to work on the Ruby Challenge as he is riding a cool new wave of Clojure now, and you are concerned about his old favorite far more than he is. Take it easy. Projects come and go every day. :)</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caring, selling and appreciating technology era]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care/"/>
+    <updated>2010-07-24T15:32:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have watched the <a href="http://www.youtube.com/watch?v=-QWHkcCP3tA">RailsConf 2010 by Gary Vaynerchuk</a> and I believe that was <b>one of the best presentations I have seen</b> in a very long while.<br />
+<br />
+Gary is just outstanding and I highly recommend you to watch this video it (but be prepared - there is a log of swearing, which I actually like).<br />
+<br />
+There is nothing about Ruby (On Rails), .NET, Java or any other technology.<br />
+This is just a talk about what you <b>should care about</b> as a business owner, this is about <b>appreciation of the digital era</b> we are living in. Also it is about <b>caring</b> about people, and <b>cutting bullshit</b>.<br />
+<br />
+Sit, make yourself comfortable and DO WATCH it:<br />
+<object height="385" width="640"><param name="movie" value="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1">
+
+</param>
+<param name="allowFullScreen" value="true">
+
+</param>
+<param name="allowscriptaccess" value="always">
+
+</param>
+<embed src="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
+<br />
+Hope you&#8217;ll enjoy it.</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Razor - ASP.NET MVC View Engine - first impression]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first/"/>
+    <updated>2010-07-05T22:48:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div xmlns="http://www.w3.org/1999/xhtml">
+The new view engine is being released by Microsoft and looking at <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">the announcement</a> I feel a bit confused. Two questions flying in my head:<br />
+<ol>
+<li>Why not take existing one and just help to make it better/sponsor?</li>
+<li>Is it going to be a new productive thing or will it just make the view to be more spaghetti-like?</li>
+</ol>
+Not sure now. Time will show, but there are some things I feel I just must comment on. I&#8217;ll try to look at it as a developer with no any politics and trying to think how it can help me.<br />
+<blockquote>
+Unit Testable: The new view engine implementation will support the ability to unit test views (without requiring a controller or web-server, and can be hosted in any unit test project – no special app-domain required).</blockquote>
+<br />
+For me this one would probably be enough to jump onto that with head. I still have <a href="http://stackoverflow.com/questions/2781027/test-views-in-asp-net-mvc2-ala-rspec" target="_blank">the question</a> on StackOverflow about testing the view hanging around. It <i>looks like</i> now I have the answer.<br />
+<blockquote>
+the start of a code block with Razor using a @ character. Unlike &lt;% %&gt; code nuggets, Razor does not require  you to explicitly close the code-block</blockquote>
+This is a huge typing and &#8220;mistake&#8221; saver. I like it, but still have the concern about the readability and ambiguity of such syntax. I need to give it a try first to tell whether this helps to do the job or screws things up. But the intention is definitely good.<br />
+Next, the code blocks mixed together with HTML:<br />
+<code>  &lt;ul&gt;<br />    @foreach(var p in products) {<br />      &lt;li&gt;@p.Name ($@p.Price)&lt;/li&gt;<br />    }<br />  &lt;/ul&gt;</code><br />
+Currently it looks a bit weird to me. We need to get used to it.<br />
+<br />
+So you can do lots of interesting things using such syntax. Additionally I have to state that the engine has a special tag - <i>text</i>. It is used actually to avoid adding any wrapping tag to markup serving the purpose of grouping things together.<br />
+<blockquote>
+By default content emitted using a @ block is automatically HTML encoded to better protect against XSS attack scenarios.</blockquote>
+That is something that I would expect from any view engine - encode by default. So far so good.<br />
+<blockquote>
+create re-usable HTML helpers using a more declarative approach.</blockquote>
+I like this part <b>a lot (and I mean it)</b>, I won&#8217;t repeat what it is said in the post, but will explain how I can benefit from it.<br />
+Currently I create a whole bunch of HTML helpers (written in .cs file in C#) which look very ugly should you have more than just a couple of them.<br />
+It just becomes messy, hard to change, support and maintain. And the fact that C# generates HTML is very annoying for the same reasons. That should be the view&#8217;s concern.<br />
+Now we have it - just create a file, mark its content as helper and it is available on all the pages. Beauty!<br />
+(<b>NOTE</b>: actually after a bit more thinking we can do <i>similar</i> in Spark or NHaml. The word <i>similar</i> is used intentionally).<br />
+<blockquote>
+One other useful (and extremely powerful) feature we are enabling with Razor is the ability to pass “inline template” parameters to helper methods.  These &#8220;inline templates&#8221; can contain both HTML and code, and can be invoked on-demand by helper methods.</blockquote>
+Previously we, generally, injected C# code into the template. Now we can do the other way around. Absolut power. Only God knows where it can bring us :) <br />
+<h3>
+
+
+
+What I want from it</h3>
+One of the most frustrating things working with views in ASP.NET MVC is passing the values from a controller to a view. So the syntax that would read values from ViewData dictionary would the biggest time saver. Something along this:<br />
+<code>
+@currentTime.ToString("d")
+</code>
+<br />
+which would be equivalent for <br />
+<code>
+((DateTime)ViewData["currentTime"]).ToString("d")
+</code>
+
+So that we do not even need to provide the time of the object in the ViewData.<br />
+<br />
+<h3>
+
+
+Summary</h3>
+The first impression is <b>very positive</b>. Though I have some doubts in the syntax acceptance.<br />
+But I have no doubt that this engine is the way better than WebForms. Can&#8217;t yet say it is better than NHaml and Spark (and would not be fair to say that as they solve a bit different problems).<br />
+This time I feel that <b>Microsoft has listened</b> to the developers and produced something that really brings value, productivity, less frustration and more fun (and fun is the starting point of being a happy developer who can bring value to a company).<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_3276E6B4.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_3276E6B4.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_2EE4DDA5.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_2EE4DDA5.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_5DE7197C.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_5DE7197C.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_2EB52DE5.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_2EB52DE5.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_22B33DB1.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_22B33DB1.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_78EFC2BD.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_78EFC2BD.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_775B2E84.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_775B2E84.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_5F279E5C.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_5F279E5C.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_1DACEC03.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_1DACEC03.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_43366964.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_43366964.png" /></a></div>
+</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Looking at the screenshots I guess Visual Studio highlights the code separately, so it should be good enough.</div>
+</div>
+<div class='comment'>
+<div class='author'>Carson 63000</div>
+<div class='content'>
+&quot;I like it, but still have the concern about the readability and ambiguity of such syntax&quot;<br /><br />With the Visual Studio support, does it get highlighted in such a fashion that it makes the syntax readable and unambiguous? (I haven&#39;t installed Razor to take a look myself yet)</div>
+</div>
+</div>
+]]></content>
+  </entry>
+  
+</feed>

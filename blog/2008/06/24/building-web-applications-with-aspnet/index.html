@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Building Web Applications with ASP.NET MVC - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="I have just read a nice article: Building Web Apps without WebForms. As always, I like to use blog as a notebook to remember something for the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/2008/06/24/building-web-applications-with-aspnet">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Building Web Applications With ASP.NET MVC</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-24T11:26:00+10:00" pubdate data-updated="true">Jun 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>I have just read a nice article: <a href="http://msdn.microsoft.com/en-us/magazine/cc337884.aspx">Building Web Apps without WebForms</a>. As always, I like to use blog as a notebook to remember something for the future.</p>  <p>It mostly shows how to develop ASP.NET MVC application and has simple and useful samples.</p>  <p>I just want to quote couple of paragraphs from the topic.</p>  <blockquote>   <p>ASP.NET Web Forms made it <strong>very easy to get started</strong>, but, in other ways, trying to apply my design principles to Web apps <strong>was a struggle</strong>. Web Forms are relentlessly <strong>UI focused</strong>; the fundamental atom is the page. You <strong>start by designing your UI and dragging controls</strong>. It&#8217;s very seductive to just start slapping your application logic into the page&#8217;s event handlers (much like Visual Basic&#174; enabled for Windows&#174; apps).</p>    <p>On top of that, <strong>unit testing of pages is often difficult</strong>. You can&#8217;t run a Page object through its lifecycle without spinning up all of ASP.NET. While it is possible to test Web apps by sending HTTP requests to a server or automating a browser, <strong>that kind of testing is fragile</strong> (change one control ID and the test breaks), hard to set up (you have to set up the <strong>server on every developer&#8217;s machine</strong> exactly the same way), and slow to run.</p> </blockquote>  <p>Cannot agree more with all that. And read this:</p>  <blockquote>   <p>I had to figure out how to <strong>reduce the view state size</strong> to get my pages to load faster. Web Forms require that a<strong> physical file</strong> exist at every URL, something that dynamic sites (like a wiki, for example) make difficult. And successfully writing a custom WebControl is a remarkably complex process that requires a comprehensive understanding of both page lifecycle and the Visual Studio&#174; designer.</p> </blockquote>  <p>This ViewState&#8230; Have a look at <a href="http://dnagir.blogspot.com/2007/06/undestanding-aspnets-viewstate.html">this article</a> just to understand how the ViewState works. While many of us (WebForm devs) have already got it, but it&#8217;s just ridiculous. On the other hand there&#8217;s still a big disadvantage of using ASP.NET MVC instead of WebForms. <a href="http://dnagir.blogspot.com/2007/10/monorail-second-look.html">There&#8217;re no</a> large UI controls set available for it.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>ftorres</div>
+<div class='content'>
+For functional web testing of asp.net web form app or MVC app in C# or VB.NET check out http://www.InCisif.net.<BR/><BR/>InCisif.net does support ASP.NET&#8217;s ID and is integrated with Visual Studio.<BR/><BR/>http://www.incisif.net/blog/entries/2008-02-08%20Web_Testing_and_ASP.NET_ID.htm</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-24T11:26:00+10:00" pubdate data-updated="true">Jun 24<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>Development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dnagir.github.com/dnagir/blog/2008/06/24/building-web-applications-with-aspnet/" data-via="" data-counturl="http://dnagir.github.com/dnagir/blog/2008/06/24/building-web-applications-with-aspnet/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/06/20/css-cross-browser-compatibility-tips/" title="Previous Post: CSS Cross Browser compatibility tips">&laquo; CSS Cross Browser compatibility tips</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/06/26/ado-net-entity-framework-vote-of-no/" title="next Post: ADO .NET Entity Framework Vote of No Confidence">ADO .NET Entity Framework Vote of No Confidence &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

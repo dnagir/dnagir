@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: security | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/security/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Securities and Exchange Commission – comment on comment]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission/"/>
+    <updated>2010-10-19T10:30:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>I have been going through the <a href="http://www.sec.gov/comments/s7-08-10/s70810-89.pdf">comments submitted</a> to the US Securities and Exchange Commission.</p>  <p>I feel like I have to add my 2 cents on it. My first <em>impression </em>is that the analysis was not performed in full and the authors are being very affiliated with a company (which seems to be Microsoft).</p>  <p>One and most important issue with this document is that authors do not seem to fully understand the dynamic languages and they have not even taken into account (possibly) the most suited language for the task – <a href="http://www.ruby-lang.org/">Ruby</a>. Of course I may be wrong.</p>  <p>I have to say that I have nothing against authors or anything like that.</p>  <p>My point is that <em>I believe</em> that the analysis could have been performed more deeply with close interaction with professionals of the particular languages.</p>  <p>So now, I would like to comment on the submission:</p>  <blockquote>   <p>Safe execution of code written by one party on a machine owned by a different party was not a strong concern in the design of Python. It was a strong concern in the design of other systems, including Java and the .Net framework</p> </blockquote>  <p>This is neither sufficient nor necessary to achieve the security. The security is the effort of the developers, IT administrators and the people working with the system. Even when using an interpreted language it can be executed inside a virtual machine (be it JVM, .NET, SmallTalk etc) providing that sandbox mentioned above. Most common examples are – Jython, IronPython, JRuby, IronRuby etc. This cannot be served as a decision point.</p>  <blockquote>   <p>A domain-specific language would support writing waterfall programs that are shorter and easier to read, and should help ensure consistency between the program and the narrative description.</p> </blockquote>  <p>This is exactly what Ruby, Python and other dynamic languages are good at. And this is exactly what C#, Java and other static typed languages are bad at. Not sure why having it as a crucial requirements the wrong tool for the job is advocated.</p>  <blockquote>   <p><strong>Efficiency</strong>. … Java, C#, and F# are designed to be executed efficiently, Python and Perl implementations are significantly less efficient.</p> </blockquote>  <p>This is true in many cases. But having the requirements in mind, the language inefficiency can be compensated with additional hardware. Its cost is significantly less than the cost of development time using strongly/statically typed languages.    <br />If additional performance needed – then the just-in-time compiler can be used instead of interpretation (this includes Rubinius, IronRuby, JRuby, MacRuby etc)</p>  <blockquote>   <p><strong>Typing</strong>. Statically typed languages are generally considered to produce more reliable and easier to maintain code, while dynamically typed languages are generally considered to produce more flexible code and to be better suited for prototyping. Java, C#, F# are statically typed; Python and Perl are dynamically typed.</p> </blockquote>  <p>This can phrase exactly the other way around and is neither sufficient nor necessary to achieve supportability.</p>  <p>The wording is rather weird here:&#160; “<em>…languages are .. considered to produce more reliable and easier to maintain code</em>”. The languages do NOT produce code. It is a developer who does it.</p>  <blockquote>   <p><strong>Security</strong>. Some programming languages have been designed with security in mind, and some of their implementations include “sandboxes” that can securely execute untrusted code. Java, C#, and F# are such languages; Python and Perl are not.</p> </blockquote>  <p>As I mentioned above it cannot be the the deciding point because most of the dynamically typed languages can be easily run inside that sandbox using either a JVM, JIT or just a virtual machine; also sandboxing in the sense above does not eliminate the security issues. And we have a <a href="http://weblogs.asp.net/scottgu/archive/2010/09/18/important-asp-net-security-vulnerability.aspx">fairly recent example</a> of that.</p>  <blockquote>   <p><strong>Domain-specific languages</strong>. Any programming language can serve as a basis for a domain-specific language by augmenting it with suitable libraries. Experience seems to show that higher-order programming languages such as F# provide a particularly good basis for domain-specific languages. There are financial domain-specific languages available in F#.</p> </blockquote>  <p>I don’t understand why F# is the only recommendation here. Ruby is one of the greatest languages to produce DSLs. Clojure may also be considered. For that matter Martin Fowler’s Domain Specific Languages book can be used as the starting point.</p>  <p>&#160;</p>  <p>I do advocate Ruby language here and believe it can be used with a great success. Only one huge disadvantage of it is the absence of a formal specification (which in my opinion is the advantage as it allows better evolution of the language).</p>  <p>And of course there are many factors that have to be taken into account that may roll Ruby out, but it must be considered at least.</p>  <p>Additionally inviting professionals from Ruby, Python, Perl communities to suggest on the subject will provide much more information and will allow making an informative decision.</p>  </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[8 Simple Rules For Developing More Secure Code]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2006/12/01/8-simple-rules-for-developing-more/"/>
+    <updated>2006-12-01T20:13:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2006/12/01/8-simple-rules-for-developing-more</id>
+    <content type="html"><![CDATA[<div class='post'>
+Are you sure your code is bulletproof? Let's see...
+
+I've just read interesting MSDN Magazine <a href="http://msdn.microsoft.com/msdnmag/issues/06/11/SecureHabits/">article</a>. If you're a software developer (or a hacker in any meaning of this word) I would recommedn to read it. For software developer I can comment it shortly:
+
+<br />
+<ol>
+<li>Only you are responsible for writing secure code. Not tools, not technologies of future.</li>
+<li>Never Trust Input Data. Assume all input is invalid and accept only good data, but not vice versa.</li>
+<li>Model possible treats that can affect your code, test your code to be bulletproof.</li>
+<li><a href="http://www.securityfocus.com/">Learn </a>new possible attacks. Read books, subscribe to news.</li>
+<li>Test reliability (Fuzzing). Don't simply punt a crash as "just a crash." Every crach is a potential security issue.</li>
+<li>Do not write insecure code. IF you know a function should only accept "good" parameters - validate it. If encryption is required do not use MD5, DES (which are already broken). And so on...</li>
+<li>Use any tools to help find potential problems. But do not rely on them.</li>
+<li>Remember to review your old code becuase of it can become insecure.</li>
+</ol>
+Following these general rules will help to make your code more stable and secure.<br />
+Also make sure you read <a href="http://msdn.microsoft.com/msdnmag/issues/02/09/SecurityTips/">Top Ten Security Tips Every Developer Must Know</a>.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>DAS</div>
+<div class='content'>
+very intersing rules</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Secure yourself]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2006/11/17/secure-yourself/"/>
+    <updated>2006-11-17T09:42:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2006/11/17/secure-yourself</id>
+    <content type="html"><![CDATA[<div class='post'>
+I was analyzing some software products to secure my PC, data and network.
+I've analyzed many of very good and major software products such as:
+<br />
+<ul>
+<li><a href="http://www.kaspersky.com/kis6">Kaspersky Internet Security</a></li>
+<li><a href="http://www.symantec.com/home_homeoffice/products/overview.jsp?pcid=is&amp;pvid=nis2007">Norton Internet Security</a></li>
+<li><a href="http://www.zonelabs.com/store/content/catalog/products/sku_list.jsp?dc=12bms&amp;ctry=US&amp;lang=en&amp;lid=ho_zass">ZoneAlarm Internet Security Suite</a></li>
+<li><a href="http://us.mcafee.com/root/package.asp?pkgid=272&amp;25644">McAfee Internet Security Suite</a></li>
+</ul>
+All of them has their own pros and cons, but the things I most dislike in all of them are:
+<br />
+<ul>
+<li>Require lots of system resources.</li>
+<li>Slows down a lot PC.
+</li>
+<li>Not comfortable configuration.</li>
+<li>Not a good compromise between advanced options and non-technical user.</li>
+</ul>
+I tried to find all-in-one solutuion and all of them have very, very similar features.
+Sometimes my mind gets a thought "<span style="font-style: italic;">who stoles whose</span>" or "<span style="font-style: italic;">what a great deal between companies</span>".
+
+<span style="color: #993300;"><span style="font-size: 85%;">I just want to notice that it I was looking for a good <span style="font-style: italic; font-weight: bold;">Desktop </span>solution for me, but not a Server's one. For the last one I believe that </span><a href="http://www.kerio.com/kwf_home.html"><span style="font-size: 85%;">Kerio</span></a><span style="font-size: 85%;"> is one of the best (if not the best).</span></span>
+
+So, I decided also having a look at some stand alone solutions.
+After some test I decided to have following software installed instead of all-in-one solution:
+
+<br />
+<ul>
+<li><a href="http://www.agnitum.com/products/outpost/index.php">Agnitum Outpost Firewall</a></li>
+<li><a href="http://www.eset.com/products/index.php">NOD32 Antivirus</a></li>
+</ul>
+These two packets work much faster on my PC (AthlonXP 2800 Barton, 512 MB RAM) than all-in-one packets.
+Also they provide more configuration abilities that allow me to have most reasonable for me settings.
+Also there's very good security value within these two programs see:
+<br />
+<ul>
+<li><a href="http://www.agnitum.com/r/outpost/leaktests/">Outpost vs Leak test</a></li>
+<li><a href="http://www.eset.com/products/compare.php">NOD32 Comparison</a> </li>
+</ul>
+The only valuable thing I'm missing is an Anti-Spam system.
+
+So I'm already waiting for free antispam program from agnitum.
+They were writing about it in <a href="http://www.agnitum.com/news/agnitumnewsletter/index.php">Agnitum Directions </a>(31 October, 2006).
+
+Here's what they say:
+<br />
+<blockquote>
+<i>We have been asked by many of our users for a powerful but easy-to-use utility to fight spam. We all know how tedious it is to dig through tons of spam to find the email you actually want to read. So, to help you fight spam, we are developing a new product called Agnitum Spam Terrier. </i></blockquote>
+But anyway I'm not happy enough with client-side antispam because of I get all spam in my mail client and should at least have a look at them for not to lose some important letter (that Anti-Spam system may wrongly determine as spam).</div>
+
+]]></content>
+  </entry>
+  
+</feed>

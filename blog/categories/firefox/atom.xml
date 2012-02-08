@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: firefox | My Octopress Blog]]></title>
+  <link href="http://dnagir.github.com/dnagir/blog/categories/firefox/atom.xml" rel="self"/>
+  <link href="http://dnagir.github.com/dnagir/"/>
+  <updated>2012-02-08T20:53:27+11:00</updated>
+  <id>http://dnagir.github.com/dnagir/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IBM is moving to Firefox]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2010/07/02/ibm-is-moving-to-firefox/"/>
+    <updated>2010-07-02T08:54:00+10:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2010/07/02/ibm-is-moving-to-firefox</id>
+    <content type="html"><![CDATA[<div class='post'>
+The big corporations are usually very conservative and in order to change something inside the huge bureaucracy people have to go through many obstacles and justify their decisions.<br />
+I wonder how ones could justify that <a href="http://www.sutor.com/c/2010/07/ibm-moving-to-firefox-as-default-browser/" target="_blank">IBM is moving to the Firefox web browser</a>. Whatever the justification is I believe it the positive decision for the word-wide-web and normal people using the web.<br />
+Do the corporations still have a passion and not only the financial benefits? Maybe both: complementing each other? That would be an idealistic world.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Internet Explorer in Firefox]]></title>
+    <link href="http://dnagir.github.com/dnagir/blog/2006/11/21/internet-explorer-in-firefox/"/>
+    <updated>2006-11-21T01:06:00+11:00</updated>
+    <id>http://dnagir.github.com/dnagir/blog/2006/11/21/internet-explorer-in-firefox</id>
+    <content type="html"><![CDATA[<div class='post'>
+I often use Firefox beside my IE (currently version 6 and 7) during my development.
+Very often I need to test some page in both IE and Firefox. So I need to keep both browsers open together. But after I found very nice add-on for Firefox this is not the case anymore.
+<a href="https://addons.mozilla.org/firefox/1419/">Here</a> it is.
+This allows to switch browser at runtime when Firefox is open.
+Woulld be good to have something like for IE too.
+Or maybe it already exists?</div>
+
+]]></content>
+  </entry>
+  
+</feed>

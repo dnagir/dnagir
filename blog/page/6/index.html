@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="I have introduced the NHAML into a new project. Just can’t silently ignore it. This is great thing. Really great. It does save time and helps to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/page/6">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/08/nhaml-impressions/">NHAML – Impressions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-08T10:34:00+10:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I have introduced the <a href="http://code.google.com/p/nhaml/" target="_blank">NHAML</a> into a new project. Just can’t silently ignore it. This is great thing. Really great. It does save time and helps to concentrate on the presentation of the view in ASP.NET MVC. I just love. Additionally it has great coverage of unit tests and code looks really good. So I believe in its quality.<br />
+<br />
+This is the quote:<br />
+<blockquote>
+<i>&#8220;Haml is a markup language that‘s used to cleanly and simply describe the XHTML of any web document, without the use of inline code. Haml functions as a replacement for inline page templating systems such as PHP, ERB, and ASP. However, Haml avoids the need for explicitly coding XHTML into the template, because it is actually an abstract description of the XHTML, with some code to generate dynamic content.&#8221;</i><br />
+In other words, NHaml is an external DSL for XHTML. It’s primary qualities are it’s simplicity, terseness, performance and that it outputs nicely formatted XHTML. Additionally, the NHaml view engine provides support for Rails style layouts and partials and ships with an ASP.NET MVC view engine. </blockquote>
+<br />
+Why do you want to use NHAML:<br />
+<ul>
+<li>Want to write less code. </li>
+<li>Do not want to repeat the HTML closing tags. </li>
+<li>Want to generate valid XHTML easier. </li>
+<li>Tired of chaging type of the model in ASPX.</li>
+<li>Tired of writing      <br />
+<pre class="csharpcode"><span class="asp">&lt;%</span>= Server.HtmlEncode(Model.Name) <span class="asp">%&gt;</span></pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style><style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+  </li>
+<li>Want to keep it simple. </li>
+<li>Want mark-up to drive the rules and not code. </li>
+</ul>
+Why you don’t:<br />
+<ul>
+<li>Want to have intelly-sence in the view. </li>
+<li>Want to use Visual Studio MVC integrated features: 
+    <br />
+<ul>
+<li>Go to Controller (from view) </li>
+<li>Go to View (from controller action) </li>
+<li>Add view (from controller action) </li>
+</ul>
+</li>
+<li>Don’t want to bother with new syntax (even when it takes minutes to learn) </li>
+</ul>
+I thought about Spark view engine. It promotes that the presentation drives the rules but not code. But still NHAML suits me&nbsp; much better and it drives the presentation much better.<br />
+You’ll find enough on the Internet on the NHAML. Don’t forget to view the <a href="http://code.google.com/p/nhaml/wiki/NHamlLanguageReference" target="_blank">reference</a> as there are some changes to the syntax that might not be reflected in topics on the net.<br />
+Also don’t forget to say thanks to guys working on it by <a href="http://code.google.com/p/nhaml/" target="_blank">donating</a> (see the button at the bottom) them.<br />
+I plan to post couple of tips on it later.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/01/how-guy-was-promoting-web-site/">How a Guy Was Promoting a Web Site</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-01T17:11:00+10:00" pubdate data-updated="true">Jul 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I got a friendly email from a guy (I don’t know him) who was trying to promote his web site. It looked pretty new and was about sharing the developer resources.<br />
+He asked me to contribute. There are plenty of similar sites.<br />
+Next day I saw the guys is willing to chat with me in Gmail.<br />
+I wanted to know where he found me from and then see if i can help him. Yes I am often concerned where they get the email from. In fact I had number of similar situation and everybody was happy at the end of the day (they got their promotions in one or the other way, I just got “thanks” or something more material).<br />
+<br />
+Here’s our short discussion. How do you like it?<br />
+At the end of it I felt like I owe him something. Ridiculous. Don’t you think so?   <br />The part I like is that guys is talking how he liked my articles nut was not able to clarify that. Should I tell here what website it was about?<br />
+<span style="font-family: Courier New;"><b><span style="color: red;">vrrave</span></b>: hi      <br /> Sent at 16:40 on Wednesday      <br /><b><span style="color: teal;">me</span></b>: Hi      <br /><b><span style="color: red;">vrrave</span></b>: how is life over there?      <br />where ur blog man      <br /> Sent at 16:42 on Wednesday      <br /><b><span style="color: teal;">me</span></b>: pretty good, beeing busy these days.      <br />yourself?      <br /><b><span style="color: red;">vrrave</span></b>: me to      <br />but still i&#8217;m expecting at least a article once a week      <br /> Sent at 16:44 on Wednesday      <br /><b><span style="color: teal;">me</span></b>: Just wondering how did you find me?      <br /><b><span style="color: red;">vrrave</span></b>: y?      <br />you dont like to keep contact with me?      <br />Please tell      <br />if you are not willing&#8230;      <br /><span style="color: teal;">me</span>: No, I&#8217;m just interesting how you have found me. You sent me email with invitation to your site. So you probably get it from somewhere?      <br /><b><span style="color: red;">vrrave</span></b>: Yes      <br />man      <br />i like ur work styles and ur articles      <br />from the aspallaince      <br />that y i try contact u      <br /> Sent at 16:49 on Wednesday      <br /><b><span style="color: teal;">me</span></b>: I don&#8217;t remember any articles ont the aspalliance. Can you remind me?      <br /><b><span style="color: red;">vrrave</span></b>: or codeproject?      <br /> Sent at 16:51 on Wednesday      <br /><span style="color: teal;">me</span>: nope      <br /><b><span style="color: red;">vrrave</span></b>: ok sorry man      <br />i will delete ur account      <br />sorry for distrubinf u      <br /> Sent at 16:53 on Wednesday      <br /><span style="color: teal;">me</span>: So where did you get my email from?      <br /><b><span style="color: red;">vrrave</span></b>: i think some of ur blog or ur articles      <br />OK</span><br />
+<span style="font-family: Courier New;"><b><span style="color: teal;">me</span></b>: Do you remember which one?      <br /><b><span style="color: red;">vrrave</span></b>: no      <br />do one thign      <br />search in google      <br />u will get      <br />bye      <br /><b><i>(he went offline immidiately)</i></b>      <br /> Sent at 16:56 on Wednesday      <br /><b><span style="color: teal;">me</span></b>: I havn&#8217;t got what you wanted to talk about to me.      <br />bye.</span></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Viktor</div>
+<div class='content'>
+Nice communication )</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/01/simplicity/">Simplicity</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-01T11:44:00+10:00" pubdate data-updated="true">Jul 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I like a lot the post by Rob Conery <a href="http://blog.wekeroad.com/blog/youre-not-your-data-access/" target="_blank">here</a>. Be simpler. Just must quote him:<br />
+<blockquote>
+You’re Not Your Data Access.</blockquote>
+<br />
+Just do what is needed and…<br />
+<blockquote>
+Let. It. Go.</blockquote>
+All this is so true:<br />
+<blockquote>
+Simplicity is beautiful. Simple doesn’t mean hard-coding, it doesn’t mean cutting corners or being sloppy – it means building what you’ve been asked to build, not a rocket to Saturn and most of the time it’s a skateboard to the corner store.<br />
+Not every application needs to be stitched together from Codebetter posts and Twitter rants. Focus on what’s important – the experience, not what’s under the hood. You’ll change that quite a few times no matter what you think</blockquote>
+<br />
+Cannot agree more.   <br />We, developers, are just doing tools for people to help them. That&#8217;s the point. <br />
+I see the tendency that many people change their believes in time. 2 years ago one could say &#8220;You should always retrieve data via abstract Repository&#8221;. Nowadays he/she says: &#8220;It doesn&#8217;t give benefits I expect, so I just explicitly use the querying abilities of my favourite OR/M&#8221;. <br />
+So just stick to want you are confident with&#8230;   <br />And, yes, just <b><u>K</u></b>eep <b>I</b>t <b>S</b>imple <b>S</b>tu… :)</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/30/mvcintegrationtestframework/">MvcIntegrationTestFramework</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T16:02:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Have a look at the interesting topic: <a href="http://blog.codeville.net/2009/06/11/integration-testing-your-aspnet-mvc-application/" target="_blank">Integration Testing Your ASP.NET MVC Application</a>.<br />
+Not sure how mature all the stuff is but it’s definitely the thing I was missing in ASP.NET for a long time.<br />
+We’ll see if I have a chance to try it.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/overcoming-unavailable-raiserror-in-udf/">Overcoming Unavailable RAISERROR in UDF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T17:50:00+10:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If you want to indicate an error from UDF first thing you will try (SQL Server) is:<br />
+<pre class="csharpcode">RAISERROR(<span class="str">'Invalid argument for MyUDF'</span>, 16, 1)</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+BUT, this won&#8217;t work and you will get an error:<br />
+<code>Invalid use of 'RAISEERROR' within a function.</code> 
+
+<br />
+<br />
+This is disappointing (also mention the misspelled RAISE<b>E</b>RROR in the message).<br />
+Searching the can bring alternatives.<br />
+The simplest one is division by zero:<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> 1/0</pre>
+With this people will remember you for a long time (and not from a good side). PLEASE DO NOT DO IT FOR GOD’S SAKE.<br />
+<br />
+I choose the one below. It at least allows me to include the error message:<br />
+<pre class="csharpcode"><span class="kwrd">SET</span> @<span class="kwrd">dummy</span> = (<span class="kwrd">SELECT</span> <span class="kwrd">CAST</span>((<span class="str">'Invalid argument for MyUDF'</span>) <span class="kwrd">AS</span> <span class="kwrd">INT</span>))</pre>
+And will give error message:<br />
+<code>Syntax error converting the varchar value 'Invalid argument for MyUDF' to a column of data type int.</code> 
+
+<br />
+<br />
+Better than division by zero and definitely better than nothing.<br />
+Hope this helps.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/16/automatically-rollback-transaction-on/">Automatically Rollback Transaction on Error in T-SQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-16T09:54:00+10:00" pubdate data-updated="true">Jun 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+During any kind of data migration you don’t want to leave any data changed in the middle of migration when an error occurs.<br />
+By default Microsoft Sql Server continues batch execution if an error occurs. It skips ONLY the statement with the error.<br />
+To make sure it will rollback the transaction use SET <a href="http://msdn.microsoft.com/en-us/library/aa259192%28SQL.80%29.aspx" target="_blank">XACT_ABORT</a> ON before opening a transaction.<br />
+Just some stupid example from the top of my head:<br />
+<pre class="csharpcode"><span class="kwrd">SET</span> XACT_ABORT <span class="kwrd">ON</span>
+
+<span class="kwrd">BEGIN</span> <span class="kwrd">TRAN</span>
+
+  <span class="kwrd">UPDATE</span> PaymentTax
+    <span class="kwrd">SET</span> Amount = p.Amount * 0.1
+  <span class="kwrd">FROM</span>
+    Payment p, PaymentTax t
+  <span class="kwrd">WHERE</span>
+    t.PaymentId = p.Id
+    <span class="kwrd">AND</span> p.PaymentType = 1 <span class="rem">-- CreditCard</span>
+
+  <span class="rem">-- Do more stuff in-between</span>
+
+  <span class="kwrd">UPDATE</span> Payment
+    <span class="kwrd">SET</span> Amount = Amount - Amount*0.1
+  <span class="kwrd">WHERE</span> PaymentType=1 <span class="rem">-- CreditCard</span>
+
+<span class="kwrd">COMMIT</span> <span class="kwrd">TRAN</span></pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style><style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style><style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+setting the SET XACT_ABORT ON will ensure there will be no possibility of changing Payments’ amount without changing tax.<br />
+The XACT_ABORT is available at least since Sql Server 20000 so should be ok if you work with different versions of SqlServer.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/01/2009-aspnetpro-readers-choice-award/">2009 asp.netPRO Readers Choice Award Winners</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-01T09:30:00+10:00" pubdate data-updated="true">Jun 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Interesting <a href="http://www.aspnetpro.com/articles/2009/05/asp200905rca_f/asp200905rca_f.asp" target="_blank">results</a> of this year’s ASP.NET PRO readers’ choice award (making the note for myself, as usually):<br />
+<table border="1" cellpadding="0" cellspacing="0"><tbody>
+<tr>       <td width="20%"><b>Category</b></td>        <td width="30%"><b>Winner</b></td>        <td width="20%"><b>Runner-Up</b></td>        <td width="30%"><b>Honorable Mention</b></td>        <td width="30%"><b>My comment</b></td>     </tr>
+<tr>       <td valign="top"><b>Add-in</b></td>        <td valign="top"><b>Developer Express CodeRush for Visual Studio .NET</b></td>        <td valign="top">JetBrains&#8217; ReSharper</td>        <td valign="top">Madinina Software&#8217;s CodeObject for Visual Studio .NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Charting and Graphics Tool</b></td>        <td valign="top">Developer Express XtraCharts Suite</td>        <td valign="top">Telerik RadChart for ASP.NET AJAX</td>        <td valign="top">Dundas Chart for .NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Chat Application</b></td>        <td valign="top">Xigla Software&#8217;s Absolute Live Support .NET</td>        <td valign="top">CuteSoft Components&#8217; Cute Chat</td>        <td valign="top">Web Furbish&#8217;s JaxterChat ASP.NET Chat Control</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Code Editor</b></td>        <td valign="top">IDM Computer Solutions&#8217; UltraEdit</td>        <td valign="top">Helios Software Solutions&#8217; TextPad</td>        <td valign="top">SlickEdit Tools for Microsoft Visual Studio</td>        <td width="30%">I still like Notepad++</td>     </tr>
+<tr>       <td valign="top"><b>Communications Tool</b></td>        <td valign="top">/n software&#8217;s IP*Works!</td>        <td valign="top">Dart Communications&#8217; PowerTCP for .NET</td>        <td valign="top">Catalyst Development&#8217;s SocketTools .NET Edition</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Community Resource</b></td>        <td valign="top">DevExpress Community Site/Developer Express</td>        <td valign="top">The Code Project</td>        <td valign="top">Microsoft&#8217;s ASP.NET Site</td>        <td width="30%">I think Telerik should be here…</td>     </tr>
+<tr>       <td valign="top"><b>Component Set</b></td>        <td valign="top">Developer Express DXperience            <br />
+ASP.NET</td>        <td valign="top">Telerik RadControls for ASP.NET            <br />
+AJAX</td>        <td valign="top">ComponentOne Studio Enterprise</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Content Management System</b></td>        <td valign="top">Microsoft Office SharePoint Server 2007 - Web Content Management</td>        <td valign="top">DotNetNuke Professional Edition</td>        <td valign="top">Telerik Sitefinity CMS</td>        <td width="30%">Why there’s still no better OSS CMS than DNN?</td>     </tr>
+<tr>       <td valign="top"><b>e-Commerce Package</b></td>        <td valign="top">AbleCommerce Asp.Net Shopping Cart</td>        <td valign="top">AspDotNetStorefront</td>        <td valign="top">Corporate Web Solutions&#8217; .netCART</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>E-mail Control</b></td>        <td valign="top">360 IMPACT&#8217;s ASP.NET Auto Email</td>        <td valign="top">Advanced Intellect&#8217;s aspNetEmail</td>        <td valign="top">/n software&#8217;s IP*Works! S/MIME </td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Forum Application</b></td>        <td valign="top">Telligent Community Server</td>        <td valign="top">BV Software&#8217;s DotNetBB Forums</td>        <td valign="top">Active Modules&#8217; Active Forums</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Grid</b></td>        <td valign="top">Developer Express ASPxGridView</td>        <td valign="top">Telerik RadGrid for ASP.NET AJAX</td>        <td valign="top">FarPoint Spread for ASP.NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Hosting Service</b></td>        <td valign="top">DiscountASP.NET</td>        <td valign="top">Applied Innovations</td>        <td valign="top">MaximumASP</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>IDE</b></td>        <td valign="top">Microsoft Visual Studio</td>        <td valign="top">Delphi Prism</td>        <td valign="top">Sun Microsystems&#8217; Sun Studio 8</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Navigation Control</b></td>        <td valign="top">Developer Express ASPxNavBar</td>        <td valign="top">Telerik RadMenu for ASP.NET AJAX</td>        <td valign="top">ComponentOne Menu for ASP.NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Online Editor</b></td>        <td valign="top">Developer Express ASPxHTML Editor</td>        <td valign="top">Telerik RadEditor for ASP.NET AJAX</td>        <td valign="top">Infragistics NetAdvantage for ASP.NET WebHtmlEditor</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Polling Tool</b></td>        <td valign="top">CodeWidgets.com&#8217;s Online Voting/Survey Web-App</td>        <td valign="top">PeterBlum.com&#8217;s Peter&#8217;s Polling Package</td>        <td valign="top"></td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Printing/Reporting Tool</b></td>        <td valign="top">Developer Express XtraReports Suite</td>        <td valign="top">Telerik Reporting</td>        <td valign="top">GrapeCity-data Dynamics&#8217; ActiveReports for .NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Project Management/Defect Tracking</b></td>        <td valign="top">Axosoft&#8217;s OnTime 2009</td>        <td valign="top">Fog Creek Software&#8217;s FogBugz</td>        <td valign="top">Seapine Software&#8217;s TestTrack Pro</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Scheduling/Calendar Tool</b></td>        <td valign="top">Developer Express ASPxScheduler</td>        <td valign="top">Telerik RadScheduler for ASP.NET AJAX</td>        <td valign="top">ComponentOne WebSchedule/WebCalendar</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Security Tool</b></td>        <td valign="top">PreEmptive Solutions&#8217; Dotfuscator</td>        <td valign="top">/n software&#8217;s IP*Works! SSL</td>        <td valign="top">Novalys&#8217;s Visual Guard for .NET</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Testing/QA Tool</b></td>        <td valign="top">Telerik WebUI Test Studio (powered by ArtOfTest)</td>        <td valign="top">Red Gate Software&#8217;s ANTS Profiler</td>        <td valign="top">AutomatedQA&#8217;s TestComplete</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Training</b></td>        <td valign="top">ASPSmith.com&#8217;s ASP.NET Training</td>        <td valign="top">Telerik Training</td>        <td valign="top">AppDev Training</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Utility</b></td>        <td valign="top">Developer Express ASPxSpellChecker</td>        <td valign="top">Telerik RadSpell for ASP.NET AJAX</td>        <td valign="top">CodeSmith Tools&#8217; CodeSmith</td>        <td width="30%"></td>     </tr>
+<tr>       <td valign="top"><b>Silverlight</b></td>        <td valign="top">Developer Express AgDataGrid Suite</td>        <td valign="top">Telerik RadControls for Silverlight</td>        <td valign="top">ComponentOne Studio for Silverlight</td>        <td width="30%"></td>     </tr>
+</tbody></table>
+<br />
+It is interesting that <i>Infragistics</i> is presented in only one winning category. Definitely DevExpress and Telerik are the most used and competing products.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/27/mygeneration/">MyGeneration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-27T13:38:00+10:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Another useful code generation tool.<br />
+Site: <a href="http://www.mygenerationsoftware.com/" title="http://www.mygenerationsoftware.com">http://www.mygenerationsoftware.com</a><br />
+Licence: Proprietary, free. Does not allow distribution or linking to the product.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/27/net-podcasts/">.NET Podcasts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-27T09:37:00+10:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Just a list of resources that might be useful for a lot of people:<br />
+<ul>
+<li><a href="http://www.dotnetrocks.com/" target="_blank">.NET Rocks</a> - a weekly talk show for anyone interested in programming on the Microsoft .NET platform.</li>
+<li><a href="http://www.hanselminutes.com/" target="_blank">Hanselminutes</a> - a weekly audio talk show with noted web developer and technologist Scott Hanselman and hosted by Carl Franklin. Scott discusses utilities and tools, gives practical how-to advice, and discusses ASP.NET or Windows issues and workarounds.</li>
+<li><a href="http://www.altnetpodcast.com/" target="_blank">Alt.NET podcast</a> – number of podcasts on a lot of topics around .NET (BTW, <a href="http://ozalt.net/" target="_blank">here’s Aussie Alt.NET site</a>).</li>
+<li><a href="http://herdingcode.com/" target="_blank">Herding Code</a> - a weekly podcast with K. Scott Allen, Kevin Dente, Scott Koon, and Jon Galloway.</li>
+<li><a href="http://aspnetpodcast.com/" target="_blank">ASP.Net Podcast</a> - brings a technology focus to the area of podcasts.&nbsp; This podcast is geared towards developers with applications that scale to a large amount of data and users.</li>
+<li><a href="http://deepfriedbytes.com/" target="_blank">Deep Fried Bytes</a> - an audio talk show with a Southern flavor hosted by technologists and developers <a href="http://keithelder.net/blog/">Keith Elder</a> and <a href="http://blog.cloudsocket.com/">Chris Woodruff</a>. The show discusses a wide range of topics including application development, operating systems and technology in general. Anything is fair game if it plugs into the wall or takes a battery.</li>
+<li><a href="http://elegantcode.com/" target="_blank">Elegant Code</a> - a blogging community of passionate software developers, architects, and technologists who share a feed.</li>
+<li><a href="http://polymorphicpodcast.com/" target="_blank">Polymorphic Podcast</a> – podcasts by <a href="http://weblogs.asp.net/craigshoemaker">Craig Shoemaker</a>, a software developer, podcaster, blogger and New-Media Evangelist for <a href="http://infragistics.com/">Infragistics</a>. As host of the Polymorphic Podcast and <a href="http://getpixel8ed.com/">Pixel8</a>, Craig does what he loves most - making contributions to the community and drawing the best out of industry luminaries.</li>
+<li><a href="http://www.sparklingclient.com/" target="_blank">Sparkling Client</a> – The Silverlight podcasts.</li>
+<li><a href="http://www.sharepointpodshow.com/" target="_blank">Sharepoint Pod Show</a> -&nbsp; A Podcast All About SharePoint.</li>
+<li><a href="http://www.dimecasts.net/" target="_blank">DimeCasts.NET</a> – inform and educate in ~10 minutes or less.</li>
+<li><a href="http://www.summerofnhibernate.com/" target="_blank">Summer of NHibernate</a> - one-stop easy access to direct downloads of the screencasts related to NHibernate.</li>
+</ul>
+Hope you’ll find a lot of useful stuff on those sites.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>william</div>
+<div class='content'>
+Hi! Your blog is simply super. you have create a differentiate. Thanks for the sharing this website. it is very useful professional knowledge. Great idea you know about company background.<br />Increasing your web traffic and page views <A HREF="http://www.itsolusenz.com" REL="nofollow"><B>Add</B></A>, add your website in www.itsolusenz.com</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/26/aspnet-40-do-i-need-to-jump-into-it/">ASP.NET 4.0 – Do I Need to Jump Into It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-26T10:44:00+10:00" pubdate data-updated="true">May 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Just quickly going through the <a href="http://www.asp.net/learn/whitepapers/aspnet40/" target="_blank">whitepaper</a> published a while ago. I can see a lot of improvements around ASP.NET 4.0. But the ones below are probably the most important for me:<br />
+<ul>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325467" target="_blank"><img align="right" height="379" src="http://static.asp.net/asp.net/images/whitepapers/aspnet40/whats-new-Fig1b.png" style="display: inline; margin-left: 0px; margin-right: 0px;" width="539" />AJAX Functionality</a>       <br />
+<ul>
+<li>Client Template Rendering – out of the box client-side templating engine. It seems to be very tightly integrated with ASP.NET infrastructure. DataView control looks very good. </li>
+<li>Script Manager now allows to use any JS library and not only ASP.NET AJAX. </li>
+<li>Very large client-side infrastructure support and integration with .NET (see pic) </li>
+</ul>
+</li>
+<li>WebForms      <br />
+<ul>
+<li>Enabling View State for Individual Controls – nice addition. </li>
+<li>Routing (it really came from ASP.NET MVC available in .NET 3.5) – it’s said that it is easier to use it. </li>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325481" target="_blank"><b>Setting Client IDs</b></a> – there have been a lot of feedback on it since .NET 1. And it seems Microsoft has finally attended this issue. It allows to control the IDs on the generated HTML. It my opinion this is one of the <b>most significant</b> improvements in WebForms. </li>
+<li>FormView Control now can render content with not table at all which is great thing (finally!). </li>
+<li>ListView has better control over the HTML. </li>
+</ul>
+</li>
+<li>Data      <br />
+<ul>
+<li>Support for inheritance in Data Model for both EF and Linq2Sql. </li>
+<li>EF supports many-to-many relationships. </li>
+</ul>
+</li>
+<li>VS Web Designer Improvements      <br />
+<ul>
+<li>Improved CSS compatibility – better CSS 2.1 compliance (however I’m not sure how better it is). </li>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325501" target="_blank">Web.config transformation</a> – allows to modify the .config file before deployment. Very useful feature I wanted it so many times before. </li>
+</ul>
+</li>
+</ul>
+There are a whole bunch of other useful thins, but for me that’s it.<br />
+Honestly saying I do not see too cardinal changes, I would say that a lot of outstanding issues have been addresses (especially control over generated HTML).&nbsp; I do not see big innovations here. So wouldn’t jump into ASP.NET 4.0 just now. And, who knows, maybe I’ll just totally skip and will pick ASP.NET 5.<br />
+Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous changes made in .NET 4.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/7/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/5/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

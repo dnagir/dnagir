@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Benefits of using ReSharper - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Please do not laugh at me now after reading the next sentence. I am evaluating the ReSharper now.&nbsp; I should do it years ago as I have always &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/2009/09/04/benefits-of-using-resharper">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Benefits of Using ReSharper</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-04T12:43:00+10:00" pubdate data-updated="true">Sep 4<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Please do not laugh at me now after reading the next sentence. I am <i><b>evaluating</b></i> the <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a> now.&nbsp; I should do it years ago as I have always been aware of it, but just didn’t get my hands on to it. I tried <a href="http://www.devexpress.com/Products/Visual_Studio_Add-in/Coding_Assistance/" target="_blank">CodeRush and Refactor!</a> from DevExpress too. I must admin these tools do not read your mind, but are doing a great job FOR you.<br />
+What I liked in DevExpress CodeRush+Refactor! is its fun visualisations and code complexity shown. Refactorings are great as well.<br />
+But, ReSharper aims to help you with coding more than just showing some information about it (though it does it too).<br />
+Additionally, CodeRush has great support for expandable shortcuts, lets calls it consistently – Live Templates. There are thousands of them in CodeRush. But honestly saying I dont use it as much. Visual Studio templates in 99.99% of cases do the job for me. I have to mention that ReSharper does support its own live templates and tries to make it smart (at least by providing sensible defaults).<br />
+While I haven’t had intention to compare Refactor! vs ReSharper, I would say “<i>DevExpress’ product adds fun to coding, while ReSharper adds quality to coding</i>”. Many can disagree and have the right for that.<br />
+So here is the small list the ReSharper benefits me with:<br />
+<ol>
+<li>Run your unit-test from IDE (Not only MsTest but other common ones too). </li>
+<li>Clean-up the code in the whole file using different strategies. The code looks much better after that. </li>
+<li>Automatically include file header (I have to put copyright notice, so it saves my time). </li>
+<li>It easily removes redundant using statements. </li>
+<li>It automatically adds using statements for extension methods or anything that is not yet available. This one I just love. Here is the scenario:      <br />
+<ol>
+<li>You have an IEnumerable&lt;Something&gt; list; in a new file. </li>
+<li>You type list.Where(); </li>
+<li>ReSharper suggests: “Use method System.Linq.IEnumerable&lt;Something&gt;.Where”. </li>
+<li>You hit enter and it’s done. </li>
+<li>It suggest to rename file to match the class name. </li>
+</ol>
+</li>
+<li>It warns (I changed it to ‘suggest’) to move class to the namespace according to the location on the file system. </li>
+<li>It automatically highlights possible NullReferenceExceptions. </li>
+<li>It validates the names of classes, methods, properties etc thus enforcing the consistency and guidelines. Not only it validates, but with one hit of Enter it renames it accordingly. </li>
+<li>It warns about unused parameters. It saves my time so I don’t have to debug for hours to spot the parameter is never used and the actual value is hardcoded instead. </li>
+<li>It selects current file in the solution explorer (don’t know why VS still doesn’t do it). </li>
+<li>Live templates are very smart. </li>
+<li>Easily reorder members using Ctrl-Alt-Shift and arrows. </li>
+<li>It shows NotImplementedExceptions in case you forgot something and have no test for it </li>
+<li>Shows great list of notes, todos, bug-notes etc extracted from your code and organised in a single window. </li>
+<li>And lots of other things I forgot to mention… </li>
+</ol>
+I also started to use a new word together with <i><b>refactoring</b></i>… and it is… <i><b>resharping</b></i>.<br />
+Additionally I have to mention that while evaluating ReSharper I migrated large project from .NET 1.1 and Borland Developer Studio 2006 to .NET 3.5 and Visual Studio 2008 (including all of its related assemblies). ReSharper definitely saved me at least 20-40% of time during this not the most pleasant process.<br />
+The biggest disadvantages I can see using ReSharper for now is that it slows down the IDE, increases memory consumption, especially on a large solution. But I can pay price easily for all the benefits.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Ok. I got a <a href="http://www.devexpress.com/Support/Center/p/Q230483.aspx" rel="nofollow">reply from the DevExpress</a> about the licensing. Posting here to remove all the possible speculations.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+DAS,<br /><br />You do not install a new product. You possibly install a new version of the product. But I doubt even that because I don&#39;t believe DevExpress releases a new version each month.<br /><br />Anyway, You are right this went off-topic. <br /><br />It would be interesting to see Refactor! Pro features you find the most useful on a daily basis.</div>
+</div>
+<div class='comment'>
+<div class='author'>DAS</div>
+<div class='content'>
+I don&#39;t see the point  to continue the discussion about the licensing, because it&#39;s out of this topic. <br /><br />I read the license agreement and I didn&#39;t find that I break it, because I cannot download  the same SOFTWARE PRODUCT(S), I always uninstall it, before installing a NEw one, which has new features and bugs which I have to evaluate&#8230;<br />I will defently buy it if they change the EULA.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I don&#39;t really understant what the disadvantage of ReSharper is in terms of licensing.<br /><br />You can evaluate Refactor! for, technically, unlimited time, but it violates the law and you still have to buy it (see below). The price is higher then ReSharper&#39;s one.<br /><br />On the other hand I can evaluate ReSharper for 30 days. And I recently asked to evaluate it for another month with no problem.<br /><br />So generally you can evaluate ReSharper for the period enough for you to decide.<br /><br />It is basicly same as Refactor! but still for the lower price.<br /><br />Once again, the Refactor! can be used for free ONLY for the <b>evaluation</b> purposes (as the <a href="http://www.devexpress.com/Support/EULAs/RefactorPro.xml" rel="nofollow">license clearly states that</a>).<br /><br />Also please pay attention that Refactor! Pro evaluation license is also valid for only 30 days:<br /><i><br />If the SOFTWARE PRODUCT(S) you have obtained is marked as a &quot;TRIAL&quot; or &quot;EVALUATION,&quot; you may install one copy of the SOFTWARE PRODUCT(S) for testing purposes for a period of 30 calendar days from the date of installation (&quot;Evaluation Period&quot;). Upon expiration of the Evaluation Period, the SOFTWARE PRODUCT(S) must be uninstalled and all copies destroyed.<br /></i></div>
+</div>
+<div class='comment'>
+<div class='author'>DAS</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+DAS,<br /><br />1. I told cannot <b>agree more</b>. Read again.<br />2. Well, you told you don&#39;t have to buy it. I assume in this case you are using it for free. Let&#39;s not play the words :)</div>
+</div>
+<div class='comment'>
+<div class='author'>DAS</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+DAS,<br />Cannot agree more about Refactoring tools and code snippets.<br />But sometimes the codesnippets just get overused and that was the Alexander&#39;s point.<br /><br />As for the CodeRush, you DO have to buy it. It is NOT a free product. It is only free to evaluate. If you evaluate the product for couple of years (when in fact you just use the product) I believe you break their licensing and thus law.<br />Also you must buy Refactor! Pro AND CodeRush.<br /><br />If you come to the pricing - ReSharper is cheaper and provides much more useful functionality (for me at least).</div>
+</div>
+<div class='comment'>
+<div class='author'>DAS</div>
+<div class='content'>
+It&#39;s very useful to use templates.<br /><br />I use them a lot. They simplify my life.<br />e.g Instead of typing &#39;MessageBox.Show(&quot;&quot;);&quot;<br />I can type just &#39;mb + space&#39;<br /><br />Also it saves time to create property, methods and so on&#8230;<br />You simply can wrap your code into try catch block just pressing one key,<br /><br />e.g. I often wrap my code by using template into <br /><br />try<br />{<br />   // code<br />}<br />catch(SomeException ex)<br />{<br />   ExceptionManger.Publish(ex);<br />}<br /><br />with refactoring tool I can spent more time to think how to better implement it, and not spend valuable time of typing :)<br /><br />People don&#39;t use 90% of functionality of sophisticated tools because they don&#39;t know how to use it :) and don&#39;t to spent time to learn.<br /><br />I still use CodeRush. Recently they added lots of new functionality like ReSharper has (cleaning code, highlighting unused variables, etc.)<br /><br />But ReSharper has a very big disadvantage - I have to buy it, CodeRush I have not</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+my 5 cents. <br /><br />I think that using templates is not a good thing. Sipmly saying, if template complexty goes beyond comment heading and class A{} structure, it starts to become code duplication. <br /><br />As for refactoring functionality - yeah, I liked reShaper as well, though have not been using for quite a long time (&#39;cause in Java now)<br /><br /><br />I&#39;ve also found out that the 90% of the time 90% of the functionality of rich developer&#39;s IDE tools are not used. Most of the time I try thinking on HOW do I implement this or that. <br /><br />After you know how - you do it. <br /><br />Surely, it does not cut off some mechanical work, like migration from one .net version to another. No one likes doing dumb work. <br /><br />Though, tools make life easier until you rely on them completely :) <br /><br />I still remember DAS trying to code smth on our lectures within a studio without (CodeRush?). <br /><br />Keyboard script follows: (keys as they are hit)<br />fpi (backspace)(backspace) public void int method(){&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Sergey Litvinov</div>
+<div class='content'>
+Yeah, i agree. Resharper its a good thins. But as you mentioned - it realy slows the IDE. In some cases - work in IDE becames impossible. It&#39;s really main disadvantage of Resharper.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-04T12:43:00+10:00" pubdate data-updated="true">Sep 4<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devtools/'>DevTools</a>, <a class='category' href='/blog/categories/development/'>Development</a>, <a class='category' href='/blog/categories/coderush/'>coderush</a>, <a class='category' href='/blog/categories/resharper/'>resharper</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dnagir.github.com/dnagir/blog/2009/09/04/benefits-of-using-resharper/" data-via="" data-counturl="http://dnagir.github.com/dnagir/blog/2009/09/04/benefits-of-using-resharper/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/09/01/simplify-iteration-in-mvc-views-with/" title="Previous Post: Simplify Iteration in MVC Views with NHAML">&laquo; Simplify Iteration in MVC Views with NHAML</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/09/04/parameterised-partials-in-nhaml-first/" title="next Post: Parameterised partials in NHAML – first thought">Parameterised partials in NHAML – first thought &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

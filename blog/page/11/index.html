@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="There are so many cases when we need to put content from MS Word to a web page or CMS system. Word gives very specific HTML with its own formatting &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/page/11">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/02/strip-ms-word-markup-from-html/">Strip MS Word Markup From HTML</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-02T16:59:00+11:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>There are so many cases when we need to put content from MS Word to a web page or CMS system. Word gives very specific HTML with its own formatting, styles etc and there&#8217;s no way for Rich Text editors (like tyniMCE, FCKEditor&#8230;) to pick it and handle correctly. It never looks good.</p>  <p>But there&#8217;s a little known feature in Word: press <strong><em>Ctrl-Space</em></strong> and you&#8217;ll get very good HTML. This is just a real time saver.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/28/install-subversion-on-windows-2000/">Install Subversion on Windows 2000</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-28T18:08:00+11:00" pubdate data-updated="true">Nov 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>The problem is that Win2000 has no Control Manager command line tool, so SVN does not register itself as a Windows Service (in case you choose this option).</p>  <p>I tried to use sc.exe with no success at all.</p>  <p>sc create svn binPath=&quot;c:\Path To\SVN\Service.exe&quot; with all possible options just shows me the help screen.</p>  <p>Here&#8217;s couple of options I&#8217;ve tried:</p>  <p><code></code>    <pre>sc create svn binPath=&quot;&quot;&quot;C:\Program Files\CollabNet Subversion Server\svnserve.exe&quot;&quot; --service -r c:\svn_repository --listen-port 3690&quot; start=boot DisplayName=&quot;Subversion Server&quot;</pre>
+
+  <pre>sc create svn binPath=&quot;C:\Program Files\CollabNet Subversion Server\svnserve.exe&quot; start=boot</pre>
+
+  <pre>sc create svn binPath=&quot;wrongFile.exe&quot;</pre>
+</p>
+
+<p></p>
+
+<p>All of them give the same help screen with the same info and no service is registered.</p>
+
+<p>&#160;</p>
+
+<p>So I installed <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=3E972E9A-E08A-49A2-9D3A-C0519479E85A&amp;displaylang=en">Win NT 4.0 Resource Kit Support Tools</a>. The bad thing is that it asks me to restart the server. It contains the same sc.exe - nothing new to manage services.msc.</p>
+
+<p>Next attempt was to try instsrv.exe from <a href="http://www.microsoft.com/downloads/details.aspx?familyid=9d467a69-57ff-4ae7-96ee-b18c4790cffd&amp;displaylang=en">Windows Server 2003 Resource Kit</a>. But it says that it really supports XP and 2003 (I expect I would be able to use only one utility from the package, but I can&#8217;t even install it).</p>
+
+<p>I hit <a href="http://www.tacktech.com/display.cfm?ttid=197">Create your own user-defined services Windows NT/2000/XP/2003</a> article but still cannot find where to download the resource kit for Win2000.</p>
+
+<p>Searching again&#8230; As a result I found <a href="http://support.microsoft.com/kb/927229">Windows 2000 Resource Kit Tools for administrative tasks</a>. But it has no instsrv.exe (thou it has delsrv.exe that deletes the service). Hrr!</p>
+
+<p>Ok. Now let&#8217;s try to take the instsvr.exe from Win2003 server. Maybe it will work on Win2000&#8230; I install the Win2003 Resource Kit. Take that file and copy it to Win2000&#8217;s system32 folder. Now let&#8217;s pray:</p>
+
+<p></p>
+
+<p><code>
+    <p>instsrv svn &quot;&quot;&quot;C:\Program Files\CollabNet Subversion Server\svnserve.exe&quot;&quot; --service -r c:\svn_repository --listen-port 3690&quot;</p>
+  </code></p>
+
+<p>This gives me &quot;- The fully qualified path to the .EXE must be given&quot; which is much better.</p>
+
+<p><code></code>
+
+  <p>instsrv svn &quot;C:\Program Files\CollabNet Subversion Server\svnserve.exe&quot;</p>
+</p>
+
+<p>This one worked well and the service was in the list. At last! It doesn&#8217;t allow me to specify the parameters of the service itself, so I&#8217;m going to service Properties to change it. But then it just doesn&#8217;t start (we need to add command line arguments as well).</p>
+
+<p>So I remove the service from the list and start from scratch. I went back to sc.exe and installed SVN server to location where the path has no spaces (weird).</p>
+
+<p>After couple of manipulations and a lot of Googling and fiting with troubles I found the exact command that registers the service and <em>allow to start it</em>. Please note: the service name should be the same as executable (one more weird thing), command line parameters must have space after = symbol. <strong>So here&#8217;s the result:</strong></p>
+
+<p><code>sc create svnserve binpath= &quot;C:\SVN\Server\svnserve.exe --service -r C:\SVN\repository --listen-port 3690&quot; displayname= &quot;Subversion Repository&quot; depend= Tcpip</code></p>
+
+<p>&#160;</p>
+
+<p>Hope it saves your time.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+You are welcome.</div>
+</div>
+<div class='comment'>
+<div class='author'>goosy</div>
+<div class='content'>
+Thanks so much, I was having the same problem, it always appeared the sc help screen and no service was created. I finally found the solution!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Hi Alexander,<BR/><BR/>Huh. It&#8217;s enough for me :) I don&#8217;t really want struggle again with SVN, especially on Unix (which I&#8217;m not really familiar with) :)<BR/><BR/>It was painful enough for me to install it on Win2000.<BR/><BR/>Thanks for the info on Git. It looks good, but it is a distributed version control. I really need centrlised one.<BR/><BR/>Cheers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+After all this stuff, you should try to build Subversion 5 client from official source on Ubuntu Hardy Heron :)<BR/><BR/>This turns to be interesting experience, too. <BR/><BR/>Anyway - SVN rules, and I&#8217;m happy to see people using Subversion instead of MICRO$OFT source providers.<BR/><BR/>Btw - there is one more option for source control - GIT.<BR/>I know not much about it, but it seems to be times faster. And it is used for some opensource projects.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/25/orm-requirements-analysis/">ORM Requirements Analysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-25T22:07:00+11:00" pubdate data-updated="true">Nov 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>The requirements fro Object-Relational Mapping tools may depend from project to project. And <a href="http://madgeek.com/Articles/ORMapping/EN/mapping.htm">this</a> seem to be nice list to analyse before starting a new one.</p>  <p>But it would be very useful if we would have all the info in our hands and in one place. So I&#8217;ve just created a spreadsheet for that.</p>  <p>So please if you are confident (more or less) in one or more <a href="http://weblogs.asp.net/yreynhout/archive/2003/10/07/30798.aspx">O/R mapping tools</a> fell free to fill it in and/or correct, add another frameworks (if you&#8217;ll be able to provide some analysis for that).</p>  <p>So:</p>  <ul>   <li>View Published results <a href="http://spreadsheets.google.com/pub?key=pcUg7gI_E0zYv6aZb_JTzLg">here</a>.</li>    <li>Donate/Edit <a href="http://spreadsheets.google.com/ccc?key=pcUg7gI_E0zYv6aZb_JTzLg">here</a> (publicly available for everyone).</li> </ul>  <p>Community will appreciate your investment even if you&#8217;ll just correct some point there.</p>  <p>Thanks a lot in advance.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/14/fixing-https-support-in-aspnet-mvc/">Fixing HTTPS Support in ASP.NET MVC Routing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T19:46:00+10:00" pubdate data-updated="true">Aug 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I picked the great Steve&#8217;s <a href="http://blog.codeville.net/2008/08/05/adding-httpsssl-support-to-aspnet-mvc-routing/">idea</a> to add support for HTTPS in the routing. But I found couple of bugs.</p>  <p>First thing I&#8217;ve noticed after adding it and using ActionLink - was invalid HTTPS URL :). It looked like <font face="Courier New"><strong><font color="#ff0000">/App/</font>https:/localhost<font color="#ff0000">/App</font>Account/LogIn.aspx</strong></font>.</p>  <p>This is totally unexpected. So I asked debugger for some help and first thing I&#8217;d noticed is that <font face="Courier New">EnableAbsoluteRouting.MakeAbsoluteUrl</font> - doesn&#8217;t track ApplicationPath slash which causes invalid link for site in root or in virtual directory. Fixed it the usual for ASP.NET way (with GetCorrectedAppPath).</p>  <p>&#160;</p>  <p>It fixed the second <font color="#ff0000">RED</font> problem. What about the leading virtual path appended to the link?</p>  <p>The problem is in the HttpsAwareHttpResponseWrapper.ApplyAppPathModifier and it is again related to the slash-thing. It receives appPath from MVC internals which is again slash-broken :). Then trying to apply RegEx to fails. There&#8217;s one more problem with RegEx: the pattern is not escaped, but that another story. So instead of using string.Substring I decided to use normal RegEx in rely on it.</p>  <p>So the final fix for me at this moment is:</p>  <p><strong>HttpsAwareHttpResponseWrapper:</strong></p>  <div>   <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">string</span> ApplyAppPathModifier(<span style="color: #0000ff">string</span> virtualPath) {
+    <span style="color: #0000ff">return</span> Regex.Replace(virtualPath, <span style="color: #006080">&quot;(.*)http(s?):(.*)&quot;</span>, <span style="color: #006080">&quot;http$2:$3&quot;</span>, RegexOptions.IgnoreCase);<span style="color: #008000">// Just remove everything before &quot;httpS:&quot;</span>
+}</pre>
+</div>
+
+<p>&#160;</p>
+
+<p><strong>EnableAbsoluteRouting</strong></p>
+
+<div>
+  <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">private</span> <span style="color: #0000ff">string</span> MakeAbsoluteUrl(RequestContext requestContext, <span style="color: #0000ff">string</span> virtualPath, <span style="color: #0000ff">string</span> scheme) {
+    <span style="color: #0000ff">return</span> <span style="color: #0000ff">string</span>.Format(<span style="color: #006080">&quot;{0}://{1}{2}{3}/{4}&quot;</span>,
+        scheme,
+        requestContext.HttpContext.Request.Url.Host,
+        GetPortSegmentOfUrl(scheme),
+        GetCorrectedAppPath(requestContext.HttpContext.Request.ApplicationPath),
+        virtualPath);
+}
+<span style="color: #0000ff">private</span> <span style="color: #0000ff">string</span> GetCorrectedAppPath(<span style="color: #0000ff">string</span> appPath) {
+    <span style="color: #0000ff">if</span> (appPath.Length &gt; 0 &amp;&amp; appPath[0] != <span style="color: #006080">'/'</span>)
+        <span style="color: #0000ff">return</span> appPath = <span style="color: #006080">'/'</span> + appPath; <span style="color: #008000">// Make sure there's slash</span>
+    <span style="color: #0000ff">return</span> appPath;
+}</pre>
+</div>
+
+<p>&#160;</p>
+
+<p>Hope it will help.</p>
+
+<p>I&#8217;m sure I&#8217;ll find more bugs, but let&#8217;s leave it for tomorrow :)</p>
+
+<p>And many thanks to <a href="http://blog.codeville.ne">Steve Sanderson</a> for the great idea.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+First of all please make sure you&#8217;ll check it works correctly. I wrote it late night and as Steve pointed it probably has some issues.<BR/><BR/>You need to rewrite the HttpsAwareHttpResponseWrapper.ApplyAppPathModifier<BR/>and<BR/>EnableAbsoluteRouting.GetCorrectedAppPath methods.<BR/>They are located in Steve&#8217;s download.</div>
+</div>
+<div class='comment'>
+<div class='author'>Yenkay</div>
+<div class='content'>
+Hi Dmitriy Nagirnyak, <BR/><BR/>Where to include these functions ?<BR/><BR/>nk</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Hi Steve,<BR/><BR/>It was late time when I was digging into that code and I probably could do a mistake.<BR/>But couple of hours ago the site was working with this code.<BR/>(It can&#8217;t be a mystery&#8230;) Especially with *leading* slash.<BR/>I don&#8217;t even remember what for I&#8217;ve done it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Steve Sanderson</div>
+<div class='content'>
+Hey, thanks for letting me know about that. When I looked into it, it seemed that the problems in both cases were that ApplicationPath might not have a trailing slash (and I was assuming it would).<BR/><BR/>So, why is your GetCorrectedAppPath() method putting a *leading* slash on ApplicationPath? When I run the code, it always has a leading slash - the problem is that it might not have a trailing slash.<BR/><BR/>Or does it behave differently for you?</div>
+</div>
+<div class='comment'>
+<div class='author'>Halim</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/14/eco-globaldata-in-ocl/">ECO GlobalData in OCL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T11:17:00+10:00" pubdate data-updated="true">Aug 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>One of the common things in any application is getting access to current user or other session-like information from the domain objects. It can be usually done with static members (the horrible thing!), injecting a service (so there should a place to get the service from, like dependency injection framework).</p>  <p>I&#8217;ve done just using a bit mixed solution with ECO. So there&#8217;s a service registered in the ECO space (lifetime is the same as EcoSpace&#8217; one) and there&#8217;s an OCL operation that accesses the <strong>modeled</strong> global data object.</p>  <p>Just putting a not on how to get access to the <strong>transient</strong> global data object. It doesn&#8217;t use the service but just relies on ECO internals in full.</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> GetGlobalDataInstanceOcl : OclOperationBase {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">        var globalObjectType = GetOclType();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        IOclType[] parameters = <span style="color: #0000ff">new</span> IOclType[] {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">            globalObjectType</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        };</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">        InternalInit(<span style="color: #006080">&quot;getInstance&quot;</span>, parameters, globalObjectType);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        IsTypeOperation = <span style="color: #0000ff">true</span>;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">&#160;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    <span style="color: #0000ff">private</span> IOclType GetOclType() {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        var classifier = Support.Model.GetClassifierByType(<span style="color: #0000ff">typeof</span>(GlobalData));</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">        <span style="color: #0000ff">return</span> Support.GetOclTypeFor(classifier);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">&#160;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Evaluate(IOclOperationParameters oclParameters) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">        var allGlobalDataInstances = Support.ExtentService.AllInstances(<span style="color: #0000ff">typeof</span>(GlobalData));</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        <span style="color: #0000ff">if</span> (allGlobalDataInstances.Count != 1) {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">            <span style="color: #008000">// Something wrong with it... Let's just throw for now...</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">            <span style="color: #0000ff">throw</span> <span style="color: #0000ff">new</span> InvalidOperationException(<span style="color: #0000ff">string</span>.Format(<span style="color: #006080">&quot;Global data object must have one and only one instance, but has {0}. It must be validated before using it in OCL.&quot;</span>, allGlobalDataInstances.Count));</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">        }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">        oclParameters.Result.SetOwnedElement(allGlobalDataInstances[0]);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">}</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">&#160;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">[Test]</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> GlobalDataInstance_IsAccessibleInOcl_AndReturnsSameInstance() {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    var space = InitTestWorkSpace();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    space.GetEcoService&lt;IOclTypeService&gt;().InstallOperation(<span style="color: #0000ff">new</span> GetGlobalDataInstanceOcl());</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">&#160;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    var data = <span style="color: #0000ff">new</span> GlobalData(space);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    var ocl = space.Ocl;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">    Assert.AreSame(data, ocl.Evaluate(<span style="color: #006080">&quot;GlobalData.getInstance()&quot;</span>).AsObject, <span style="color: #006080">&quot;Invalid instance&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">    Assert.AreSame(ocl.Evaluate(<span style="color: #006080">&quot;GlobalData.getInstance()&quot;</span>).AsObject, ocl.Evaluate(<span style="color: #006080">&quot;GlobalData.getInstance()&quot;</span>).AsObject, <span style="color: #006080">&quot;Same object should be returned.&quot;</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none">}</pre>
+  </div>
+</div>
+
+<p>Enjoy!</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/12/website-is-down-video/">The WebSite Is Down - Video</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-12T10:03:00+10:00" pubdate data-updated="true">Aug 12<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Nothing to say. Just watch this.</p>  <p><embed src="http://www.youtube.com/v/XP34FHKleiY&amp;hl=en&amp;fs=1" width="425" height="344" type="application/x-shockwave-flash" allowfullscreen="true" /></p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I don&#8217;t usually even try to explain such things&#8230; Unless they really want :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Peter Morris</div>
+<div class='content'>
+My wife found it funnier than I did :-)</div>
+</div>
+<div class='comment'>
+<div class='author'>Jonas Hogstrom</div>
+<div class='content'>
+thanks for a great laugh (unfortunately, I failed miserably to explain to my wife why I was ROTFL)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/06/linq-greatest-finding-of-day/">Linq - Greatest Finding of the Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-06T19:23:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I just need to sort by custom property (by FirstName, LastName). Before writing something I&#8217;ve check what is the best option to do it in Linq.</p>  <p>And <a href="http://www.singingeels.com/Blogs/Nullable/2008/03/26/Dynamic_LINQ_OrderBy_using_String_Names.aspx">this</a> is just priceless.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/24/css-trcik-of-day/">CSS Trcik of the Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-24T16:57:00+10:00" pubdate data-updated="true">Jul 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Tried to align div in IE7 and FF3. The code is similar to this one:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;container&quot;</span><span style="color: #0000ff">&gt;</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>   <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;child&quot;</span><span style="color: #0000ff">&gt;</span>Some content<span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> <span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
+  </div>
+</div>
+
+<p>&#160;</p>
+
+<p>I wanted to align (let&#8217;s say center) child element in relation to container. So I wrote <font face="Courier New">text-align: center</font> CSS to container. It worked in IE, but not in FF. That was very disappointing for me and I couldn&#8217;t figure out what a problem was. I could align it, but it would require to modify HTML. And I suddenly found <a href="http://geekswithblogs.net/timh/archive/2006/04/19/75606.aspx">this</a>. Many thanks to this guy.</p>
+
+<p>Lesson learned. If you use text-align for layout things and need FF additionally add <font face="Courier New">text-align: -moz-center</font> rule to the CSS.</p>
+
+<p>How I could possibly know about <font face="Courier New">-moz-FTW</font> for the <font face="Courier New">text-align</font>&#8230;</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Yes. But it only applies if you only need to center it. I had to mention that I have to align on left, right or center. I don&#8217;t know at design time how the child should be aligned, so I must write all 3 cases.<BR/>So this guy saved my day.</div>
+</div>
+<div class='comment'>
+<div class='author'>Peter Morris</div>
+<div class='content'>
+I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>  margin-left : auto;<BR/>  margin-right: auto;<BR/>}</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/30/firefox-3-new-in-javascript-18/">Firefox 3: New in JavaScript 1.8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T11:17:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly:</p>  <p>First of all JS 1.9 is enaable only by adding following script tag:</p>  <pre> &lt;script type=&quot;<strong>application/javascript;version=1.8</strong>&quot;&gt; ... your code ... &lt;/script&gt;</pre>
+
+<p>Very interesting thing is <a href="http://en.wikipedia.org/wiki/Lambda_calculus#Lambda_calculus_and_programming_languages">Lambda notation</a> which is a bit similar to C# Lambda Expressions.</p>
+
+<p>Code is worth to show:</p>
+
+<p><a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a> and older: </p>
+
+<pre> function(x) { return x * x; }</pre>
+
+<p>JavaScript 1.8: </p>
+
+<pre> function(x) x * x</pre>
+
+<p>It looks very nice, but I&#8217;m not sure how readable such code will be if this feature will be overused.</p>
+
+<p>&#160;</p>
+
+<p>Also Generator Expressions look interesting. But the code might not always be obvious to read.</p>
+
+<p>Compare the samples:</p>
+
+<p>In <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a>, you might write something like the following in order to create a custom generator for an object: </p>
+
+<pre> function add3(obj) {
+   for ( let i in obj )
+     yield i + 3;
+ }
+ 
+ let it = add3(someObj);
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>In JavaScript 1.8, you can circumvent having to create a custom generator function by using a generator expression instead: </p>
+
+<pre> let it = (i + 3 for (i in someObj));
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>Behind the thing that I have never used let statement, I&#8217;m don&#8217;t believe it is supported in IE (7) which I must target. However, </p>
+
+<p><code>(i + 3 for (i in someObj))</code> looks nice.</p>
+
+<p>&#160;</p>
+
+<p>Array object has two additional methods: reduce and reduceRight. Very useful things that are available (in a similar way) in most JS libraries (ExtJS has ForEach) that iterates through all the elements of an array. Nice to have a build-in support for it, but since it is not a part of ECMA-262 standard I&#8217;d never use it.</p>
+
+<p>&#160;</p>
+
+<p>So, as far as I can see the JavaScript 1.8 implementation is intended to allow developers write less code. But I&#8217;m not going to use it just now and just because of I&#8217;d rather write some additional &quot;old&quot;-manner code lines but have cross-browser support.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/30/firefox-3-for-developers/">Firefox 3 for Developers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T10:31:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>The Firefox 3 seems to be officially release. This is very exciting thing, but not for all of developers who needs to support a new version of the browser.</p>  <p>So I just want to have a quick overview what should be done to prepare web sites for new version of Firefox 3 base on the article: <a href="http://developer.mozilla.org/en/docs/Firefox_3_for_developers" target="_blank">Firefox 3 for developers</a>.</p>  <h4>The most valuable part for me is <a href="http://developer.mozilla.org/en/docs/Updating_web_applications_for_Firefox_3" target="_blank">Updating web applications for Firefox 3</a>.</h4>  <h5>&#160;</h5>  <h5>DOM CHANGES</h5>  <p>I cannot see a lot of changes in the DOM (which is a good thing from the point of support). The one is using <a href="http://developer.mozilla.org/en/docs/DOM:document.importNode" target="_blank">importNode</a> to copy a node from an external document.</p>  <p>&#160;</p>  <h5>HTNL CHANGES</h5>  <p><strong>Character set inheritance</strong></p>  <p>Now, frames are only allowed to inherit the parent&#8217;s character set if both frame and parent were loaded from the same server. So, make sure <em><strong>If you have pages that assume that frames loaded from other servers will inherit the same character set, you should update the frames&#8217; HTML to indicate their character set specifically.</strong></em></p>  <p><strong><em></em></strong></p>  <p><strong>Change to the script element</strong></p>  <p>The <tt>&lt;script&gt;</tt> element in <code>text/html</code> documents now requires a closing <tt>&lt;/script&gt;</tt> in HTML 4 documents. So, you should replace:</p>  <pre>&lt;script ... /&gt;</pre>
+
+<p>by</p>
+
+<pre>&lt;script ...&gt;&lt;/script&gt;</pre>
+
+<p>&#160;</p>
+
+<p>&#160;</p>
+
+<h5>CSS CHANGES</h5>
+
+<h5><strong>Change to font-size based on em, ex units</strong></h5>
+
+<p>font-size values in em and ex units used to be affected by the user&#8217;s minimum font size setting&#8230; font-size values in em and ex units are now based on an &quot;intended font size&quot; that is not affected by the user&#8217;s minimum font size. In other words, font sizes are always calculated according to the designer&#8217;s intention and are adjusted for minimum font size afterwards.</p>
+
+<p><strong>So check your font sizes with em an ex units.</strong></p>
+
+<p>&#160;</p>
+
+<h5>Security Changes</h5>
+
+<p><strong>Chrome Access</strong></p>
+
+<p>Firefox 3 only allows web content to access items in the <tt>chrome://browser/</tt> and <tt>chrome://toolkit/</tt> spaces. These files are intended to be accessible by web content. All other chrome content is now blocked from access by the web.</p>
+
+<p><strong>So check your Chrome applications.</strong></p>
+
+<p>&#160;</p>
+
+<p><strong>File Uploads</strong></p>
+
+<p>Now only the filename itself is available to the web application. Previously full path to the file was available (sometimes) at the server.</p>
+
+<p><strong>Make sure you don&#8217;t rely on the full file path on the client.</strong></p>
+
+<p>&#160;</p>
+
+<h5>Firefox 3 supports <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.8">JavaScript 1.8</a>.</h5>
+
+<p><code>Script</code> object is no longer supported. It should not affect usual web site anyway.</p>
+
+<p>&#160;</p>
+
+<p>So it looks like there&#8217;s not much to update your web site for Firefox 3. I hope it will not be a big deal. I&#8217;ll try to <a href="http://dnagir.blogspot.com/2008/06/firefox-3-new-in-javascript-18.html">have a look</a> at the new stuff in the JavaScrip 1.8 later.</p>
+
+<p>Very exciting thing in that FF 3 has <a href="http://developer.mozilla.org/en/docs/Using_microformats" target="_blank">Microformats support</a>. So Semantic Web will move on faster (hopefully) after it.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/12/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/10/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

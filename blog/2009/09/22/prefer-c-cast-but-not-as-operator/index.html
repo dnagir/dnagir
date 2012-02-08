@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Prefer C# cast but not AS operator - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="I see misuse of these 2 operators on every and each forum approximately at least couple of times a week. People don’t know/realise (or don’t want to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dnagir.github.com/dnagir/blog/2009/09/22/prefer-c-cast-but-not-as-operator">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dnagir.github.com/dnagir" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Prefer C# Cast but Not as Operator</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-22T09:27:00+10:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I see misuse of these 2 operators on every and each forum approximately at least couple of times a week. People don’t know/realise (or don’t want to) that there is significant difference in two code snippets below (I found similar on one of the forums):<br />
+<pre class="csharpcode">var unknown = (<span class="kwrd">object</span>)<span class="kwrd">new</span> List&lt;<span class="kwrd">string</span>&gt;();
+
+<span class="rem">// Snippet 1: as operator</span>
+<span class="kwrd">foreach</span> (var item <span class="kwrd">in</span> unknown <span class="kwrd">as</span> IList&lt;<span class="kwrd">int</span>&gt;) {
+ <span class="rem">// Do something with item</span>
+}
+
+
+<span class="rem">// Snippet 2: cast operator</span>
+<span class="kwrd">foreach</span> (var item <span class="kwrd">in</span> (IList&lt;<span class="kwrd">int</span>&gt;)unknown) {
+ <span class="rem">// Do something with item</span>
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style><br />
+Both snippets will throw an exception. But, there is a big BUT.<br />
+The first snippet will throw <b>NullReferenceException (Object reference not set to an instance of an object)</b>. Go and guess what’s going on. Especially in production when you probably don’t have call stack with code line information, especially in just a bit more complex scenario. <b>No useful information here at all.</b><br />
+The second one will throw too, but it will be <b>InvalidCastException (Unable to cast object of type &#8216;System.Collections.Generic.List`1[System.String]&#8217; to type &#8216;System.Collections.Generic.IList`1[System.Int32]&#8217;)</b>.<br />
+See the difference? The later one tells you what exactly is wrong so you have a good starting point of fixing the issue.<br />
+Generally I would tell to <b>never use AS operator</b> (even if you <i><b>think you know</b></i> the exact type NOW, you cannot be sure tomorrow) unless:<br />
+<ol>
+<li>You explicitly expect different type(s).</li>
+<li>You want to determine type using IS operator (really bad practice, consider simple polymorphism instead).</li>
+<li>You want to improve performance (though it is really, really rarely worth it).</li>
+</ol>
+<br />
+Additionally, <b>in any case</b> you should <b>check the casting result for null</b>. Always check it for null. Do you hear me? <b>ALWAYS!</b></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Rick, you are absolutly right. There is no reason to use casting in the foreach as it will implicitly call GetEnumerator on the object which in turn can give NullReferenceException.<br /><br />The code I showed here is an example I saw on a forum, so just reused it. The issue you pointed out is a valid and major one. But I did not terget it in my post here&#8230; Well&#8230; I at least told to ALWAYS check for null :)&#8230; Should just add to check for null everything.</div>
+</div>
+<div class='comment'>
+<div class='author'>Rick W</div>
+<div class='content'>
+Hmmm, I would say &quot;Never write it either of these ways if there is any chance it will throw an exception&quot;. If you are not in 100% control of what object is being used as the enumerable object, you should use var LoopObj = obj as TypeX and then check Abc for null before you use it in the loop. If you are in control of the object, then it still depends on if it is possible that the object might be possibly be null on it&#39;s own, in which case I will still do it as I advise.<br /><br />Rick W (from Eco forum)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-22T09:27:00+10:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/-net/'>.net</a>, <a class='category' href='/blog/categories/development/'>Development</a>, <a class='category' href='/blog/categories/remember/'>remember</a>, <a class='category' href='/blog/categories/skills/'>skills</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dnagir.github.com/dnagir/blog/2009/09/22/prefer-c-cast-but-not-as-operator/" data-via="" data-counturl="http://dnagir.github.com/dnagir/blog/2009/09/22/prefer-c-cast-but-not-as-operator/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/09/09/webforms-validate-and-validate-with/" title="Previous Post: WebForms Validate and Validate with group">&laquo; WebForms Validate and Validate with group</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/09/23/shame-on-me-ai-with-applicationexceptio/" title="next Post: Shame on me: AI with ApplicationException">Shame on me: AI with ApplicationException &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/22/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/19/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/04/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/19/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
