@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video/"/>
+    <link href="http://w.ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video</id>
+    <id>http://w.ApproachE.com/blog/knockoutjs-validations-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
@@ -53,9 +53,9 @@ This comment has been removed by the author.</div>
   
   <entry>
     <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/"/>
+    <link href="http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
     <updated>2011-11-29T11:51:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19</id>
+    <id>http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
@@ -130,9 +130,9 @@ Yet another reason to avoid C-extensions. When selecting dependencies for a new 
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets/"/>
+    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets</id>
+    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
@@ -239,9 +239,9 @@ Unfortunately vimeo does not support html5 video</div>
   
   <entry>
     <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac/"/>
+    <link href="http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
     <updated>2011-10-04T12:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac</id>
+    <id>http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 Keep your config in a separate dotfiles directory and under source control with the structure like:<br />
@@ -389,9 +389,9 @@ Hope this helps you on your way to becoming a Terminal Guru.
   
   <entry>
     <title type="html"><![CDATA[Templating done easy - JavaScript HAML with Rails]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/08/19/templating-done-easy-javascript-haml/"/>
+    <link href="http://w.ApproachE.com/blog/templating-done-easy-javascript-haml/"/>
     <updated>2011-08-19T19:26:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/08/19/templating-done-easy-javascript-haml</id>
+    <id>http://w.ApproachE.com/blog/templating-done-easy-javascript-haml</id>
     <content type="html"><![CDATA[<div class='post'>
 <h3>
 HAML templating with no worries: native, precompiled HAML. Blazing fast and as easy to use as it can be. </h3>
@@ -438,9 +438,9 @@ It&#8217;s better to <a href='https://gist.github.com/1156409'>see than hear</a>
   
   <entry>
     <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano/"/>
+    <link href="http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
     <updated>2011-05-19T00:58:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano</id>
+    <id>http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.
@@ -543,9 +543,9 @@ Love it!</div>
   
   <entry>
     <title type="html"><![CDATA[Setting up Ubuntu 11.04 server for Rails with RVM]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails/"/>
+    <link href="http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails/"/>
     <updated>2011-05-19T00:09:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails</id>
+    <id>http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I had to set up the server (Ubuntu 11.04) for running couple of Rails apps and thought I could share the notes I&#8217;ve written while doing that. 
@@ -644,9 +644,9 @@ I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step
   
   <entry>
     <title type="html"><![CDATA[Unix - do not reinvent the wheel]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel/"/>
+    <link href="http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel/"/>
     <updated>2011-05-19T00:00:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel</id>
+    <id>http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
@@ -757,9 +757,9 @@ Watchdog daemon
   
   <entry>
     <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf/"/>
+    <link href="http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
     <updated>2011-05-18T23:52:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf</id>
+    <id>http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
@@ -864,9 +864,9 @@ You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope yo
   
   <entry>
     <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with/"/>
+    <link href="http://w.ApproachE.com/blog/unit-test-actions-with/"/>
     <updated>2011-03-18T11:35:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with</id>
+    <id>http://w.ApproachE.com/blog/unit-test-actions-with</id>
     <content type="html"><![CDATA[<div class='post'>
 <p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
@@ -963,9 +963,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Screencasts for this weekend]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <link href="http://w.ApproachE.com/blog/screencasts-for-this-weekend/"/>
     <updated>2010-12-13T09:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <id>http://w.ApproachE.com/blog/screencasts-for-this-weekend</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
 ]]></content>
@@ -973,9 +973,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Stuff learned today - Ruby and Rails]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails/"/>
+    <link href="http://w.ApproachE.com/blog/stuff-learned-today-ruby-and-rails/"/>
     <updated>2010-12-09T09:50:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails</id>
+    <id>http://w.ApproachE.com/blog/stuff-learned-today-ruby-and-rails</id>
     <content type="html"><![CDATA[<div class='post'>
 <ol>
 <li>Ruby ignores underscores in numbers, so you can write 53782156 as&nbsp;53_782_156 which is much nicer.</li>
@@ -992,9 +992,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Rules of Productivity]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity/"/>
+    <link href="http://w.ApproachE.com/blog/rules-of-productivity/"/>
     <updated>2010-11-29T15:29:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/29/rules-of-productivity</id>
+    <id>http://w.ApproachE.com/blog/rules-of-productivity</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>How do we get more work done? It is a question that every manager and every passionate worker faces. Yet, for the most part, teams operate on gut instinct and habit. The results are less than optimal. [<a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">source</a>]</p>  <h2></h2>  <h2>What is productivity?</h2>  <ul>   <li>+ Work accomplished </li>    <li>- Work required to fix defects </li>    <li>- Work required to fix bad design decisions </li> </ul>  <p>Productivity can be <strong><em>negative </em></strong>when there is more harm than good.</p>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsQV26e9I/AAAAAAAAEx4/W_cKdhYLIEc/s1600-h/image%5B9%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsREicCvI/AAAAAAAAEx8/UGFxiCYKKxc/image_thumb%5B5%5D.png?imgmax=800" width="455" height="347" /></a> </p>  <h2>&#160;</h2>  <h2>Experiment 1: Overtime</h2>  <p>Working more than&#160; 40 hours a week leads to decreased productivity.</p>  <ul>   <li>&lt; 40 hours/week – working not “enough”. </li>    <li>&gt; 60 hours/week – small productivity boost. </li> </ul>  <p>The boost only lasts for 3 to 4 weeks and then turns <em><strong>negative</strong></em>. Though can be used for a short-time productivity increase.</p>  <p>So, work 40 hours a week with time for rest and family. Never work 2 months of 60 hrs/week. Overall productivity will be lower, despite the initial boost.</p>  <h2></h2>  <h2>Experiment 2: Work harder in bursts.</h2>  <ul>   <li>Take advantage of the burst during overtime. </li>    <li>Crunch for a week and work only 40 hrs on another week. </li>    <li>Any more efficient work patterns? </li> </ul>  <p>Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.<a href="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsSG9AnZI/AAAAAAAAEyA/Wq0Ax8mVAgc/s1600-h/image%5B5%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsS0R9wwI/AAAAAAAAEyE/3C1FYViAnek/image_thumb%5B3%5D.png?imgmax=800" width="468" height="357" /></a></p>  <p>So:</p>  <ul>   <li>Raise productivity immediately with short spurts &lt; 3 weeks. </li>    <li>Overtime temporarily to meet deadlines. </li>    <li>Plan for the reduction in productivity immediately afterwards. </li>    <li>Consider 4-day work week as a flexitime option. </li> </ul>  <p>&#160;</p>  <h2>Experiment 3:&#160; Performance for knowledge workers declines after 35 hrs, not 40.</h2>  <ul>   <li>Creativity and problem solving decreases faster with fatigue than manual labour. </li>    <li>Grinding&#160; out problems by working longer&#160; on average result in inferior solutions. </li>    <li>Lack of sleep is particularly damaging. </li> </ul>  <p>So:</p>  <ul>   <li>Overtime kills creativity. </li>    <li>If you are stuck on a problem, go home or take a break. </li>    <li>Get 8 hrs of sleep to improve your problem solving abilities. </li> </ul>  <p>&#160;</p>  <h2>Experiment 4: Teams on overtime feel like they are doing more, but actually accomplish less.</h2>  <ul>   <li>Team with overtime feels like they are doing much more than the team without overtime. </li>    <li>Team without overtime produces the better product and accomplishes more. </li> </ul>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsTkqVtLI/AAAAAAAAEyI/HZvCvNe_lNY/s1600-h/image%5B13%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_6a0bIbZ1HXw/TPMsUp4sGLI/AAAAAAAAEyM/IHbhVUR7D-k/image_thumb%5B7%5D.png?imgmax=800" width="476" height="363" /></a> </p>  <p>Humans ignore the systematic costs and physiological biases:</p>  <ul>   <li>Failure to measure (cost of defects, bad design decisions, missed opportunities). </li>    <li>Linear extrapolation (initial productivity boost is seen as same in the future). </li>    <li>Habit (a bad one!). </li>    <li>Self reported excellence (behaviour rewarded independent of the results). </li> </ul>  <p>So:</p>  <ul>   <li>The feeling of increased long-term productivity is FALSE. </li>    <li>Use customer metrics to determine the productivity. </li> </ul>  <p>&#160;</p>  <h2>Experiment 5: Productivity is maximised in small teams of 4-8 people.</h2>  <ul>   <li>Productivity of a small group is 30-50% higher than groups over 10 people. </li>    <li>Too high cost of communication for groups with &gt; 10 people. </li>    <li>Smaller teams don’t have enough breadth to solve a wide array of problems. </li> </ul>  <p>So:</p>  <ul>   <li>Split your teams into cross-functional teams. </li>    <li>Link small teams using &#8216;”scrum-of-scrums”. </li>    <li>Create processes for:      <ul>       <li>growing new teams; </li>        <li>splitting large teams; </li>        <li>transitioning to new projects; </li>     </ul>   </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Seat people on the same team together in a closed team room.</h2>  <ul>   <li><em><strong>100% increase </strong></em>in productivity. </li>    <li>Faster communication and problem-solving. </li>    <li>Fewer external interruptions to the team increase overall productivity. </li> </ul>  <p>So:</p>  <ul>   <li>Seat the team in their own room. With walls. </li>    <li>Give at least 5 sqr/meters per person. </li>    <li>Create side rooms for private conversations, phone calls, meetings. </li>    <li>Minimise non-team distractions. </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Cross-functional teams outperform siloed teams</h2>  <ul>   <li>Produced more effective solutions in the same time. </li>    <li>Much more likely to generate breakthrough solutions. </li>    <li>Short-term loss of negotiation of norms. </li> </ul>  <p>This is why:</p>  <ul>   <li>Fewer external dependencies mean fewer lengthy blockages. </li>    <li>Team has the breadth to see the forest, not just the trees. </li>    <li>Different perspectives mean lower chance of groupthink. </li> </ul>  <p>So:</p>  <ul>   <li>Create the team where every skill needed to solve the problem at hand is in the same room. </li>    <li>Limit the charter: “Do everything = big team”. </li>    <li>Fulltime: focused team member efforts. <em><strong>Multitasking = 15% drop in productivity</strong></em>. </li> </ul>  <p>&#160;</p>  <h2>Experiment 8: Scheduling at 80% of team capacity produces better products.</h2>  <ul>   <li>Scheduling at 100% doesn’t give space to creativity. </li>    <li>No lost time: passionate workers keep thinking. </li>    <li>The 20% goes into new idea generation and process improvements. </li>    <li><em><strong>Producing 20 great features is usually far more profitable than 100 competent features</strong></em>. </li> </ul>  <p>Why?</p>  <ul>   <li>Allows employees to explore many options cheaply. </li>    <li>Gives time to prototype breakthrough solutions that sound crazy on paper. </li>    <li><em><strong>Allows people to pursue passions</strong></em>. </li> </ul>  <p>So:</p>  <ul>   <li>Schedule 20% below possible velocity. </li>    <li>Hold periodic reviews of side projects and award interesting ideas. </li>    <li>Publicise and reward side projects that make their way into production. </li>    <li>Keep a public list of important things if anyone runs out of work (happens rarely). </li> </ul>  <p>&#160;</p>  <h2>Other productivity Techniques</h2>  <h3>Experimentation culture:</h3>  <ul>   <li>Fail faster to find success sooner. </li>    <li>Short iterations. </li>    <li>User metrics such as A/B testing. </li>    <li>State gate portfolio management. </li> </ul>  <h3>Safety nets:</h3>  <ul>   <li>Test-Driven-Development. </li>    <li>Daily/weekly access to real customers. </li> </ul>  <h3>Empower the team</h3>  <ul>   <li>Constraints-based requirements, not mandates from above. </li>    <li>Training. </li> </ul>  <p>See the original <a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">PDF</a>.</p>  </div>
 ]]></content>
@@ -1002,9 +1002,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc/"/>
     <updated>2010-11-28T23:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc</id>
+    <id>http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
 So here we go:<br />
@@ -1114,9 +1114,9 @@ Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET develo
   
   <entry>
     <title type="html"><![CDATA[Render any ASP.NET MVC ActionResult to a string]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to/"/>
+    <link href="http://w.ApproachE.com/blog/render-any-aspnet-mvc-actionresult-to/"/>
     <updated>2010-11-11T17:05:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to</id>
+    <id>http://w.ApproachE.com/blog/render-any-aspnet-mvc-actionresult-to</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I often see questions on the net about how to render a view to a string so it can be used somewhere.</p>  <p>My approach allows doing it without thinking about all the boilerplate code. Additionally not only the ViewResult can be rendered into a string but just about any type of the result. Here is example on how to return a JSON including the result of the view as additional information:</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #008000">// Controller Action:</span>
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> JsonResult DoSomething() {
@@ -1228,9 +1228,9 @@ This is a cleaner solution that others out there.  Does anyone have an example i
   
   <entry>
     <title type="html"><![CDATA[RSpec 2.0 cheat sheet by example]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/05/rspec-hints-and-techniques/"/>
+    <link href="http://w.ApproachE.com/blog/rspec-hints-and-techniques/"/>
     <updated>2010-11-05T20:33:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/05/rspec-hints-and-techniques</id>
+    <id>http://w.ApproachE.com/blog/rspec-hints-and-techniques</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>The Ruby developers know and hear a lot of buzz about RSpec BDD framework. The RSpec specifications code is so easy to read, but for my it is often hard to write. So I intend to produce a small cheat-sheet for RSpec syntax for myself.</p>  <p>Most of it come from the <a href="http://www.pragprog.com/titles/achbd/the-rspec-book">RSpec Book</a> in rather unusual way. As a RSpec itself (unfortunately not runnable for now).</p>  <p>Please feel free to use it in any way you want and correct the mistakes.</p>  <p>So <a href="https://gist.github.com/663876">here we go</a>:</p> <script src="https://gist.github.com/663876.js?file=rspec-syntax-cheat-sheet.rb"></script>  </div>
 ]]></content>
@@ -1238,9 +1238,9 @@ This is a cleaner solution that others out there.  Does anyone have an example i
   
   <entry>
     <title type="html"><![CDATA[Securities and Exchange Commission – comment on comment]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission/"/>
+    <link href="http://w.ApproachE.com/blog/securities-and-exchange-commission/"/>
     <updated>2010-10-19T10:30:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/10/19/securities-and-exchange-commission</id>
+    <id>http://w.ApproachE.com/blog/securities-and-exchange-commission</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I have been going through the <a href="http://www.sec.gov/comments/s7-08-10/s70810-89.pdf">comments submitted</a> to the US Securities and Exchange Commission.</p>  <p>I feel like I have to add my 2 cents on it. My first <em>impression </em>is that the analysis was not performed in full and the authors are being very affiliated with a company (which seems to be Microsoft).</p>  <p>One and most important issue with this document is that authors do not seem to fully understand the dynamic languages and they have not even taken into account (possibly) the most suited language for the task – <a href="http://www.ruby-lang.org/">Ruby</a>. Of course I may be wrong.</p>  <p>I have to say that I have nothing against authors or anything like that.</p>  <p>My point is that <em>I believe</em> that the analysis could have been performed more deeply with close interaction with professionals of the particular languages.</p>  <p>So now, I would like to comment on the submission:</p>  <blockquote>   <p>Safe execution of code written by one party on a machine owned by a different party was not a strong concern in the design of Python. It was a strong concern in the design of other systems, including Java and the .Net framework</p> </blockquote>  <p>This is neither sufficient nor necessary to achieve the security. The security is the effort of the developers, IT administrators and the people working with the system. Even when using an interpreted language it can be executed inside a virtual machine (be it JVM, .NET, SmallTalk etc) providing that sandbox mentioned above. Most common examples are – Jython, IronPython, JRuby, IronRuby etc. This cannot be served as a decision point.</p>  <blockquote>   <p>A domain-specific language would support writing waterfall programs that are shorter and easier to read, and should help ensure consistency between the program and the narrative description.</p> </blockquote>  <p>This is exactly what Ruby, Python and other dynamic languages are good at. And this is exactly what C#, Java and other static typed languages are bad at. Not sure why having it as a crucial requirements the wrong tool for the job is advocated.</p>  <blockquote>   <p><strong>Efficiency</strong>. … Java, C#, and F# are designed to be executed efficiently, Python and Perl implementations are significantly less efficient.</p> </blockquote>  <p>This is true in many cases. But having the requirements in mind, the language inefficiency can be compensated with additional hardware. Its cost is significantly less than the cost of development time using strongly/statically typed languages.    <br />If additional performance needed – then the just-in-time compiler can be used instead of interpretation (this includes Rubinius, IronRuby, JRuby, MacRuby etc)</p>  <blockquote>   <p><strong>Typing</strong>. Statically typed languages are generally considered to produce more reliable and easier to maintain code, while dynamically typed languages are generally considered to produce more flexible code and to be better suited for prototyping. Java, C#, F# are statically typed; Python and Perl are dynamically typed.</p> </blockquote>  <p>This can phrase exactly the other way around and is neither sufficient nor necessary to achieve supportability.</p>  <p>The wording is rather weird here:&#160; “<em>…languages are .. considered to produce more reliable and easier to maintain code</em>”. The languages do NOT produce code. It is a developer who does it.</p>  <blockquote>   <p><strong>Security</strong>. Some programming languages have been designed with security in mind, and some of their implementations include “sandboxes” that can securely execute untrusted code. Java, C#, and F# are such languages; Python and Perl are not.</p> </blockquote>  <p>As I mentioned above it cannot be the the deciding point because most of the dynamically typed languages can be easily run inside that sandbox using either a JVM, JIT or just a virtual machine; also sandboxing in the sense above does not eliminate the security issues. And we have a <a href="http://weblogs.asp.net/scottgu/archive/2010/09/18/important-asp-net-security-vulnerability.aspx">fairly recent example</a> of that.</p>  <blockquote>   <p><strong>Domain-specific languages</strong>. Any programming language can serve as a basis for a domain-specific language by augmenting it with suitable libraries. Experience seems to show that higher-order programming languages such as F# provide a particularly good basis for domain-specific languages. There are financial domain-specific languages available in F#.</p> </blockquote>  <p>I don’t understand why F# is the only recommendation here. Ruby is one of the greatest languages to produce DSLs. Clojure may also be considered. For that matter Martin Fowler’s Domain Specific Languages book can be used as the starting point.</p>  <p>&#160;</p>  <p>I do advocate Ruby language here and believe it can be used with a great success. Only one huge disadvantage of it is the absence of a formal specification (which in my opinion is the advantage as it allows better evolution of the language).</p>  <p>And of course there are many factors that have to be taken into account that may roll Ruby out, but it must be considered at least.</p>  <p>Additionally inviting professionals from Ruby, Python, Perl communities to suggest on the subject will provide much more information and will allow making an informative decision.</p>  </div>
 ]]></content>
@@ -1248,9 +1248,9 @@ This is a cleaner solution that others out there.  Does anyone have an example i
   
   <entry>
     <title type="html"><![CDATA[Ruby Challenge for Newbies reborn]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-challenge-for-newbies-reborn/"/>
     <updated>2010-08-09T18:53:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn</id>
+    <id>http://w.ApproachE.com/blog/ruby-challenge-for-newbies-reborn</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>A question has been raised whether or not <a href="http://ruby-challenge.rubylearning.org/">Ruby Challenge for Newbies</a> should exist or not. The main concern is:</p>  <blockquote>   <p>…today, probably due to lack of time or other commitments, not many experienced Rubyists are willing to set a Ruby challenge for the newbies</p> </blockquote>  <p>I guess many Rubysts DO want to set the challenges, but unfortunately very few people these days have enough time.</p>  <p>Another problem with such challenges is that they are somewhat “detached” from the real life. Though I am not saying they are not interesting or educating. Don’t get me wrong, definitely they ARE. But still, I guess, many people would love to see how Ruby should be used correctly (the Rubyish way) in real-world applications. Especially in web apps.</p>  <p>So if there is the problem trying to find new challenges, then either WE need to set up new challenges and recommend people who can do that or, if that is not possible, the challenge itself might need to be &quot;converted&quot; to something different.</p>  <p>It seems the latter is the better choice at this moment.</p>  <p>Having said that, I believe that a good challenge should have attributes:</p>  <ul>   <li>driven by people; </li>    <li>not dependent on one person (though may be controlled by one or a group); </li>    <li>winner(s) appointed by the people (though influenced by the owner/controller); </li>    <li>collaborative; </li>    <li>“shareable”; </li>    <li>role-playing; </li> </ul>  <p>These are the ideas from the top of my head, but it is possible to play around those…</p>  <p>I personally feel like it brings us to the following idea of a challenge: <strong>Ruby Project Development challenge</strong>.</p>  <p>Somebody suggests an idea to implement (interesting web application, some kind of useful tool, etc). Then the challenge becomes a project that people have to deliver. There are main two roles in this challenge:</p>  <ol>   <li>product owners; </li>    <li>development team. </li> </ol>  <p>The <em>product owners</em> group consists of number of people who do like the idea but may not have time, ability to develop that. This group decides where the <em>development team</em> is heading to, and negotiates the requirements.</p>  <p>The <em>development team</em> is a group of self-organised people who do the actual development. Multiple development teams may exist to develop the same application.</p>  <p>The duration for the challenge may vary from weeks to couple of months. The winner of the challenge is the person who gets most number of votes from either product owners/development team or both (not sure yet). If there are multiple teams – then the winning team may also be chosen.</p>  <p>So the process of the challenge would be something like this:</p>  <ol>   <li>Somebody comes up with a project idea. </li>    <li>People join this project either as <em>product owner</em> or as <em>development team</em>. </li>    <li>People get organised in couple of development teams and a couple of product owners if too many guys have joined. </li>    <li>The countdown begins: <em>product owners</em> and <em>development teams</em> start working together (not necessarily at the same time). </li>    <li>During the work people should be able to see what others do, and help each other to deliver the product. </li>    <li>At the end of the challenge winners in following categories may be selected:      <ul>       <li>best developer; </li>        <li>best team; </li>        <li>best team-mate; </li>        <li>incredible inventor; </li>        <li>etc </li>     </ul>   </li> </ol>  <p>This of course is the basic idea, but it has sooo many variations.</p>  <p>So I propose the first challenge of this kind: <strong>Web applications supporting the challenge itself</strong>.</p>  </div>
 <h2>Comments</h2>
@@ -1271,9 +1271,9 @@ Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions the
   
   <entry>
     <title type="html"><![CDATA[Caring, selling and appreciating technology era]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care/"/>
+    <link href="http://w.ApproachE.com/blog/honest-and-sales-please-care/"/>
     <updated>2010-07-24T15:32:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care</id>
+    <id>http://w.ApproachE.com/blog/honest-and-sales-please-care</id>
     <content type="html"><![CDATA[<div class='post'>
 I have watched the <a href="http://www.youtube.com/watch?v=-QWHkcCP3tA">RailsConf 2010 by Gary Vaynerchuk</a> and I believe that was <b>one of the best presentations I have seen</b> in a very long while.<br />
 <br />
@@ -1300,9 +1300,9 @@ Hope you&#8217;ll enjoy it.</div>
   
   <entry>
     <title type="html"><![CDATA[Razor - ASP.NET MVC View Engine - first impression]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first/"/>
+    <link href="http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first/"/>
     <updated>2010-07-05T22:48:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first</id>
+    <id>http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first</id>
     <content type="html"><![CDATA[<div class='post'>
 <div xmlns="http://www.w3.org/1999/xhtml">
 The new view engine is being released by Microsoft and looking at <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">the announcement</a> I feel a bit confused. Two questions flying in my head:<br />

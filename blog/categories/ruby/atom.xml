@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video/"/>
+    <link href="http://w.ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video</id>
+    <id>http://w.ApproachE.com/blog/knockoutjs-validations-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
@@ -58,9 +58,9 @@ This comment has been removed by the author.</div>
   
   <entry>
     <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/"/>
+    <link href="http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
     <updated>2011-11-29T11:51:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19</id>
+    <id>http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
@@ -140,9 +140,9 @@ Yet another reason to avoid C-extensions. When selecting dependencies for a new 
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets/"/>
+    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets</id>
+    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
@@ -254,9 +254,9 @@ Unfortunately vimeo does not support html5 video</div>
   
   <entry>
     <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf/"/>
+    <link href="http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
     <updated>2011-05-18T23:52:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf</id>
+    <id>http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
@@ -362,9 +362,9 @@ You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope yo
   
   <entry>
     <title type="html"><![CDATA[Screencasts for this weekend]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <link href="http://w.ApproachE.com/blog/screencasts-for-this-weekend/"/>
     <updated>2010-12-13T09:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <id>http://w.ApproachE.com/blog/screencasts-for-this-weekend</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
 

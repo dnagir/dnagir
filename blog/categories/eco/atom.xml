@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: eco | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/eco/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/eco/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating Eco3 to Eco5]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/08/12/migrating-eco3-to-eco5/"/>
+    <link href="http://w.ApproachE.com/blog/migrating-eco3-to-eco5/"/>
     <updated>2009-08-12T16:50:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/08/12/migrating-eco3-to-eco5</id>
+    <id>http://w.ApproachE.com/blog/migrating-eco3-to-eco5</id>
     <content type="html"><![CDATA[<div class='post'>
 Just sharing my experience migrating large project (~170 classes in Business Objects ONLY) from Eco3 (Borland C# Builder and Together Modeler) to <a href="http://capableobjects.com/" target="_blank">Eco5</a>. <br />
 This outlines the problems I faced, I don't want to dig into details and try to reproduce each case as I have had enough pain already. I also don’t care if it is <i>by-design</i>. I would describe the process not <i>the migration</i> but <i>the copy-pasting</i>.<br />
@@ -76,9 +76,9 @@ So guys: “"Stressed? Write a test!”.</div>
   
   <entry>
     <title type="html"><![CDATA[Enterprise Core Objects – the best news for years]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/05/15/enterprise-core-objects-best-news-for/"/>
+    <link href="http://w.ApproachE.com/blog/enterprise-core-objects-best-news-for/"/>
     <updated>2009-05-15T09:22:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/05/15/enterprise-core-objects-best-news-for</id>
+    <id>http://w.ApproachE.com/blog/enterprise-core-objects-best-news-for</id>
     <content type="html"><![CDATA[<div class='post'>
 I use <a href="http://en.wikipedia.org/wiki/CodeGear_ECO" target="_blank">Enterprise Core Objects</a> all the time and I really enjoy it. There’s no other framework in the world like this one (at least I’m not aware of such).<br />
 But it has some issues when it comes to SQL. The worst limitation during long time was that most of power of it is supported in-memory. YOu can run any kind of query, but in memory. If you want to execute it in the databases (SQL)… ECO just supports small subset of in-memory operations.<br />
@@ -103,9 +103,9 @@ I assume the 2nd statement puts ECO far away from NHibernate in querying abiliti
   
   <entry>
     <title type="html"><![CDATA[Enterprise Core Objects on Wiki]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki/"/>
+    <link href="http://w.ApproachE.com/blog/enterprise-core-objects-on-wiki/"/>
     <updated>2007-01-21T23:14:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki</id>
+    <id>http://w.ApproachE.com/blog/enterprise-core-objects-on-wiki</id>
     <content type="html"><![CDATA[<div class='post'>
 It is very pleasant to see ECO on the Wiki.
 Thanks for that Oleg Zhukov (regular on borland MDA newgroups).

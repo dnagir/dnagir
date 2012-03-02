@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ndepend | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/ndepend/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/ndepend/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[NDepend]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/05/12/ndepend/"/>
+    <link href="http://w.ApproachE.com/blog/ndepend/"/>
     <updated>2009-05-12T16:53:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/05/12/ndepend</id>
+    <id>http://w.ApproachE.com/blog/ndepend</id>
     <content type="html"><![CDATA[<div class='post'>
 <a href="http://www.ndepend.com/" target="_blank">NDepend</a> is <br />
 <blockquote>

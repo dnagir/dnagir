@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: expression-web | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/expression-web/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/expression-web/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Web tools market is growing more and more]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/02/05/web-tools-market-is-growing-more-and/"/>
+    <link href="http://w.ApproachE.com/blog/web-tools-market-is-growing-more-and/"/>
     <updated>2007-02-05T17:40:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/02/05/web-tools-market-is-growing-more-and</id>
+    <id>http://w.ApproachE.com/blog/web-tools-market-is-growing-more-and</id>
     <content type="html"><![CDATA[<div class='post'>
 <b>Web</b>. Nobody can imagine now IT and PCs without Internet.
 And developers become much more and more productive thanks to lots of tools for Web development.

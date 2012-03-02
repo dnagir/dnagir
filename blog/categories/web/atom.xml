@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: web | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/web/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Screencasts for this weekend]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <link href="http://w.ApproachE.com/blog/screencasts-for-this-weekend/"/>
     <updated>2010-12-13T09:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <id>http://w.ApproachE.com/blog/screencasts-for-this-weekend</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
 
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc/"/>
     <updated>2010-11-28T23:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc</id>
+    <id>http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
 So here we go:<br />
@@ -143,9 +143,9 @@ Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET develo
   
   <entry>
     <title type="html"><![CDATA[What realy "Web 2.0" is...]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/01/31/what-realy-web-20-is/"/>
+    <link href="http://w.ApproachE.com/blog/what-realy-web-20-is/"/>
     <updated>2007-01-31T18:38:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/01/31/what-realy-web-20-is</id>
+    <id>http://w.ApproachE.com/blog/what-realy-web-20-is</id>
     <content type="html"><![CDATA[<div class='post'>
 Web 2.0 is new generation of web based applications.
 <span id="intellitTxt"><a class="pageTitle" href="" id="#Page7">

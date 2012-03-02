@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vici-mvc | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/vici-mvc/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/vici-mvc/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vici MVC – simple .NET implementation]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/11/02/vici-mvc-simple-net-implemetation/"/>
+    <link href="http://w.ApproachE.com/blog/vici-mvc-simple-net-implemetation/"/>
     <updated>2009-11-02T15:02:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/11/02/vici-mvc-simple-net-implemetation</id>
+    <id>http://w.ApproachE.com/blog/vici-mvc-simple-net-implemetation</id>
     <content type="html"><![CDATA[<div class='post'>
 I have found the <a href="http://viciproject.com/wiki/projects/mvc/home" target="_blank">ViciMVC</a> project and it caught my interest. What I can observe – it is really simple implementation of the MVC pattern for .NET (ASP.NET).<br />
 The key points I should mention about it are:<br />

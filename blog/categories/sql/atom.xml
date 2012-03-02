@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: sql | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/sql/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/sql/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Overcoming unavailable RAISERROR in UDF]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/06/23/overcoming-unavailable-raiserror-in-udf/"/>
+    <link href="http://w.ApproachE.com/blog/overcoming-unavailable-raiserror-in-udf/"/>
     <updated>2009-06-23T17:50:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/06/23/overcoming-unavailable-raiserror-in-udf</id>
+    <id>http://w.ApproachE.com/blog/overcoming-unavailable-raiserror-in-udf</id>
     <content type="html"><![CDATA[<div class='post'>
 If you want to indicate an error from UDF first thing you will try (SQL Server) is:<br />
 <pre class="csharpcode">RAISERROR(<span class="str">'Invalid argument for MyUDF'</span>, 16, 1)</pre>
@@ -75,9 +75,9 @@ Hope this helps.</div>
   
   <entry>
     <title type="html"><![CDATA[Automatically rollback transaction on error in T-SQL]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/06/16/automatically-rollback-transaction-on/"/>
+    <link href="http://w.ApproachE.com/blog/automatically-rollback-transaction-on/"/>
     <updated>2009-06-16T09:54:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/06/16/automatically-rollback-transaction-on</id>
+    <id>http://w.ApproachE.com/blog/automatically-rollback-transaction-on</id>
     <content type="html"><![CDATA[<div class='post'>
 During any kind of data migration you don’t want to leave any data changed in the middle of migration when an error occurs.<br />
 By default Microsoft Sql Server continues batch execution if an error occurs. It skips ONLY the statement with the error.<br />
@@ -188,9 +188,9 @@ The XACT_ABORT is available at least since Sql Server 20000 so should be ok if y
   
   <entry>
     <title type="html"><![CDATA[Enterprise Core Objects – the best news for years]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/05/15/enterprise-core-objects-best-news-for/"/>
+    <link href="http://w.ApproachE.com/blog/enterprise-core-objects-best-news-for/"/>
     <updated>2009-05-15T09:22:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/05/15/enterprise-core-objects-best-news-for</id>
+    <id>http://w.ApproachE.com/blog/enterprise-core-objects-best-news-for</id>
     <content type="html"><![CDATA[<div class='post'>
 I use <a href="http://en.wikipedia.org/wiki/CodeGear_ECO" target="_blank">Enterprise Core Objects</a> all the time and I really enjoy it. There’s no other framework in the world like this one (at least I’m not aware of such).<br />
 But it has some issues when it comes to SQL. The worst limitation during long time was that most of power of it is supported in-memory. YOu can run any kind of query, but in memory. If you want to execute it in the databases (SQL)… ECO just supports small subset of in-memory operations.<br />
@@ -215,9 +215,9 @@ I assume the 2nd statement puts ECO far away from NHibernate in querying abiliti
   
   <entry>
     <title type="html"><![CDATA[What’s around for last months]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/04/09/whats-around-for-last-months/"/>
+    <link href="http://w.ApproachE.com/blog/whats-around-for-last-months/"/>
     <updated>2009-04-09T17:01:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/04/09/whats-around-for-last-months</id>
+    <id>http://w.ApproachE.com/blog/whats-around-for-last-months</id>
     <content type="html"><![CDATA[<div class='post'>
 I haven’t been blogging for a while and even thought about giving it up. Sometimes I just didn't have time.<br />
 But i want to recover a bit and write at least summary of thing I would like to write about.<br />
@@ -248,9 +248,9 @@ Now leaving office and going for holidays!<br />
   
   <entry>
     <title type="html"><![CDATA[Comments in MS Access]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/01/16/comments-in-ms-access/"/>
+    <link href="http://w.ApproachE.com/blog/comments-in-ms-access/"/>
     <updated>2009-01-16T10:43:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/01/16/comments-in-ms-access</id>
+    <id>http://w.ApproachE.com/blog/comments-in-ms-access</id>
     <content type="html"><![CDATA[<div class='post'>
 It turns out that MS Access 2003 just doesn't support comments in the SQL statement. I never new it because of I didn't use Access much. But it is ridiculous.</div>
 

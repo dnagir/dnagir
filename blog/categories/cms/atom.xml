@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: cms | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/cms/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/cms/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Content Management/Publishing System Problems]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/10/24/content-managementpublishing-system/"/>
+    <link href="http://w.ApproachE.com/blog/content-managementpublishing-system/"/>
     <updated>2009-10-24T01:20:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/10/24/content-managementpublishing-system</id>
+    <id>http://w.ApproachE.com/blog/content-managementpublishing-system</id>
     <content type="html"><![CDATA[<div class='post'>
 Reading the <a href="http://www.codinghorror.com/blog/archives/001306.html">Treating user Myopia</a> I remembered one thing I has been thinking about lately: the problems of all Content Management Systems.<br />
 Please note that I will be talking about Web Content Publishing which produces (as an end result) a web page represented with HTML.<br />

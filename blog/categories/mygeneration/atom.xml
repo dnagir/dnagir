@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MyGeneration | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/mygeneration/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/mygeneration/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MyGeneration]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/05/27/mygeneration/"/>
+    <link href="http://w.ApproachE.com/blog/mygeneration/"/>
     <updated>2009-05-27T13:38:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/05/27/mygeneration</id>
+    <id>http://w.ApproachE.com/blog/mygeneration</id>
     <content type="html"><![CDATA[<div class='post'>
 Another useful code generation tool.<br />
 Site: <a href="http://www.mygenerationsoftware.com/" title="http://www.mygenerationsoftware.com">http://www.mygenerationsoftware.com</a><br />

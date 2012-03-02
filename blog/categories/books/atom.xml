@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: books | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/books/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/books/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[What’s around for last months]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/04/09/whats-around-for-last-months/"/>
+    <link href="http://w.ApproachE.com/blog/whats-around-for-last-months/"/>
     <updated>2009-04-09T17:01:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/04/09/whats-around-for-last-months</id>
+    <id>http://w.ApproachE.com/blog/whats-around-for-last-months</id>
     <content type="html"><![CDATA[<div class='post'>
 I haven’t been blogging for a while and even thought about giving it up. Sometimes I just didn't have time.<br />
 But i want to recover a bit and write at least summary of thing I would like to write about.<br />

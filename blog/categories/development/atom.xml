@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Development | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/development/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video/"/>
+    <link href="http://w.ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video</id>
+    <id>http://w.ApproachE.com/blog/knockoutjs-validations-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
@@ -58,9 +58,9 @@ This comment has been removed by the author.</div>
   
   <entry>
     <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19/"/>
+    <link href="http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
     <updated>2011-11-29T11:51:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/29/issues-switching-to-jruby-from-mri-19</id>
+    <id>http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
@@ -140,9 +140,9 @@ Yet another reason to avoid C-extensions. When selecting dependencies for a new 
   
   <entry>
     <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac/"/>
+    <link href="http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
     <updated>2011-10-04T12:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac</id>
+    <id>http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 Keep your config in a separate dotfiles directory and under source control with the structure like:<br />
@@ -291,9 +291,9 @@ Hope this helps you on your way to becoming a Terminal Guru.
   
   <entry>
     <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with/"/>
+    <link href="http://w.ApproachE.com/blog/unit-test-actions-with/"/>
     <updated>2011-03-18T11:35:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with</id>
+    <id>http://w.ApproachE.com/blog/unit-test-actions-with</id>
     <content type="html"><![CDATA[<div class='post'>
 <p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
@@ -395,9 +395,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Stuff learned today - Ruby and Rails]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails/"/>
+    <link href="http://w.ApproachE.com/blog/stuff-learned-today-ruby-and-rails/"/>
     <updated>2010-12-09T09:50:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/09/stuff-learned-today-ruby-and-rails</id>
+    <id>http://w.ApproachE.com/blog/stuff-learned-today-ruby-and-rails</id>
     <content type="html"><![CDATA[<div class='post'>
 <ol>
 <li>Ruby ignores underscores in numbers, so you can write 53782156 as&nbsp;53_782_156 which is much nicer.</li>

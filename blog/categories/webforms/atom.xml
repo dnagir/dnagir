@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: webforms | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/webforms/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/webforms/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc/"/>
     <updated>2010-11-28T23:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc</id>
+    <id>http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
 So here we go:<br />
@@ -132,9 +132,9 @@ Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET develo
   
   <entry>
     <title type="html"><![CDATA[A glance at MonoRail Framework]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/08/08/glance-at-monorails-framework/"/>
+    <link href="http://w.ApproachE.com/blog/glance-at-monorails-framework/"/>
     <updated>2007-08-08T10:05:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/08/08/glance-at-monorails-framework</id>
+    <id>http://w.ApproachE.com/blog/glance-at-monorails-framework</id>
     <content type="html"><![CDATA[<div class='post'>
 I very often read/post at Borland <a href="http://groups.google.com/group/borland.public.delphi.modeldrivenarchitecture.eco/topics">ECO newsgroup</a> and last week I saw a <a href="http://groups.google.com/group/borland.public.delphi.modeldrivenarchitecture.eco/browse_thread/thread/524870ebac8fd1be/8c62abcf2459a746">post</a> from <a href="http://mrpmorris.blogspot.com/">Peter Morris</a> about ECO "extension" for <a href="http://www.castleproject.org/monorail/index.html">MonoRail</a>.
 
@@ -203,9 +203,9 @@ Hi Dmitriy<BR/><BR/>Here are some things that come to mind after reading your po
   
   <entry>
     <title type="html"><![CDATA[Undestanding ASP.NET's ViewState]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/06/29/undestanding-aspnets-viewstate/"/>
+    <link href="http://w.ApproachE.com/blog/undestanding-aspnets-viewstate/"/>
     <updated>2007-06-29T14:25:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/06/29/undestanding-aspnets-viewstate</id>
+    <id>http://w.ApproachE.com/blog/undestanding-aspnets-viewstate</id>
     <content type="html"><![CDATA[<div class='post'>
 I found very interesting <a href="http://weblogs.asp.net/infinitiesloop/archive/2006/08/03/Truly-Understanding-Viewstate.aspx">topic</a> about ViewState.
 

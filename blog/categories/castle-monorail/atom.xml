@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: castle-monorail | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/castle-monorail/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/castle-monorail/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MonoRail - Second Look]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/10/26/monorail-second-look/"/>
+    <link href="http://w.ApproachE.com/blog/monorail-second-look/"/>
     <updated>2007-10-26T12:45:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/10/26/monorail-second-look</id>
+    <id>http://w.ApproachE.com/blog/monorail-second-look</id>
     <content type="html"><![CDATA[<div class='post'>
 I was playing with <a href="http://www.castleproject.org/monorail/index.html">Mono Rail</a> framework after my <a href="http://dnagir.blogspot.com/2007/08/glance-at-monorails-framework.html">first look</a> at it.
 
@@ -57,9 +57,9 @@ Will you or maybe you already are?</div>
   
   <entry>
     <title type="html"><![CDATA[A glance at MonoRail Framework]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/08/08/glance-at-monorails-framework/"/>
+    <link href="http://w.ApproachE.com/blog/glance-at-monorails-framework/"/>
     <updated>2007-08-08T10:05:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/08/08/glance-at-monorails-framework</id>
+    <id>http://w.ApproachE.com/blog/glance-at-monorails-framework</id>
     <content type="html"><![CDATA[<div class='post'>
 I very often read/post at Borland <a href="http://groups.google.com/group/borland.public.delphi.modeldrivenarchitecture.eco/topics">ECO newsgroup</a> and last week I saw a <a href="http://groups.google.com/group/borland.public.delphi.modeldrivenarchitecture.eco/browse_thread/thread/524870ebac8fd1be/8c62abcf2459a746">post</a> from <a href="http://mrpmorris.blogspot.com/">Peter Morris</a> about ECO "extension" for <a href="http://www.castleproject.org/monorail/index.html">MonoRail</a>.
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: js-unit | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/js-unit/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/js-unit/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript Testing Tools]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/12/javascript-testing-tools/"/>
+    <link href="http://w.ApproachE.com/blog/javascript-testing-tools/"/>
     <updated>2008-12-12T10:34:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/12/javascript-testing-tools</id>
+    <id>http://w.ApproachE.com/blog/javascript-testing-tools</id>
     <content type="html"><![CDATA[<div class='post'>
 For now just a list. Maybe later I'll update this:<br />
 <ul>

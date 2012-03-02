@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: waterfall | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/waterfall/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/waterfall/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Developer abuse]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/03/29/developer-abuse/"/>
+    <link href="http://w.ApproachE.com/blog/developer-abuse/"/>
     <updated>2010-03-29T23:19:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/03/29/developer-abuse</id>
+    <id>http://w.ApproachE.com/blog/developer-abuse</id>
     <content type="html"><![CDATA[<div class='post'>
 Have just watched the Developer Abuse video.<br />
 Though it is probably meant to be funny, it made me very sad. Sad from the fact that there are a lot non-professional approaches to such a simple and well know IT area (and yes, it <i><b>IS</b></i> simple, it is not a rocket science). Sad due to the fact that I sometimes am in such situations and some of my friends are.<br />

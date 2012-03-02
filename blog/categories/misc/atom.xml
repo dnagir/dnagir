@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Misc | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/misc/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/misc/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[IT holidays (Official and not)]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/10/02/it-holidays-official-and-not/"/>
+    <link href="http://w.ApproachE.com/blog/it-holidays-official-and-not/"/>
     <updated>2009-10-02T10:57:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/10/02/it-holidays-official-and-not</id>
+    <id>http://w.ApproachE.com/blog/it-holidays-official-and-not</id>
     <content type="html"><![CDATA[<div class='post'>
 It turns out there are a lot IT holidays out there. So we can make celebration pretty often :)<br />
 Here is the list:<br />
@@ -48,9 +48,9 @@ Translated and shortened from <a href="http://subscribe.ru/digest/inet/review/n1
   
   <entry>
     <title type="html"><![CDATA[Prototype Game]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/09/07/prototype-game/"/>
+    <link href="http://w.ApproachE.com/blog/prototype-game/"/>
     <updated>2009-09-07T09:26:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/09/07/prototype-game</id>
+    <id>http://w.ApproachE.com/blog/prototype-game</id>
     <content type="html"><![CDATA[<div class='post'>
 Last weekend I’ve got the <a href="http://www.prototypegame.com/" target="_blank">Prototype Game</a>. I like it a lot and the game play is very enjoying. But all that came did not come such simple. After I installed the game and tried it on me Athlon XP 64 6000+ and GeForce 6500 512 MB system I had probably about 5 FPS in the game. The system still satisfies minimum requirements.<br />
 I though that my systems is already old for the game, so I upgrades CPU and graphic card to x4 Phenom 9650 and Radeon 4850 1GB graphic card. I expected at least <i>some</i> improvement in the game experience, to play the game at least a bit smoother… But the hardware upgrade did not change anything (at least visually I could not mention the difference).<br />
@@ -82,9 +82,9 @@ Thanks for suggestion about HID devices.<br />I liked the sample video of Protot
   
   <entry>
     <title type="html"><![CDATA[Where TortoiseSVN name came from?]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from/"/>
+    <link href="http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from/"/>
     <updated>2008-12-16T14:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from</id>
+    <id>http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from</id>
     <content type="html"><![CDATA[<div class='post'>
 I has just been asked that this question. And I haven't really known the answer. One supposition that made me smile "<i>Is it because of it is very slow?</i>"<a href="http://tortoisesvn.tigris.org/" target="_blank"><img align="right" src="http://upload.wikimedia.org/wikipedia/commons/1/1d/Tortoisesvn_logo_hor468x64.PNG" /></a><br />
 Ok, I suspected the <a href="http://tortoisesvn.net/node/61" target="_blank">answer is</a>...<br />
@@ -101,9 +101,9 @@ Which doesn't make a lot of sense for me. So what's the truth?</div>
   
   <entry>
     <title type="html"><![CDATA[The WebSite is down - Video]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/08/12/website-is-down-video/"/>
+    <link href="http://w.ApproachE.com/blog/website-is-down-video/"/>
     <updated>2008-08-12T10:03:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/08/12/website-is-down-video</id>
+    <id>http://w.ApproachE.com/blog/website-is-down-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>Nothing to say. Just watch this.</p>  <p><embed src="http://www.youtube.com/v/XP34FHKleiY&amp;hl=en&amp;fs=1" width="425" height="344" type="application/x-shockwave-flash" allowfullscreen="true" /></p>  </div>
 
@@ -134,9 +134,9 @@ thanks for a great laugh (unfortunately, I failed miserably to explain to my wif
   
   <entry>
     <title type="html"><![CDATA[Contributing information via reCAPTCHA]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/05/02/contributing-information-via-recaptcha/"/>
+    <link href="http://w.ApproachE.com/blog/contributing-information-via-recaptcha/"/>
     <updated>2008-05-02T11:14:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/05/02/contributing-information-via-recaptcha</id>
+    <id>http://w.ApproachE.com/blog/contributing-information-via-recaptcha</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>Computers are very powerful these days. But it's not still enough to solve <a href="http://en.wikipedia.org/wiki/Mathematical_problem" target="_blank">mathematical problems</a>. One way to leverage the calculating power is distributing it among users all around the world.</p>  <p>People can just run small applications to help scientific world. Not a problem at all. The software will just do its stuff silently.</p>  <p>Also people can help science manually. Who is going to spend time for that? Will you do it? Well, maybe. But there is very good solution to this problem: <strong>let people contribute even not letting them know about it</strong>.</p>  <p>This is exactly what <a href="http://recaptcha.net/learnmore.html" target="_blank">reCAPTCHA</a> is doing. It digitises old books using <a href="http://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">OCR</a>. But prompts users to decipher unrecognised words.</p>  <p><strong>What does user see?</strong></p>  <p>Users generally see prompt to enter two words to prove they are not robots, but humans. Nothing special. Nothing at all.</p>  <p><a href="http://lh3.ggpht.com/dnagir/SBpq3RS_uAI/AAAAAAAAC3E/rtTOhIwKdNU/s1600-h/reCAPTCHA-Sample%5B3%5D.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="127" alt="reCAPTCHA Sample" src="http://lh4.ggpht.com/dnagir/SBpq4hS_uBI/AAAAAAAAC3M/Nshg9b367lc/reCAPTCHA-Sample_thumb%5B1%5D.png?imgmax=800" width="317" border="0" /></a></p>  <p><strong>What is behind the scene?</strong></p>  <p>This is the most interesting thing. reCAPTCHA has its own <a href="http://recaptcha.net/apidocs/captcha/client.html" target="_blank">API</a> (ASP.NET Control is also <a href="http://recaptcha.net/plugins/aspnet/" target="_blank">available</a>), so it is easy to integrate it with any server.</p>  <p>And here's how it works:</p>  <ol>   <li>User enters TWO words.</li>    <li>One of the words is <em>known</em> for reCAPTCHA, another - isn't (<em>unknown)</em>.</li>    <li>If the <em>known</em> word is correct, reCAPTCHA assumes that user entered <em>unknown</em> word correctly. It also tells user about correct answer.</li>    <li>To be more confident that <em>unknown</em> word is deciphered correctly it is shown on other images.</li> </ol>  <p>As simple as that.</p>  <p>We also can try to enter <strong>only</strong> one word correctly and after several times we will pass the CAPTCHA! It doesn't look good for the user, but it still does the job. You have to be a human to recognise at least one word. And wrong word should not abuse the system because of it will be sent to many people and it is so unlikely they all will provide the same and wrong word.</p>  <p>There's one note about it. If you want to distribute your (web) application you will push your clients to obtain public key for their domain in order to use the reCAPTCHA.</p>  </div>
 

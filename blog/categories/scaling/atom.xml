@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: scaling | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/scaling/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/scaling/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Web 2.0 - Why Everything You've Been Taught Is Wrong]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/11/02/web-20-why-everything-youve-been-taught/"/>
+    <link href="http://w.ApproachE.com/blog/web-20-why-everything-youve-been-taught/"/>
     <updated>2007-11-02T11:34:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/11/02/web-20-why-everything-youve-been-taught</id>
+    <id>http://w.ApproachE.com/blog/web-20-why-everything-youve-been-taught</id>
     <content type="html"><![CDATA[<div class='post'>
 I had been watching some videos from <a href="http://developer.yahoo.com/yui/theater/">YUI Theater</a>. A lot of interesting stuff is there about client-side and front-end web development.
 

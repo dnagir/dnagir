@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Firefox 3: New in JavaScript 1.8 - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly: First of all JS 1.9 is enaable only by &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://w.ApproachE.com/blog/firefox-3-new-in-javascript-18">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:w.ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Firefox 3: New in JavaScript 1.8</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T11:17:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly:</p>  <p>First of all JS 1.9 is enaable only by adding following script tag:</p>  <pre> &lt;script type=&quot;<strong>application/javascript;version=1.8</strong>&quot;&gt; ... your code ... &lt;/script&gt;</pre>
+
+<p>Very interesting thing is <a href="http://en.wikipedia.org/wiki/Lambda_calculus#Lambda_calculus_and_programming_languages">Lambda notation</a> which is a bit similar to C# Lambda Expressions.</p>
+
+<p>Code is worth to show:</p>
+
+<p><a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a> and older: </p>
+
+<pre> function(x) { return x * x; }</pre>
+
+<p>JavaScript 1.8: </p>
+
+<pre> function(x) x * x</pre>
+
+<p>It looks very nice, but I&#8217;m not sure how readable such code will be if this feature will be overused.</p>
+
+<p>&#160;</p>
+
+<p>Also Generator Expressions look interesting. But the code might not always be obvious to read.</p>
+
+<p>Compare the samples:</p>
+
+<p>In <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a>, you might write something like the following in order to create a custom generator for an object: </p>
+
+<pre> function add3(obj) {
+   for ( let i in obj )
+     yield i + 3;
+ }
+ 
+ let it = add3(someObj);
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>In JavaScript 1.8, you can circumvent having to create a custom generator function by using a generator expression instead: </p>
+
+<pre> let it = (i + 3 for (i in someObj));
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>Behind the thing that I have never used let statement, I&#8217;m don&#8217;t believe it is supported in IE (7) which I must target. However, </p>
+
+<p><code>(i + 3 for (i in someObj))</code> looks nice.</p>
+
+<p>&#160;</p>
+
+<p>Array object has two additional methods: reduce and reduceRight. Very useful things that are available (in a similar way) in most JS libraries (ExtJS has ForEach) that iterates through all the elements of an array. Nice to have a build-in support for it, but since it is not a part of ECMA-262 standard I&#8217;d never use it.</p>
+
+<p>&#160;</p>
+
+<p>So, as far as I can see the JavaScript 1.8 implementation is intended to allow developers write less code. But I&#8217;m not going to use it just now and just because of I&#8217;d rather write some additional &quot;old&quot;-manner code lines but have cross-browser support.</p>  </div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T11:17:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>Development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://w.ApproachE.com/blog/firefox-3-new-in-javascript-18/" data-via="" data-counturl="http://w.ApproachE.com/blog/firefox-3-new-in-javascript-18/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/firefox-3-for-developers/" title="Previous Post: Firefox 3 for developers">&laquo; Firefox 3 for developers</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/css-trcik-of-day/" title="next Post: CSS Trcik of the day">CSS Trcik of the day &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

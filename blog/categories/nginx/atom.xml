@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nginx | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/nginx/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/nginx/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano/"/>
+    <link href="http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
     <updated>2011-05-19T00:58:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano</id>
+    <id>http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.

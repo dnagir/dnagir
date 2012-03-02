@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Razor - ASP.NET MVC View Engine - first impression - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="The new view engine is being released by Microsoft and looking at the announcement I feel a bit confused. Two questions flying in my head: Why not &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:w.ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Razor - ASP.NET MVC View Engine - First Impression</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-05T22:48:00+10:00" pubdate data-updated="true">Jul 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<div xmlns="http://www.w3.org/1999/xhtml">
+The new view engine is being released by Microsoft and looking at <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">the announcement</a> I feel a bit confused. Two questions flying in my head:<br />
+<ol>
+<li>Why not take existing one and just help to make it better/sponsor?</li>
+<li>Is it going to be a new productive thing or will it just make the view to be more spaghetti-like?</li>
+</ol>
+Not sure now. Time will show, but there are some things I feel I just must comment on. I&#8217;ll try to look at it as a developer with no any politics and trying to think how it can help me.<br />
+<blockquote>
+Unit Testable: The new view engine implementation will support the ability to unit test views (without requiring a controller or web-server, and can be hosted in any unit test project – no special app-domain required).</blockquote>
+<br />
+For me this one would probably be enough to jump onto that with head. I still have <a href="http://stackoverflow.com/questions/2781027/test-views-in-asp-net-mvc2-ala-rspec" target="_blank">the question</a> on StackOverflow about testing the view hanging around. It <i>looks like</i> now I have the answer.<br />
+<blockquote>
+the start of a code block with Razor using a @ character. Unlike &lt;% %&gt; code nuggets, Razor does not require  you to explicitly close the code-block</blockquote>
+This is a huge typing and &#8220;mistake&#8221; saver. I like it, but still have the concern about the readability and ambiguity of such syntax. I need to give it a try first to tell whether this helps to do the job or screws things up. But the intention is definitely good.<br />
+Next, the code blocks mixed together with HTML:<br />
+<code>  &lt;ul&gt;<br />    @foreach(var p in products) {<br />      &lt;li&gt;@p.Name ($@p.Price)&lt;/li&gt;<br />    }<br />  &lt;/ul&gt;</code><br />
+Currently it looks a bit weird to me. We need to get used to it.<br />
+<br />
+So you can do lots of interesting things using such syntax. Additionally I have to state that the engine has a special tag - <i>text</i>. It is used actually to avoid adding any wrapping tag to markup serving the purpose of grouping things together.<br />
+<blockquote>
+By default content emitted using a @ block is automatically HTML encoded to better protect against XSS attack scenarios.</blockquote>
+That is something that I would expect from any view engine - encode by default. So far so good.<br />
+<blockquote>
+create re-usable HTML helpers using a more declarative approach.</blockquote>
+I like this part <b>a lot (and I mean it)</b>, I won&#8217;t repeat what it is said in the post, but will explain how I can benefit from it.<br />
+Currently I create a whole bunch of HTML helpers (written in .cs file in C#) which look very ugly should you have more than just a couple of them.<br />
+It just becomes messy, hard to change, support and maintain. And the fact that C# generates HTML is very annoying for the same reasons. That should be the view&#8217;s concern.<br />
+Now we have it - just create a file, mark its content as helper and it is available on all the pages. Beauty!<br />
+(<b>NOTE</b>: actually after a bit more thinking we can do <i>similar</i> in Spark or NHaml. The word <i>similar</i> is used intentionally).<br />
+<blockquote>
+One other useful (and extremely powerful) feature we are enabling with Razor is the ability to pass “inline template” parameters to helper methods.  These &#8220;inline templates&#8221; can contain both HTML and code, and can be invoked on-demand by helper methods.</blockquote>
+Previously we, generally, injected C# code into the template. Now we can do the other way around. Absolut power. Only God knows where it can bring us :) <br />
+<h3>
+
+
+
+What I want from it</h3>
+One of the most frustrating things working with views in ASP.NET MVC is passing the values from a controller to a view. So the syntax that would read values from ViewData dictionary would the biggest time saver. Something along this:<br />
+<code>
+@currentTime.ToString("d")
+</code>
+<br />
+which would be equivalent for <br />
+<code>
+((DateTime)ViewData["currentTime"]).ToString("d")
+</code>
+
+So that we do not even need to provide the time of the object in the ViewData.<br />
+<br />
+<h3>
+
+
+Summary</h3>
+The first impression is <b>very positive</b>. Though I have some doubts in the syntax acceptance.<br />
+But I have no doubt that this engine is the way better than WebForms. Can&#8217;t yet say it is better than NHaml and Spark (and would not be fair to say that as they solve a bit different problems).<br />
+This time I feel that <b>Microsoft has listened</b> to the developers and produced something that really brings value, productivity, less frustration and more fun (and fun is the starting point of being a happy developer who can bring value to a company).<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_3276E6B4.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_3276E6B4.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_2EE4DDA5.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_2EE4DDA5.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_5DE7197C.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_5DE7197C.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_2EB52DE5.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_2EB52DE5.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_22B33DB1.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_22B33DB1.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_78EFC2BD.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_78EFC2BD.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_775B2E84.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_775B2E84.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_5F279E5C.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_5F279E5C.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_1DACEC03.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_1DACEC03.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://weblogs.asp.net/blogs/scottgu/image_43366964.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://weblogs.asp.net/blogs/scottgu/image_43366964.png" /></a></div>
+</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Looking at the screenshots I guess Visual Studio highlights the code separately, so it should be good enough.</div>
+</div>
+<div class='comment'>
+<div class='author'>Carson 63000</div>
+<div class='content'>
+&quot;I like it, but still have the concern about the readability and ambiguity of such syntax&quot;<br /><br />With the Visual Studio support, does it get highlighted in such a fashion that it makes the syntax readable and unambiguous? (I haven&#39;t installed Razor to take a look myself yet)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-05T22:48:00+10:00" pubdate data-updated="true">Jul 5<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/asp-net-mvc/'>asp.net mvc</a>, <a class='category' href='/blog/categories/razor/'>razor</a>, <a class='category' href='/blog/categories/view-engine/'>view-engine</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first/" data-via="" data-counturl="http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/ibm-is-moving-to-firefox/" title="Previous Post: IBM is moving to Firefox">&laquo; IBM is moving to Firefox</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/honest-and-sales-please-care/" title="next Post: Caring, selling and appreciating technology era">Caring, selling and appreciating technology era &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: survey | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/survey/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/survey/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript Library survey]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/04/17/javascript-library-survey/"/>
+    <link href="http://w.ApproachE.com/blog/javascript-library-survey/"/>
     <updated>2009-04-17T16:18:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/04/17/javascript-library-survey</id>
+    <id>http://w.ApproachE.com/blog/javascript-library-survey</id>
     <content type="html"><![CDATA[<div class='post'>
 Please help me to decide what library to choose for my everyday usage.<br />
 If you have some experience in that area please tell your word <a href="http://dcportal.argocomputing.com.au/CompleteForm.aspx?form=4:447" target="_blank">here</a>. Also please distribute this to as many colleges as you can.<br />

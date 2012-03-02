@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: image-processing | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/image-processing/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/image-processing/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Image.GetBounds always returns value in Pixels]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/10/01/imagegetbounds-always-returns-value-in/"/>
+    <link href="http://w.ApproachE.com/blog/imagegetbounds-always-returns-value-in/"/>
     <updated>2009-10-01T14:20:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/10/01/imagegetbounds-always-returns-value-in</id>
+    <id>http://w.ApproachE.com/blog/imagegetbounds-always-returns-value-in</id>
     <content type="html"><![CDATA[<div class='post'>
 Ok. Looking at the method <a href="http://msdn.microsoft.com/en-us/library/system.drawing.image.getbounds.aspx">Image.GetBounds</a> I see:<br />
 Return value:<br />

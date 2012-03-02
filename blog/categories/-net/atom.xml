@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: .net | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/-net/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/-net/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with/"/>
+    <link href="http://w.ApproachE.com/blog/unit-test-actions-with/"/>
     <updated>2011-03-18T11:35:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/03/18/unit-test-actions-with</id>
+    <id>http://w.ApproachE.com/blog/unit-test-actions-with</id>
     <content type="html"><![CDATA[<div class='post'>
 <p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
@@ -119,9 +119,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Screencasts for this weekend]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend/"/>
+    <link href="http://w.ApproachE.com/blog/screencasts-for-this-weekend/"/>
     <updated>2010-12-13T09:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/12/13/screencasts-for-this-weekend</id>
+    <id>http://w.ApproachE.com/blog/screencasts-for-this-weekend</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
 
@@ -130,9 +130,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc/"/>
     <updated>2010-11-28T23:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/28/ruby-on-rails-vs-aspnet-mvc</id>
+    <id>http://w.ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
 So here we go:<br />
@@ -247,9 +247,9 @@ Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET develo
   
   <entry>
     <title type="html"><![CDATA[Render any ASP.NET MVC ActionResult to a string]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to/"/>
+    <link href="http://w.ApproachE.com/blog/render-any-aspnet-mvc-actionresult-to/"/>
     <updated>2010-11-11T17:05:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/11/11/render-any-aspnet-mvc-actionresult-to</id>
+    <id>http://w.ApproachE.com/blog/render-any-aspnet-mvc-actionresult-to</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I often see questions on the net about how to render a view to a string so it can be used somewhere.</p>  <p>My approach allows doing it without thinking about all the boilerplate code. Additionally not only the ViewResult can be rendered into a string but just about any type of the result. Here is example on how to return a JSON including the result of the view as additional information:</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #008000">// Controller Action:</span>
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> JsonResult DoSomething() {
@@ -366,9 +366,9 @@ This is a cleaner solution that others out there.  Does anyone have an example i
   
   <entry>
     <title type="html"><![CDATA[Testing expected exception, revisited]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/10/16/testing-expected-exception-revisited/"/>
+    <link href="http://w.ApproachE.com/blog/testing-expected-exception-revisited/"/>
     <updated>2009-10-16T14:40:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/10/16/testing-expected-exception-revisited</id>
+    <id>http://w.ApproachE.com/blog/testing-expected-exception-revisited</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been using NUnit for a long time and really got used to it. Nowadays it is very sweet, especially with NUnitEx.<br />
 It does have a simple syntax for testing exception. Pretty much <a href="http://dnagir.blogspot.com/2008/05/unit-test-granular-expected-exception.html" target="_blank">what I did</a> long time ago.<br />

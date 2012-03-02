@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: smile | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/smile/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/smile/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Apologetic Coder]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/24/apologetic-coder/"/>
+    <link href="http://w.ApproachE.com/blog/apologetic-coder/"/>
     <updated>2008-12-24T11:23:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/24/apologetic-coder</id>
+    <id>http://w.ApproachE.com/blog/apologetic-coder</id>
     <content type="html"><![CDATA[<div class='post'>
 Read <a href="http://thedailywtf.com/Articles/The_Apologetic_Coder.aspx" target="_blank">this</a> if the comment below has got your interest :)<br />
 <div>
@@ -66,9 +66,9 @@ This is the first program code I've understood from the beginning till the end!<
   
   <entry>
     <title type="html"><![CDATA[Matrix. Can you read it?]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/10/26/matrix-can-you-read-it/"/>
+    <link href="http://w.ApproachE.com/blog/matrix-can-you-read-it/"/>
     <updated>2007-10-26T11:30:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/10/26/matrix-can-you-read-it</id>
+    <id>http://w.ApproachE.com/blog/matrix-can-you-read-it</id>
     <content type="html"><![CDATA[<div class='post'>
 I've just read an <a href="http://ayende.com/Blog/archive/2007/10/26/Must-resist.-decoding.aspx">article</a>.
 Ayende links to this <a href="http://blog.wekeroad.com/2007/10/25/thoughts-for-a-thursday/">message</a> which is just a text represented in binary.
@@ -87,9 +87,9 @@ If you want to decode it - you'll find the message interesting... A bit depressi
   
   <entry>
     <title type="html"><![CDATA[Namespace called NUnit]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/09/14/namespace-called-nunit/"/>
+    <link href="http://w.ApproachE.com/blog/namespace-called-nunit/"/>
     <updated>2007-09-14T15:35:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/09/14/namespace-called-nunit</id>
+    <id>http://w.ApproachE.com/blog/namespace-called-nunit</id>
     <content type="html"><![CDATA[<div class='post'>
 Today I was looking for a compact and fast CSV reader and found one.
 It satisfies all my requirements.

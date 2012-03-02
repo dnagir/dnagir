@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jasmine | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/jasmine/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/jasmine/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets/"/>
+    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets</id>
+    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />

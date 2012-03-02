@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: upgrade | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/upgrade/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/upgrade/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating Eco3 to Eco5]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/08/12/migrating-eco3-to-eco5/"/>
+    <link href="http://w.ApproachE.com/blog/migrating-eco3-to-eco5/"/>
     <updated>2009-08-12T16:50:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/08/12/migrating-eco3-to-eco5</id>
+    <id>http://w.ApproachE.com/blog/migrating-eco3-to-eco5</id>
     <content type="html"><![CDATA[<div class='post'>
 Just sharing my experience migrating large project (~170 classes in Business Objects ONLY) from Eco3 (Borland C# Builder and Together Modeler) to <a href="http://capableobjects.com/" target="_blank">Eco5</a>. <br />
 This outlines the problems I faced, I don't want to dig into details and try to reproduce each case as I have had enough pain already. I also don’t care if it is <i>by-design</i>. I would describe the process not <i>the migration</i> but <i>the copy-pasting</i>.<br />
@@ -76,9 +76,9 @@ So guys: “"Stressed? Write a test!”.</div>
   
   <entry>
     <title type="html"><![CDATA[Impression on ASP.NET MVC 2]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/08/04/impression-on-aspnet-mvc-2/"/>
+    <link href="http://w.ApproachE.com/blog/impression-on-aspnet-mvc-2/"/>
     <updated>2009-08-04T08:58:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/08/04/impression-on-aspnet-mvc-2</id>
+    <id>http://w.ApproachE.com/blog/impression-on-aspnet-mvc-2</id>
     <content type="html"><![CDATA[<div class='post'>
 <br />
 You probably already know that <a href="http://haacked.com/archive/2009/07/30/asp.net-mvc-released.aspx" target="_blank">ASP.NET MVC Preview 1 has been released</a>. You can quickly watch the <a href="http://channel9.msdn.com/posts/Glucose/Hanselminutes-on-9-ASPNET-MVC-2-Preview-1-with-Phil-Haack-and-Virtual-Scott/" target="_blank">video</a> to get the impression.<br />
@@ -99,9 +99,9 @@ And I am also not sure what the effort is involved for ViewEngines to support th
   
   <entry>
     <title type="html"><![CDATA[ASP.NET 4.0 – Do I need to jump into it?]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/05/26/aspnet-40-do-i-need-to-jump-into-it/"/>
+    <link href="http://w.ApproachE.com/blog/aspnet-40-do-i-need-to-jump-into-it/"/>
     <updated>2009-05-26T10:44:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/05/26/aspnet-40-do-i-need-to-jump-into-it</id>
+    <id>http://w.ApproachE.com/blog/aspnet-40-do-i-need-to-jump-into-it</id>
     <content type="html"><![CDATA[<div class='post'>
 Just quickly going through the <a href="http://www.asp.net/learn/whitepapers/aspnet40/" target="_blank">whitepaper</a> published a while ago. I can see a lot of improvements around ASP.NET 4.0. But the ones below are probably the most important for me:<br />
 <ul>
@@ -143,9 +143,9 @@ Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous chang
   
   <entry>
     <title type="html"><![CDATA[NullReferenceException accessing ASP.NET MVC route values]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/04/28/nullreferenceexception-accessing-aspnet/"/>
+    <link href="http://w.ApproachE.com/blog/nullreferenceexception-accessing-aspnet/"/>
     <updated>2009-04-28T10:33:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/04/28/nullreferenceexception-accessing-aspnet</id>
+    <id>http://w.ApproachE.com/blog/nullreferenceexception-accessing-aspnet</id>
     <content type="html"><![CDATA[<div class='post'>
 If by any chance you get NullReferenceException trying to access RouteValues in ASP.NET MVC make sure you have <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en" target="_blank">Visual Studio 2008 SP1</a> installed.<br />
 I’d recommend to <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=27673c47-b3b5-4c67-bd99-84e525b5ce61&amp;displaylang=en" target="_blank">download the ISO</a> because I had some problems using the web installer.<br />

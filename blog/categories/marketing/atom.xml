@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: marketing | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/marketing/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/marketing/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Caring, selling and appreciating technology era]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care/"/>
+    <link href="http://w.ApproachE.com/blog/honest-and-sales-please-care/"/>
     <updated>2010-07-24T15:32:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/07/24/honest-and-sales-please-care</id>
+    <id>http://w.ApproachE.com/blog/honest-and-sales-please-care</id>
     <content type="html"><![CDATA[<div class='post'>
 I have watched the <a href="http://www.youtube.com/watch?v=-QWHkcCP3tA">RailsConf 2010 by Gary Vaynerchuk</a> and I believe that was <b>one of the best presentations I have seen</b> in a very long while.<br />
 <br />

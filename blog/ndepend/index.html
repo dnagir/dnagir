@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>NDepend - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="NDepend is a tool that simplifies managing a complex .NET code base. Architects and developers can analyze code structure, specify design rules, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://w.ApproachE.com/blog/ndepend">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:w.ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">NDepend</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-12T16:53:00+10:00" pubdate data-updated="true">May 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<a href="http://www.ndepend.com/" target="_blank">NDepend</a> is <br />
+<blockquote>
+a tool that simplifies managing a complex .NET code base. Architects and developers can analyze code structure, specify design rules, plan massive refactoring, do effective code reviews and master evolution by comparing different versions of the code.</blockquote>
+Very interesting tool with a lot of <i><a href="http://www.ndepend.com/Features.aspx" target="_blank">you can do this and that</a></i>.<br />
+<br />
+It has just helped me to solve one issue. In my project I should never use DateTime.Now and DateTime.Today because of testability issues.<br />
+So I’ve decided to check if I haven’t missed to use my time accessor instead of static DateTime.Now and DateTime.Today. And it turns out there is ONE entry of it that I have never mentioned (and it obviously hasn’t been included in my tests set).<br />
+I’ve done it spending no more than couple of minutes to figure out how to write CQL (the NDepend Code Query Language):<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> METHODS <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.BusinessObjects" <span class="kwrd">WHERE</span> IsUsing "System.DateTime.get_Now()" <span class="kwrd">OR</span> IsUsing "System.DateTime.get_Today()"</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+<br />
+Then I also decided to have a look I have no types that start with underscore. Yeah, I renamed some of them to that in case I’ll need. I’d better delete them.<br />
+Anyway, here’s the query for it:<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> TYPES <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.WebGUI" <span class="kwrd">WHERE</span> NameLike "^_" </pre>
+And I spot that guy. This ant was living in the compiled assembly.<br />
+<br />
+Then I couldn’t stop. I wanted to know which methods are using Eco3 framework (previously partially owned by Borland):<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> METHODS <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.WebGUI" <span class="kwrd">WHERE</span> IsUsing "Borland.Eco.*"</pre>
+<br />
+And I got ONE (huh, that’s good because of I plan to migrate from Eco3 to Eco5).<br />
+Then I remembered that I have references to my old assembly (Common) everywhere and I will have to migrate from it as well, so the query is simple:<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> METHODS <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.WebGUI" <span class="kwrd">WHERE</span> IsUsing "MyCompany.Common.EcoUtils"</pre>
+and I got about 1629 references.<br />
+So now <b>I know</b> I have to consider to keep backward compatibility in my Common assembly.<br />
+<br />
+And there are so many things you can do with NDepend! You can even get lost executing different queries against your project and sometimes be surprised.<br />
+Using simple NDepend’s Search I found that I have class with IL Cyclomatic Complexity equal to <b>317!</b> Guess what kind of class it is?..<br />
+Correct, it’s called Utils and has tons of static helper methods. This animal must be refactored.<br />
+<br />
+Next thing I wanted to count number of my BusinessObjects created by ECO Framework (actual pages) in my project. That’s simple:<br />
+<pre class="csharpcode"><span class="kwrd">SELECT</span> TYPES <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.BusinessObjects" <span class="kwrd">WHERE</span> Implement "Borland.Eco.ObjectImplementation.ILoopBack"</pre>
+and the answer was 85.<br />
+<br />
+And this is non-stop process when playing with your code and NDepend…<br />
+<br />
+And the other nice thing is that I can create warnings for myself, for example, I want NDepend to notify me about using System.DateTime.Now. So I can create a warning and automatically get the notification:<br />
+<pre class="csharpcode">WARN <span class="kwrd">Count</span> &gt; 0
+<span class="kwrd">IN</span>
+<span class="kwrd">SELECT</span> METHODS <span class="kwrd">FROM</span> ASSEMBLIES "MyCompany.MyProject.BusinessObjects" <span class="kwrd">WHERE</span> IsUsing "System.DateTime.get_Now()" <span class="kwrd">OR</span> IsUsing "System.DateTime.get_Today()"</pre>
+That is really useful. Abilities of NDepend are really awesome.<br />
+But before digging deeper don’t forget to consult the <a href="http://www.ndepend.com/CQL.htm" target="_blank">CQL Specification</a>.</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-12T16:53:00+10:00" pubdate data-updated="true">May 12<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devtools/'>DevTools</a>, <a class='category' href='/blog/categories/development/'>Development</a>, <a class='category' href='/blog/categories/ndepend/'>ndepend</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://w.ApproachE.com/blog/ndepend/" data-via="" data-counturl="http://w.ApproachE.com/blog/ndepend/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/victory-day-1945/" title="Previous Post: Victory Day, 1945">&laquo; Victory Day, 1945</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/ui-design-patterns/" title="next Post: UI Design Patterns">UI Design Patterns &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

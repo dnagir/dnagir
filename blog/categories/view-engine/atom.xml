@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: view-engine | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/view-engine/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/view-engine/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Razor - ASP.NET MVC View Engine - first impression]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first/"/>
+    <link href="http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first/"/>
     <updated>2010-07-05T22:48:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/07/05/razor-aspnet-mvc-view-engine-first</id>
+    <id>http://w.ApproachE.com/blog/razor-aspnet-mvc-view-engine-first</id>
     <content type="html"><![CDATA[<div class='post'>
 <div xmlns="http://www.w3.org/1999/xhtml">
 The new view engine is being released by Microsoft and looking at <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">the announcement</a> I feel a bit confused. Two questions flying in my head:<br />

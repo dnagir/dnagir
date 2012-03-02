@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: logging | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/logging/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/logging/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ELMAH – Error Logging Modules and Handlers]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2009/04/24/elmah-error-logging-modules-and/"/>
+    <link href="http://w.ApproachE.com/blog/elmah-error-logging-modules-and/"/>
     <updated>2009-04-24T10:13:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2009/04/24/elmah-error-logging-modules-and</id>
+    <id>http://w.ApproachE.com/blog/elmah-error-logging-modules-and</id>
     <content type="html"><![CDATA[<div class='post'>
 It seems it’s <a href="http://www.hanselman.com/blog/ELMAHErrorLoggingModulesAndHandlersForASPNETAndMVCToo.aspx" target="_blank">getting more popular</a>.<br />
 Located at: <a href="http://code.google.com/p/elmah/" title="http://code.google.com/p/elmah/">http://code.google.com/p/elmah/</a><br />

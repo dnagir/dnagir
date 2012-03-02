@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: wiki | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/wiki/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/wiki/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Enterprise Core Objects on Wiki]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki/"/>
+    <link href="http://w.ApproachE.com/blog/enterprise-core-objects-on-wiki/"/>
     <updated>2007-01-21T23:14:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/01/21/enterprise-core-objects-on-wiki</id>
+    <id>http://w.ApproachE.com/blog/enterprise-core-objects-on-wiki</id>
     <content type="html"><![CDATA[<div class='post'>
 It is very pleasant to see ECO on the Wiki.
 Thanks for that Oleg Zhukov (regular on borland MDA newgroups).

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: svn | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/svn/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/svn/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[SVN-Monitor]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/18/svn-monitor/"/>
+    <link href="http://w.ApproachE.com/blog/svn-monitor/"/>
     <updated>2008-12-18T13:02:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/18/svn-monitor</id>
+    <id>http://w.ApproachE.com/blog/svn-monitor</id>
     <content type="html"><![CDATA[<div class='post'>
 <h4>
 Description</h4>
@@ -45,9 +45,9 @@ Free (what exactly?)</div>
   
   <entry>
     <title type="html"><![CDATA[Where TortoiseSVN name came from?]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from/"/>
+    <link href="http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from/"/>
     <updated>2008-12-16T14:59:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/16/where-tortoisesvn-name-came-from</id>
+    <id>http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from</id>
     <content type="html"><![CDATA[<div class='post'>
 I has just been asked that this question. And I haven't really known the answer. One supposition that made me smile "<i>Is it because of it is very slow?</i>"<a href="http://tortoisesvn.tigris.org/" target="_blank"><img align="right" src="http://upload.wikimedia.org/wikipedia/commons/1/1d/Tortoisesvn_logo_hor468x64.PNG" /></a><br />
 Ok, I suspected the <a href="http://tortoisesvn.net/node/61" target="_blank">answer is</a>...<br />

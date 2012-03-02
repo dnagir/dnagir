@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: linux | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac/"/>
+    <link href="http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
     <updated>2011-10-04T12:53:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/10/04/tips-on-usingterminal-in-mac</id>
+    <id>http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 Keep your config in a separate dotfiles directory and under source control with the structure like:<br />
@@ -166,9 +166,9 @@ Hope this helps you on your way to becoming a Terminal Guru.
   
   <entry>
     <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano/"/>
+    <link href="http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
     <updated>2011-05-19T00:58:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/easy-rails-deployment-with-capistrano</id>
+    <id>http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.
@@ -276,9 +276,9 @@ Love it!</div>
   
   <entry>
     <title type="html"><![CDATA[Setting up Ubuntu 11.04 server for Rails with RVM]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails/"/>
+    <link href="http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails/"/>
     <updated>2011-05-19T00:09:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/setting-up-ubuntu-1104-server-for-rails</id>
+    <id>http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I had to set up the server (Ubuntu 11.04) for running couple of Rails apps and thought I could share the notes I've written while doing that. 
@@ -382,9 +382,9 @@ I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step
   
   <entry>
     <title type="html"><![CDATA[Unix - do not reinvent the wheel]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel/"/>
+    <link href="http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel/"/>
     <updated>2011-05-19T00:00:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/19/unix-do-not-reinvent-wheel</id>
+    <id>http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
@@ -496,9 +496,9 @@ Watchdog daemon
   
   <entry>
     <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf/"/>
+    <link href="http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
     <updated>2011-05-18T23:52:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/05/18/what-ive-learned-from-scottish-rubyconf</id>
+    <id>http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:

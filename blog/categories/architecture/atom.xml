@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: architecture | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/architecture/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/architecture/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[99.99% available ASP.NET and SQL Server Architecture]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2008/12/16/9999-available-aspnet-and-sql-server/"/>
+    <link href="http://w.ApproachE.com/blog/9999-available-aspnet-and-sql-server/"/>
     <updated>2008-12-16T13:46:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2008/12/16/9999-available-aspnet-and-sql-server</id>
+    <id>http://w.ApproachE.com/blog/9999-available-aspnet-and-sql-server</id>
     <content type="html"><![CDATA[<div class='post'>
 I'll summarise a very nice <a href="http://www.codeproject.com/KB/aspnet/ProdArch.aspx">article</a> here:<br />
 <a href="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" target="_blank" title="Open in a new window"><img align="right" alt="Architecture" height="417" src="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" width="300" /></a>   <br />

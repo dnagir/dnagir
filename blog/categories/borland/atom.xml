@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: borland | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/borland/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/borland/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Solve Designer error in BDS 2006]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2007/02/25/solve-designer-error-in-bds-2006_24/"/>
+    <link href="http://w.ApproachE.com/blog/solve-designer-error-in-bds-2006_24/"/>
     <updated>2007-02-25T02:34:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2007/02/25/solve-designer-error-in-bds-2006_24</id>
+    <id>http://w.ApproachE.com/blog/solve-designer-error-in-bds-2006_24</id>
     <content type="html"><![CDATA[<div class='post'>
 Many of developers working with ASP.NET in design time saw the error: "<i><b>The designer could not be shown for this file because none of the classes within it can be designed</b></i>".
 

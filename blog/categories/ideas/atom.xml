@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ideas | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/ideas/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/ideas/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby Challenge for Newbies reborn]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn/"/>
+    <link href="http://w.ApproachE.com/blog/ruby-challenge-for-newbies-reborn/"/>
     <updated>2010-08-09T18:53:00+10:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2010/08/09/ruby-challenge-for-newbies-reborn</id>
+    <id>http://w.ApproachE.com/blog/ruby-challenge-for-newbies-reborn</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>A question has been raised whether or not <a href="http://ruby-challenge.rubylearning.org/">Ruby Challenge for Newbies</a> should exist or not. The main concern is:</p>  <blockquote>   <p>…today, probably due to lack of time or other commitments, not many experienced Rubyists are willing to set a Ruby challenge for the newbies</p> </blockquote>  <p>I guess many Rubysts DO want to set the challenges, but unfortunately very few people these days have enough time.</p>  <p>Another problem with such challenges is that they are somewhat “detached” from the real life. Though I am not saying they are not interesting or educating. Don’t get me wrong, definitely they ARE. But still, I guess, many people would love to see how Ruby should be used correctly (the Rubyish way) in real-world applications. Especially in web apps.</p>  <p>So if there is the problem trying to find new challenges, then either WE need to set up new challenges and recommend people who can do that or, if that is not possible, the challenge itself might need to be &quot;converted&quot; to something different.</p>  <p>It seems the latter is the better choice at this moment.</p>  <p>Having said that, I believe that a good challenge should have attributes:</p>  <ul>   <li>driven by people; </li>    <li>not dependent on one person (though may be controlled by one or a group); </li>    <li>winner(s) appointed by the people (though influenced by the owner/controller); </li>    <li>collaborative; </li>    <li>“shareable”; </li>    <li>role-playing; </li> </ul>  <p>These are the ideas from the top of my head, but it is possible to play around those…</p>  <p>I personally feel like it brings us to the following idea of a challenge: <strong>Ruby Project Development challenge</strong>.</p>  <p>Somebody suggests an idea to implement (interesting web application, some kind of useful tool, etc). Then the challenge becomes a project that people have to deliver. There are main two roles in this challenge:</p>  <ol>   <li>product owners; </li>    <li>development team. </li> </ol>  <p>The <em>product owners</em> group consists of number of people who do like the idea but may not have time, ability to develop that. This group decides where the <em>development team</em> is heading to, and negotiates the requirements.</p>  <p>The <em>development team</em> is a group of self-organised people who do the actual development. Multiple development teams may exist to develop the same application.</p>  <p>The duration for the challenge may vary from weeks to couple of months. The winner of the challenge is the person who gets most number of votes from either product owners/development team or both (not sure yet). If there are multiple teams – then the winning team may also be chosen.</p>  <p>So the process of the challenge would be something like this:</p>  <ol>   <li>Somebody comes up with a project idea. </li>    <li>People join this project either as <em>product owner</em> or as <em>development team</em>. </li>    <li>People get organised in couple of development teams and a couple of product owners if too many guys have joined. </li>    <li>The countdown begins: <em>product owners</em> and <em>development teams</em> start working together (not necessarily at the same time). </li>    <li>During the work people should be able to see what others do, and help each other to deliver the product. </li>    <li>At the end of the challenge winners in following categories may be selected:      <ul>       <li>best developer; </li>        <li>best team; </li>        <li>best team-mate; </li>        <li>incredible inventor; </li>        <li>etc </li>     </ul>   </li> </ol>  <p>This of course is the basic idea, but it has sooo many variations.</p>  <p>So I propose the first challenge of this kind: <strong>Web applications supporting the challenge itself</strong>.</p>  </div>
 

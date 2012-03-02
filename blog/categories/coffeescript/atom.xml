@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: coffeescript | My Octopress Blog]]></title>
-  <link href="http://dnagir.github.com/dnagir/blog/categories/coffeescript/atom.xml" rel="self"/>
-  <link href="http://dnagir.github.com/dnagir/"/>
-  <updated>2012-02-08T21:14:29+11:00</updated>
-  <id>http://dnagir.github.com/dnagir/</id>
+  <link href="http://w.ApproachE.com/blog/categories/coffeescript/atom.xml" rel="self"/>
+  <link href="http://w.ApproachE.com/"/>
+  <updated>2012-03-02T21:30:56+11:00</updated>
+  <id>http://w.ApproachE.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video/"/>
+    <link href="http://w.ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/12/22/knockoutjs-validations-video</id>
+    <id>http://w.ApproachE.com/blog/knockoutjs-validations-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
@@ -58,9 +58,9 @@ This comment has been removed by the author.</div>
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets/"/>
+    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://dnagir.github.com/dnagir/blog/2011/11/19/rails-plugin-with-tested-assets</id>
+    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
