@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: cms | My Octopress Blog]]></title>
+  <title><![CDATA[Category: cms | Art Of Programming]]></title>
   <link href="http://w.ApproachE.com/blog/categories/cms/atom.xml" rel="self"/>
   <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-02T21:30:56+11:00</updated>
+  <updated>2012-03-04T19:49:45+11:00</updated>
   <id>http://w.ApproachE.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
