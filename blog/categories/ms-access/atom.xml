@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ms-access | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/ms-access/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/ms-access/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[What’s around for last months]]></title>
-    <link href="http://w.ApproachE.com/blog/whats-around-for-last-months/"/>
+    <link href="http://ApproachE.com/blog/whats-around-for-last-months/"/>
     <updated>2009-04-09T17:01:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/whats-around-for-last-months</id>
+    <id>http://ApproachE.com/blog/whats-around-for-last-months</id>
     <content type="html"><![CDATA[<div class='post'>
 I haven’t been blogging for a while and even thought about giving it up. Sometimes I just didn't have time.<br />
 But i want to recover a bit and write at least summary of thing I would like to write about.<br />
@@ -48,9 +48,9 @@ Now leaving office and going for holidays!<br />
   
   <entry>
     <title type="html"><![CDATA[Comments in MS Access]]></title>
-    <link href="http://w.ApproachE.com/blog/comments-in-ms-access/"/>
+    <link href="http://ApproachE.com/blog/comments-in-ms-access/"/>
     <updated>2009-01-16T10:43:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/comments-in-ms-access</id>
+    <id>http://ApproachE.com/blog/comments-in-ms-access</id>
     <content type="html"><![CDATA[<div class='post'>
 It turns out that MS Access 2003 just doesn't support comments in the SQL statement. I never new it because of I didn't use Access much. But it is ridiculous.</div>
 
@@ -59,9 +59,9 @@ It turns out that MS Access 2003 just doesn't support comments in the SQL statem
   
   <entry>
     <title type="html"><![CDATA[Execute stored procedures from ADO]]></title>
-    <link href="http://w.ApproachE.com/blog/execute-stored-procedures-from-ado/"/>
+    <link href="http://ApproachE.com/blog/execute-stored-procedures-from-ado/"/>
     <updated>2009-01-15T10:59:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/execute-stored-procedures-from-ado</id>
+    <id>http://ApproachE.com/blog/execute-stored-procedures-from-ado</id>
     <content type="html"><![CDATA[<div class='post'>
 The best thing ever in ADO and VBA is that you can execute stored procedures on the database <a href="http://msdn.microsoft.com/en-us/library/aa496035.aspx" target="_blank">like a usual method</a> (see <i>Avoid using the Command object</i>) of the connection object.<br />
 No any additional code, mapping or anything, just a magic.<br />

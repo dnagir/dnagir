@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nunit | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/nunit/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/nunit/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
-    <link href="http://w.ApproachE.com/blog/unit-test-actions-with/"/>
+    <link href="http://ApproachE.com/blog/unit-test-actions-with/"/>
     <updated>2011-03-18T11:35:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/unit-test-actions-with</id>
+    <id>http://ApproachE.com/blog/unit-test-actions-with</id>
     <content type="html"><![CDATA[<div class='post'>
 <p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
@@ -119,9 +119,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[Testing expected exception, revisited]]></title>
-    <link href="http://w.ApproachE.com/blog/testing-expected-exception-revisited/"/>
+    <link href="http://ApproachE.com/blog/testing-expected-exception-revisited/"/>
     <updated>2009-10-16T14:40:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/testing-expected-exception-revisited</id>
+    <id>http://ApproachE.com/blog/testing-expected-exception-revisited</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been using NUnit for a long time and really got used to it. Nowadays it is very sweet, especially with NUnitEx.<br />
 It does have a simple syntax for testing exception. Pretty much <a href="http://dnagir.blogspot.com/2008/05/unit-test-granular-expected-exception.html" target="_blank">what I did</a> long time ago.<br />
@@ -239,9 +239,9 @@ Enjoy.</div>
   
   <entry>
     <title type="html"><![CDATA[From MsTest to NUnit]]></title>
-    <link href="http://w.ApproachE.com/blog/from-mstest-to-nunit/"/>
+    <link href="http://ApproachE.com/blog/from-mstest-to-nunit/"/>
     <updated>2009-04-21T17:32:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/from-mstest-to-nunit</id>
+    <id>http://ApproachE.com/blog/from-mstest-to-nunit</id>
     <content type="html"><![CDATA[<div class='post'>
 That’s pretty easy to switch from MsTest to NUnit (or other xUnit framework, but I’ve decided I want NUnit). You need to do following steps:<br />
 <ol>
@@ -288,9 +288,9 @@ Very handy, thanks :)</div>
   
   <entry>
     <title type="html"><![CDATA[MsTest - Not Executed – Time to go to normal xUnit]]></title>
-    <link href="http://w.ApproachE.com/blog/mstest-not-executed-time-to-go-to/"/>
+    <link href="http://ApproachE.com/blog/mstest-not-executed-time-to-go-to/"/>
     <updated>2009-04-21T13:45:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/mstest-not-executed-time-to-go-to</id>
+    <id>http://ApproachE.com/blog/mstest-not-executed-time-to-go-to</id>
     <content type="html"><![CDATA[<div class='post'>
 For last couple of days I was trying to figure out why I’m getting “Not Executed” result for all my tests in a project.<br />
 The <a href="http://stackoverflow.com/questions/525578/why-are-all-my-visual-studio-test-results-not-executed" target="_blank">solution</a> (Is it that <a href="http://mrpmorris.blogspot.com/" target="_blank">Peter Morris</a> who posted it?) is to Unblock an assembly (in my case it was Microsoft.Web.Mvc.dll).<br />
@@ -302,9 +302,9 @@ I’m not sure i want something similar to occur again and will probably move to
   
   <entry>
     <title type="html"><![CDATA[Convert class library to MS Test project]]></title>
-    <link href="http://w.ApproachE.com/blog/convert-class-library-to-ms-test/"/>
+    <link href="http://ApproachE.com/blog/convert-class-library-to-ms-test/"/>
     <updated>2009-01-08T16:50:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/convert-class-library-to-ms-test</id>
+    <id>http://ApproachE.com/blog/convert-class-library-to-ms-test</id>
     <content type="html"><![CDATA[<div class='post'>
 If you:<br />
 <ul>

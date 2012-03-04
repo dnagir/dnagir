@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vici-mvc | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/vici-mvc/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/vici-mvc/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vici MVC – simple .NET implementation]]></title>
-    <link href="http://w.ApproachE.com/blog/vici-mvc-simple-net-implemetation/"/>
+    <link href="http://ApproachE.com/blog/vici-mvc-simple-net-implemetation/"/>
     <updated>2009-11-02T15:02:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/vici-mvc-simple-net-implemetation</id>
+    <id>http://ApproachE.com/blog/vici-mvc-simple-net-implemetation</id>
     <content type="html"><![CDATA[<div class='post'>
 I have found the <a href="http://viciproject.com/wiki/projects/mvc/home" target="_blank">ViciMVC</a> project and it caught my interest. What I can observe – it is really simple implementation of the MVC pattern for .NET (ASP.NET).<br />
 The key points I should mention about it are:<br />

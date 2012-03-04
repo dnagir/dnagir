@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: borland | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/borland/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/borland/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Solve Designer error in BDS 2006]]></title>
-    <link href="http://w.ApproachE.com/blog/solve-designer-error-in-bds-2006_24/"/>
+    <link href="http://ApproachE.com/blog/solve-designer-error-in-bds-2006_24/"/>
     <updated>2007-02-25T02:34:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/solve-designer-error-in-bds-2006_24</id>
+    <id>http://ApproachE.com/blog/solve-designer-error-in-bds-2006_24</id>
     <content type="html"><![CDATA[<div class='post'>
 Many of developers working with ASP.NET in design time saw the error: "<i><b>The designer could not be shown for this file because none of the classes within it can be designed</b></i>".
 

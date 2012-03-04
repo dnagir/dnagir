@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: javascript | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
-    <link href="http://w.ApproachE.com/blog/knockoutjs-validations-video/"/>
+    <link href="http://ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/knockoutjs-validations-video</id>
+    <id>http://ApproachE.com/blog/knockoutjs-validations-video</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
@@ -58,9 +58,9 @@ This comment has been removed by the author.</div>
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
+    <link href="http://ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
+    <id>http://ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
@@ -172,9 +172,9 @@ Unfortunately vimeo does not support html5 video</div>
   
   <entry>
     <title type="html"><![CDATA[JavaScript Library survey]]></title>
-    <link href="http://w.ApproachE.com/blog/javascript-library-survey/"/>
+    <link href="http://ApproachE.com/blog/javascript-library-survey/"/>
     <updated>2009-04-17T16:18:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/javascript-library-survey</id>
+    <id>http://ApproachE.com/blog/javascript-library-survey</id>
     <content type="html"><![CDATA[<div class='post'>
 Please help me to decide what library to choose for my everyday usage.<br />
 If you have some experience in that area please tell your word <a href="http://dcportal.argocomputing.com.au/CompleteForm.aspx?form=4:447" target="_blank">here</a>. Also please distribute this to as many colleges as you can.<br />
@@ -202,9 +202,9 @@ Well, you have forgot Google Web Toolkit (http://code.google.com/webtoolkit/) an
   
   <entry>
     <title type="html"><![CDATA[Use insertBefore instead of appendChild]]></title>
-    <link href="http://w.ApproachE.com/blog/use-insertbefore-instead-of-appendchild/"/>
+    <link href="http://ApproachE.com/blog/use-insertbefore-instead-of-appendchild/"/>
     <updated>2008-12-16T12:20:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/use-insertbefore-instead-of-appendchild</id>
+    <id>http://ApproachE.com/blog/use-insertbefore-instead-of-appendchild</id>
     <content type="html"><![CDATA[<div class='post'>
 You can get lots of problems when using node.appendChild due to an element may not be allowed to have children. It is especially valid for WYSIWYG editors.<br />
 To overcome this just use node.insertBefore which will always succeeds (it seems so at least). It is so just just because of insertBefore add a child to a parent, which already has at least one child and thus is can have children.<br />
@@ -235,9 +235,9 @@ This is especially useful when you have no idea what existingChild or root can b
   
   <entry>
     <title type="html"><![CDATA[Get value of HTML LABEL FOR]]></title>
-    <link href="http://w.ApproachE.com/blog/get-value-of-html-label-for/"/>
+    <link href="http://ApproachE.com/blog/get-value-of-html-label-for/"/>
     <updated>2008-12-16T11:30:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/get-value-of-html-label-for</id>
+    <id>http://ApproachE.com/blog/get-value-of-html-label-for</id>
     <content type="html"><![CDATA[<div class='post'>
 Make sure you use the code like this to get the value of LABEL's FOR attribute. This will work in most browsers:<br />
 <div>

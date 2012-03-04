@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nhaml | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/nhaml/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/nhaml/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Parameterised partials in NHAML – first thought]]></title>
-    <link href="http://w.ApproachE.com/blog/parameterised-partials-in-nhaml-first/"/>
+    <link href="http://ApproachE.com/blog/parameterised-partials-in-nhaml-first/"/>
     <updated>2009-09-04T14:02:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/parameterised-partials-in-nhaml-first</id>
+    <id>http://ApproachE.com/blog/parameterised-partials-in-nhaml-first</id>
     <content type="html"><![CDATA[<div class='post'>
 Thinking about parameterised <a href="http://code.google.com/p/nhaml/issues/detail?id=56" target="_blank">partial views in NHAML</a>.<br />
 <h4>
@@ -86,9 +86,9 @@ Also I should mention that the way NHAML works now (joining all the partials int
   
   <entry>
     <title type="html"><![CDATA[Simplify Iteration in MVC Views with NHAML]]></title>
-    <link href="http://w.ApproachE.com/blog/simplify-iteration-in-mvc-views-with/"/>
+    <link href="http://ApproachE.com/blog/simplify-iteration-in-mvc-views-with/"/>
     <updated>2009-09-01T21:04:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/simplify-iteration-in-mvc-views-with</id>
+    <id>http://ApproachE.com/blog/simplify-iteration-in-mvc-views-with</id>
     <content type="html"><![CDATA[<div class='post'>
 This post is inspired by the <a href="http://blog.codeville.net/2009/08/31/simplify-iteration-in-your-mvc-views/">one</a> from Steve Sanderson. He wants to improve the table generation on the WebForms engine in ASP.NET MVC. I definitely recommend to switch to <a href="http://code.google.com/p/nhaml/">NHAML</a> instead.<br />
 <br />
@@ -167,9 +167,9 @@ Hi - I accidentally discovered NHaml and like what I have seen so far. However, 
   
   <entry>
     <title type="html"><![CDATA[NHAML – scripts and styles, code block]]></title>
-    <link href="http://w.ApproachE.com/blog/nhaml-scripts-and-styles-code-block/"/>
+    <link href="http://ApproachE.com/blog/nhaml-scripts-and-styles-code-block/"/>
     <updated>2009-07-14T16:51:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/nhaml-scripts-and-styles-code-block</id>
+    <id>http://ApproachE.com/blog/nhaml-scripts-and-styles-code-block</id>
     <content type="html"><![CDATA[<div class='post'>
 Another useful tip for NHAML users that I came up with. I am assuming the site with following technical description:<br />
 <ol>
@@ -292,9 +292,9 @@ Can you do that? [Tip: NHAML supports extension methods as well.]</div>
   
   <entry>
     <title type="html"><![CDATA[NHAML – Tips]]></title>
-    <link href="http://w.ApproachE.com/blog/nhaml-tips/"/>
+    <link href="http://ApproachE.com/blog/nhaml-tips/"/>
     <updated>2009-07-08T11:06:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/nhaml-tips</id>
+    <id>http://ApproachE.com/blog/nhaml-tips</id>
     <content type="html"><![CDATA[<div class='post'>
 I’ve working with NHAML for some time. I <a href="http://dnagir.blogspot.com/2009/07/nhaml-impressions.html" target="_blank">just love</a> it.<br />
 Now I want to share some issues that I have faced and how I solved them.<br />
@@ -372,9 +372,9 @@ This should be enough for now :)</div>
   
   <entry>
     <title type="html"><![CDATA[NHAML – impressions]]></title>
-    <link href="http://w.ApproachE.com/blog/nhaml-impressions/"/>
+    <link href="http://ApproachE.com/blog/nhaml-impressions/"/>
     <updated>2009-07-08T10:34:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/nhaml-impressions</id>
+    <id>http://ApproachE.com/blog/nhaml-impressions</id>
     <content type="html"><![CDATA[<div class='post'>
 I have introduced the <a href="http://code.google.com/p/nhaml/" target="_blank">NHAML</a> into a new project. Just can’t silently ignore it. This is great thing. Really great. It does save time and helps to concentrate on the presentation of the view in ASP.NET MVC. I just love. Additionally it has great coverage of unit tests and code looks really good. So I believe in its quality.<br />
 <br />

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mocking | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/mocking/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/mocking/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RSpec 2.0 cheat sheet by example]]></title>
-    <link href="http://w.ApproachE.com/blog/rspec-hints-and-techniques/"/>
+    <link href="http://ApproachE.com/blog/rspec-hints-and-techniques/"/>
     <updated>2010-11-05T20:33:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/rspec-hints-and-techniques</id>
+    <id>http://ApproachE.com/blog/rspec-hints-and-techniques</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>The Ruby developers know and hear a lot of buzz about RSpec BDD framework. The RSpec specifications code is so easy to read, but for my it is often hard to write. So I intend to produce a small cheat-sheet for RSpec syntax for myself.</p>  <p>Most of it come from the <a href="http://www.pragprog.com/titles/achbd/the-rspec-book">RSpec Book</a> in rather unusual way. As a RSpec itself (unfortunately not runnable for now).</p>  <p>Please feel free to use it in any way you want and correct the mistakes.</p>  <p>So <a href="https://gist.github.com/663876">here we go</a>:</p> <script src="https://gist.github.com/663876.js?file=rspec-syntax-cheat-sheet.rb"></script>  </div>
 
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ivonna – ASP.NET Testing Tool]]></title>
-    <link href="http://w.ApproachE.com/blog/ivonna-aspnet-testing-tool/"/>
+    <link href="http://ApproachE.com/blog/ivonna-aspnet-testing-tool/"/>
     <updated>2009-05-06T12:20:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/ivonna-aspnet-testing-tool</id>
+    <id>http://ApproachE.com/blog/ivonna-aspnet-testing-tool</id>
     <content type="html"><![CDATA[<div class='post'>
 <blockquote>
 <a href="http://sm-art.biz/Ivonna.aspx" target="_blank">Ivonna</a> is an Asp.Net testing tool that allows writing unit tests for your Asp.Net applications. What makes it different is that Ivonna runs in the same process as the test runner.</blockquote>
@@ -40,9 +40,9 @@ Might be worth to check it out.</div>
   
   <entry>
     <title type="html"><![CDATA[OnActionExecuting in ASP.NET MVC unit tests]]></title>
-    <link href="http://w.ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/"/>
+    <link href="http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/"/>
     <updated>2009-01-06T15:39:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit</id>
+    <id>http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit</id>
     <content type="html"><![CDATA[<div class='post'>
 I'm doing some initialisation in my application base controller class. Let's say for our example that <b>some</b> of our controllers of our application need to have Language object defined. So that every page knows how to be localised.<br />
 Let's also say we are not sure at this stage how we want to define the language. Possible options are:<br />

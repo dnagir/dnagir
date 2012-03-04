@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: css | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/css/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HTML5 and CSS3: Develop with Tomorrow's Standards Today]]></title>
-    <link href="http://w.ApproachE.com/blog/html5-and-css3-develop-with-tomorrow/"/>
+    <link href="http://ApproachE.com/blog/html5-and-css3-develop-with-tomorrow/"/>
     <updated>2010-07-01T09:31:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/html5-and-css3-develop-with-tomorrow</id>
+    <id>http://ApproachE.com/blog/html5-and-css3-develop-with-tomorrow</id>
     <content type="html"><![CDATA[<div class='post'>
 If you are not living under the rock, you must know a lot of buzzing around HTML5 and CSS3.<br />
 And if you want to keep up with technologies so that you won’t become a grand daddy saying “I work with HTML1 and no CSS which works on all browsers”, then you DO HAVE to learn HTML5.<br />
@@ -30,9 +30,9 @@ Looking at the excerpts, I do like it for now and will get it as soon as I will 
   
   <entry>
     <title type="html"><![CDATA[HTML 5 Readiness]]></title>
-    <link href="http://w.ApproachE.com/blog/html-5-readiness/"/>
+    <link href="http://ApproachE.com/blog/html-5-readiness/"/>
     <updated>2010-04-20T20:55:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/html-5-readiness</id>
+    <id>http://ApproachE.com/blog/html-5-readiness</id>
     <content type="html"><![CDATA[<div class='post'>
 A friend of mine just sent me the link:&nbsp;<a href="http://html5readiness.com/">HTML 5 Readiness</a>.<br />
 Check it out - it shows browsers support for HTML5.<br />
@@ -46,9 +46,9 @@ And one more link (not really related) for myself as a note: <a href="http://eve
   
   <entry>
     <title type="html"><![CDATA[HTML5 Presentation]]></title>
-    <link href="http://w.ApproachE.com/blog/html5-presentation/"/>
+    <link href="http://ApproachE.com/blog/html5-presentation/"/>
     <updated>2010-04-18T23:30:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/html5-presentation</id>
+    <id>http://ApproachE.com/blog/html5-presentation</id>
     <content type="html"><![CDATA[<div class='post'>
 One of the easiest and best <a href="http://apirocks.com/html5/html5.html">presentations about HTML5</a>.<br />
 Just must see thing.<br />
@@ -70,9 +70,9 @@ What I like about it is that it:<br />
   
   <entry>
     <title type="html"><![CDATA[Content Management/Publishing System Problems]]></title>
-    <link href="http://w.ApproachE.com/blog/content-managementpublishing-system/"/>
+    <link href="http://ApproachE.com/blog/content-managementpublishing-system/"/>
     <updated>2009-10-24T01:20:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/content-managementpublishing-system</id>
+    <id>http://ApproachE.com/blog/content-managementpublishing-system</id>
     <content type="html"><![CDATA[<div class='post'>
 Reading the <a href="http://www.codinghorror.com/blog/archives/001306.html">Treating user Myopia</a> I remembered one thing I has been thinking about lately: the problems of all Content Management Systems.<br />
 Please note that I will be talking about Web Content Publishing which produces (as an end result) a web page represented with HTML.<br />
@@ -178,9 +178,9 @@ For any ideas on how to solve this publishing issue I promise beer.</div>
   
   <entry>
     <title type="html"><![CDATA[What realy "Web 2.0" is...]]></title>
-    <link href="http://w.ApproachE.com/blog/what-realy-web-20-is/"/>
+    <link href="http://ApproachE.com/blog/what-realy-web-20-is/"/>
     <updated>2007-01-31T18:38:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/what-realy-web-20-is</id>
+    <id>http://ApproachE.com/blog/what-realy-web-20-is</id>
     <content type="html"><![CDATA[<div class='post'>
 Web 2.0 is new generation of web based applications.
 <span id="intellitTxt"><a class="pageTitle" href="" id="#Page7">

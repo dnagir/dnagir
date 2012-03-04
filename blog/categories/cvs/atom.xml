@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: cvs | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/cvs/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/cvs/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Where TortoiseSVN name came from?]]></title>
-    <link href="http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from/"/>
+    <link href="http://ApproachE.com/blog/where-tortoisesvn-name-came-from/"/>
     <updated>2008-12-16T14:59:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/where-tortoisesvn-name-came-from</id>
+    <id>http://ApproachE.com/blog/where-tortoisesvn-name-came-from</id>
     <content type="html"><![CDATA[<div class='post'>
 I has just been asked that this question. And I haven't really known the answer. One supposition that made me smile "<i>Is it because of it is very slow?</i>"<a href="http://tortoisesvn.tigris.org/" target="_blank"><img align="right" src="http://upload.wikimedia.org/wikipedia/commons/1/1d/Tortoisesvn_logo_hor468x64.PNG" /></a><br />
 Ok, I suspected the <a href="http://tortoisesvn.net/node/61" target="_blank">answer is</a>...<br />

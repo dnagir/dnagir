@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nginx | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/nginx/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/nginx/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
-    <link href="http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
+    <link href="http://ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
     <updated>2011-05-19T00:58:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
+    <id>http://ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.

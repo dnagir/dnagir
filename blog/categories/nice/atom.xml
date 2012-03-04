@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nice | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/nice/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/nice/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fake wild-card mapping in Graffiti CMS]]></title>
-    <link href="http://w.ApproachE.com/blog/fake-wild-card-mapping-in-graffiti-cms/"/>
+    <link href="http://ApproachE.com/blog/fake-wild-card-mapping-in-graffiti-cms/"/>
     <updated>2009-09-25T10:39:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/fake-wild-card-mapping-in-graffiti-cms</id>
+    <id>http://ApproachE.com/blog/fake-wild-card-mapping-in-graffiti-cms</id>
     <content type="html"><![CDATA[<div class='post'>
 I have just installed <a href="http://graffiticms.com/" target="_blank">Graffiti CMS</a> to play with it. <br />
 After the installation I created a test post and only after that noticed the URL:   <br /><span style="font-family: Courier New;">http://localhost/Graffiti/<b>first-post</b></span><br />

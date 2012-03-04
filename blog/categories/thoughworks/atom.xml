@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: thoughworks | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/thoughworks/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/thoughworks/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Developer abuse]]></title>
-    <link href="http://w.ApproachE.com/blog/developer-abuse/"/>
+    <link href="http://ApproachE.com/blog/developer-abuse/"/>
     <updated>2010-03-29T23:19:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/developer-abuse</id>
+    <id>http://ApproachE.com/blog/developer-abuse</id>
     <content type="html"><![CDATA[<div class='post'>
 Have just watched the Developer Abuse video.<br />
 Though it is probably meant to be funny, it made me very sad. Sad from the fact that there are a lot non-professional approaches to such a simple and well know IT area (and yes, it <i><b>IS</b></i> simple, it is not a rocket science). Sad due to the fact that I sometimes am in such situations and some of my friends are.<br />

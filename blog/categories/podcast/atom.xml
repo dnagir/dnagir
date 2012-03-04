@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: podcast | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/podcast/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/podcast/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[.NET Podcasts]]></title>
-    <link href="http://w.ApproachE.com/blog/net-podcasts/"/>
+    <link href="http://ApproachE.com/blog/net-podcasts/"/>
     <updated>2009-05-27T09:37:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/net-podcasts</id>
+    <id>http://ApproachE.com/blog/net-podcasts</id>
     <content type="html"><![CDATA[<div class='post'>
 Just a list of resources that might be useful for a lot of people:<br />
 <ul>
@@ -53,9 +53,9 @@ Hi! Your blog is simply super. you have create a differentiate. Thanks for the s
   
   <entry>
     <title type="html"><![CDATA[Web 2.0 - Why Everything You've Been Taught Is Wrong]]></title>
-    <link href="http://w.ApproachE.com/blog/web-20-why-everything-youve-been-taught/"/>
+    <link href="http://ApproachE.com/blog/web-20-why-everything-youve-been-taught/"/>
     <updated>2007-11-02T11:34:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/web-20-why-everything-youve-been-taught</id>
+    <id>http://ApproachE.com/blog/web-20-why-everything-youve-been-taught</id>
     <content type="html"><![CDATA[<div class='post'>
 I had been watching some videos from <a href="http://developer.yahoo.com/yui/theater/">YUI Theater</a>. A lot of interesting stuff is there about client-side and front-end web development.
 

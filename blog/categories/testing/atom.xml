@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: testing | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/testing/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/testing/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
-    <link href="http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
+    <link href="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
     <updated>2011-11-29T11:51:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
+    <id>http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
@@ -97,9 +97,9 @@ Yet another reason to avoid C-extensions. When selecting dependencies for a new 
   
   <entry>
     <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
-    <link href="http://w.ApproachE.com/blog/unit-test-actions-with/"/>
+    <link href="http://ApproachE.com/blog/unit-test-actions-with/"/>
     <updated>2011-03-18T11:35:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/unit-test-actions-with</id>
+    <id>http://ApproachE.com/blog/unit-test-actions-with</id>
     <content type="html"><![CDATA[<div class='post'>
 <p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
 </pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
@@ -201,9 +201,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[RSpec 2.0 cheat sheet by example]]></title>
-    <link href="http://w.ApproachE.com/blog/rspec-hints-and-techniques/"/>
+    <link href="http://ApproachE.com/blog/rspec-hints-and-techniques/"/>
     <updated>2010-11-05T20:33:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/rspec-hints-and-techniques</id>
+    <id>http://ApproachE.com/blog/rspec-hints-and-techniques</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>The Ruby developers know and hear a lot of buzz about RSpec BDD framework. The RSpec specifications code is so easy to read, but for my it is often hard to write. So I intend to produce a small cheat-sheet for RSpec syntax for myself.</p>  <p>Most of it come from the <a href="http://www.pragprog.com/titles/achbd/the-rspec-book">RSpec Book</a> in rather unusual way. As a RSpec itself (unfortunately not runnable for now).</p>  <p>Please feel free to use it in any way you want and correct the mistakes.</p>  <p>So <a href="https://gist.github.com/663876">here we go</a>:</p> <script src="https://gist.github.com/663876.js?file=rspec-syntax-cheat-sheet.rb"></script>  </div>
 
@@ -212,9 +212,9 @@ duzn&#39;t work</div>
   
   <entry>
     <title type="html"><![CDATA[There is Such a Thing as Too Much Testing]]></title>
-    <link href="http://w.ApproachE.com/blog/there-is-such-thing-as-too-much-testing/"/>
+    <link href="http://ApproachE.com/blog/there-is-such-thing-as-too-much-testing/"/>
     <updated>2010-02-18T09:13:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/there-is-such-thing-as-too-much-testing</id>
+    <id>http://ApproachE.com/blog/there-is-such-thing-as-too-much-testing</id>
     <content type="html"><![CDATA[<div class='post'>
 Have been watching the RubyConf 2009 <a href="http://rubyconf2009.confreaks.com/21-nov-2009-13-15-there-is-such-a-thing-as-too-much-testing-jake-scruggs.html" target="_blank">video</a>. And I liked the matrix which is based on 3 dimensions to determine level of testing. The questions you have to ask to determine how much testing you need should include:<br />
 <ul>
@@ -257,9 +257,9 @@ The lessons are:<br />
   
   <entry>
     <title type="html"><![CDATA[Testing expected exception, revisited]]></title>
-    <link href="http://w.ApproachE.com/blog/testing-expected-exception-revisited/"/>
+    <link href="http://ApproachE.com/blog/testing-expected-exception-revisited/"/>
     <updated>2009-10-16T14:40:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/testing-expected-exception-revisited</id>
+    <id>http://ApproachE.com/blog/testing-expected-exception-revisited</id>
     <content type="html"><![CDATA[<div class='post'>
 I have been using NUnit for a long time and really got used to it. Nowadays it is very sweet, especially with NUnitEx.<br />
 It does have a simple syntax for testing exception. Pretty much <a href="http://dnagir.blogspot.com/2008/05/unit-test-granular-expected-exception.html" target="_blank">what I did</a> long time ago.<br />

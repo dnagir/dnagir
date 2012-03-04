@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ncover | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/ncover/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/ncover/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[NCover]]></title>
-    <link href="http://w.ApproachE.com/blog/ncover/"/>
+    <link href="http://ApproachE.com/blog/ncover/"/>
     <updated>2008-12-11T13:15:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/ncover</id>
+    <id>http://ApproachE.com/blog/ncover</id>
     <content type="html"><![CDATA[<div class='post'>
 <h4>
 Description</h4>

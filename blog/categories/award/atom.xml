@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: award | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/award/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/award/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[2009 asp.netPRO Readers Choice Award Winners]]></title>
-    <link href="http://w.ApproachE.com/blog/2009-aspnetpro-readers-choice-award/"/>
+    <link href="http://ApproachE.com/blog/2009-aspnetpro-readers-choice-award/"/>
     <updated>2009-06-01T09:30:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/2009-aspnetpro-readers-choice-award</id>
+    <id>http://ApproachE.com/blog/2009-aspnetpro-readers-choice-award</id>
     <content type="html"><![CDATA[<div class='post'>
 Interesting <a href="http://www.aspnetpro.com/articles/2009/05/asp200905rca_f/asp200905rca_f.asp" target="_blank">results</a> of this year’s ASP.NET PRO readers’ choice award (making the note for myself, as usually):<br />
 <table border="1" cellpadding="0" cellspacing="0"><tbody>

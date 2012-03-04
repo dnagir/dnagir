@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: frustration | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/frustration/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/frustration/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Developer abuse]]></title>
-    <link href="http://w.ApproachE.com/blog/developer-abuse/"/>
+    <link href="http://ApproachE.com/blog/developer-abuse/"/>
     <updated>2010-03-29T23:19:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/developer-abuse</id>
+    <id>http://ApproachE.com/blog/developer-abuse</id>
     <content type="html"><![CDATA[<div class='post'>
 Have just watched the Developer Abuse video.<br />
 Though it is probably meant to be funny, it made me very sad. Sad from the fact that there are a lot non-professional approaches to such a simple and well know IT area (and yes, it <i><b>IS</b></i> simple, it is not a rocket science). Sad due to the fact that I sometimes am in such situations and some of my friends are.<br />
@@ -67,9 +67,9 @@ what&#39;s that? didn&#39;t get it.</div>
   
   <entry>
     <title type="html"><![CDATA[Content Management/Publishing System Problems]]></title>
-    <link href="http://w.ApproachE.com/blog/content-managementpublishing-system/"/>
+    <link href="http://ApproachE.com/blog/content-managementpublishing-system/"/>
     <updated>2009-10-24T01:20:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/content-managementpublishing-system</id>
+    <id>http://ApproachE.com/blog/content-managementpublishing-system</id>
     <content type="html"><![CDATA[<div class='post'>
 Reading the <a href="http://www.codinghorror.com/blog/archives/001306.html">Treating user Myopia</a> I remembered one thing I has been thinking about lately: the problems of all Content Management Systems.<br />
 Please note that I will be talking about Web Content Publishing which produces (as an end result) a web page represented with HTML.<br />
@@ -175,9 +175,9 @@ For any ideas on how to solve this publishing issue I promise beer.</div>
   
   <entry>
     <title type="html"><![CDATA[Dividing integers in C# are evil]]></title>
-    <link href="http://w.ApproachE.com/blog/dividing-integers-in-c-are-evil/"/>
+    <link href="http://ApproachE.com/blog/dividing-integers-in-c-are-evil/"/>
     <updated>2009-10-08T10:56:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/dividing-integers-in-c-are-evil</id>
+    <id>http://ApproachE.com/blog/dividing-integers-in-c-are-evil</id>
     <content type="html"><![CDATA[<div class='post'>
 If you have ever worked with arithmetical operations in C# you probably know this. But it is the thing that can easily be slept from you and not even mentioned.<br />
 What do you think the code will print? True or False?<br />
@@ -236,9 +236,9 @@ I have no idea why you think IRL int/int=real, that&#39;s definitely not correct
   
   <entry>
     <title type="html"><![CDATA[Image.GetBounds always returns value in Pixels]]></title>
-    <link href="http://w.ApproachE.com/blog/imagegetbounds-always-returns-value-in/"/>
+    <link href="http://ApproachE.com/blog/imagegetbounds-always-returns-value-in/"/>
     <updated>2009-10-01T14:20:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/imagegetbounds-always-returns-value-in</id>
+    <id>http://ApproachE.com/blog/imagegetbounds-always-returns-value-in</id>
     <content type="html"><![CDATA[<div class='post'>
 Ok. Looking at the method <a href="http://msdn.microsoft.com/en-us/library/system.drawing.image.getbounds.aspx">Image.GetBounds</a> I see:<br />
 Return value:<br />
@@ -301,9 +301,9 @@ Very unfortunate. But I appreciate the light rant. You&#39;ve saved me from wast
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC Most annoying issues]]></title>
-    <link href="http://w.ApproachE.com/blog/aspnet-mvc-most-annoying-issues/"/>
+    <link href="http://ApproachE.com/blog/aspnet-mvc-most-annoying-issues/"/>
     <updated>2009-09-29T13:16:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/aspnet-mvc-most-annoying-issues</id>
+    <id>http://ApproachE.com/blog/aspnet-mvc-most-annoying-issues</id>
     <content type="html"><![CDATA[<div class='post'>
 <ul>
 <li>No support for SSL in routing&nbsp; (no URL generation configured in a single place). One big hack is <a href="http://dnagir.blogspot.com/2008/08/fixing-https-support-in-aspnet-mvc.html">here</a>.</li>

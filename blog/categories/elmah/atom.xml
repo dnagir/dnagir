@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: elmah | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/elmah/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/elmah/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ELMAH – Error Logging Modules and Handlers]]></title>
-    <link href="http://w.ApproachE.com/blog/elmah-error-logging-modules-and/"/>
+    <link href="http://ApproachE.com/blog/elmah-error-logging-modules-and/"/>
     <updated>2009-04-24T10:13:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/elmah-error-logging-modules-and</id>
+    <id>http://ApproachE.com/blog/elmah-error-logging-modules-and</id>
     <content type="html"><![CDATA[<div class='post'>
 It seems it’s <a href="http://www.hanselman.com/blog/ELMAHErrorLoggingModulesAndHandlersForASPNETAndMVCToo.aspx" target="_blank">getting more popular</a>.<br />
 Located at: <a href="http://code.google.com/p/elmah/" title="http://code.google.com/p/elmah/">http://code.google.com/p/elmah/</a><br />

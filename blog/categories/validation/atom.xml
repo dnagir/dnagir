@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: validation | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/validation/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/validation/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[WebForms Validate and Validate with group]]></title>
-    <link href="http://w.ApproachE.com/blog/webforms-validate-and-validate-with/"/>
+    <link href="http://ApproachE.com/blog/webforms-validate-and-validate-with/"/>
     <updated>2009-09-09T10:13:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/webforms-validate-and-validate-with</id>
+    <id>http://ApproachE.com/blog/webforms-validate-and-validate-with</id>
     <content type="html"><![CDATA[<div class='post'>
 .NET 2.0 introduced a new method Validate on the page. It has additional parameter: validation group. As we all know and name suggests it indicates the group the validation should be applied to.<br />
 But how do old Validate and new Validate(validationGroup) methods work together?<br />
@@ -58,9 +58,9 @@ So after migrating to ASP.NET 2.0 still fighting WebForms… and its “compatib
   
   <entry>
     <title type="html"><![CDATA[What’s around for last months]]></title>
-    <link href="http://w.ApproachE.com/blog/whats-around-for-last-months/"/>
+    <link href="http://ApproachE.com/blog/whats-around-for-last-months/"/>
     <updated>2009-04-09T17:01:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/whats-around-for-last-months</id>
+    <id>http://ApproachE.com/blog/whats-around-for-last-months</id>
     <content type="html"><![CDATA[<div class='post'>
 I haven’t been blogging for a while and even thought about giving it up. Sometimes I just didn't have time.<br />
 But i want to recover a bit and write at least summary of thing I would like to write about.<br />

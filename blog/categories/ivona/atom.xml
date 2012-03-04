@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ivona | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/ivona/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/ivona/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ivonna – ASP.NET Testing Tool]]></title>
-    <link href="http://w.ApproachE.com/blog/ivonna-aspnet-testing-tool/"/>
+    <link href="http://ApproachE.com/blog/ivonna-aspnet-testing-tool/"/>
     <updated>2009-05-06T12:20:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/ivonna-aspnet-testing-tool</id>
+    <id>http://ApproachE.com/blog/ivonna-aspnet-testing-tool</id>
     <content type="html"><![CDATA[<div class='post'>
 <blockquote>
 <a href="http://sm-art.biz/Ivonna.aspx" target="_blank">Ivonna</a> is an Asp.Net testing tool that allows writing unit tests for your Asp.Net applications. What makes it different is that Ivonna runs in the same process as the test runner.</blockquote>

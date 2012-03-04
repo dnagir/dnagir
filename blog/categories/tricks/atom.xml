@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: tricks | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/tricks/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/tricks/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC RenderPartial with null Model]]></title>
-    <link href="http://w.ApproachE.com/blog/aspnet-mvc-renderpartial-with-null/"/>
+    <link href="http://ApproachE.com/blog/aspnet-mvc-renderpartial-with-null/"/>
     <updated>2009-05-06T12:02:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/aspnet-mvc-renderpartial-with-null</id>
+    <id>http://ApproachE.com/blog/aspnet-mvc-renderpartial-with-null</id>
     <content type="html"><![CDATA[<div class='post'>
 If you’ll try to pass null to the RenderPartial method it will actually pull the model from the page and will, most likely, give an error.<br />
 So instead of <br />
@@ -77,9 +77,9 @@ Hi,<br /><br />since the ViewDataDictionary also contains the ModelState which w
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MasterPages and Url Rebasing]]></title>
-    <link href="http://w.ApproachE.com/blog/aspnet-masterpages-and-url-rebasing/"/>
+    <link href="http://ApproachE.com/blog/aspnet-masterpages-and-url-rebasing/"/>
     <updated>2009-01-08T15:36:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/aspnet-masterpages-and-url-rebasing</id>
+    <id>http://ApproachE.com/blog/aspnet-masterpages-and-url-rebasing</id>
     <content type="html"><![CDATA[<div class='post'>
 Always learn something new. I really didn't know that.<br />
 I paid some attention to my MasterPage and the link to CSS file. Here is what I noticed.<br />
@@ -112,9 +112,9 @@ The runtime will try to “rebase” relative URLs it finds on <b>server-side</b
   
   <entry>
     <title type="html"><![CDATA[Reusing Controller without inheritance]]></title>
-    <link href="http://w.ApproachE.com/blog/reusing-controller-without-inheritance/"/>
+    <link href="http://ApproachE.com/blog/reusing-controller-without-inheritance/"/>
     <updated>2009-01-08T12:41:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/reusing-controller-without-inheritance</id>
+    <id>http://ApproachE.com/blog/reusing-controller-without-inheritance</id>
     <content type="html"><![CDATA[<div class='post'>
 I created couple of controllers that provide some predefined functionality. All I needed is just to inherit from them. Then I decided to move them in a separate library so I would be able to reuse it in other projects. But then I faced a problem. Controllers of my project are forced to be inherited from those ones.<br />
 Thou I don't have a problem with it, I additionally want every controller to have more functionality in it. You know, we always want to have something common in all our controllers.<br />
@@ -347,9 +347,9 @@ Enjoy!</div>
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC Request  ValueProviderResult: AttemptedValue or RawValue]]></title>
-    <link href="http://w.ApproachE.com/blog/aspnet-mvc-request-valueproviderresult/"/>
+    <link href="http://ApproachE.com/blog/aspnet-mvc-request-valueproviderresult/"/>
     <updated>2009-01-02T14:21:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/aspnet-mvc-request-valueproviderresult</id>
+    <id>http://ApproachE.com/blog/aspnet-mvc-request-valueproviderresult</id>
     <content type="html"><![CDATA[<div class='post'>
 I want to write a small helper to obtain an object from the request. Nothing special except to note that there are <span style="font-family: Courier New;">AttemptedValue</span> and <span style="font-family: Courier New;">RawValue</span> properties of <span style="font-family: Courier New;">ValueProviderResult</span>. Which one should I use for this helper keeping in mind that an ID of an object is always a string. Let's see what these props are:<br />
 <ul>
@@ -385,9 +385,9 @@ Usage sample:<br />
   
   <entry>
     <title type="html"><![CDATA[Use insertBefore instead of appendChild]]></title>
-    <link href="http://w.ApproachE.com/blog/use-insertbefore-instead-of-appendchild/"/>
+    <link href="http://ApproachE.com/blog/use-insertbefore-instead-of-appendchild/"/>
     <updated>2008-12-16T12:20:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/use-insertbefore-instead-of-appendchild</id>
+    <id>http://ApproachE.com/blog/use-insertbefore-instead-of-appendchild</id>
     <content type="html"><![CDATA[<div class='post'>
 You can get lots of problems when using node.appendChild due to an element may not be allowed to have children. It is especially valid for WYSIWYG editors.<br />
 To overcome this just use node.insertBefore which will always succeeds (it seems so at least). It is so just just because of insertBefore add a child to a parent, which already has at least one child and thus is can have children.<br />

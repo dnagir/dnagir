@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: fxcop | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/fxcop/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/fxcop/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Application localization: strating point]]></title>
-    <link href="http://w.ApproachE.com/blog/application-localization-strating-point/"/>
+    <link href="http://ApproachE.com/blog/application-localization-strating-point/"/>
     <updated>2007-07-11T13:21:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/application-localization-strating-point</id>
+    <id>http://ApproachE.com/blog/application-localization-strating-point</id>
     <content type="html"><![CDATA[<div class='post'>
 After you need your application to be localized for many lnguages you can decide what ResourceManager to use, where to store resource and many other things.
 

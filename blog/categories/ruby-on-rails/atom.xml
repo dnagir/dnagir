@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby-on-rails | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Easy Rails deployment with Capistrano and custom Nginx configs]]></title>
-    <link href="http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
+    <link href="http://ApproachE.com/blog/easy-rails-deployment-with-capistrano/"/>
     <updated>2011-05-19T00:58:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
+    <id>http://ApproachE.com/blog/easy-rails-deployment-with-capistrano</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 In my <a href="http://blog.approache.com/2011/05/setting-up-ubuntu-1104-server-for-rails.html">previous post</a> I provided some info about setting up the server for rails app.
@@ -125,9 +125,9 @@ Love it!</div>
   
   <entry>
     <title type="html"><![CDATA[Setting up Ubuntu 11.04 server for Rails with RVM]]></title>
-    <link href="http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails/"/>
+    <link href="http://ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails/"/>
     <updated>2011-05-19T00:09:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails</id>
+    <id>http://ApproachE.com/blog/setting-up-ubuntu-1104-server-for-rails</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I had to set up the server (Ubuntu 11.04) for running couple of Rails apps and thought I could share the notes I've written while doing that. 
@@ -231,9 +231,9 @@ I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step
   
   <entry>
     <title type="html"><![CDATA[Unix - do not reinvent the wheel]]></title>
-    <link href="http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel/"/>
+    <link href="http://ApproachE.com/blog/unix-do-not-reinvent-wheel/"/>
     <updated>2011-05-19T00:00:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/unix-do-not-reinvent-wheel</id>
+    <id>http://ApproachE.com/blog/unix-do-not-reinvent-wheel</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
@@ -345,9 +345,9 @@ Watchdog daemon
   
   <entry>
     <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
-    <link href="http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
+    <link href="http://ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
     <updated>2011-05-18T23:52:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
+    <id>http://ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>
 I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
@@ -453,9 +453,9 @@ You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope yo
   
   <entry>
     <title type="html"><![CDATA[Screencasts for this weekend]]></title>
-    <link href="http://w.ApproachE.com/blog/screencasts-for-this-weekend/"/>
+    <link href="http://ApproachE.com/blog/screencasts-for-this-weekend/"/>
     <updated>2010-12-13T09:53:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/screencasts-for-this-weekend</id>
+    <id>http://ApproachE.com/blog/screencasts-for-this-weekend</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mac | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
-    <link href="http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
+    <link href="http://ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
     <updated>2011-10-04T12:53:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
+    <id>http://ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>
 Keep your config in a separate dotfiles directory and under source control with the structure like:<br />

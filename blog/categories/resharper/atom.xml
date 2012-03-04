@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: resharper | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/resharper/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/resharper/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Benefits of using ReSharper]]></title>
-    <link href="http://w.ApproachE.com/blog/benefits-of-using-resharper/"/>
+    <link href="http://ApproachE.com/blog/benefits-of-using-resharper/"/>
     <updated>2009-09-04T12:43:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/benefits-of-using-resharper</id>
+    <id>http://ApproachE.com/blog/benefits-of-using-resharper</id>
     <content type="html"><![CDATA[<div class='post'>
 Please do not laugh at me now after reading the next sentence. I am <i><b>evaluating</b></i> the <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a> now.&nbsp; I should do it years ago as I have always been aware of it, but just didn’t get my hands on to it. I tried <a href="http://www.devexpress.com/Products/Visual_Studio_Add-in/Coding_Assistance/" target="_blank">CodeRush and Refactor!</a> from DevExpress too. I must admin these tools do not read your mind, but are doing a great job FOR you.<br />
 What I liked in DevExpress CodeRush+Refactor! is its fun visualisations and code complexity shown. Refactorings are great as well.<br />

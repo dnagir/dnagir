@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: pc | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/pc/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/pc/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Prototype Game]]></title>
-    <link href="http://w.ApproachE.com/blog/prototype-game/"/>
+    <link href="http://ApproachE.com/blog/prototype-game/"/>
     <updated>2009-09-07T09:26:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/prototype-game</id>
+    <id>http://ApproachE.com/blog/prototype-game</id>
     <content type="html"><![CDATA[<div class='post'>
 Last weekend I’ve got the <a href="http://www.prototypegame.com/" target="_blank">Prototype Game</a>. I like it a lot and the game play is very enjoying. But all that came did not come such simple. After I installed the game and tried it on me Athlon XP 64 6000+ and GeForce 6500 512 MB system I had probably about 5 FPS in the game. The system still satisfies minimum requirements.<br />
 I though that my systems is already old for the game, so I upgrades CPU and graphic card to x4 Phenom 9650 and Radeon 4850 1GB graphic card. I expected at least <i>some</i> improvement in the game experience, to play the game at least a bit smoother… But the hardware upgrade did not change anything (at least visually I could not mention the difference).<br />
@@ -49,9 +49,9 @@ Thanks for suggestion about HID devices.<br />I liked the sample video of Protot
   
   <entry>
     <title type="html"><![CDATA[99.99% available ASP.NET and SQL Server Architecture]]></title>
-    <link href="http://w.ApproachE.com/blog/9999-available-aspnet-and-sql-server/"/>
+    <link href="http://ApproachE.com/blog/9999-available-aspnet-and-sql-server/"/>
     <updated>2008-12-16T13:46:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/9999-available-aspnet-and-sql-server</id>
+    <id>http://ApproachE.com/blog/9999-available-aspnet-and-sql-server</id>
     <content type="html"><![CDATA[<div class='post'>
 I'll summarise a very nice <a href="http://www.codeproject.com/KB/aspnet/ProdArch.aspx">article</a> here:<br />
 <a href="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" target="_blank" title="Open in a new window"><img align="right" alt="Architecture" height="417" src="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" width="300" /></a>   <br />
@@ -88,9 +88,9 @@ Please keep in mind these suggestions are for really heavy duty web applications
   
   <entry>
     <title type="html"><![CDATA[Melbourne Museum]]></title>
-    <link href="http://w.ApproachE.com/blog/melbourne-museum/"/>
+    <link href="http://ApproachE.com/blog/melbourne-museum/"/>
     <updated>2007-10-02T09:08:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/melbourne-museum</id>
+    <id>http://ApproachE.com/blog/melbourne-museum</id>
     <content type="html"><![CDATA[<div class='post'>
 Some <a href="http://picasaweb.google.com/dnagir/MelbourneMuseum">photos</a> from Melbourne Museum.
 Very nice one.

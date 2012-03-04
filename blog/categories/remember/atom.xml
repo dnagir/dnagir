@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: remember | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/remember/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/remember/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Prefer C# cast but not AS operator]]></title>
-    <link href="http://w.ApproachE.com/blog/prefer-c-cast-but-not-as-operator/"/>
+    <link href="http://ApproachE.com/blog/prefer-c-cast-but-not-as-operator/"/>
     <updated>2009-09-22T09:27:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/prefer-c-cast-but-not-as-operator</id>
+    <id>http://ApproachE.com/blog/prefer-c-cast-but-not-as-operator</id>
     <content type="html"><![CDATA[<div class='post'>
 I see misuse of these 2 operators on every and each forum approximately at least couple of times a week. People don’t know/realise (or don’t want to) that there is significant difference in two code snippets below (I found similar on one of the forums):<br />
 <pre class="csharpcode">var unknown = (<span class="kwrd">object</span>)<span class="kwrd">new</span> List&lt;<span class="kwrd">string</span>&gt;();
@@ -93,9 +93,9 @@ Hmmm, I would say &quot;Never write it either of these ways if there is any chan
   
   <entry>
     <title type="html"><![CDATA[Get value of HTML LABEL FOR]]></title>
-    <link href="http://w.ApproachE.com/blog/get-value-of-html-label-for/"/>
+    <link href="http://ApproachE.com/blog/get-value-of-html-label-for/"/>
     <updated>2008-12-16T11:30:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/get-value-of-html-label-for</id>
+    <id>http://ApproachE.com/blog/get-value-of-html-label-for</id>
     <content type="html"><![CDATA[<div class='post'>
 Make sure you use the code like this to get the value of LABEL's FOR attribute. This will work in most browsers:<br />
 <div>

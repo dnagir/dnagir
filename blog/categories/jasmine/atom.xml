@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jasmine | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/jasmine/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/jasmine/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://w.ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
+    <link href="http://ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
     <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://w.ApproachE.com/blog/rails-plugin-with-tested-assets</id>
+    <id>http://ApproachE.com/blog/rails-plugin-with-tested-assets</id>
     <content type="html"><![CDATA[<div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">
 Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />

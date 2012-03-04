@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: survey | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/survey/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/survey/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript Library survey]]></title>
-    <link href="http://w.ApproachE.com/blog/javascript-library-survey/"/>
+    <link href="http://ApproachE.com/blog/javascript-library-survey/"/>
     <updated>2009-04-17T16:18:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/javascript-library-survey</id>
+    <id>http://ApproachE.com/blog/javascript-library-survey</id>
     <content type="html"><![CDATA[<div class='post'>
 Please help me to decide what library to choose for my everyday usage.<br />
 If you have some experience in that area please tell your word <a href="http://dcportal.argocomputing.com.au/CompleteForm.aspx?form=4:447" target="_blank">here</a>. Also please distribute this to as many colleges as you can.<br />

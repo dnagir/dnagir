@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: model-binder | Art Of Programming]]></title>
-  <link href="http://w.ApproachE.com/blog/categories/model-binder/atom.xml" rel="self"/>
-  <link href="http://w.ApproachE.com/"/>
-  <updated>2012-03-04T19:49:45+11:00</updated>
-  <id>http://w.ApproachE.com/</id>
+  <link href="http://ApproachE.com/blog/categories/model-binder/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2012-03-04T20:01:46+11:00</updated>
+  <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC empty values and string binding]]></title>
-    <link href="http://w.ApproachE.com/blog/aspnet-mvc-empty-values-and-string/"/>
+    <link href="http://ApproachE.com/blog/aspnet-mvc-empty-values-and-string/"/>
     <updated>2009-09-01T16:44:00+10:00</updated>
-    <id>http://w.ApproachE.com/blog/aspnet-mvc-empty-values-and-string</id>
+    <id>http://ApproachE.com/blog/aspnet-mvc-empty-values-and-string</id>
     <content type="html"><![CDATA[<div class='post'>
 I have mentioned that empty strings never have null values during data binding. Instead they are empty strings. If we don’t do anything with it, it will propagate to the database. I don’t really want to have empty strings in there. Nulls should be in the database instead. The easiest solution is to re-implement the default data-binder. And here it is:<br />
 <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">class</span> NullStringModelBinder : DefaultModelBinder {
