@@ -9,7 +9,9 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I have introduced the NHAML into a new project. Just can’t silently ignore it. This is great thing. Really great. It does save time and helps to &hellip;">
+  <meta name="description" content="I’ve working with NHAML for some time. I just love it.
+Now I want to share some issues that I have faced and how I solved them.
+This is small &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +79,112 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/nhaml-tips/">NHAML – Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-08T11:06:00+10:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I’ve working with NHAML for some time. I <a href="http://dnagir.blogspot.com/2009/07/nhaml-impressions.html" target="_blank">just love</a> it.<br />
+Now I want to share some issues that I have faced and how I solved them.<br />
+This is small Question/Answer list:<br />
+<hr />
+Q1: What is NHAML analogue of <br />
+<pre class="csharpcode"><span class="asp">&lt;%</span>= Html.ActionLink(<span class="str">"Home"</span>, <span class="str">"Index"</span>, <span class="str">"Home"</span>)<span class="asp">%&gt;</span></pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+A1: != Html.ActionLink(&#8220;Home&#8221;, &#8220;Index&#8221;, &#8220;Home&#8221;)<br />
+<hr />
+Q2: What is NHAML analogue of 
+  <br />
+<pre class="csharpcode"><span class="asp">&lt;%</span>= Server.HtmlEncode(Model.Name) <span class="asp">%&gt;</span></pre>
+A2: &amp;= Model.Name<br />
+<hr />
+Q3: What is analogue of<br />
+<pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">='&lt;%= Html.Content().HomeLink %&gt;' target=’_blank’</span><span class="kwrd">&gt;</span>Home<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span></pre>
+A3: More complex code should be wrapped in #{}: 
+  <br />%a { href=#{Html.Content().HomeLink} target=”_blank”} Home<br />
+BUT see Q4<br />
+<hr />
+Q4: What is analogue of<br />
+<pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">='&lt;%=Model.ProductUrl %&gt;'</span> <span class="attr">target</span><span class="kwrd">='_blank'</span><span class="kwrd">&gt;</span><span class="asp">&lt;%</span>= Server.HtmlEncode(Model.ProductName) <span class="asp">%&gt;</span> <span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span></pre>
+A4: Simple code may not be wrapped in anything: 
+  <br />%a { href=Model.ProductUrl target=”_blank”} &amp;= Home<br />
+<hr />
+Q5: What is analogue of:<br />
+<pre class="csharpcode"><span class="asp">&lt;%</span> <span class="kwrd">foreach</span>(Product currentProduct <span class="kwrd">in</span> Model.Products) {<span class="asp">%&gt;</span>
+  <span class="asp">&lt;%</span> Html.RenderPartial(<span class="str">"ProductInfo"</span>, currentProduct); <span class="asp">%&gt;</span>
+<span class="asp">&lt;%</span> }; <span class="asp">%&gt;</span></pre>
+A5: Local variables (currentProduct) are available in partial views (_ProductInfo):<br />
+<pre class="csharpcode">- foreach(Product currentProduct in Model.Products)
+  _ ProductInfo</pre>
+<hr />
+Q6: What about HTML encoding?<br />
+A6: See the <a href="http://code.google.com/p/nhaml/wiki/NHamlLanguageReference" target="_blank">reference</a> for more info. Shortly: if you want to encode – use “&amp;=”, if you don’t – use “!=”.<br />
+<hr />
+Q7: Can I use WebForms View engine and NHAML?<br />
+A7: Yes. No problem with that. In fact I do it as a fallback in case something goes wrong (hope it will never happen :) ).<br />
+<hr />
+Q8: Any integration with Visual Studio<br />
+A8: At the moment I am aware of Visual Studio <a href="http://code.google.com/p/nhaml/wiki/VisualStudioPlugin" target="_blank">syntax highlighter</a> plug-in only .<br />
+<hr />
+This should be enough for now :)</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -738,76 +846,6 @@ Hi! Your blog is simply super. you have create a differentiate. Thanks for the s
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/aspnet-40-do-i-need-to-jump-into-it/">ASP.NET 4.0 – Do I Need to Jump Into It?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-26T10:44:00+10:00" pubdate data-updated="true">May 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Just quickly going through the <a href="http://www.asp.net/learn/whitepapers/aspnet40/" target="_blank">whitepaper</a> published a while ago. I can see a lot of improvements around ASP.NET 4.0. But the ones below are probably the most important for me:<br />
-<ul>
-<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325467" target="_blank"><img align="right" height="379" src="http://static.asp.net/asp.net/images/whitepapers/aspnet40/whats-new-Fig1b.png" style="display: inline; margin-left: 0px; margin-right: 0px;" width="539" />AJAX Functionality</a>       <br />
-<ul>
-<li>Client Template Rendering – out of the box client-side templating engine. It seems to be very tightly integrated with ASP.NET infrastructure. DataView control looks very good. </li>
-<li>Script Manager now allows to use any JS library and not only ASP.NET AJAX. </li>
-<li>Very large client-side infrastructure support and integration with .NET (see pic) </li>
-</ul>
-</li>
-<li>WebForms      <br />
-<ul>
-<li>Enabling View State for Individual Controls – nice addition. </li>
-<li>Routing (it really came from ASP.NET MVC available in .NET 3.5) – it’s said that it is easier to use it. </li>
-<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325481" target="_blank"><b>Setting Client IDs</b></a> – there have been a lot of feedback on it since .NET 1. And it seems Microsoft has finally attended this issue. It allows to control the IDs on the generated HTML. It my opinion this is one of the <b>most significant</b> improvements in WebForms. </li>
-<li>FormView Control now can render content with not table at all which is great thing (finally!). </li>
-<li>ListView has better control over the HTML. </li>
-</ul>
-</li>
-<li>Data      <br />
-<ul>
-<li>Support for inheritance in Data Model for both EF and Linq2Sql. </li>
-<li>EF supports many-to-many relationships. </li>
-</ul>
-</li>
-<li>VS Web Designer Improvements      <br />
-<ul>
-<li>Improved CSS compatibility – better CSS 2.1 compliance (however I’m not sure how better it is). </li>
-<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325501" target="_blank">Web.config transformation</a> – allows to modify the .config file before deployment. Very useful feature I wanted it so many times before. </li>
-</ul>
-</li>
-</ul>
-There are a whole bunch of other useful thins, but for me that’s it.<br />
-Honestly saying I do not see too cardinal changes, I would say that a lot of outstanding issues have been addresses (especially control over generated HTML).&nbsp; I do not see big innovations here. So wouldn’t jump into ASP.NET 4.0 just now. And, who knows, maybe I’ll just totally skip and will pick ASP.NET 5.<br />
-Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous changes made in .NET 4.</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -843,6 +881,10 @@ Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous chang
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
@@ -856,10 +898,6 @@ Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous chang
     
       <li class="post">
         <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
       </li>
     
   </ul>

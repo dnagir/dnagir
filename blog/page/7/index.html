@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I use Enterprise Core Objects all the time and I really enjoy it. There’s no other framework in the world like this one (at least I’m not aware of &hellip;">
+  <meta name="description" content="Just quickly going through the whitepaper published a while ago. I can see a lot of improvements around ASP.NET 4.0. But the ones below are probably &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,76 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aspnet-40-do-i-need-to-jump-into-it/">ASP.NET 4.0 – Do I Need to Jump Into It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-26T10:44:00+10:00" pubdate data-updated="true">May 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Just quickly going through the <a href="http://www.asp.net/learn/whitepapers/aspnet40/" target="_blank">whitepaper</a> published a while ago. I can see a lot of improvements around ASP.NET 4.0. But the ones below are probably the most important for me:<br />
+<ul>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325467" target="_blank"><img align="right" height="379" src="http://static.asp.net/asp.net/images/whitepapers/aspnet40/whats-new-Fig1b.png" style="display: inline; margin-left: 0px; margin-right: 0px;" width="539" />AJAX Functionality</a>       <br />
+<ul>
+<li>Client Template Rendering – out of the box client-side templating engine. It seems to be very tightly integrated with ASP.NET infrastructure. DataView control looks very good. </li>
+<li>Script Manager now allows to use any JS library and not only ASP.NET AJAX. </li>
+<li>Very large client-side infrastructure support and integration with .NET (see pic) </li>
+</ul>
+</li>
+<li>WebForms      <br />
+<ul>
+<li>Enabling View State for Individual Controls – nice addition. </li>
+<li>Routing (it really came from ASP.NET MVC available in .NET 3.5) – it’s said that it is easier to use it. </li>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325481" target="_blank"><b>Setting Client IDs</b></a> – there have been a lot of feedback on it since .NET 1. And it seems Microsoft has finally attended this issue. It allows to control the IDs on the generated HTML. It my opinion this is one of the <b>most significant</b> improvements in WebForms. </li>
+<li>FormView Control now can render content with not table at all which is great thing (finally!). </li>
+<li>ListView has better control over the HTML. </li>
+</ul>
+</li>
+<li>Data      <br />
+<ul>
+<li>Support for inheritance in Data Model for both EF and Linq2Sql. </li>
+<li>EF supports many-to-many relationships. </li>
+</ul>
+</li>
+<li>VS Web Designer Improvements      <br />
+<ul>
+<li>Improved CSS compatibility – better CSS 2.1 compliance (however I’m not sure how better it is). </li>
+<li><a href="http://www.asp.net/learn/whitepapers/aspnet40/#_Toc223325501" target="_blank">Web.config transformation</a> – allows to modify the .config file before deployment. Very useful feature I wanted it so many times before. </li>
+</ul>
+</li>
+</ul>
+There are a whole bunch of other useful thins, but for me that’s it.<br />
+Honestly saying I do not see too cardinal changes, I would say that a lot of outstanding issues have been addresses (especially control over generated HTML).&nbsp; I do not see big innovations here. So wouldn’t jump into ASP.NET 4.0 just now. And, who knows, maybe I’ll just totally skip and will pick ASP.NET 5.<br />
+Just please do not mix ASP.NET 4 and .NET Framework 4 . There are numerous changes made in .NET 4.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -607,77 +677,6 @@ The features (from the site):<br />
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/from-mstest-to-nunit/">From MsTest to NUnit</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-21T17:32:00+10:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-That’s pretty easy to switch from MsTest to NUnit (or other xUnit framework, but I’ve decided I want NUnit). You need to do following steps:<br />
-<ol>
-<li>Change the Visual Studio project type:</li>
-<br />
-<ol>
-<li>Unload the project with tests.</li>
-<li>Remove &lt;ProjectTypeGuids&gt; node from there.</li>
-<li>Save and reload the project.</li>
-</ol>
-<br />
-<li>Replace Reference from MsTest to your xUnit.</li>
-<li>Replace using statements (Remove Microsoft.VisualStudio.TestTools.UnitTesting, add NUnit.Framework and optionally NUnit.Framework.SyntaxHelpers).</li>
-<li>Replace (just use Find and Replace in Files) [TestClass] to [TestFixture].</li>
-<li>Replace [TestMethod] to [Test].</li>
-<li>Replace [TestInitialize] to [SetUp].</li>
-<li>Replace [TestCleanup] to [TearDown]</li>
-<li>Now you should be able to compile the tests.</li>
-<li>Clean all the stuff from MsTest (TestResults folder, Solution Items that describe test data).</li>
-</ol>
-Pretty easy.<br />
-The note is (if you don’t know) that there’s no build-in runner for Visual Studio (unlike MsTes), so you’ll need to run tests:<br />
-<ol>
-<li>from outside of Visual Studio by GUI runner</li>
-<li>using <a href="http://testdriven.net/" target="_blank">TestDriven.NET</a></li>
-<li>using <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a>.</li>
-</ol>
-That’s it. I’m back with old good NUnit.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>kit</div>
-<div class='content'>
-Very handy, thanks :)</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -713,6 +712,10 @@ Very handy, thanks :)</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
@@ -726,10 +729,6 @@ Very handy, thanks :)</div>
     
       <li class="post">
         <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
       </li>
     
   </ul>

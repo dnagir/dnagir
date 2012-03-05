@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="Please refer to the ADO .NET Entity Framework Vote of No Confidence if you care about quality of the Microsoft Entity Framework. There are a lot of &hellip;">
+  <meta name="description" content="The Firefox 3 seems to be officially release. This is very exciting thing, but not for all of developers who needs to support a new version of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,89 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/firefox-3-for-developers/">Firefox 3 for Developers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T10:31:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>The Firefox 3 seems to be officially release. This is very exciting thing, but not for all of developers who needs to support a new version of the browser.</p>  <p>So I just want to have a quick overview what should be done to prepare web sites for new version of Firefox 3 base on the article: <a href="http://developer.mozilla.org/en/docs/Firefox_3_for_developers" target="_blank">Firefox 3 for developers</a>.</p>  <h4>The most valuable part for me is <a href="http://developer.mozilla.org/en/docs/Updating_web_applications_for_Firefox_3" target="_blank">Updating web applications for Firefox 3</a>.</h4>  <h5>&#160;</h5>  <h5>DOM CHANGES</h5>  <p>I cannot see a lot of changes in the DOM (which is a good thing from the point of support). The one is using <a href="http://developer.mozilla.org/en/docs/DOM:document.importNode" target="_blank">importNode</a> to copy a node from an external document.</p>  <p>&#160;</p>  <h5>HTNL CHANGES</h5>  <p><strong>Character set inheritance</strong></p>  <p>Now, frames are only allowed to inherit the parent&#8217;s character set if both frame and parent were loaded from the same server. So, make sure <em><strong>If you have pages that assume that frames loaded from other servers will inherit the same character set, you should update the frames&#8217; HTML to indicate their character set specifically.</strong></em></p>  <p><strong><em></em></strong></p>  <p><strong>Change to the script element</strong></p>  <p>The <tt>&lt;script&gt;</tt> element in <code>text/html</code> documents now requires a closing <tt>&lt;/script&gt;</tt> in HTML 4 documents. So, you should replace:</p>  <pre>&lt;script ... /&gt;</pre>
+
+<p>by</p>
+
+<pre>&lt;script ...&gt;&lt;/script&gt;</pre>
+
+<p>&#160;</p>
+
+<p>&#160;</p>
+
+<h5>CSS CHANGES</h5>
+
+<h5><strong>Change to font-size based on em, ex units</strong></h5>
+
+<p>font-size values in em and ex units used to be affected by the user&#8217;s minimum font size setting&#8230; font-size values in em and ex units are now based on an &quot;intended font size&quot; that is not affected by the user&#8217;s minimum font size. In other words, font sizes are always calculated according to the designer&#8217;s intention and are adjusted for minimum font size afterwards.</p>
+
+<p><strong>So check your font sizes with em an ex units.</strong></p>
+
+<p>&#160;</p>
+
+<h5>Security Changes</h5>
+
+<p><strong>Chrome Access</strong></p>
+
+<p>Firefox 3 only allows web content to access items in the <tt>chrome://browser/</tt> and <tt>chrome://toolkit/</tt> spaces. These files are intended to be accessible by web content. All other chrome content is now blocked from access by the web.</p>
+
+<p><strong>So check your Chrome applications.</strong></p>
+
+<p>&#160;</p>
+
+<p><strong>File Uploads</strong></p>
+
+<p>Now only the filename itself is available to the web application. Previously full path to the file was available (sometimes) at the server.</p>
+
+<p><strong>Make sure you don&#8217;t rely on the full file path on the client.</strong></p>
+
+<p>&#160;</p>
+
+<h5>Firefox 3 supports <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.8">JavaScript 1.8</a>.</h5>
+
+<p><code>Script</code> object is no longer supported. It should not affect usual web site anyway.</p>
+
+<p>&#160;</p>
+
+<p>So it looks like there&#8217;s not much to update your web site for Firefox 3. I hope it will not be a big deal. I&#8217;ll try to <a href="http://dnagir.blogspot.com/2008/06/firefox-3-new-in-javascript-18.html">have a look</a> at the new stuff in the JavaScrip 1.8 later.</p>
+
+<p>Very exciting thing in that FF 3 has <a href="http://developer.mozilla.org/en/docs/Using_microformats" target="_blank">Microformats support</a>. So Semantic Web will move on faster (hopefully) after it.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -761,43 +844,6 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/telerik-on-google-picasa/">Telerik on Google Picasa</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-01T10:04:00+10:00" pubdate data-updated="true">May 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I have received announcement from <a href="http://www.telerik.com" target="_blank">Telerik</a>. Lots of interesting and exciting stuff is there. But there&#8217;s one thing that caught my eyes - a link to Google Picasa Web Album (<a href="http://picasaweb.google.com/telerikwatch" target="_blank">TelerikWatch</a>). They host some screenshots and pictures related to the products and company in general.</p>  <p>Nothing really special but it seems even so &quot;Microsoft-ish&quot; company uses Google services and even for public newsletter.</p>  <p>Some pictures from the album:</p>  <p><img alt="Telerik at DevConnections 2008" src="http://lh4.ggpht.com/telerikwatch/SAy6dsTRqUI/AAAAAAAACXU/QPo9Xx5zi7w/IMG_0263.JPG?imgmax=400" /> <img alt="RadTreeView on the iPhone" src="http://lh3.ggpht.com/telerikwatch/Rqpt6fc_o0I/AAAAAAAAB1k/QOajoOucnYY/TelerikOnIPhone_Part3 019.jpg?imgmax=400" /></p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -833,6 +879,10 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
@@ -846,10 +896,6 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
     
       <li class="post">
         <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
       </li>
     
   </ul>

@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Migrating from Blogger to Octopress - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="So I&#8217;ve been a Blogger user for a while and decided to switch over to something more geeky. This post will cover some of the reasons for that &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/migrating-from-blogger-to-octopress">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Migrating From Blogger to Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-04T20:09:00+11:00" pubdate data-updated="true">Mar 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So I&#8217;ve been a Blogger user for a while and decided to switch over to something more geeky.</p>
+
+<p>This post will cover some of the reasons for that and also will provide an overview
+of how to actually migrate it.</p>
+
+<h2>What do I want to achieve?</h2>
+
+<ul>
+<li><strong>Merging</strong> my personal site and blog - those were totally separate, unrelated entities. Wanted to merge the two.</li>
+<li>Write <strong>more often</strong>, using the same tools I use on a daily basis (Vim ATM).</li>
+<li>More <strong>hands on</strong> blog itself, I actually do want to do the dirty work massing with HTML/CSS etc.</li>
+</ul>
+
+
+<h2>Reasons for switching:</h2>
+
+<ul>
+<li><strong>Mardown, HAML, bare bones HTML</strong>. I wanted to have a bit more control over how my blog looks like.</li>
+<li><strong>Blogging software</strong> isn&#8217;t good enough. Unfortunately I haven&#8217;t found yet a good <strong>geeky</strong> S/W for blogging.</li>
+<li><strong>Easier to write</strong> from VIM. I just fire up my editor.</li>
+</ul>
+
+
+<h2>Why I didn&#8217;t want to switch:</h2>
+
+<ul>
+<li>Losing <strong>PageRank</strong>, which shuldn&#8217;t really be an issue (see below).</li>
+<li><strong>Uncerteinities</strong>. So now I have to maintain it myself? Take care of updates? Ohh, yeah!</li>
+<li><strong>Self-hosted</strong>. Nothing to say here, never worry about hosting.</li>
+</ul>
+
+
+<p>I have been on blogger since 2006 and have never ever needed to do anything to the blog in terms of mainteinance.</p>
+
+<p>Switching to a self-hosted blog/site will require a bit of involvement in this regard.
+But this is something I am willing to take. It&#8217;s time to take my ass out of the comfy couch of Blogger.</p>
+
+<h2>So how to actually migrate?</h2>
+
+<p>I would split it into 2 larger steps:</p>
+
+<ol>
+<li>Preparation.</li>
+<li>Deployment.</li>
+</ol>
+
+
+<h2>Preparation</h2>
+
+<p>At this stage you need to setup the Octopress itself, configure it and import your existing posts from Blogger.</p>
+
+<p>I won&#8217;t go into details how to customise and set it up. You know where to get that information from.</p>
+
+<p>I&#8217;ll go directly into the migrating the Blogger posts over to Octopress.
+This part is relatively simple.</p>
+
+<p>What you need to do is</p>
+
+<ol>
+<li>Export your Blogger posts.</li>
+<li>Grab <a href="https://gist.github.com/1765496">this script</a> and put it under <code>source</code> directory.</li>
+<li>Run the script as below.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; <span class="nb">cd</span> ./source
+</span><span class='line'>&gt; ruby import.rb ~/Downloads/path-to-blogger-file.xml
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After you do this, all you&#8217;ll get a bunch of the posts that are already part of your site.
+Double check whether everything is correct or not. You may want to tweak the script for your needs.</p>
+
+<p>Note that the script also imports the comments, but in a little ugly way.
+Also you may want to disable comments before exporting the Blogger to avoid missing any comments.</p>
+
+<p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won&#8217;t be lost.
+I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
+
+<p>Now that you&#8217;ve got your posts, you want to set-up the redirection from your blog to your new site.</p>
+
+<p>I prepared <a href="https://github.com/dnagir/approache-redirects/blob/master/app.rb">simple Sinatra application</a> for that.
+You definitely want to fork and tweek it to your needs. Note that I&#8217;m not using the <code>blog/YYYY/MM/DD/title</code> format.
+I just use the <code>blog/title</code> format.</p>
+
+<p>Now go ahead and deploy this app. I&#8217;ve decided to use Heroku for that which is the simplest and easiest way to go.
+But make sure you deploy to the domain of your blog. For example, mine was <code>blog.approache.com</code> and I deployed it to this domain.</p>
+
+<p>It of course will not take any affect until you change your DNS settings. But you are safe to go now when you do.</p>
+
+<h2>Deployment</h2>
+
+<p>By now you should have:</p>
+
+<ul>
+<li>The Octopress site ready to go (with all the posts migrated).</li>
+<li>Blogger redirection deployed.</li>
+</ul>
+
+
+<p>Now go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.
+I wanted to merge <code>blog.approache.com</code> into the <code>aproache.com</code> so I deployed the new site to <code>approache.com</code>
+that&#8217;s hosted by <em>Github Pages</em>.</p>
+
+<p>Now make sure everything is working properly and you have dome everything right.
+If you&#8217;ve missed something out, then go ahead and fix it. Then redeploy.</p>
+
+<p>Repeat and rinse until happy.</p>
+
+<p>When you are happy with what you have on the Octopress, the very last thing to do is to <strong>disable the Blogger</strong>.</p>
+
+<p>You should do it simply by changing your DNS record to point to your Octopress server (often it&#8217;s an <code>A-record</code>).
+In my case I hade to change the DNS record from <code>CNAME - ghs.google.com</code> to <code>A - 207.97.227.245</code></p>
+
+<p>Since you&#8217;ve already deployed your redirection app to that domain, all the user will be automatically redirected to your new Octopress site.
+All the PageRank should be preserved since the redirection is permanent.</p>
+
+<p>That should be it.
+Hope this is helpful for you.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-04T20:09:00+11:00" pubdate data-updated="true">Mar 4<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devtools-/'>DevTools,</a>, <a class='category' href='/blog/categories/ruby-/'>Ruby,</a>, <a class='category' href='/blog/categories/web/'>Web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/migrating-from-blogger-to-octopress/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/migrating-from-blogger-to-octopress/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/knockoutjs-validations-video/" title="Previous Post: KnockoutJS Validations Screencast">&laquo; KnockoutJS Validations Screencast</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/migrating-from-blogger-to-octopress/';
+        var disqus_url = 'http://ApproachE.com/blog/migrating-from-blogger-to-octopress/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

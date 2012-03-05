@@ -9,8 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="For now just a list. Maybe later I&#8217;ll update this: JsUnitTest (MIT) - based on unittest.js from prototypejs, but not depend on it.
-JsUnit (GPL &hellip;">
+  <meta name="description" content="Make sure you use the code like this to get the value of LABEL&#8217;s FOR attribute. This will work in most browsers: var labelFor = myLabel. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +77,47 @@ JsUnit (GPL &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/get-value-of-html-label-for/">Get Value of HTML LABEL For</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-16T11:30:00+11:00" pubdate data-updated="true">Dec 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Make sure you use the code like this to get the value of LABEL&#8217;s FOR attribute. This will work in most browsers:<br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: blue;">var</span> labelFor = myLabel.htmlFor || myLabel.getAttribute(<span style="color: #006080;">'for'</span>); // htmlFor <span style="color: blue;">is</span> W3.org defined and <span style="color: blue;">is</span> <span style="color: blue;">in</span> IE, <span style="color: #006080;">'for'</span> <span style="color: blue;">in</span> <span style="color: blue;">in</span> FF</pre>
+</div>
+Just a reminder for myself :)</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -592,56 +632,6 @@ findProperty(<span style="color: #006080">'FCK'</span>, window, <span style="col
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/remote-drive-for-google-docs-picasa/">Gladinet - Remote Drive for Google Docs, Picasa, Skydrive</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-03T09:30:00+11:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<h2>In the sky</h2>  <p><a href="http://www.gladinet.com">Gladinet</a> allows to use in the sky storage the same way as your local hard drive. <a href="http://www.gladinet.com">Check this out</a>.</p>  <p>It also features with:</p>  <ul>   <li>Remote Access To Multiple PCs </li>    <li>On Demand Sharing With Friends </li>    <li>Remote Desktop Access </li>    <li>Service Redirection </li>    <li>Secure Access </li>    <li>Instantly Available </li>    <li>On Demand Share </li>    <li>Native OS Support </li>    <li>Secure Access </li>    <li>Aggregates All My Favorites </li>    <li>Access From Web Browser </li>    <li>Gladinet Web Directory </li> </ul>  <p>Looks impressive and for now it&#8217;s free. not sure what will happen after the Preview period. Here is the snippet from license:</p>  <blockquote>   <p>There are no fees for the Product offered to You <strong>during the Preview period</strong>. Gladinet reserves the right to institute new charges for access to or use of the Product at any time upon not less than thirty (30) days&#8217; notice to You.</p> </blockquote>  <p>Also what about privacy? They say:</p>  <blockquote>   <p>If we use this information in a manner different than the purpose for which it was collected, then <strong>we will ask for your consent</strong> prior to such use.</p> </blockquote>  <p>Ok. I believe that and that&#8217;s fine with me. And also they seem to be very reasonable in their terms and privacy. For example:</p>  <blockquote>   <p>Please note that this Privacy Policy may change from time to time. We will not reduce your rights under this Policy <strong>without your explicit consent</strong>, and we expect most such changes will be minor.</p> </blockquote>  <p>&#160;</p>  <p>So looks very good and promising. But I expect it will become a paid service. If the price will be reasonable I&#8217;d probably pay for that.</p>  <p></p>  <hr />  <p></p>  <h2>First Experience</h2>  <p>After installation it could start because of port 80 is busy (IIS). Then it give helpful suggestion how to solve the issue: We have to change the port in IIS <strong>or</strong> explicitly set IP address to listen to. I choose 2nd option of course. But we also need to disable Socket Pooling.</p>  <p>After I have followed detailed instructions everything started to work.</p>  <p>Next observation is that Standalone version doesn&#8217;t require a login, standard does. So I wanted to register there but it seems the account at Forum and the application is not the same (I need to have 2 accounts). But I couldn&#8217;t just register - I have to wait for the invitation. Unlucky.</p>  <p>Let&#8217;s get back to the standalone version.</p>  </div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-I&#8217;m not sure about this. For me it seem that &#8220;ask for your consent&#8221; should sound like &#8220;notify you&#8221;.<BR/>But anyway we&#8217;ll (at least) be notified and we will know what they are going to do. So at least we can perform appropriate actions.</div>
-</div>
-<div class='comment'>
-<div class='author'>Peter Morris</div>
-<div class='content'>
-&#8220;ask for your consent&#8221; is not the same as &#8220;obtain your consent&#8221;.<BR/><BR/>Legally they only have to ask before continuing, and don&#8217;t need to consider your reply :-)</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -677,6 +667,10 @@ I&#8217;m not sure about this. For me it seem that &#8220;ask for your consent&#
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
@@ -690,10 +684,6 @@ I&#8217;m not sure about this. For me it seem that &#8220;ask for your consent&#
     
       <li class="post">
         <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
       </li>
     
   </ul>

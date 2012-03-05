@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then watch the video. It also shows how easy it is &hellip;">
+  <meta name="description" content="So I&#8217;ve been a Blogger user for a while and decided to switch over to something more geeky. This post will cover some of the reasons for that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,162 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/migrating-from-blogger-to-octopress/">Migrating From Blogger to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-04T20:09:00+11:00" pubdate data-updated="true">Mar 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I&#8217;ve been a Blogger user for a while and decided to switch over to something more geeky.</p>
+
+<p>This post will cover some of the reasons for that and also will provide an overview
+of how to actually migrate it.</p>
+
+<h2>What do I want to achieve?</h2>
+
+<ul>
+<li><strong>Merging</strong> my personal site and blog - those were totally separate, unrelated entities. Wanted to merge the two.</li>
+<li>Write <strong>more often</strong>, using the same tools I use on a daily basis (Vim ATM).</li>
+<li>More <strong>hands on</strong> blog itself, I actually do want to do the dirty work massing with HTML/CSS etc.</li>
+</ul>
+
+
+<h2>Reasons for switching:</h2>
+
+<ul>
+<li><strong>Mardown, HAML, bare bones HTML</strong>. I wanted to have a bit more control over how my blog looks like.</li>
+<li><strong>Blogging software</strong> isn&#8217;t good enough. Unfortunately I haven&#8217;t found yet a good <strong>geeky</strong> S/W for blogging.</li>
+<li><strong>Easier to write</strong> from VIM. I just fire up my editor.</li>
+</ul>
+
+
+<h2>Why I didn&#8217;t want to switch:</h2>
+
+<ul>
+<li>Losing <strong>PageRank</strong>, which shuldn&#8217;t really be an issue (see below).</li>
+<li><strong>Uncerteinities</strong>. So now I have to maintain it myself? Take care of updates? Ohh, yeah!</li>
+<li><strong>Self-hosted</strong>. Nothing to say here, never worry about hosting.</li>
+</ul>
+
+
+<p>I have been on blogger since 2006 and have never ever needed to do anything to the blog in terms of mainteinance.</p>
+
+<p>Switching to a self-hosted blog/site will require a bit of involvement in this regard.
+But this is something I am willing to take. It&#8217;s time to take my ass out of the comfy couch of Blogger.</p>
+
+<h2>So how to actually migrate?</h2>
+
+<p>I would split it into 2 larger steps:</p>
+
+<ol>
+<li>Preparation.</li>
+<li>Deployment.</li>
+</ol>
+
+
+<h2>Preparation</h2>
+
+<p>At this stage you need to setup the Octopress itself, configure it and import your existing posts from Blogger.</p>
+
+<p>I won&#8217;t go into details how to customise and set it up. You know where to get that information from.</p>
+
+<p>I&#8217;ll go directly into the migrating the Blogger posts over to Octopress.
+This part is relatively simple.</p>
+
+<p>What you need to do is</p>
+
+<ol>
+<li>Export your Blogger posts.</li>
+<li>Grab <a href="https://gist.github.com/1765496">this script</a> and put it under <code>source</code> directory.</li>
+<li>Run the script as below.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; <span class="nb">cd</span> ./source
+</span><span class='line'>&gt; ruby import.rb ~/Downloads/path-to-blogger-file.xml
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After you do this, all you&#8217;ll get a bunch of the posts that are already part of your site.
+Double check whether everything is correct or not. You may want to tweak the script for your needs.</p>
+
+<p>Note that the script also imports the comments, but in a little ugly way.
+Also you may want to disable comments before exporting the Blogger to avoid missing any comments.</p>
+
+<p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won&#8217;t be lost.
+I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
+
+<p>Now that you&#8217;ve got your posts, you want to set-up the redirection from your blog to your new site.</p>
+
+<p>I prepared <a href="https://github.com/dnagir/approache-redirects/blob/master/app.rb">simple Sinatra application</a> for that.
+You definitely want to fork and tweek it to your needs. Note that I&#8217;m not using the <code>blog/YYYY/MM/DD/title</code> format.
+I just use the <code>blog/title</code> format.</p>
+
+<p>Now go ahead and deploy this app. I&#8217;ve decided to use Heroku for that which is the simplest and easiest way to go.
+But make sure you deploy to the domain of your blog. For example, mine was <code>blog.approache.com</code> and I deployed it to this domain.</p>
+
+<p>It of course will not take any affect until you change your DNS settings. But you are safe to go now when you do.</p>
+
+<h2>Deployment</h2>
+
+<p>By now you should have:</p>
+
+<ul>
+<li>The Octopress site ready to go (with all the posts migrated).</li>
+<li>Blogger redirection deployed.</li>
+</ul>
+
+
+<p>Now go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.
+I wanted to merge <code>blog.approache.com</code> into the <code>aproache.com</code> so I deployed the new site to <code>approache.com</code>
+that&#8217;s hosted by <em>Github Pages</em>.</p>
+
+<p>Now make sure everything is working properly and you have dome everything right.
+If you&#8217;ve missed something out, then go ahead and fix it. Then redeploy.</p>
+
+<p>Repeat and rinse until happy.</p>
+
+<p>When you are happy with what you have on the Octopress, the very last thing to do is to <strong>disable the Blogger</strong>.</p>
+
+<p>You should do it simply by changing your DNS record to point to your Octopress server (often it&#8217;s an <code>A-record</code>).
+In my case I hade to change the DNS record from <code>CNAME - ghs.google.com</code> to <code>A - 207.97.227.245</code></p>
+
+<p>Since you&#8217;ve already deployed your redirection app to that domain, all the user will be automatically redirected to your new Octopress site.
+All the PageRank should be preserved since the redirection is permanent.</p>
+
+<p>That should be it.
+Hope this is helpful for you.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1170,132 +1326,6 @@ You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope yo
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unit-test-actions-with/">Unit Test Actions With ValueProviderFactories in ASP.NET MVC3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-03-18T11:35:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> CurrentUserController controller;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> Mock&lt;ICurrentUserService&gt; userService;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> FakeHttpContext http;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService = <span style="color: #0000ff">new</span> Mock&lt;ICurrentUserService&gt;();
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller = <span style="color: #0000ff">new</span> CurrentUserController(Services.Account, userService.Object)
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .FakeContext(context =&gt; http = context);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CanSeeSecuritySettingsPage() {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService.Setup(x =&gt; x.ViewUser()).Returns(<span style="color: #0000ff">new</span> User {SecurityQuestion = &quot;<span style="color: #8b0000">sq</span>&quot;});
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.SecuritySettings()
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldHaveModel&lt;CurrentUserController.SecuritySettingsInfo&gt;()
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .User.SecurityQuestion.Should().Be(&quot;<span style="color: #8b0000">sq</span>&quot;);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> SuccesfulUpdateRedirects() {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.UpdateSecuritySettings()
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldRedirectTo(action: &quot;<span style="color: #8b0000">Index</span>&quot;, controller: &quot;<span style="color: #8b0000">Dashboard</span>&quot;);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
-
-<p>The most relevant piece of code here is the extension method <strong>FakeContext</strong>. It ensures the controller is not going to access real HttpContext. The main difference between MVC2 and 3 is that the latter uses HttpContext in FormValueProviderFactory and QueryStringValueProviderFactory. So we need to get rid of it. And of course we don’t want to modify all our tests and complicate them providing explicitly <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx#six">FormCollection</a>. Additionally we definitely do not want to go into trouble <a href="http://stackoverflow.com/questions/1686778/why-mock-httpcontext-if-it-can-be-constructed">instantiating HttpContext</a>.</p>
-
-<p>Fortunately MVC is extensible enough and has number of hook that we can use. In this case we need to replace those two bustards (FormValueProviderFactory and QueryStringValueProviderFactory). Which can be done with this simple extension method:</p>
-
-<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ValueProviderFactoresExtensions {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> ValueProviderFactoryCollection ReplaceWith&lt;TOriginal&gt;(<span style="color: #0000ff">this</span> ValueProviderFactoryCollection factories, Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        var original = factories.FirstOrDefault(x =&gt; <span style="color: #0000ff">typeof</span>(TOriginal) == x.GetType());
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">if</span> (original != <span style="color: #0000ff">null</span>) {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            var index = factories.IndexOf(original);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            factories[index] = <span style="color: #0000ff">new</span> TestValueProviderFactory(sourceAccessor);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">return</span> factories;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">class</span> TestValueProviderFactory : ValueProviderFactory {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> TestValueProviderFactory(Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.sourceAccessor = sourceAccessor;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> IValueProvider GetValueProvider(ControllerContext controllerContext) {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> NameValueCollectionValueProvider(sourceAccessor(controllerContext), CultureInfo.CurrentCulture);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
-
-<p>&#160;</p>
-
-<p>And the final implementation of FakeContext extension that I use (you will need to trim it to your particular case) is:</p>
-
-<p>&#160;</p>
-
-<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> TController FakeContext&lt;TController&gt;(this TController controller, Action&lt;FakeHttpContext&gt; exposeAction = null) where TController: Controller {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ApplicationMetaData.RegisterAll(); // Additionally register all ModelBinder so tests behave <span style="color: #0000ff">is</span> <span style="color: #0000ff">in</span> production
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (ViewEngines.Engines.Where(x =&gt; x <span style="color: #0000ff">is</span> SparkViewEngine).Empty()) {
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        // We only use Spar view engine that can render view during testing
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Clear();
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Insert(0, GetTestViewFactory());
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }            
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // That <span style="color: #0000ff">is</span> the entry <span style="color: #0000ff">to</span> all the fakes, implementation <span style="color: #0000ff">is</span> trivial so <span style="color: #0000ff">not</span> here
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var context = <span style="color: #0000ff">new</span> FakeHttpContext();
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.ControllerContext = <span style="color: #0000ff">new</span> ControllerContext(context, <span style="color: #0000ff">new</span> RouteData(), controller);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.Url = <span style="color: #0000ff">new</span> UrlHelper(<span style="color: #0000ff">new</span> RequestContext(context, <span style="color: #0000ff">new</span> RouteData()));
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // <span style="color: #0000ff">And</span> <span style="color: #0000ff">finally</span>, here we ensure no ValueProviders access HttpContext
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ValueProviderFactories.Factories
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;FormValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.Form))
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;QueryStringValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.QueryString));
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (exposeAction != null)
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        exposeAction.Invoke(context);
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> controller;
-</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}        </pre></pre>
-
-<p>&#160;</p>
-
-<p>Hope that helps. Have fun!</p>  </div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-I can&#39;t remember already, but there are couple of the ValueProviders that you need to replace. Just look at the exceptions you get. Should be pretty straight forward. Worked for all other people.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-duzn&#39;t work</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1329,6 +1359,10 @@ duzn&#39;t work</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
@@ -1342,10 +1376,6 @@ duzn&#39;t work</div>
     
       <li class="post">
         <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/templating-done-easy-javascript-haml/">Templating done easy - JavaScript HAML with Rails</a>
       </li>
     
   </ul>
