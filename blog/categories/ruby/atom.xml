@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-06T12:01:45+11:00</updated>
+  <updated>2012-03-06T13:03:25+11:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -57,7 +57,7 @@ But this is something I am willing to take. It's time to take my ass out of the 
 
 <h2>So how to actually migrate?</h2>
 
-<p>I would split it into 2 larger steps:</p>
+<p>I would split it into the following larger steps:</p>
 
 <ol>
 <li>Preparation.</li>
