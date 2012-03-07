@@ -9,7 +9,8 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I created couple of controllers that provide some predefined functionality. All I needed is just to inherit from them. Then I decided to move them &hellip;">
+  <meta name="description" content="Always learn something new. I really didn&#8217;t know that.
+I paid some attention to my MasterPage and the link to CSS file. Here is what I noticed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,67 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aspnet-masterpages-and-url-rebasing/">ASP.NET MasterPages and Url Rebasing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-08T15:36:00+11:00" pubdate data-updated="true">Jan 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Always learn something new. I really didn&#8217;t know that.<br />
+I paid some attention to my MasterPage and the link to CSS file. Here is what I noticed.<br />
+<br />
+The default Site.Master has this markup:<br />
+<pre>&lt;head runat="server"&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+    <b>&lt;link href="../../Content/Site.css" rel="stylesheet" type="text/css" /&gt;</b>
+&lt;/head&gt;</pre>
+I expected the link href will always be static as it is set: <b>&#8221;../../Content/Site.css&#8221;</b><br />
+It means pages like these would have the CSS:<br />
+<ul>
+<li>Home/One/Index.aspx </li>
+<li>Home/Two/Index.aspx </li>
+<li>Product/One/Edit.aspx </li>
+</ul>
+and I expected following ones would not have CSS because of broken link:<br />
+<ul>
+<li>Home/Index.aspx </li>
+<li>Home/Two/Three/Index.aspx </li>
+<li>Product/Category/One/Edit.aspx</li>
+</ul>
+but I wondered that the HREF of the link has always been generated correctly!<br />
+How come? <br />
+The answer is <a href="http://forums.asp.net/t/1368323.aspx#2853085" target="_blank">Url Rebasing</a> - the feature of the master pages.<br />
+The runtime will try to “rebase” relative URLs it finds on <b>server-side</b> controls inside a master page and paths it finds inside of the head tag.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -986,65 +1048,6 @@ Please keep in mind these suggestions are for really heavy duty web applications
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/use-insertbefore-instead-of-appendchild/">Use insertBefore Instead of appendChild</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-16T12:20:00+11:00" pubdate data-updated="true">Dec 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-You can get lots of problems when using node.appendChild due to an element may not be allowed to have children. It is especially valid for WYSIWYG editors.<br />
-To overcome this just use node.insertBefore which will always succeeds (it seems so at least). It is so just just because of insertBefore add a child to a parent, which already has at least one child and thus is can have children.<br />
-Also keeping in mind this constraint:<br />
-<div>
-<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;">existingChild.insertBefore(newChild, <span style="color: blue;">null</span><span style="color: green;">/*Feeding FF*/</span>);
-Assert.areSame(existingChild.parentNode, newChild.parentNode, <span style="color: #006080;">"children should have the same parent"</span>);
-Assert.areSame(root, existingchild.parentNode, <span style="color: #006080;">"[root] should be a parent of [exitingChild]"</span>)</pre>
-</div>
-We can rewrite our code like:<br />
-<div>
-<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: green;">/*</span>
-<span style="color: green;">* root-|</span>
-<span style="color: green;">*      |-&gt;existingChild-|-newChild</span>
-<span style="color: green;">*/</span>
-
-<span style="color: green;">// BEFORE:</span>
-existingChild.parentNode.appendChild(newChild);
-
-<span style="color: green;">// AFTER:</span>
-existingChild.insertBefore(newChild, null);</pre>
-</div>
-<br />
-This is especially useful when you have no idea what existingChild or root can be (as it is in WYSYWYG HTML editors) and seems to be much better and exactly what users need.</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -1080,6 +1083,10 @@ This is especially useful when you have no idea what existingChild or root can b
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -1093,10 +1100,6 @@ This is especially useful when you have no idea what existingChild or root can b
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

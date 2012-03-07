@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="In the sky Gladinet allows to use in the sky storage the same way as your local hard drive. Check this out. It also features with: Remote Access To &hellip;">
+  <meta name="description" content="Just found the guy who knows FCKEditor pretty good and shares the knowledge on his blog. This article about Structure Of FCKEditor helped me a bit. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/nice-blog-on-fckeditor/">Nice Blog on FCKEditor</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-08T11:52:00+11:00" pubdate data-updated="true">Dec 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Just found the guy who knows FCKEditor pretty good and <a href="http://alfonsoml.blogspot.com/search/label/FCKeditor">shares the knowledge on his blog</a>. This article about <a href="http://alfonsoml.blogspot.com/2007/12/structure-of-fckeditor.html">Structure Of FCKEditor</a> helped me a bit.</p>  <p>Thanks for useful info.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -671,102 +708,6 @@ I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/firefox-3-new-in-javascript-18/">Firefox 3: New in JavaScript 1.8</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-30T11:17:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly:</p>  <p>First of all JS 1.9 is enaable only by adding following script tag:</p>  <pre> &lt;script type=&quot;<strong>application/javascript;version=1.8</strong>&quot;&gt; ... your code ... &lt;/script&gt;</pre>
-
-<p>Very interesting thing is <a href="http://en.wikipedia.org/wiki/Lambda_calculus#Lambda_calculus_and_programming_languages">Lambda notation</a> which is a bit similar to C# Lambda Expressions.</p>
-
-<p>Code is worth to show:</p>
-
-<p><a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a> and older: </p>
-
-<pre> function(x) { return x * x; }</pre>
-
-<p>JavaScript 1.8: </p>
-
-<pre> function(x) x * x</pre>
-
-<p>It looks very nice, but I&#8217;m not sure how readable such code will be if this feature will be overused.</p>
-
-<p>&#160;</p>
-
-<p>Also Generator Expressions look interesting. But the code might not always be obvious to read.</p>
-
-<p>Compare the samples:</p>
-
-<p>In <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a>, you might write something like the following in order to create a custom generator for an object: </p>
-
-<pre> function add3(obj) {
-   for ( let i in obj )
-     yield i + 3;
- }
- 
- let it = add3(someObj);
- try {
-   while (true) {
-     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
-   }
- } catch (err if err instanceof StopIteration) {
-   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
- }</pre>
-
-<p>In JavaScript 1.8, you can circumvent having to create a custom generator function by using a generator expression instead: </p>
-
-<pre> let it = (i + 3 for (i in someObj));
- try {
-   while (true) {
-     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
-   }
- } catch (err if err instanceof StopIteration) {
-   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
- }</pre>
-
-<p>Behind the thing that I have never used let statement, I&#8217;m don&#8217;t believe it is supported in IE (7) which I must target. However, </p>
-
-<p><code>(i + 3 for (i in someObj))</code> looks nice.</p>
-
-<p>&#160;</p>
-
-<p>Array object has two additional methods: reduce and reduceRight. Very useful things that are available (in a similar way) in most JS libraries (ExtJS has ForEach) that iterates through all the elements of an array. Nice to have a build-in support for it, but since it is not a part of ECMA-262 standard I&#8217;d never use it.</p>
-
-<p>&#160;</p>
-
-<p>So, as far as I can see the JavaScript 1.8 implementation is intended to allow developers write less code. But I&#8217;m not going to use it just now and just because of I&#8217;d rather write some additional &quot;old&quot;-manner code lines but have cross-browser support.</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -802,6 +743,10 @@ I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -815,10 +760,6 @@ I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

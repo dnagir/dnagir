@@ -9,8 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="Web. Nobody can imagine now IT and PCs without Internet.
-And developers become much more and more productive thanks to lots of tools for Web &hellip;">
+  <meta name="description" content="Many of developers working with ASP.NET in design time saw the error: &#8221;The designer could not be shown for this file because none of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,67 @@ And developers become much more and more productive thanks to lots of tools for 
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/solve-designer-error-in-bds-2006_24/">Solve Designer Error in BDS 2006</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-25T02:34:00+11:00" pubdate data-updated="true">Feb 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Many of developers working with ASP.NET in design time saw the error: &#8221;<i><b>The designer could not be shown for this file because none of the classes within it can be designed</b></i>&#8221;.
+
+I happens in Visual Studio and in Borland Developer Studio when a web page is inherited from some base class and not from default Page.
+
+Common actions to solve it are:
+<br />
+<ol>
+<li>Add public default constructor to base class.</li>
+<li>Add private InitializaComponent method to base.</li>
+<li>Call InitializaComponent from the default constructor.</li>
+</ol>
+But in BDS there&#8217;re some more issues.<br />
+Even after these steps it can still show the error. After I played with that I found that this error appears in following situation:<br />
+<ol>
+<li>Open web project.</li>
+<li>Default page is opening in design mode.</li>
+<li>If it has errors no one page that is inherited from some base class will open anymore.</li>
+</ol>
+<i><span style="font-size: 85%;">Tho note: if base class will be changed to default one (Page), than designer successfully appears.</span></i><br />
+So, in a short, to make BDS working with base class in design time one of solutions is needed:<br />
+<ul>
+<li>Add constructor, InitializaComponent method to base class. Then inherit default page from standard Page class. Other web forms should successfuly be available in designer.</li>
+<li>If designer is required, temporary inherit from standard Page class.</li>
+</ul>
+That&#8217;s what I found.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -577,6 +637,10 @@ Let&#8217;s see if I&#8217;ll keep my blog up to date&#8230;</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -590,10 +654,6 @@ Let&#8217;s see if I&#8217;ll keep my blog up to date&#8230;</div>
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

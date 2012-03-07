@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I have received announcement from Telerik. Lots of interesting and exciting stuff is there. But there&#8217;s one thing that caught my eyes - a link &hellip;">
+  <meta name="description" content="Computers are very powerful these days. But it&#8217;s not still enough to solve mathematical problems. One way to leverage the calculating power is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/contributing-information-via-recaptcha/">Contributing Information via reCAPTCHA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-02T11:14:00+10:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Computers are very powerful these days. But it&#8217;s not still enough to solve <a href="http://en.wikipedia.org/wiki/Mathematical_problem" target="_blank">mathematical problems</a>. One way to leverage the calculating power is distributing it among users all around the world.</p>  <p>People can just run small applications to help scientific world. Not a problem at all. The software will just do its stuff silently.</p>  <p>Also people can help science manually. Who is going to spend time for that? Will you do it? Well, maybe. But there is very good solution to this problem: <strong>let people contribute even not letting them know about it</strong>.</p>  <p>This is exactly what <a href="http://recaptcha.net/learnmore.html" target="_blank">reCAPTCHA</a> is doing. It digitises old books using <a href="http://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">OCR</a>. But prompts users to decipher unrecognised words.</p>  <p><strong>What does user see?</strong></p>  <p>Users generally see prompt to enter two words to prove they are not robots, but humans. Nothing special. Nothing at all.</p>  <p><a href="http://lh3.ggpht.com/dnagir/SBpq3RS_uAI/AAAAAAAAC3E/rtTOhIwKdNU/s1600-h/reCAPTCHA-Sample%5B3%5D.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="127" alt="reCAPTCHA Sample" src="http://lh4.ggpht.com/dnagir/SBpq4hS_uBI/AAAAAAAAC3M/Nshg9b367lc/reCAPTCHA-Sample_thumb%5B1%5D.png?imgmax=800" width="317" border="0" /></a></p>  <p><strong>What is behind the scene?</strong></p>  <p>This is the most interesting thing. reCAPTCHA has its own <a href="http://recaptcha.net/apidocs/captcha/client.html" target="_blank">API</a> (ASP.NET Control is also <a href="http://recaptcha.net/plugins/aspnet/" target="_blank">available</a>), so it is easy to integrate it with any server.</p>  <p>And here&#8217;s how it works:</p>  <ol>   <li>User enters TWO words.</li>    <li>One of the words is <em>known</em> for reCAPTCHA, another - isn&#8217;t (<em>unknown)</em>.</li>    <li>If the <em>known</em> word is correct, reCAPTCHA assumes that user entered <em>unknown</em> word correctly. It also tells user about correct answer.</li>    <li>To be more confident that <em>unknown</em> word is deciphered correctly it is shown on other images.</li> </ol>  <p>As simple as that.</p>  <p>We also can try to enter <strong>only</strong> one word correctly and after several times we will pass the CAPTCHA! It doesn&#8217;t look good for the user, but it still does the job. You have to be a human to recognise at least one word. And wrong word should not abuse the system because of it will be sent to many people and it is so unlikely they all will provide the same and wrong word.</p>  <p>There&#8217;s one note about it. If you want to distribute your (web) application you will push your clients to obtain public key for their domain in order to use the reCAPTCHA.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -607,69 +644,6 @@ yo!</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/who-cares-about-your-love/">Who Cares About Your Love?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-22T01:03:00+11:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>How distance can change your life?  
-Have you ever thought about it? Have you ever had a long time without the only one person you can imagine your life with?</p>  <p>I have had. What should you do if you are in a doubt if you really are in love? What actually is your love? Should the love be one way street?</p>  <p><img src="http://lh4.google.com/dnagir/RvY6xdF8D2I/AAAAAAAAB8c/RQprqHcAz2A/DSC07733.JPG" align="left" height="210" width="279" /> There are so many points I have believed in so much and there are so many disappointments in my life.   
-How can you regret about the things you have previously been very confident in?   
-How can you imagine your life if all of your ideals are broken to the ground and might never recover?</p>  <p>How many people live with the true, honest love? The love from the deep inside.  
-How many people live with a &#8220;love&#8221; by an occasion. The &#8220;love&#8221; of a habit.</p>  <p>Can you say you are going to be happy with your spouse every moment of your life and during all the life?</p>  <p> </p>  <p>There are so many questions&#8230; And there are so little answers&#8230;</p>  <p> </p>  <p>But the most important thing is&#8230; </p>  <p>Are you ready to break everything for a better future of everybody? Are you ready to suffer to make people you really love more happy?</p>  <p>That is a really big deal.<img src="http://www.basehead.org/files/shots/1-broken_heart.jpg" align="right" height="205" width="274" /></p>  <blockquote>   <p><strong>You&#8217;re once a dream that came true      
-an illusion that turned to reality       
-but suddenly, things turned differently       
-the way they used to be       
-until such time i have no choice but to let you go</strong></p>    <p><strong>you&#8217;re the reason for my sleepless nights      
-coz you keep stayin&#8217; on my mind       
-i can&#8217;t help myself from crying       
-coz i&#8217;m missing you so much&#8230;</strong></p> </blockquote>  <p>What do people need to come to the idea they are not &#8220;suitable&#8221; for each other?  
-Maybe just live separate and just get real is enough? Probably there are tons of other reasons. But who cares if you already are on this stage. It seems like everything you truly believed in doesn&#8217;t make sense anymore.</p>  <p>Who can recover from it? Who can forget the first touches to the girlfriend, first kisses, first sayings&#8230; Everything first&#8230;.  
-I have always believed in first-and-last love. It is hard to accept everything you believed in is not true anymore. It doesn&#8217;t matter whom you have &#8220;known&#8221; before. It only matters who is the first and the last.</p>  <blockquote>   <p><strong>I thought I finally received a break      
-Only to see the sun fall </strong></p>    <p><strong>My eyes will not see what they longed to see      
-My lips will not taste what they longed to taste </strong></p>    <p><strong>Why does life have to be like this      
-Full of hatred and pain       
-Instead of joy and bliss</strong></p> </blockquote>  <p>There is only one thing I want to say by this. If you are happy - never ever try get rid of it.  
-The happiness (in any of its development) is not supposed to be broken. It&#8217;s a God&#8217;s bless. So just take care of it. Grow it and care.</p></div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Viktor</div>
-<div class='content'>
-Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It is not rude, it is not self-seeking, it is not easily angered, it keeps no records of wrongs. Love does not delight in evil but rejoices with truth. It always protects, always trusts, always hopes, always preseveres. Love never fails.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -705,6 +679,10 @@ Love is patient, love is kind. It does not envy, it does not boast, it is not pr
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -718,10 +696,6 @@ Love is patient, love is kind. It does not envy, it does not boast, it is not pr
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

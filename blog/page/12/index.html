@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="The Firefox 3 seems to be officially release. This is very exciting thing, but not for all of developers who needs to support a new version of the &hellip;">
+  <meta name="description" content="So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly: First of all JS 1.9 is enaable only by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/firefox-3-new-in-javascript-18/">Firefox 3: New in JavaScript 1.8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-30T11:17:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly:</p>  <p>First of all JS 1.9 is enaable only by adding following script tag:</p>  <pre> &lt;script type=&quot;<strong>application/javascript;version=1.8</strong>&quot;&gt; ... your code ... &lt;/script&gt;</pre>
+
+<p>Very interesting thing is <a href="http://en.wikipedia.org/wiki/Lambda_calculus#Lambda_calculus_and_programming_languages">Lambda notation</a> which is a bit similar to C# Lambda Expressions.</p>
+
+<p>Code is worth to show:</p>
+
+<p><a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a> and older: </p>
+
+<pre> function(x) { return x * x; }</pre>
+
+<p>JavaScript 1.8: </p>
+
+<pre> function(x) x * x</pre>
+
+<p>It looks very nice, but I&#8217;m not sure how readable such code will be if this feature will be overused.</p>
+
+<p>&#160;</p>
+
+<p>Also Generator Expressions look interesting. But the code might not always be obvious to read.</p>
+
+<p>Compare the samples:</p>
+
+<p>In <a href="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7">JavaScript 1.7</a>, you might write something like the following in order to create a custom generator for an object: </p>
+
+<pre> function add3(obj) {
+   for ( let i in obj )
+     yield i + 3;
+ }
+ 
+ let it = add3(someObj);
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>In JavaScript 1.8, you can circumvent having to create a custom generator function by using a generator expression instead: </p>
+
+<pre> let it = (i + 3 for (i in someObj));
+ try {
+   while (true) {
+     document.write(it.next() + &quot;&lt;br&gt;\n&quot;);
+   }
+ } catch (err if err instanceof StopIteration) {
+   document.write(&quot;End of record.&lt;br&gt;\n&quot;);
+ }</pre>
+
+<p>Behind the thing that I have never used let statement, I&#8217;m don&#8217;t believe it is supported in IE (7) which I must target. However, </p>
+
+<p><code>(i + 3 for (i in someObj))</code> looks nice.</p>
+
+<p>&#160;</p>
+
+<p>Array object has two additional methods: reduce and reduceRight. Very useful things that are available (in a similar way) in most JS libraries (ExtJS has ForEach) that iterates through all the elements of an array. Nice to have a build-in support for it, but since it is not a part of ECMA-262 standard I&#8217;d never use it.</p>
+
+<p>&#160;</p>
+
+<p>So, as far as I can see the JavaScript 1.8 implementation is intended to allow developers write less code. But I&#8217;m not going to use it just now and just because of I&#8217;d rather write some additional &quot;old&quot;-manner code lines but have cross-browser support.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -809,43 +905,6 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/contributing-information-via-recaptcha/">Contributing Information via reCAPTCHA</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-02T11:14:00+10:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>Computers are very powerful these days. But it&#8217;s not still enough to solve <a href="http://en.wikipedia.org/wiki/Mathematical_problem" target="_blank">mathematical problems</a>. One way to leverage the calculating power is distributing it among users all around the world.</p>  <p>People can just run small applications to help scientific world. Not a problem at all. The software will just do its stuff silently.</p>  <p>Also people can help science manually. Who is going to spend time for that? Will you do it? Well, maybe. But there is very good solution to this problem: <strong>let people contribute even not letting them know about it</strong>.</p>  <p>This is exactly what <a href="http://recaptcha.net/learnmore.html" target="_blank">reCAPTCHA</a> is doing. It digitises old books using <a href="http://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">OCR</a>. But prompts users to decipher unrecognised words.</p>  <p><strong>What does user see?</strong></p>  <p>Users generally see prompt to enter two words to prove they are not robots, but humans. Nothing special. Nothing at all.</p>  <p><a href="http://lh3.ggpht.com/dnagir/SBpq3RS_uAI/AAAAAAAAC3E/rtTOhIwKdNU/s1600-h/reCAPTCHA-Sample%5B3%5D.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="127" alt="reCAPTCHA Sample" src="http://lh4.ggpht.com/dnagir/SBpq4hS_uBI/AAAAAAAAC3M/Nshg9b367lc/reCAPTCHA-Sample_thumb%5B1%5D.png?imgmax=800" width="317" border="0" /></a></p>  <p><strong>What is behind the scene?</strong></p>  <p>This is the most interesting thing. reCAPTCHA has its own <a href="http://recaptcha.net/apidocs/captcha/client.html" target="_blank">API</a> (ASP.NET Control is also <a href="http://recaptcha.net/plugins/aspnet/" target="_blank">available</a>), so it is easy to integrate it with any server.</p>  <p>And here&#8217;s how it works:</p>  <ol>   <li>User enters TWO words.</li>    <li>One of the words is <em>known</em> for reCAPTCHA, another - isn&#8217;t (<em>unknown)</em>.</li>    <li>If the <em>known</em> word is correct, reCAPTCHA assumes that user entered <em>unknown</em> word correctly. It also tells user about correct answer.</li>    <li>To be more confident that <em>unknown</em> word is deciphered correctly it is shown on other images.</li> </ol>  <p>As simple as that.</p>  <p>We also can try to enter <strong>only</strong> one word correctly and after several times we will pass the CAPTCHA! It doesn&#8217;t look good for the user, but it still does the job. You have to be a human to recognise at least one word. And wrong word should not abuse the system because of it will be sent to many people and it is so unlikely they all will provide the same and wrong word.</p>  <p>There&#8217;s one note about it. If you want to distribute your (web) application you will push your clients to obtain public key for their domain in order to use the reCAPTCHA.</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -881,6 +940,10 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -894,10 +957,6 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

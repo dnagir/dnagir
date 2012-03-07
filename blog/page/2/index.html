@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="The problem: In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the ValueProviders gain explicit access to static &hellip;">
+  <meta name="description" content="I watched the videos from the Scottish RubyConf 2010 and thought I could share some interesting moments as simple notes. So there you go: Harmony &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,140 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/what-ive-learned-from-scottish-rubyconf/">What I&#8217;ve Learned From Scottish RubyConf</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-18T23:52:00+10:00" pubdate data-updated="true">May 18<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>
+I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
+</p>
+
+<p>
+
+<code>
+<pre>
+
+Harmony for browser testing
+
+Capybara.driver = :rack_test # uses Harmony and can run JS
+
+Good talk about Arel: 1LT_04-mp4_500mbs.mp4
+
+Rack GeoIP.
+Rack GoogleAnalytics
+Rack::Cache (standard)
+Rack::CacheBuster
+
+Server side include to render page without parts of content that fail
+(Nginx + Rack)
+
+EvenMachine:: WebSockets add-on uses JS like API.
+Other options:
+-em-websocket
+-cramp (higher level websocket)
+-sunshowers
+-node.js
+pusherapp.com
+
+Initialise multiple variables in JS:
+var a = 1, b = 2, noInitialised;
+jQuery has "end" method to go up in the chain.
+
+
+
+VIM
+:copen - opens the console output
+f - find next occurence of char in this line
+dap - delete paragraph
+cap - change
+yap - yank
+ytCHAR - yank from here to next CHAR
+Ctrl-v - visual block mode
+:split, :sp, :vspilt, :vsp - split into 2 wins
+ls - list buffers touched
+q1, q2, q3... - record macro into register
+@1, @2, @3... - play the macro from register
+
+:R - Rails related file
+:A - Rails alternate file
+:Rextract - Rails partial extract
+Shift-k - integrated Ruby ri
+
+figutive.vim - more extensions: Glog, Gblame, Gstatus, Gdiff, Ggrep etc
+snippets.vim
+nerdtree.vim - files tree view
+surround.vim
+unimpaired.vim - auto-brackets
+Hashrocket configured Vim at Github hashrocket/dotmatrix
+Vimium, Vimperator - Vim in browser
+Remotely connect and pair in Vim
+
+
+UTF-8 is backwards compatible with ASCII
+Ruby doesn't know about UTF-16 - it's messy
+
+Globalization TODO:
+- Do same as .NET CultureInfo
+- Do different ways to localize different kinds of langs
+
+
+You can generate UML model of Rails model using:
+railroad -M | dot Tpng > model.png
+uml dumper
+
+Metrics:
+- rake stats # LOCs
+- FLOG Weighting the code AST - Assignment Branch Condition (ABC)
+- FLAY - code similarities
+- Saikuro - cyclomatic complexity
+- Roodi - design issues
+- Reek - design issues and specific smells
+- Churn - changes to file with Git
+- Rcov - test coverage
+- Heckle - test coverage with code mutation
+- metric_fu
+
+
+</pre>
+</code>
+
+</p>
+
+<p>
+You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope you find some moment useful.
+</p></div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -730,62 +864,6 @@ Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions the
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/honest-and-sales-please-care/">Caring, Selling and Appreciating Technology Era</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-24T15:32:00+10:00" pubdate data-updated="true">Jul 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-I have watched the <a href="http://www.youtube.com/watch?v=-QWHkcCP3tA">RailsConf 2010 by Gary Vaynerchuk</a> and I believe that was <b>one of the best presentations I have seen</b> in a very long while.<br />
-<br />
-Gary is just outstanding and I highly recommend you to watch this video it (but be prepared - there is a log of swearing, which I actually like).<br />
-<br />
-There is nothing about Ruby (On Rails), .NET, Java or any other technology.<br />
-This is just a talk about what you <b>should care about</b> as a business owner, this is about <b>appreciation of the digital era</b> we are living in. Also it is about <b>caring</b> about people, and <b>cutting bullshit</b>.<br />
-<br />
-Sit, make yourself comfortable and DO WATCH it:<br />
-<object height="385" width="640"><param name="movie" value="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1">
-
-</param>
-<param name="allowFullScreen" value="true">
-
-</param>
-<param name="allowscriptaccess" value="always">
-
-</param>
-<embed src="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
-<br />
-Hope you&#8217;ll enjoy it.</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -821,6 +899,10 @@ Hope you&#8217;ll enjoy it.</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
       </li>
     
@@ -834,10 +916,6 @@ Hope you&#8217;ll enjoy it.</div>
     
       <li class="post">
         <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/tips-on-usingterminal-in-mac/">Use your Terminal like a Pro</a>
       </li>
     
   </ul>

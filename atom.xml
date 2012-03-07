@@ -4,7 +4,7 @@
   <title><![CDATA[Art Of Programming]]></title>
   <link href="http://ApproachE.com/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-06T13:03:25+11:00</updated>
+  <updated>2012-03-08T08:36:26+11:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to care for Introverts]]></title>
+    <link href="http://ApproachE.com/blog/how-to-care-for-introverts/"/>
+    <updated>2012-03-08T08:25:00+11:00</updated>
+    <id>http://ApproachE.com/blog/how-to-care-for-introverts</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve just found an <a href="http://afterwordss.tumblr.com/post/5274763919">interesting poster</a> that describes how to deal with introverts.</p>
+
+<p>Being an introvert myself I agree with most of the points:</p>
+
+<ul>
+<li>Respect their <strong>need for privacy</strong>.</li>
+<li>Never embarrass them in <strong>public</strong>.</li>
+<li>Let them observe first in <strong>new situations</strong>.</li>
+<li>Give them <strong>time to think</strong>. Don&#8217;t demand instant answers.</li>
+<li><strong>Don&#8217;t interrupt </strong>them.</li>
+<li>Give them <strong>advance notice</strong> of expected changes in their lives.</li>
+<li>Give them <strong>15 minute warnings</strong> to finish whatever they are doing before calling them to dinner or moving on to the next activity.</li>
+<li>Reprimand them <strong>privately</strong>.</li>
+<li><strong>Teach</strong> them new skills privately rather than in public.</li>
+<li>Enable them to find <strong>one best friend</strong> who has similar interests and abilities; encourage this relationship even if the friend moves.</li>
+<li>Do not push them to make <strong>lots of friends</strong>.</li>
+<li><strong>Respect</strong> their introversion. Don&#8217;t try to remake them into extroverts.</li>
+</ul>
+
+
+<p>I&#8217;m pretty sure it is just a common sense. But it helps when people do know it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Migrating from Blogger to Octopress]]></title>
@@ -1413,35 +1442,6 @@ Thanks for your comment, nice to know about all that.<br /><br />My idea was to 
 Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions there, but they do have .Net and Java (and now Objective-C) and they pay real money for your time. So you can combine the pleasure of learning with receiving money for your work.<br /><br />As for the Ruby Challenge, there&#39;s enough groups like that around. Take Ruby Quiz for instance, that is out there what it seems for ages. They pose interesting challenges and discuss the solutions. Also, you can turn to Code Kata which is intended to develop the sense of the problem and practise your ability to think, while giving you a real-world problems to toy with.<br /><br />As I said, there&#39;s plenty, and there&#39;s totally no need to drive anything in existence to what you think the ideal. If you can&#39;t find what you need, imagine it as your next assignment &#8211; to create a web site like what you just described &#8211; and go implement it.<br /><br />Satish doesn&#39;t have time to work on the Ruby Challenge as he is riding a cool new wave of Clojure now, and you are concerned about his old favorite far more than he is. Take it easy. Projects come and go every day. :)</div>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Caring, selling and appreciating technology era]]></title>
-    <link href="http://ApproachE.com/blog/honest-and-sales-please-care/"/>
-    <updated>2010-07-24T15:32:00+10:00</updated>
-    <id>http://ApproachE.com/blog/honest-and-sales-please-care</id>
-    <content type="html"><![CDATA[<div class='post'>
-I have watched the <a href="http://www.youtube.com/watch?v=-QWHkcCP3tA">RailsConf 2010 by Gary Vaynerchuk</a> and I believe that was <b>one of the best presentations I have seen</b> in a very long while.<br />
-<br />
-Gary is just outstanding and I highly recommend you to watch this video it (but be prepared - there is a log of swearing, which I actually like).<br />
-<br />
-There is nothing about Ruby (On Rails), .NET, Java or any other technology.<br />
-This is just a talk about what you <b>should care about</b> as a business owner, this is about <b>appreciation of the digital era</b> we are living in. Also it is about <b>caring</b> about people, and <b>cutting bullshit</b>.<br />
-<br />
-Sit, make yourself comfortable and DO WATCH it:<br />
-<object height="385" width="640"><param name="movie" value="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1">
-
-</param>
-<param name="allowFullScreen" value="true">
-
-</param>
-<param name="allowscriptaccess" value="always">
-
-</param>
-<embed src="http://www.youtube.com/v/-QWHkcCP3tA&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
-<br />
-Hope you&#8217;ll enjoy it.</div>
 ]]></content>
   </entry>
   
