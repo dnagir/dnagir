@@ -9,7 +9,8 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="Another useful tip for NHAML users that I came up with. I am assuming the site with following technical description: Every page has common CSS. &hellip;">
+  <meta name="description" content="You probably already know that ASP.NET MVC Preview 1 has been released. You can quickly watch the video to get the impression.
+Overall, I must admit &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/impression-on-aspnet-mvc-2/">Impression on ASP.NET MVC 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-04T08:58:00+10:00" pubdate data-updated="true">Aug 4<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<br />
+You probably already know that <a href="http://haacked.com/archive/2009/07/30/asp.net-mvc-released.aspx" target="_blank">ASP.NET MVC Preview 1 has been released</a>. You can quickly watch the <a href="http://channel9.msdn.com/posts/Glucose/Hanselminutes-on-9-ASPNET-MVC-2-Preview-1-with-Phil-Haack-and-Virtual-Scott/" target="_blank">video</a> to get the impression.<br />
+Overall, I must admit, I like it. Things I like the most:<br />
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/ee308450%28VS.100%29.aspx" target="_blank">Display and Edit Templates</a> – I did workaround it in MVC 1 by using partials with specific name,</li>
+<li>Areas support. As <a href="http://weblogs.asp.net/scottgu/archive/2009/07/31/asp-net-mvc-v2-preview-1-released.aspx" target="_blank">Scott explains</a> it allows to reuse various ASP.NET MVC projects.</li>
+</ul>
+What is do DISLIKE here:<br />
+<ul>
+<li><b>DataAnnotation</b> validation support – why are we <b>forced to apply attributes</b> on our model. I often have situations where I cannot tell exact validation rule developing the Model. I should specify it later. No way of doing it with DataAnnotations. There MUST be an interface for custom validation provider.</li>
+<li>As far as I understand (from the Release Notes) <b>Views from Area projects should be copied</b> over to the main project. This IS UGLY IT IS NOT REUSABLE VIEW, IT IS CUT-AND-PASTABLE VIEW with all the consequences.</li>
+</ul>
+And I am also not sure what the effort is involved for ViewEngines to support the new Templates. I <i><b>guess</b></i>, it should not be a big deal. But it needs some attention.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -898,45 +948,6 @@ It is interesting that <i>Infragistics</i> is presented in only one winning cate
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mygeneration/">MyGeneration</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-27T13:38:00+10:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Another useful code generation tool.<br />
-Site: <a href="http://www.mygenerationsoftware.com/" title="http://www.mygenerationsoftware.com">http://www.mygenerationsoftware.com</a><br />
-Licence: Proprietary, free. Does not allow distribution or linking to the product.</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -972,6 +983,10 @@ Licence: Proprietary, free. Does not allow distribution or linking to the produc
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -985,10 +1000,6 @@ Licence: Proprietary, free. Does not allow distribution or linking to the produc
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

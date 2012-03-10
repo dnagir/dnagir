@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: productivity | Art Of Programming]]></title>
+  <title><![CDATA[Category: Productivity | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/productivity/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-08T08:36:26+11:00</updated>
+  <updated>2012-03-10T23:10:59+11:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -14,13 +14,141 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Rules of Productivity]]></title>
-    <link href="http://ApproachE.com/blog/rules-of-productivity/"/>
-    <updated>2010-11-29T15:29:00+11:00</updated>
-    <id>http://ApproachE.com/blog/rules-of-productivity</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>How do we get more work done? It is a question that every manager and every passionate worker faces. Yet, for the most part, teams operate on gut instinct and habit. The results are less than optimal. [<a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">source</a>]</p>  <h2></h2>  <h2>What is productivity?</h2>  <ul>   <li>+ Work accomplished </li>    <li>- Work required to fix defects </li>    <li>- Work required to fix bad design decisions </li> </ul>  <p>Productivity can be <strong><em>negative </em></strong>when there is more harm than good.</p>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsQV26e9I/AAAAAAAAEx4/W_cKdhYLIEc/s1600-h/image%5B9%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsREicCvI/AAAAAAAAEx8/UGFxiCYKKxc/image_thumb%5B5%5D.png?imgmax=800" width="455" height="347" /></a> </p>  <h2>&#160;</h2>  <h2>Experiment 1: Overtime</h2>  <p>Working more than&#160; 40 hours a week leads to decreased productivity.</p>  <ul>   <li>&lt; 40 hours/week – working not “enough”. </li>    <li>&gt; 60 hours/week – small productivity boost. </li> </ul>  <p>The boost only lasts for 3 to 4 weeks and then turns <em><strong>negative</strong></em>. Though can be used for a short-time productivity increase.</p>  <p>So, work 40 hours a week with time for rest and family. Never work 2 months of 60 hrs/week. Overall productivity will be lower, despite the initial boost.</p>  <h2></h2>  <h2>Experiment 2: Work harder in bursts.</h2>  <ul>   <li>Take advantage of the burst during overtime. </li>    <li>Crunch for a week and work only 40 hrs on another week. </li>    <li>Any more efficient work patterns? </li> </ul>  <p>Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.<a href="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsSG9AnZI/AAAAAAAAEyA/Wq0Ax8mVAgc/s1600-h/image%5B5%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsS0R9wwI/AAAAAAAAEyE/3C1FYViAnek/image_thumb%5B3%5D.png?imgmax=800" width="468" height="357" /></a></p>  <p>So:</p>  <ul>   <li>Raise productivity immediately with short spurts &lt; 3 weeks. </li>    <li>Overtime temporarily to meet deadlines. </li>    <li>Plan for the reduction in productivity immediately afterwards. </li>    <li>Consider 4-day work week as a flexitime option. </li> </ul>  <p>&#160;</p>  <h2>Experiment 3:&#160; Performance for knowledge workers declines after 35 hrs, not 40.</h2>  <ul>   <li>Creativity and problem solving decreases faster with fatigue than manual labour. </li>    <li>Grinding&#160; out problems by working longer&#160; on average result in inferior solutions. </li>    <li>Lack of sleep is particularly damaging. </li> </ul>  <p>So:</p>  <ul>   <li>Overtime kills creativity. </li>    <li>If you are stuck on a problem, go home or take a break. </li>    <li>Get 8 hrs of sleep to improve your problem solving abilities. </li> </ul>  <p>&#160;</p>  <h2>Experiment 4: Teams on overtime feel like they are doing more, but actually accomplish less.</h2>  <ul>   <li>Team with overtime feels like they are doing much more than the team without overtime. </li>    <li>Team without overtime produces the better product and accomplishes more. </li> </ul>  <p><a href="http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsTkqVtLI/AAAAAAAAEyI/HZvCvNe_lNY/s1600-h/image%5B13%5D.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_6a0bIbZ1HXw/TPMsUp4sGLI/AAAAAAAAEyM/IHbhVUR7D-k/image_thumb%5B7%5D.png?imgmax=800" width="476" height="363" /></a> </p>  <p>Humans ignore the systematic costs and physiological biases:</p>  <ul>   <li>Failure to measure (cost of defects, bad design decisions, missed opportunities). </li>    <li>Linear extrapolation (initial productivity boost is seen as same in the future). </li>    <li>Habit (a bad one!). </li>    <li>Self reported excellence (behaviour rewarded independent of the results). </li> </ul>  <p>So:</p>  <ul>   <li>The feeling of increased long-term productivity is FALSE. </li>    <li>Use customer metrics to determine the productivity. </li> </ul>  <p>&#160;</p>  <h2>Experiment 5: Productivity is maximised in small teams of 4-8 people.</h2>  <ul>   <li>Productivity of a small group is 30-50% higher than groups over 10 people. </li>    <li>Too high cost of communication for groups with &gt; 10 people. </li>    <li>Smaller teams don’t have enough breadth to solve a wide array of problems. </li> </ul>  <p>So:</p>  <ul>   <li>Split your teams into cross-functional teams. </li>    <li>Link small teams using '”scrum-of-scrums”. </li>    <li>Create processes for:      <ul>       <li>growing new teams; </li>        <li>splitting large teams; </li>        <li>transitioning to new projects; </li>     </ul>   </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Seat people on the same team together in a closed team room.</h2>  <ul>   <li><em><strong>100% increase </strong></em>in productivity. </li>    <li>Faster communication and problem-solving. </li>    <li>Fewer external interruptions to the team increase overall productivity. </li> </ul>  <p>So:</p>  <ul>   <li>Seat the team in their own room. With walls. </li>    <li>Give at least 5 sqr/meters per person. </li>    <li>Create side rooms for private conversations, phone calls, meetings. </li>    <li>Minimise non-team distractions. </li> </ul>  <p>&#160;</p>  <h2>Experiment 6: Cross-functional teams outperform siloed teams</h2>  <ul>   <li>Produced more effective solutions in the same time. </li>    <li>Much more likely to generate breakthrough solutions. </li>    <li>Short-term loss of negotiation of norms. </li> </ul>  <p>This is why:</p>  <ul>   <li>Fewer external dependencies mean fewer lengthy blockages. </li>    <li>Team has the breadth to see the forest, not just the trees. </li>    <li>Different perspectives mean lower chance of groupthink. </li> </ul>  <p>So:</p>  <ul>   <li>Create the team where every skill needed to solve the problem at hand is in the same room. </li>    <li>Limit the charter: “Do everything = big team”. </li>    <li>Fulltime: focused team member efforts. <em><strong>Multitasking = 15% drop in productivity</strong></em>. </li> </ul>  <p>&#160;</p>  <h2>Experiment 8: Scheduling at 80% of team capacity produces better products.</h2>  <ul>   <li>Scheduling at 100% doesn’t give space to creativity. </li>    <li>No lost time: passionate workers keep thinking. </li>    <li>The 20% goes into new idea generation and process improvements. </li>    <li><em><strong>Producing 20 great features is usually far more profitable than 100 competent features</strong></em>. </li> </ul>  <p>Why?</p>  <ul>   <li>Allows employees to explore many options cheaply. </li>    <li>Gives time to prototype breakthrough solutions that sound crazy on paper. </li>    <li><em><strong>Allows people to pursue passions</strong></em>. </li> </ul>  <p>So:</p>  <ul>   <li>Schedule 20% below possible velocity. </li>    <li>Hold periodic reviews of side projects and award interesting ideas. </li>    <li>Publicise and reward side projects that make their way into production. </li>    <li>Keep a public list of important things if anyone runs out of work (happens rarely). </li> </ul>  <p>&#160;</p>  <h2>Other productivity Techniques</h2>  <h3>Experimentation culture:</h3>  <ul>   <li>Fail faster to find success sooner. </li>    <li>Short iterations. </li>    <li>User metrics such as A/B testing. </li>    <li>State gate portfolio management. </li> </ul>  <h3>Safety nets:</h3>  <ul>   <li>Test-Driven-Development. </li>    <li>Daily/weekly access to real customers. </li> </ul>  <h3>Empower the team</h3>  <ul>   <li>Constraints-based requirements, not mandates from above. </li>    <li>Training. </li> </ul>  <p>See the original <a href="http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html">PDF</a>.</p>  </div>
+    <title type="html"><![CDATA[Increase your productivity in Vim and Terminal]]></title>
+    <link href="http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal/"/>
+    <updated>2012-03-12T06:30:00+11:00</updated>
+    <id>http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal</id>
+    <content type="html"><![CDATA[<p>This post will give you <em>minimal</em> suggestions that
+you can apply in your daily work to immediately increase your productivity.</p>
 
+<p>I'm writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik's screencast</a>
+where he is working <em>"in a wild"</em>.</p>
+
+<p>I love this idea and have done videoing
+how I work on a little <a href="http://approache.com/blog/rails-plugin-with-tested-assets/">ios-checkboxes</a>
+and <a href="http://approache.com/blog/knockoutjs-validations-video/">knockout-rails</a>.</p>
+
+<p>The world would an awesome place if more people (yes, including <strong>you</strong>) would start sharing the way they work.
+Well done Steve!</p>
+
+<p>But today I want to focus on just a few of things that should dramatically improve the productivity.</p>
+
+<!-- more -->
+
+
+<h1>Vim productivity</h1>
+
+<p><blockquote><p>Vim is one of a select bunch of tools for which I have no substitute.<br/>It is a brilliant piece of work!</p><footer><strong>Biju Chacko</strong> <cite>Vim Quotes</cite></footer></blockquote></p>
+
+<p>The power of vim is huge. Very small number of people actually do know how to use most of it.
+I'm certainly not one of them.</p>
+
+<p>But let me suggest some of the things that keep myself more productive:</p>
+
+<h2>Remap your CapsLock key to Control</h2>
+
+<p><em>Why?</em> Because the <em>Control</em> key is located extremely inconveniently
+while <em>CapsLock</em> is right under your baby-finger. All the time.</p>
+
+<p><em>How?</em> Follow <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">this guide</a>.</p>
+
+<p>I blindly trusted the <em>command</em> given by <a href="http://twitter.com/garybernhardt">Garry Bernhard</a>
+in his <a href="http://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips">DestroyAllSoftware - Some Vim Tips</a>
+on this. Never regretted.</p>
+
+<p>Don't think about it. Just do it and I'm sure you won't go back.</p>
+
+<h2>Use Vim jumps</h2>
+
+<p><em>Why?</em> A lot of times you need to jump forth and back between 2 place or go to where you've been a minute ago.
+A log of people just find that line/file again. It's a waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>Ctrl-o</code> and <code>Ctrl-i</code> to go to the previous/next location you jumped to.</li>
+<li><code>``</code> (two backticks) - jump back to where you were.</li>
+<li><code>gi</code> - go to the last place you inserted a text.</li>
+</ul>
+
+
+<h2>Use appropriate Vim navigations</h2>
+
+<p><em>Why?</em> Typing <code>l</code> (move right one symbol) or similar multiple times is waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>{</code> and <code>}</code> - jump <em>paragraph</em> back and forth.</li>
+<li><code>Ctrl-F/B</code> - move one <em>screen</em> back and forth.</li>
+<li><code>Ctrl-E/Y</code> - <em>scroll</em> the screen.</li>
+<li><code>*</code> (star) - search for the word under cursor, then <code>n/p</code> to jump to next/previous.</li>
+<li>add <code>imap jj &lt;Esc&gt;</code> to your <code>.vimrc</code> and don't use <code>Esc</code> anymore.</li>
+</ul>
+
+
+<h2>Changing case and repeating a command</h2>
+
+<p><em>Why?</em> Because a lot of things can be done much more efficiently.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>~</code> (tilde) - toggle the casing of a letter/selection (upper-case/down-case).</li>
+<li><code>.</code> (dot) - repeat the last set of commands (use in a combination with search, such as <code>*</code>, and jumps).</li>
+</ul>
+
+
+<h2>Temporarily map commands you run</h2>
+
+<p><em>Why?</em> Because you don't want to type the same command over and over again.</p>
+
+<p><em>How?</em> One example is <code>nmap &lt;leader&gt;s :! bundle exec rspec % --colour --focus&lt;cr&gt;</code>.
+This will run the current spec file when you press <code>,s</code> (in my case).</p>
+
+<p><strong>Rule of thumb</strong>: if you do something more then twice in the terminal outside of Vim, map it using <code>nmap</code>.
+Don't switch windows, <em>don't lose your context</em>.</p>
+
+<h1>Terminal productivity</h1>
+
+<p>Just a couple of things here.</p>
+
+<h2>Use iTerm2</h2>
+
+<p><em>Why?</em> At least because you can split window without losing the context.</p>
+
+<p><em>How?</em> Install it from the <a href="http://www.iterm2.com/">iterm2.com</a> site (or even use tmux!).</p>
+
+<p>Use <code>Ctrl-D/Ctrl-Shift-D</code> (while in Vim or any iTerm tab/window) to split the current terminal window opening a new shell but still being able to see what you are currently working on.</p>
+
+<h2>Use <code>!!</code> (double bang) or arrow up</h2>
+
+<p><em>Why?</em> Because it repeats the previous command that you should have mapped in Vim but didn't.</p>
+
+<p><em>How?</em> Just type <code>!!</code> and it will execute last command.
+This is simple, but strangely enough I can see people are actually retyping commands.</p>
+
+<h2>Enable Vim mode in bash</h2>
+
+<p><em>Why?</em> Because you navigate in the terminal too. And Vim mode makes it seamless.</p>
+
+<p><em>How</em>? <a href="http://linuxart.com/log/archives/2005/10/13/super-useful-inputrc/">Create an inputrc file</a> and
+add <code>set editing-mode vi</code> to it.</p>
+
+<h1>Useful links</h1>
+
+<ul>
+<li><a href="http://blog.sanctum.geek.nz/vim-anti-patterns/">Vim anti-patterns</a> - must-read if you want to be better at Vim.</li>
+<li><a href="http://peepcode.com/products/smash-into-vim-i">Smash into Vim</a> - always awesome PeepCode series on Vim.</li>
+<li><a href="https://workshops.thoughtbot.com/vim">Vim for Rails developers</a> - nice overview of the plug-ins and more productive use of Vim.</li>
+<li><a href="http://peepcode.com/products/meet-the-command-line">Meet the Command Line</a> and <a href="http://peepcode.com/products/advanced-command-line">Advanced Command Line</a> - great screencasts if you want to get better with command line.</li>
+<li><a href="http://www.destroyallsoftware.com">DestroyAllSoftware screencasts</a> - screencasts covering Vim, Unix, Ruby.</li>
+</ul>
+
+
+<p>The DestroyAllSoftware stands out here because Gary covers range of extremely focused, professional topics that you can't ignore.</p>
+
+<p>Hope this post will help you to leverage your tools a bit better and will teach you a thing or two.</p>
 ]]></content>
   </entry>
   

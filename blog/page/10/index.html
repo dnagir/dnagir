@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="You can get lots of problems when using node.appendChild due to an element may not be allowed to have children. It is especially valid for WYSIWYG &hellip;">
+  <meta name="description" content="I&#8217;ll summarise a very nice article here: Always use public firewall and: only expose 80, 443 ports; do not open FTP; do not open file sharing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/9999-available-aspnet-and-sql-server/">99.99% Available ASP.NET and SQL Server Architecture</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-16T13:46:00+11:00" pubdate data-updated="true">Dec 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I&#8217;ll summarise a very nice <a href="http://www.codeproject.com/KB/aspnet/ProdArch.aspx">article</a> here:<br />
+<a href="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" target="_blank" title="Open in a new window"><img align="right" alt="Architecture" height="417" src="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" width="300" /></a>   <br />
+<ul>
+<li>Always use public <b>firewall </b>and:       <br />
+<ul>
+<li>only expose 80, 443 ports; </li>
+<li>do not open FTP; </li>
+<li>do not open file sharing ports; </li>
+</ul>
+</li>
+<li>Use <b>two Ethernet ports</b>: one for to serve external requests, one for local access. </li>
+<li>&#8220;Keep your <b>load balancer dead simple</b> – use basic round robin&#8221;. </li>
+<li>Each router and firewall has a <b>standby </b>one. </li>
+<li>Get moderately powerful Web servers with <b>enough storage</b>. </li>
+<li>Run <b>64bit </b>version of Windows. </li>
+<li>The whole internal network is fully <b>1Gbit </b>(network cables, routers/switches, NICs etc). </li>
+<li><b>Only use VPN</b> to access your server. </li>
+<li>Database servers must be the most powerful (<b>RAID 10 </b>Disks, Memory, CPU). </li>
+<li>Store Database files on a separate <b>physical</b> disk. </li>
+<li>Always <b>perform backup and log shipping</b> to different physical disks, preferably on RAID 1. </li>
+<li>Use <b>Windows Clustering </b>for high availability with Storage Area Network. </li>
+<li>RAM,<b> lots of RAM</b> for Database servers (2 GB + 60% of MDF size). </li>
+<li>Get <b>Dual Path Fiber</b> Channel connection to SAN from your servers. </li>
+<li>Have a <b>separate server for moving IIS logs</b> from webserver. </li>
+<li>Have a large<b> detachable external storage</b> like External USB drives. </li>
+<li>Use<b> fast SCSI RAID 1</b> disks. </li>
+<li>Use <b>separate NIC</b> on all servers that is connected to a separate private network via separate switch <b>for bulk operations</b>. </li>
+</ul>
+Please keep in mind these suggestions are for really heavy duty web applications.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -596,66 +661,6 @@ When i hear about scripting support in the OS, I always think that my Ubuntu dec
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/search-for-property-somewhere-in/">Search for a Property Somewhere in JavaScript</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-09T14:07:00+11:00" pubdate data-updated="true">Dec 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I know the part of the property name in some JS object, but have no idea in what object this property is located.</p>  <p>So I wrote ridiculous script to find it for me. Just a lazzy developer. Please don&#8217;t use anything like that in production.</p>  <div>   <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">var</span> findPropertyCompare=<span style="color: #0000ff">function</span>(srch, existing) {
- <span style="color: #0000ff">return</span> existing.toString().indexOf(srch) &gt;= 0;
-}
-
-<span style="color: #0000ff">var</span> findProperty=<span style="color: #0000ff">function</span>(n, root, path, depth) {
-  depth = depth || 0;
-  <span style="color: #0000ff">if</span> (depth &lt;= 5) {
-    <span style="color: #0000ff">for</span>(<span style="color: #0000ff">var</span> key <span style="color: #0000ff">in</span> root) {
-      <span style="color: #0000ff">if</span> (findPropertyCompare(n, key)) {
-        console.info(<span style="color: #006080">&quot;Found %s = %o&quot;</span>, path + <span style="color: #006080">'.'</span> + key, root[key]);
-      }
-      findProperty(n, root[key], path + <span style="color: #006080">'.'</span> + key, depth+1);
-    }
-  }
-};
-
-findProperty(<span style="color: #006080">'FCK'</span>, window, <span style="color: #006080">'window'</span>);</pre>
-</div>
-
-<p>&#160;</p>
-
-<p>It just outputs all the properties that contain &#8216;FCK&#8217;. Of course it only works in FF because of console object is used. Also it doesn&#8217;t handle exceptions that may occur (and will occur).</p>
-
-<p>But anyway, still useful.</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -691,6 +696,10 @@ findProperty(<span style="color: #006080">'FCK'</span>, window, <span style="col
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -704,10 +713,6 @@ findProperty(<span style="color: #006080">'FCK'</span>, window, <span style="col
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

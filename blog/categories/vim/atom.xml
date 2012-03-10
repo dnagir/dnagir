@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: vim | Art Of Programming]]></title>
+  <title><![CDATA[Category: Vim | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-08T08:36:26+11:00</updated>
+  <updated>2012-03-10T23:10:59+11:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -14,224 +14,141 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Rails Plugin with Tested Assets Screencast]]></title>
-    <link href="http://ApproachE.com/blog/rails-plugin-with-tested-assets/"/>
-    <updated>2011-11-19T20:47:00+11:00</updated>
-    <id>http://ApproachE.com/blog/rails-plugin-with-tested-assets</id>
-    <content type="html"><![CDATA[<div class='post'>
-<div dir="ltr" style="text-align: left;" trbidi="on">
-Some of the most valuable things you can learn are not written in books, not shown in the presentations and demos. Those come from seeing how <i>others</i> work.<br />
-<br />
-How do they do all those small things? What tricks do they have? How would they approach that problem?<br />
-<br />
-Unfortunately, I can't remember seeing people sharing the way they actually work (unless they pair). I want to see what mistakes they make, how they fix those, how they try to come up with a word erasing a line 10 times.<br />
-I believe all this is of a great value for a lot of us.<br />
-<br />
-What I described is <i>partially</i>&nbsp;done by PeepCode's Play By Play series and Tekpub. Those are amazing (usually). But that's not exactly what I am after. Those screencasts are high quality, polished and prepared ones. YOU are NOT featuring there. I want to see YOU there. All of you, guys.<br />
-<br />
-<br />
-So I decided to make a first step (or maybe not so) and screencast myself while working on a Rails Plugin.<br />
-<br />
-This is mostly real-time work. You'll see how I fail, you'll spot the mistakes I've done and did not even notice, you'll see how I write README. And, most importantly, you will hopefully see some of the things that will help <i>yourself</i>.<br />
-<br />
-This video features the following tools/technologies:<br />
-<br />
-<ul style="text-align: left;">
-<li>Ruby, Ruby On Rails</li>
-<li>CoffeeScript</li>
-<li>SASS</li>
-<li>Git, Github</li>
-<li>Vim (MacVim and Terminal)</li>
-<li>Jasmine and basic testing of JavaScript and even CSS assets</li>
-<li>etc</li>
+    <title type="html"><![CDATA[Increase your productivity in Vim and Terminal]]></title>
+    <link href="http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal/"/>
+    <updated>2012-03-12T06:30:00+11:00</updated>
+    <id>http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal</id>
+    <content type="html"><![CDATA[<p>This post will give you <em>minimal</em> suggestions that
+you can apply in your daily work to immediately increase your productivity.</p>
+
+<p>I'm writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik's screencast</a>
+where he is working <em>"in a wild"</em>.</p>
+
+<p>I love this idea and have done videoing
+how I work on a little <a href="http://approache.com/blog/rails-plugin-with-tested-assets/">ios-checkboxes</a>
+and <a href="http://approache.com/blog/knockoutjs-validations-video/">knockout-rails</a>.</p>
+
+<p>The world would an awesome place if more people (yes, including <strong>you</strong>) would start sharing the way they work.
+Well done Steve!</p>
+
+<p>But today I want to focus on just a few of things that should dramatically improve the productivity.</p>
+
+<!-- more -->
+
+
+<h1>Vim productivity</h1>
+
+<p><blockquote><p>Vim is one of a select bunch of tools for which I have no substitute.<br/>It is a brilliant piece of work!</p><footer><strong>Biju Chacko</strong> <cite>Vim Quotes</cite></footer></blockquote></p>
+
+<p>The power of vim is huge. Very small number of people actually do know how to use most of it.
+I'm certainly not one of them.</p>
+
+<p>But let me suggest some of the things that keep myself more productive:</p>
+
+<h2>Remap your CapsLock key to Control</h2>
+
+<p><em>Why?</em> Because the <em>Control</em> key is located extremely inconveniently
+while <em>CapsLock</em> is right under your baby-finger. All the time.</p>
+
+<p><em>How?</em> Follow <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">this guide</a>.</p>
+
+<p>I blindly trusted the <em>command</em> given by <a href="http://twitter.com/garybernhardt">Garry Bernhard</a>
+in his <a href="http://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips">DestroyAllSoftware - Some Vim Tips</a>
+on this. Never regretted.</p>
+
+<p>Don't think about it. Just do it and I'm sure you won't go back.</p>
+
+<h2>Use Vim jumps</h2>
+
+<p><em>Why?</em> A lot of times you need to jump forth and back between 2 place or go to where you've been a minute ago.
+A log of people just find that line/file again. It's a waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>Ctrl-o</code> and <code>Ctrl-i</code> to go to the previous/next location you jumped to.</li>
+<li><code>``</code> (two backticks) - jump back to where you were.</li>
+<li><code>gi</code> - go to the last place you inserted a text.</li>
 </ul>
-<div>
-Additionally, before watching, make sure you Turn On the Volume. Rare person doesn't like the music that my wife helped me prepare. Even if you don't not like the video, you should like the music :)</div>
-<div>
-<br /></div>
-<div>
-I hope you enjoy it. <strong>UPDATE: Please watch it in full screen as the quality is lower than I expected.</strong>
-</div>
-<div>
-<br /></div>
-<div>
-<br /></div>
-<div>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/MWvLofLz04k?hd=1" frameborder="0" allowfullscreen></iframe>
 
 
-</div>
-<div>
-<br /></div>
-<div>
-<br /></div>
-<div>
-<br /></div>
-<div>
-P.S.: Screencasting is really hard. And that's my first. So&nbsp;apologies&nbsp;if something isn't in-place.</div>
-<div>
-(If you can't see the video here, open it on&nbsp;<a href="http://vimeo.com/32357445">Vimeo</a>. Alternatively, try <a href="http://www.youtube.com/watch?v=MWvLofLz04k">YouTube</a> - it should work with HTML5-only browser).</div>
-<br />
-<br />
-<br />
-<br /></div></div>
+<h2>Use appropriate Vim navigations</h2>
+
+<p><em>Why?</em> Typing <code>l</code> (move right one symbol) or similar multiple times is waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>{</code> and <code>}</code> - jump <em>paragraph</em> back and forth.</li>
+<li><code>Ctrl-F/B</code> - move one <em>screen</em> back and forth.</li>
+<li><code>Ctrl-E/Y</code> - <em>scroll</em> the screen.</li>
+<li><code>*</code> (star) - search for the word under cursor, then <code>n/p</code> to jump to next/previous.</li>
+<li>add <code>imap jj &lt;Esc&gt;</code> to your <code>.vimrc</code> and don't use <code>Esc</code> anymore.</li>
+</ul>
 
 
-<h2>Comments</h2>
+<h2>Changing case and repeating a command</h2>
+
+<p><em>Why?</em> Because a lot of things can be done much more efficiently.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>~</code> (tilde) - toggle the casing of a letter/selection (upper-case/down-case).</li>
+<li><code>.</code> (dot) - repeat the last set of commands (use in a combination with search, such as <code>*</code>, and jumps).</li>
+</ul>
 
 
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-Pleased to know that you liked it. Yeah, the music sometimes goes a bit off. But it is still fun as for me :)</div>
-</div>
-<div class='comment'>
-<div class='author'>Flaviu Simihaian</div>
-<div class='content'>
-Great video. I also love the music. Beethoven seems to get extra-dramatic near the testing pain point :)<br /><br />Look forward to seeing more in the future and hope to do some  myself.<br /><br />Thanks,<br /><br />Flaviu</div>
-</div>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-Sorry about that. I&#39;ve embedded the YouTube version of the video. It is of a little better quality.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Video on vimeo is bad quality, I had to watch it on Youtube. Thanks for videolesson.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-If more people will need it, I will probably upload higher resolution somewhere. Have you tried <a href="http://www.youtube.com/watch?v=MWvLofLz04k" rel="nofollow">YouTube</a>?<br /><br />And in the future I will have to record at much lower screen resolution</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-If see screencast from page - text is unreadable and font size is too small, at full screen (1080p) - too blur and unreadable too. may be if i&#39;ll have possibility to view at custom player size - it&#39;s will be ok.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-Try it on YouTube: http://www.youtube.com/watch?v=MWvLofLz04k<br /><br />I&#39;ll update the post a bit later with both links.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Unfortunately vimeo does not support html5 video</div>
-</div>
-</div>
+<h2>Temporarily map commands you run</h2>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What I've learned from Scottish RubyConf]]></title>
-    <link href="http://ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf/"/>
-    <updated>2011-05-18T23:52:00+10:00</updated>
-    <id>http://ApproachE.com/blog/what-ive-learned-from-scottish-rubyconf</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>
-I watched the videos from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> and thought I could share some interesting moments as simple notes. So there you go:
-</p>
+<p><em>Why?</em> Because you don't want to type the same command over and over again.</p>
 
-<p>
+<p><em>How?</em> One example is <code>nmap &lt;leader&gt;s :! bundle exec rspec % --colour --focus&lt;cr&gt;</code>.
+This will run the current spec file when you press <code>,s</code> (in my case).</p>
 
-<code>
-<pre>
+<p><strong>Rule of thumb</strong>: if you do something more then twice in the terminal outside of Vim, map it using <code>nmap</code>.
+Don't switch windows, <em>don't lose your context</em>.</p>
 
-Harmony for browser testing
+<h1>Terminal productivity</h1>
 
-Capybara.driver = :rack_test # uses Harmony and can run JS
+<p>Just a couple of things here.</p>
 
-Good talk about Arel: 1LT_04-mp4_500mbs.mp4
+<h2>Use iTerm2</h2>
 
-Rack GeoIP.
-Rack GoogleAnalytics
-Rack::Cache (standard)
-Rack::CacheBuster
+<p><em>Why?</em> At least because you can split window without losing the context.</p>
 
-Server side include to render page without parts of content that fail
-(Nginx + Rack)
+<p><em>How?</em> Install it from the <a href="http://www.iterm2.com/">iterm2.com</a> site (or even use tmux!).</p>
 
-EvenMachine:: WebSockets add-on uses JS like API.
-Other options:
--em-websocket
--cramp (higher level websocket)
--sunshowers
--node.js
-pusherapp.com
+<p>Use <code>Ctrl-D/Ctrl-Shift-D</code> (while in Vim or any iTerm tab/window) to split the current terminal window opening a new shell but still being able to see what you are currently working on.</p>
 
-Initialise multiple variables in JS:
-var a = 1, b = 2, noInitialised;
-jQuery has "end" method to go up in the chain.
+<h2>Use <code>!!</code> (double bang) or arrow up</h2>
+
+<p><em>Why?</em> Because it repeats the previous command that you should have mapped in Vim but didn't.</p>
+
+<p><em>How?</em> Just type <code>!!</code> and it will execute last command.
+This is simple, but strangely enough I can see people are actually retyping commands.</p>
+
+<h2>Enable Vim mode in bash</h2>
+
+<p><em>Why?</em> Because you navigate in the terminal too. And Vim mode makes it seamless.</p>
+
+<p><em>How</em>? <a href="http://linuxart.com/log/archives/2005/10/13/super-useful-inputrc/">Create an inputrc file</a> and
+add <code>set editing-mode vi</code> to it.</p>
+
+<h1>Useful links</h1>
+
+<ul>
+<li><a href="http://blog.sanctum.geek.nz/vim-anti-patterns/">Vim anti-patterns</a> - must-read if you want to be better at Vim.</li>
+<li><a href="http://peepcode.com/products/smash-into-vim-i">Smash into Vim</a> - always awesome PeepCode series on Vim.</li>
+<li><a href="https://workshops.thoughtbot.com/vim">Vim for Rails developers</a> - nice overview of the plug-ins and more productive use of Vim.</li>
+<li><a href="http://peepcode.com/products/meet-the-command-line">Meet the Command Line</a> and <a href="http://peepcode.com/products/advanced-command-line">Advanced Command Line</a> - great screencasts if you want to get better with command line.</li>
+<li><a href="http://www.destroyallsoftware.com">DestroyAllSoftware screencasts</a> - screencasts covering Vim, Unix, Ruby.</li>
+</ul>
 
 
+<p>The DestroyAllSoftware stands out here because Gary covers range of extremely focused, professional topics that you can't ignore.</p>
 
-VIM
-:copen - opens the console output
-f - find next occurence of char in this line
-dap - delete paragraph
-cap - change
-yap - yank
-ytCHAR - yank from here to next CHAR
-Ctrl-v - visual block mode
-:split, :sp, :vspilt, :vsp - split into 2 wins
-ls - list buffers touched
-q1, q2, q3... - record macro into register
-@1, @2, @3... - play the macro from register
-
-:R - Rails related file
-:A - Rails alternate file
-:Rextract - Rails partial extract
-Shift-k - integrated Ruby ri
-
-figutive.vim - more extensions: Glog, Gblame, Gstatus, Gdiff, Ggrep etc
-snippets.vim
-nerdtree.vim - files tree view
-surround.vim
-unimpaired.vim - auto-brackets
-Hashrocket configured Vim at Github hashrocket/dotmatrix
-Vimium, Vimperator - Vim in browser
-Remotely connect and pair in Vim
-
-
-UTF-8 is backwards compatible with ASCII
-Ruby doesn't know about UTF-16 - it's messy
-
-Globalization TODO:
-- Do same as .NET CultureInfo
-- Do different ways to localize different kinds of langs
-
-
-You can generate UML model of Rails model using:
-railroad -M | dot Tpng > model.png
-uml dumper
-
-Metrics:
-- rake stats # LOCs
-- FLOG Weighting the code AST - Assignment Branch Condition (ABC)
-- FLAY - code similarities
-- Saikuro - cyclomatic complexity
-- Roodi - design issues
-- Reek - design issues and specific smells
-- Churn - changes to file with Git
-- Rcov - test coverage
-- Heckle - test coverage with code mutation
-- metric_fu
-
-
-</pre>
-</code>
-
-</p>
-
-<p>
-You can also grab the <a href="https://gist.github.com/978593">Gist</a>. Hope you find some moment useful.
-</p></div>
-
+<p>Hope this post will help you to leverage your tools a bit better and will teach you a thing or two.</p>
 ]]></content>
   </entry>
   

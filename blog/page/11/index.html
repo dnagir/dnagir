@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="Just found the guy who knows FCKEditor pretty good and shares the knowledge on his blog. This article about Structure Of FCKEditor helped me a bit. &hellip;">
+  <meta name="description" content="I know the part of the property name in some JS object, but have no idea in what object this property is located. So I wrote ridiculous script to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/search-for-property-somewhere-in/">Search for a Property Somewhere in JavaScript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-09T14:07:00+11:00" pubdate data-updated="true">Dec 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I know the part of the property name in some JS object, but have no idea in what object this property is located.</p>  <p>So I wrote ridiculous script to find it for me. Just a lazzy developer. Please don&#8217;t use anything like that in production.</p>  <div>   <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">var</span> findPropertyCompare=<span style="color: #0000ff">function</span>(srch, existing) {
+ <span style="color: #0000ff">return</span> existing.toString().indexOf(srch) &gt;= 0;
+}
+
+<span style="color: #0000ff">var</span> findProperty=<span style="color: #0000ff">function</span>(n, root, path, depth) {
+  depth = depth || 0;
+  <span style="color: #0000ff">if</span> (depth &lt;= 5) {
+    <span style="color: #0000ff">for</span>(<span style="color: #0000ff">var</span> key <span style="color: #0000ff">in</span> root) {
+      <span style="color: #0000ff">if</span> (findPropertyCompare(n, key)) {
+        console.info(<span style="color: #006080">&quot;Found %s = %o&quot;</span>, path + <span style="color: #006080">'.'</span> + key, root[key]);
+      }
+      findProperty(n, root[key], path + <span style="color: #006080">'.'</span> + key, depth+1);
+    }
+  }
+};
+
+findProperty(<span style="color: #006080">'FCK'</span>, window, <span style="color: #006080">'window'</span>);</pre>
+</div>
+
+<p>&#160;</p>
+
+<p>It just outputs all the properties that contain &#8216;FCK&#8217;. Of course it only works in FF because of console object is used. Also it doesn&#8217;t handle exceptions that may occur (and will occur).</p>
+
+<p>But anyway, still useful.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -644,70 +704,6 @@ thanks for a great laugh (unfortunately, I failed miserably to explain to my wif
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/css-trcik-of-day/">CSS Trcik of the Day</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-07-24T16:57:00+10:00" pubdate data-updated="true">Jul 24<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>Tried to align div in IE7 and FF3. The code is similar to this one:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;container&quot;</span><span style="color: #0000ff">&gt;</span></pre>
-
-    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>   <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;child&quot;</span><span style="color: #0000ff">&gt;</span>Some content<span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
-
-    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> <span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
-  </div>
-</div>
-
-<p>&#160;</p>
-
-<p>I wanted to align (let&#8217;s say center) child element in relation to container. So I wrote <font face="Courier New">text-align: center</font> CSS to container. It worked in IE, but not in FF. That was very disappointing for me and I couldn&#8217;t figure out what a problem was. I could align it, but it would require to modify HTML. And I suddenly found <a href="http://geekswithblogs.net/timh/archive/2006/04/19/75606.aspx">this</a>. Many thanks to this guy.</p>
-
-<p>Lesson learned. If you use text-align for layout things and need FF additionally add <font face="Courier New">text-align: -moz-center</font> rule to the CSS.</p>
-
-<p>How I could possibly know about <font face="Courier New">-moz-FTW</font> for the <font face="Courier New">text-align</font>&#8230;</p>  </div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-Yes. But it only applies if you only need to center it. I had to mention that I have to align on left, right or center. I don&#8217;t know at design time how the child should be aligned, so I must write all 3 cases.<BR/>So this guy saved my day.</div>
-</div>
-<div class='comment'>
-<div class='author'>Peter Morris</div>
-<div class='content'>
-I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>  margin-left : auto;<BR/>  margin-right: auto;<BR/>}</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -743,6 +739,10 @@ I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -756,10 +756,6 @@ I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

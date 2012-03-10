@@ -9,7 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="So what are the new stuff in the JavaSscrip 1.8 implemented in Firefox 3? Let&#8217;s go through it quickly: First of all JS 1.9 is enaable only by &hellip;">
+  <meta name="description" content="Tried to align div in IE7 and FF3. The code is similar to this one: 1: &lt;div class=&quot;container&quot;&gt; 2: &lt;div class=&quot;child&quot;&gt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/css-trcik-of-day/">CSS Trcik of the Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-24T16:57:00+10:00" pubdate data-updated="true">Jul 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Tried to align div in IE7 and FF3. The code is similar to this one:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;container&quot;</span><span style="color: #0000ff">&gt;</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span>   <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;child&quot;</span><span style="color: #0000ff">&gt;</span>Some content<span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span> <span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
+  </div>
+</div>
+
+<p>&#160;</p>
+
+<p>I wanted to align (let&#8217;s say center) child element in relation to container. So I wrote <font face="Courier New">text-align: center</font> CSS to container. It worked in IE, but not in FF. That was very disappointing for me and I couldn&#8217;t figure out what a problem was. I could align it, but it would require to modify HTML. And I suddenly found <a href="http://geekswithblogs.net/timh/archive/2006/04/19/75606.aspx">this</a>. Many thanks to this guy.</p>
+
+<p>Lesson learned. If you use text-align for layout things and need FF additionally add <font face="Courier New">text-align: -moz-center</font> rule to the CSS.</p>
+
+<p>How I could possibly know about <font face="Courier New">-moz-FTW</font> for the <font face="Courier New">text-align</font>&#8230;</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Yes. But it only applies if you only need to center it. I had to mention that I have to align on left, right or center. I don&#8217;t know at design time how the child should be aligned, so I must write all 3 cases.<BR/>So this guy saved my day.</div>
+</div>
+<div class='comment'>
+<div class='author'>Peter Morris</div>
+<div class='content'>
+I think you can do something like<BR/><BR/>.child<BR/>{<BR/>  width : auto;<BR/>  margin-left : auto;<BR/>  margin-right: auto;<BR/>}</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -860,51 +924,6 @@ Very nice.  Thank you!</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learning-linq-101-samples/">Learning LINQ - 101 Samples</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-06T18:20:00+10:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I have just found very useful page on MSDN: <a href="http://msdn.microsoft.com/en-us/vcsharp/aa336746.aspx" target="_blank">101 Linq Samples</a>. Should be very useful reference for lots devs.</p>  <p>Here&#8217;s just a quick copy-paste:</p>  <h5>Restriction Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple1">Where - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple2">Where - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple3">Where - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereDrilldown">Where - Drilldown</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereIndexed">Where - Indexed</a></li> </ul>  <h5>Projection Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple1">Select - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple2">Select - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectTransformation">Select - Transformation</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes1">Select - Anonymous Types 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes2">Select - Anonymous Types 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes3">Select - Anonymous Types 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectIndexed">Select - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectFiltered">Select - Filtered</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom1">SelectMany - Compound from 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom2">SelectMany - Compound from 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom3">SelectMany - Compound from 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyfromAssignment">SelectMany - from Assignment</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyMultiplefrom">SelectMany - Multiple from</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyIndexed">SelectMany - Indexed</a></li> </ul>  <h5>Partitioning Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeSimple">Take - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeNested">Take - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipSimple">Skip - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipNested">Skip - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeWhileSimple">TakeWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileSimple">SkipWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileIndexed">SkipWhile - Indexed</a></li> </ul>  <h5>Ordering Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple1">OrderBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple2">OrderBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple3">OrderBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#comparer">OrderBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple1">OrderByDescending - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple2">OrderByDescending - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descComparer">OrderByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenBySimple">ThenBy - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByComparer">ThenBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescendingSimple">ThenByDescending - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescComparer">ThenByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#reverse">Reverse</a></li> </ul>  <h5>Grouping Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple1">GroupBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple2">GroupBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple3">GroupBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#nested">GroupBy - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparer">GroupBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparerMapped">GroupBy - Comparer, Mapped</a></li> </ul>  <h5>Set Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct1">Distinct - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct2">Distinct - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union1">Union - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union2">Union - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect1">Intersect - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect2">Intersect - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except1">Except - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except2">Except - 2</a></li> </ul>  <h5>Conversion Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToArray">To Array</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToList">To List</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToDictionary">To Dictionary</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#OfType">OfType</a></li> </ul>  <h5>Element Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstSimple">First - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstIndexed">First - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultSimple">FirstOrDefault - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultCondition">FirstOrDefault - Condition</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultIndexed">FirstOrDefault - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#aa336750#">ElementAt</a></li> </ul>  <h5>Generation Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#range">Range</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#repeat">Repeat</a></li> </ul>  <h5>Quantifiers</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anySimple">Any - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyIndexed">Any - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyGrouped">Any - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allSimple">All - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allIndexed">All - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allGrouped">All - Grouped</a></li> </ul>  <h5>Aggregate Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countSimple">Count - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countConditional">Count - Conditional</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#CountIndexed">Count - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countNested">Count - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countGrouped">Count - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumSimple">Sum - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumProjection">Sum - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumGrouped">Sum - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minSimple">Min - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minProjection">Min - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minGrouped">Min - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minElements">Min - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxSimple">Max - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxProjection">Max - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxGrouped">Max - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxElements">Max - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgSimple">Average - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgProjection">Average - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgGrouped">Average - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSimple">Fold - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSeed">Fold - Seed</a></li> </ul>  <h5>Miscellaneous Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#Concat1">Concat - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#concat2">Concat - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll1">EqualAll - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll2">EqualAll - 2</a></li> </ul>  <h5>Custom Sequence Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336749#combine">Combine</a></li> </ul>  <h5>Query Execution</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Deferred">Deferred</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Immediate">Immediate</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#QueryReuse">Query Reuse</a></li> </ul>  </div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Evan</div>
-<div class='content'>
-Great reference Dmitriy, I found it really useful.  Nice blog too by the way, good posts.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -940,6 +959,10 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -953,10 +976,6 @@ Great reference Dmitriy, I found it really useful.  Nice blog too by the way, go
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

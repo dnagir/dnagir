@@ -9,8 +9,7 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I have just found a piece of code which is probably about 3 years old. This is active project that I work on it almost day by day.
-The method below &hellip;">
+  <meta name="description" content="I have just installed Graffiti CMS to play with it. After the installation I created a test post and only after that noticed the URL: http:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,57 @@ The method below &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/fake-wild-card-mapping-in-graffiti-cms/">Fake Wild-card Mapping in Graffiti CMS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-25T10:39:00+10:00" pubdate data-updated="true">Sep 25<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I have just installed <a href="http://graffiticms.com/" target="_blank">Graffiti CMS</a> to play with it. <br />
+After the installation I created a test post and only after that noticed the URL:   <br /><span style="font-family: Courier New;">http://localhost/Graffiti/<b>first-post</b></span><br />
+Notice there is not any extension and the URL looks very clear. But HOW? I did not do neither of the following:<br />
+<ol>
+<li>Added wild-card mapping;</li>
+<li>Configured Web.config with IIS 7 as I have IIS 6;</li>
+<li>Run any script or something.</li>
+</ol>
+Then I looked at the folder of Graffiti CMS and found it has the folder named “first-post” in the root which contains only one file - Default.aspx.<br />
+The Default.aspx is auto-generated and just has some settings. The content is stored in the database.<br />
+Do you see now how this wildcard-mapping works?<br />
+It just allows IIS to handle friendly-urls by creating a real resource. But the actual URL that gets processed on the server is:   <br /><span style="font-family: Courier New;">http://localhost/Graffiti/<b>first-post/Default.aspx</b></span><br />
+That does make assumption that IIS has Default Document with name “Default.aspx”. Removing it will kill the whole idea of such friendly-urls.<br />
+The idea is dead simple and indeed a good one.<br />
+I am not sure weather I like it or not. One thing I definitely don’t like so far is the fact that the folder will get polluted with all those folders and files.</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -952,55 +1002,6 @@ So guys: “&#8221;Stressed? Write a test!”.</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/impression-on-aspnet-mvc-2/">Impression on ASP.NET MVC 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-04T08:58:00+10:00" pubdate data-updated="true">Aug 4<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<br />
-You probably already know that <a href="http://haacked.com/archive/2009/07/30/asp.net-mvc-released.aspx" target="_blank">ASP.NET MVC Preview 1 has been released</a>. You can quickly watch the <a href="http://channel9.msdn.com/posts/Glucose/Hanselminutes-on-9-ASPNET-MVC-2-Preview-1-with-Phil-Haack-and-Virtual-Scott/" target="_blank">video</a> to get the impression.<br />
-Overall, I must admit, I like it. Things I like the most:<br />
-<ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/ee308450%28VS.100%29.aspx" target="_blank">Display and Edit Templates</a> – I did workaround it in MVC 1 by using partials with specific name,</li>
-<li>Areas support. As <a href="http://weblogs.asp.net/scottgu/archive/2009/07/31/asp-net-mvc-v2-preview-1-released.aspx" target="_blank">Scott explains</a> it allows to reuse various ASP.NET MVC projects.</li>
-</ul>
-What is do DISLIKE here:<br />
-<ul>
-<li><b>DataAnnotation</b> validation support – why are we <b>forced to apply attributes</b> on our model. I often have situations where I cannot tell exact validation rule developing the Model. I should specify it later. No way of doing it with DataAnnotations. There MUST be an interface for custom validation provider.</li>
-<li>As far as I understand (from the Release Notes) <b>Views from Area projects should be copied</b> over to the main project. This IS UGLY IT IS NOT REUSABLE VIEW, IT IS CUT-AND-PASTABLE VIEW with all the consequences.</li>
-</ul>
-And I am also not sure what the effort is involved for ViewEngines to support the new Templates. I <i><b>guess</b></i>, it should not be a big deal. But it needs some attention.</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -1036,6 +1037,10 @@ And I am also not sure what the effort is involved for ViewEngines to support th
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -1049,10 +1054,6 @@ And I am also not sure what the effort is involved for ViewEngines to support th
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

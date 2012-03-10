@@ -9,7 +9,8 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
-  <meta name="description" content="I&#8217;ve just found an interesting poster that describes how to deal with introverts. Being an introvert myself I agree with most of the points: &hellip;">
+  <meta name="description" content="This post will give you minimal suggestions that
+you can apply in your daily work to immediately increase your productivity. I&#8217;m writing this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase Your Productivity in Vim and Terminal</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-12T06:30:00+11:00" pubdate data-updated="true">Mar 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post will give you <em>minimal</em> suggestions that
+you can apply in your daily work to immediately increase your productivity.</p>
+
+<p>I&#8217;m writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik&#8217;s screencast</a>
+where he is working <em>&#8220;in a wild&#8221;</em>.</p>
+
+<p>I love this idea and have done videoing
+how I work on a little <a href="http://approache.com/blog/rails-plugin-with-tested-assets/">ios-checkboxes</a>
+and <a href="http://approache.com/blog/knockoutjs-validations-video/">knockout-rails</a>.</p>
+
+<p>The world would an awesome place if more people (yes, including <strong>you</strong>) would start sharing the way they work.
+Well done Steve!</p>
+
+<p>But today I want to focus on just a few of things that should dramatically improve the productivity.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/increase-your-productivity-with-vim-and-terminal/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -1128,146 +1183,6 @@ I&#39;ve used this guide for 3 apps and it&#39;s worked great.  However the step
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unix-do-not-reinvent-wheel/">Unix - Do Not Reinvent the Wheel</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-19T00:00:00+10:00" pubdate data-updated="true">May 19<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>
-One of the most interesting videos I watched from the <a href="http://video2010.scottishrubyconference.com/">Scottish RubyConf 2010</a> is <a href="http://video2010.scottishrubyconference.com/show_video/6/1">Unix: Rediscovering the wheel</a>. If you use Ruby/Rails and POSIX systems you gotta know those things.
-This is just a quick list of notes to keep it mind. So you will have to Google if something catches your attention.
-</p>
-
-<p>
-
-<code>
-<pre>
-
-Scheduling tasks with Cron
-==========================
-- define all tasks in cron
-- don't make Ruby do scheduling
-
-
-Background processing with ATD daemon
-======================================
-echo "convert image.jpg image.png" | batch
-
-
-Logging with syslog
-======================================
-- don't use rails log
-
-Resource limiting with rlimit
-======================================
-ulimit -v 102400
-ruby -e "' ' * 1024 * 1024 * 1024 *1"
-failed to allocate memory (NoMemoryError)
-
-CPU and Disk IO priorities
-======================================
-nice -n 19 rake xapian:update # run rake with priority 19
-ionice -c3 rake xapian:update # same for disk IO
-
-
-Atomic renames
-======================================
-- don't use locks
-- write to temp then rename
-
-Secure self-cleaning temporary files
-======================================
-- create temp fie
-- delete it while holding it open
-- write/read securely
-
-
-Page cache expiry with find
-======================================
-find public/cache -type f --mmin +10 -delete # del all files 10 mins old in a "transaction"
-
-Log rotation with logrotate
-======================================
-- Rails sucks at it, use time proven and tested UNIX
-
-
-Managing daemons with start-stop-daemon
-==========================================
-- don't reinvent the wheel starting/stoping daemons (mogrels etc)
-    start-stop-daemon -d $railsdir -b -o -p $pidfile --start --starts rake xapian:update
-- run cron tasks using start-stop-daemon to avoid race condition (it will exit if process already runs)
-
-
-Real time signals
-==========================================
-use it in ruby:
-trap("USR1") { reopen_xapian_db }
-
-
-Raliable messaging with... SMTP!
-==========================================
-Due to atomic and reliable delivery it can be use as a message queue.
-Can replace RabbitHQ etc
-
-
-dbus
-==========================================
-UNIX based Messaging system
-
-
-Self-organising systems with AVAHI
-==========================================
-Bonjour??
-
-
-Modularised config files
-==========================================
-/etc/cron.d/rails-myapp
-/etc/logrotate.d/rails-myapp
-
-
-Watchdog daemon
-==========================================
-
-
-
-
-
-</pre>
-</code>
-
-</p></div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1301,6 +1216,10 @@ Watchdog daemon
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
       </li>
     
@@ -1314,10 +1233,6 @@ Watchdog daemon
     
       <li class="post">
         <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rails-plugin-with-tested-assets/">Rails Plugin with Tested Assets Screencast</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Art Of Programming]]></title>
   <link href="http://ApproachE.com/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-08T08:36:26+11:00</updated>
+  <updated>2012-03-10T23:10:59+11:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Increase your productivity in Vim and Terminal]]></title>
+    <link href="http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal/"/>
+    <updated>2012-03-12T06:30:00+11:00</updated>
+    <id>http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal</id>
+    <content type="html"><![CDATA[<p>This post will give you <em>minimal</em> suggestions that
+you can apply in your daily work to immediately increase your productivity.</p>
+
+<p>I&#8217;m writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik&#8217;s screencast</a>
+where he is working <em>&#8220;in a wild&#8221;</em>.</p>
+
+<p>I love this idea and have done videoing
+how I work on a little <a href="http://approache.com/blog/rails-plugin-with-tested-assets/">ios-checkboxes</a>
+and <a href="http://approache.com/blog/knockoutjs-validations-video/">knockout-rails</a>.</p>
+
+<p>The world would an awesome place if more people (yes, including <strong>you</strong>) would start sharing the way they work.
+Well done Steve!</p>
+
+<p>But today I want to focus on just a few of things that should dramatically improve the productivity.</p>
+
+<!-- more -->
+
+
+<h1>Vim productivity</h1>
+
+<blockquote><p>Vim is one of a select bunch of tools for which I have no substitute.<br/>It is a brilliant piece of work!</p><footer><strong>Biju Chacko</strong> <cite>Vim Quotes</cite></footer></blockquote>
+
+
+<p>The power of vim is huge. Very small number of people actually do know how to use most of it.
+I&#8217;m certainly not one of them.</p>
+
+<p>But let me suggest some of the things that keep myself more productive:</p>
+
+<h2>Remap your CapsLock key to Control</h2>
+
+<p><em>Why?</em> Because the <em>Control</em> key is located extremely inconveniently
+while <em>CapsLock</em> is right under your baby-finger. All the time.</p>
+
+<p><em>How?</em> Follow <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">this guide</a>.</p>
+
+<p>I blindly trusted the <em>command</em> given by <a href="http://twitter.com/garybernhardt">Garry Bernhard</a>
+in his <a href="http://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips">DestroyAllSoftware - Some Vim Tips</a>
+on this. Never regretted.</p>
+
+<p>Don&#8217;t think about it. Just do it and I&#8217;m sure you won&#8217;t go back.</p>
+
+<h2>Use Vim jumps</h2>
+
+<p><em>Why?</em> A lot of times you need to jump forth and back between 2 place or go to where you&#8217;ve been a minute ago.
+A log of people just find that line/file again. It&#8217;s a waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>Ctrl-o</code> and <code>Ctrl-i</code> to go to the previous/next location you jumped to.</li>
+<li><code>``</code> (two backticks) - jump back to where you were.</li>
+<li><code>gi</code> - go to the last place you inserted a text.</li>
+</ul>
+
+
+<h2>Use appropriate Vim navigations</h2>
+
+<p><em>Why?</em> Typing <code>l</code> (move right one symbol) or similar multiple times is waste of time.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>{</code> and <code>}</code> - jump <em>paragraph</em> back and forth.</li>
+<li><code>Ctrl-F/B</code> - move one <em>screen</em> back and forth.</li>
+<li><code>Ctrl-E/Y</code> - <em>scroll</em> the screen.</li>
+<li><code>*</code> (star) - search for the word under cursor, then <code>n/p</code> to jump to next/previous.</li>
+<li>add <code>imap jj &lt;Esc&gt;</code> to your <code>.vimrc</code> and don&#8217;t use <code>Esc</code> anymore.</li>
+</ul>
+
+
+<h2>Changing case and repeating a command</h2>
+
+<p><em>Why?</em> Because a lot of things can be done much more efficiently.</p>
+
+<p><em>How?</em></p>
+
+<ul>
+<li><code>~</code> (tilde) - toggle the casing of a letter/selection (upper-case/down-case).</li>
+<li><code>.</code> (dot) - repeat the last set of commands (use in a combination with search, such as <code>*</code>, and jumps).</li>
+</ul>
+
+
+<h2>Temporarily map commands you run</h2>
+
+<p><em>Why?</em> Because you don&#8217;t want to type the same command over and over again.</p>
+
+<p><em>How?</em> One example is <code>nmap &lt;leader&gt;s :! bundle exec rspec % --colour --focus&lt;cr&gt;</code>.
+This will run the current spec file when you press <code>,s</code> (in my case).</p>
+
+<p><strong>Rule of thumb</strong>: if you do something more then twice in the terminal outside of Vim, map it using <code>nmap</code>.
+Don&#8217;t switch windows, <em>don&#8217;t lose your context</em>.</p>
+
+<h1>Terminal productivity</h1>
+
+<p>Just a couple of things here.</p>
+
+<h2>Use iTerm2</h2>
+
+<p><em>Why?</em> At least because you can split window without losing the context.</p>
+
+<p><em>How?</em> Install it from the <a href="http://www.iterm2.com/">iterm2.com</a> site (or even use tmux!).</p>
+
+<p>Use <code>Ctrl-D/Ctrl-Shift-D</code> (while in Vim or any iTerm tab/window) to split the current terminal window opening a new shell but still being able to see what you are currently working on.</p>
+
+<h2>Use <code>!!</code> (double bang) or arrow up</h2>
+
+<p><em>Why?</em> Because it repeats the previous command that you should have mapped in Vim but didn&#8217;t.</p>
+
+<p><em>How?</em> Just type <code>!!</code> and it will execute last command.
+This is simple, but strangely enough I can see people are actually retyping commands.</p>
+
+<h2>Enable Vim mode in bash</h2>
+
+<p><em>Why?</em> Because you navigate in the terminal too. And Vim mode makes it seamless.</p>
+
+<p><em>How</em>? <a href="http://linuxart.com/log/archives/2005/10/13/super-useful-inputrc/">Create an inputrc file</a> and
+add <code>set editing-mode vi</code> to it.</p>
+
+<h1>Useful links</h1>
+
+<ul>
+<li><a href="http://blog.sanctum.geek.nz/vim-anti-patterns/">Vim anti-patterns</a> - must-read if you want to be better at Vim.</li>
+<li><a href="http://peepcode.com/products/smash-into-vim-i">Smash into Vim</a> - always awesome PeepCode series on Vim.</li>
+<li><a href="https://workshops.thoughtbot.com/vim">Vim for Rails developers</a> - nice overview of the plug-ins and more productive use of Vim.</li>
+<li><a href="http://peepcode.com/products/meet-the-command-line">Meet the Command Line</a> and <a href="http://peepcode.com/products/advanced-command-line">Advanced Command Line</a> - great screencasts if you want to get better with command line.</li>
+<li><a href="http://www.destroyallsoftware.com">DestroyAllSoftware screencasts</a> - screencasts covering Vim, Unix, Ruby.</li>
+</ul>
+
+
+<p>The DestroyAllSoftware stands out here because Gary covers range of extremely focused, professional topics that you can&#8217;t ignore.</p>
+
+<p>Hope this post will help you to leverage your tools a bit better and will teach you a thing or two.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to care for Introverts]]></title>
@@ -1419,29 +1559,6 @@ This is a cleaner solution that others out there.  Does anyone have an example i
     <id>http://ApproachE.com/blog/securities-and-exchange-commission</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I have been going through the <a href="http://www.sec.gov/comments/s7-08-10/s70810-89.pdf">comments submitted</a> to the US Securities and Exchange Commission.</p>  <p>I feel like I have to add my 2 cents on it. My first <em>impression </em>is that the analysis was not performed in full and the authors are being very affiliated with a company (which seems to be Microsoft).</p>  <p>One and most important issue with this document is that authors do not seem to fully understand the dynamic languages and they have not even taken into account (possibly) the most suited language for the task – <a href="http://www.ruby-lang.org/">Ruby</a>. Of course I may be wrong.</p>  <p>I have to say that I have nothing against authors or anything like that.</p>  <p>My point is that <em>I believe</em> that the analysis could have been performed more deeply with close interaction with professionals of the particular languages.</p>  <p>So now, I would like to comment on the submission:</p>  <blockquote>   <p>Safe execution of code written by one party on a machine owned by a different party was not a strong concern in the design of Python. It was a strong concern in the design of other systems, including Java and the .Net framework</p> </blockquote>  <p>This is neither sufficient nor necessary to achieve the security. The security is the effort of the developers, IT administrators and the people working with the system. Even when using an interpreted language it can be executed inside a virtual machine (be it JVM, .NET, SmallTalk etc) providing that sandbox mentioned above. Most common examples are – Jython, IronPython, JRuby, IronRuby etc. This cannot be served as a decision point.</p>  <blockquote>   <p>A domain-specific language would support writing waterfall programs that are shorter and easier to read, and should help ensure consistency between the program and the narrative description.</p> </blockquote>  <p>This is exactly what Ruby, Python and other dynamic languages are good at. And this is exactly what C#, Java and other static typed languages are bad at. Not sure why having it as a crucial requirements the wrong tool for the job is advocated.</p>  <blockquote>   <p><strong>Efficiency</strong>. … Java, C#, and F# are designed to be executed efficiently, Python and Perl implementations are significantly less efficient.</p> </blockquote>  <p>This is true in many cases. But having the requirements in mind, the language inefficiency can be compensated with additional hardware. Its cost is significantly less than the cost of development time using strongly/statically typed languages.    <br />If additional performance needed – then the just-in-time compiler can be used instead of interpretation (this includes Rubinius, IronRuby, JRuby, MacRuby etc)</p>  <blockquote>   <p><strong>Typing</strong>. Statically typed languages are generally considered to produce more reliable and easier to maintain code, while dynamically typed languages are generally considered to produce more flexible code and to be better suited for prototyping. Java, C#, F# are statically typed; Python and Perl are dynamically typed.</p> </blockquote>  <p>This can phrase exactly the other way around and is neither sufficient nor necessary to achieve supportability.</p>  <p>The wording is rather weird here:&#160; “<em>…languages are .. considered to produce more reliable and easier to maintain code</em>”. The languages do NOT produce code. It is a developer who does it.</p>  <blockquote>   <p><strong>Security</strong>. Some programming languages have been designed with security in mind, and some of their implementations include “sandboxes” that can securely execute untrusted code. Java, C#, and F# are such languages; Python and Perl are not.</p> </blockquote>  <p>As I mentioned above it cannot be the the deciding point because most of the dynamically typed languages can be easily run inside that sandbox using either a JVM, JIT or just a virtual machine; also sandboxing in the sense above does not eliminate the security issues. And we have a <a href="http://weblogs.asp.net/scottgu/archive/2010/09/18/important-asp-net-security-vulnerability.aspx">fairly recent example</a> of that.</p>  <blockquote>   <p><strong>Domain-specific languages</strong>. Any programming language can serve as a basis for a domain-specific language by augmenting it with suitable libraries. Experience seems to show that higher-order programming languages such as F# provide a particularly good basis for domain-specific languages. There are financial domain-specific languages available in F#.</p> </blockquote>  <p>I don’t understand why F# is the only recommendation here. Ruby is one of the greatest languages to produce DSLs. Clojure may also be considered. For that matter Martin Fowler’s Domain Specific Languages book can be used as the starting point.</p>  <p>&#160;</p>  <p>I do advocate Ruby language here and believe it can be used with a great success. Only one huge disadvantage of it is the absence of a formal specification (which in my opinion is the advantage as it allows better evolution of the language).</p>  <p>And of course there are many factors that have to be taken into account that may roll Ruby out, but it must be considered at least.</p>  <p>Additionally inviting professionals from Ruby, Python, Perl communities to suggest on the subject will provide much more information and will allow making an informative decision.</p>  </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby Challenge for Newbies reborn]]></title>
-    <link href="http://ApproachE.com/blog/ruby-challenge-for-newbies-reborn/"/>
-    <updated>2010-08-09T18:53:00+10:00</updated>
-    <id>http://ApproachE.com/blog/ruby-challenge-for-newbies-reborn</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>A question has been raised whether or not <a href="http://ruby-challenge.rubylearning.org/">Ruby Challenge for Newbies</a> should exist or not. The main concern is:</p>  <blockquote>   <p>…today, probably due to lack of time or other commitments, not many experienced Rubyists are willing to set a Ruby challenge for the newbies</p> </blockquote>  <p>I guess many Rubysts DO want to set the challenges, but unfortunately very few people these days have enough time.</p>  <p>Another problem with such challenges is that they are somewhat “detached” from the real life. Though I am not saying they are not interesting or educating. Don’t get me wrong, definitely they ARE. But still, I guess, many people would love to see how Ruby should be used correctly (the Rubyish way) in real-world applications. Especially in web apps.</p>  <p>So if there is the problem trying to find new challenges, then either WE need to set up new challenges and recommend people who can do that or, if that is not possible, the challenge itself might need to be &quot;converted&quot; to something different.</p>  <p>It seems the latter is the better choice at this moment.</p>  <p>Having said that, I believe that a good challenge should have attributes:</p>  <ul>   <li>driven by people; </li>    <li>not dependent on one person (though may be controlled by one or a group); </li>    <li>winner(s) appointed by the people (though influenced by the owner/controller); </li>    <li>collaborative; </li>    <li>“shareable”; </li>    <li>role-playing; </li> </ul>  <p>These are the ideas from the top of my head, but it is possible to play around those…</p>  <p>I personally feel like it brings us to the following idea of a challenge: <strong>Ruby Project Development challenge</strong>.</p>  <p>Somebody suggests an idea to implement (interesting web application, some kind of useful tool, etc). Then the challenge becomes a project that people have to deliver. There are main two roles in this challenge:</p>  <ol>   <li>product owners; </li>    <li>development team. </li> </ol>  <p>The <em>product owners</em> group consists of number of people who do like the idea but may not have time, ability to develop that. This group decides where the <em>development team</em> is heading to, and negotiates the requirements.</p>  <p>The <em>development team</em> is a group of self-organised people who do the actual development. Multiple development teams may exist to develop the same application.</p>  <p>The duration for the challenge may vary from weeks to couple of months. The winner of the challenge is the person who gets most number of votes from either product owners/development team or both (not sure yet). If there are multiple teams – then the winning team may also be chosen.</p>  <p>So the process of the challenge would be something like this:</p>  <ol>   <li>Somebody comes up with a project idea. </li>    <li>People join this project either as <em>product owner</em> or as <em>development team</em>. </li>    <li>People get organised in couple of development teams and a couple of product owners if too many guys have joined. </li>    <li>The countdown begins: <em>product owners</em> and <em>development teams</em> start working together (not necessarily at the same time). </li>    <li>During the work people should be able to see what others do, and help each other to deliver the product. </li>    <li>At the end of the challenge winners in following categories may be selected:      <ul>       <li>best developer; </li>        <li>best team; </li>        <li>best team-mate; </li>        <li>incredible inventor; </li>        <li>etc </li>     </ul>   </li> </ol>  <p>This of course is the basic idea, but it has sooo many variations.</p>  <p>So I propose the first challenge of this kind: <strong>Web applications supporting the challenge itself</strong>.</p>  </div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dmytrii Nagirniak</div>
-<div class='content'>
-Thanks for your comment, nice to know about all that.<br /><br />My idea was to start the challenge for a real application so that people can discuss what is happening.<br />The Ruby quiz and similar are pretty isolated (though a reaaallly interesting).<br />TopCoder is probably a good choice here, I was not aware of that at the moment I wrote the article.<br /><br />Thanks again for the suggestions.</div>
-</div>
-<div class='comment'>
-<div class='author'>spyromus</div>
-<div class='content'>
-Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions there, but they do have .Net and Java (and now Objective-C) and they pay real money for your time. So you can combine the pleasure of learning with receiving money for your work.<br /><br />As for the Ruby Challenge, there&#39;s enough groups like that around. Take Ruby Quiz for instance, that is out there what it seems for ages. They pose interesting challenges and discuss the solutions. Also, you can turn to Code Kata which is intended to develop the sense of the problem and practise your ability to think, while giving you a real-world problems to toy with.<br /><br />As I said, there&#39;s plenty, and there&#39;s totally no need to drive anything in existence to what you think the ideal. If you can&#39;t find what you need, imagine it as your next assignment &#8211; to create a web site like what you just described &#8211; and go implement it.<br /><br />Satish doesn&#39;t have time to work on the Ruby Challenge as he is riding a cool new wave of Clojure now, and you are concerned about his old favorite far more than he is. Take it easy. Projects come and go every day. :)</div>
-</div>
-</div>
 ]]></content>
   </entry>
   
