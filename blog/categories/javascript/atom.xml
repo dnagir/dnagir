@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: javascript | Art Of Programming]]></title>
+  <title><![CDATA[javascript | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-10T23:10:59+11:00</updated>
+  <updated>2012-05-18T21:15:38+10:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -171,6 +171,56 @@ Unfortunately vimeo does not support html5 video</div>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Templating done easy - JavaScript HAML with Rails]]></title>
+    <link href="http://ApproachE.com/blog/templating-done-easy-javascript-haml/"/>
+    <updated>2011-08-19T19:26:00+10:00</updated>
+    <id>http://ApproachE.com/blog/templating-done-easy-javascript-haml</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h3>
+HAML templating with no worries: native, precompiled HAML. Blazing fast and as easy to use as it can be. </h3>
+
+<h3>
+<strong>
+<em>UPDATE: this functionality moved into <a href='https://github.com/dnagir/ruby-haml-js'>ruby-haml-js</a> gem, please use it instead.</em>
+</strong>
+</h3>
+
+Recently I have been working on a Ruby gem that packs a set of common JavaScript libraries in one place so you can just reference those easily from <b>Rails 3.1</b> app.  But now I want to write a bit about a very handy tool that the gem includes.  I needed to work on a <a href='http://documentcloud.github.com/backbone'>Backbone</a> app and, unfortunately, there was no very simple and easy way of using HAML markup for my client side templates. Main problems: <ol>
+<li>I don't want to <b>embed</b> the template into the document.</li>
+<li>The Underscore.js templating is ok, but it is <b>too verbose</b> for me (as most of others).</li>
+<li>The <a href="https://github.com/creationix/haml-js">haml-js</a> is great, but I do not want to bother <b>precompiling</b> the templates.</li>
+<li>I do not want to think about templating as another layer or component. I want it to <b>just work</b>.</li>
+</ol>
+
+<div>
+Fortunately it was pretty easy solve these <em>problems</em> with the <a href="https://github.com/sstephenson/sprockets">Sprockets</a> and Rails 3.1.
+</div>
+
+<div>
+So from now on you can just write normal HAML templates and consume those with no worries from JavaScript.
+</div>
+
+<div>
+All you need to do, is to add <a href="https://github.com/dnagir/pakunok">pakunok</a> gem to your Rails 3.1 Gemfile.  This will give you templates as <b>native JavaScript functions</b> that you can use.
+</div>
+
+
+<div>
+It's better to <a href='https://gist.github.com/1156409'>see than hear</a>
+</div>
+
+<div>
+<script src="https://gist.github.com/1156409.js">
+</script>
+</div>
+
+<div>
+ Feel free to head to the <a href="https://github.com/dnagir/pakunok/issues">issues</a> and provide some feedback or <a href="https://github.com/dnagir/pakunok/">read more</a>.</div></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[JavaScript Library survey]]></title>
     <link href="http://ApproachE.com/blog/javascript-library-survey/"/>
     <updated>2009-04-17T16:18:00+10:00</updated>
@@ -229,21 +279,6 @@ existingChild.insertBefore(newChild, null);</pre>
 </div>
 <br />
 This is especially useful when you have no idea what existingChild or root can be (as it is in WYSYWYG HTML editors) and seems to be much better and exactly what users need.</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Get value of HTML LABEL FOR]]></title>
-    <link href="http://ApproachE.com/blog/get-value-of-html-label-for/"/>
-    <updated>2008-12-16T11:30:00+11:00</updated>
-    <id>http://ApproachE.com/blog/get-value-of-html-label-for</id>
-    <content type="html"><![CDATA[<div class='post'>
-Make sure you use the code like this to get the value of LABEL's FOR attribute. This will work in most browsers:<br />
-<div>
-<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: blue;">var</span> labelFor = myLabel.htmlFor || myLabel.getAttribute(<span style="color: #006080;">'for'</span>); // htmlFor <span style="color: blue;">is</span> W3.org defined and <span style="color: blue;">is</span> <span style="color: blue;">in</span> IE, <span style="color: #006080;">'for'</span> <span style="color: blue;">in</span> <span style="color: blue;">in</span> FF</pre>
-</div>
-Just a reminder for myself :)</div>
 
 ]]></content>
   </entry>

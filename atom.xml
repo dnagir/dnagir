@@ -4,7 +4,7 @@
   <title><![CDATA[Art Of Programming]]></title>
   <link href="http://ApproachE.com/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-10T23:10:59+11:00</updated>
+  <updated>2012-05-18T21:15:38+10:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -31,7 +31,7 @@ and <a href="http://approache.com/blog/knockoutjs-validations-video/">knockout-r
 <p>The world would an awesome place if more people (yes, including <strong>you</strong>) would start sharing the way they work.
 Well done Steve!</p>
 
-<p>But today I want to focus on just a few of things that should dramatically improve the productivity.</p>
+<p>But today I want to focus on just a few things that should dramatically improve the productivity.</p>
 
 <!-- more -->
 
@@ -44,7 +44,7 @@ Well done Steve!</p>
 <p>The power of vim is huge. Very small number of people actually do know how to use most of it.
 I&#8217;m certainly not one of them.</p>
 
-<p>But let me suggest some of the things that keep myself more productive:</p>
+<p>But let me suggest some of the things that keep myself more productive.</p>
 
 <h2>Remap your CapsLock key to Control</h2>
 

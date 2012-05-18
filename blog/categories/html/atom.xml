@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: html | Art Of Programming]]></title>
+  <title><![CDATA[html | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/html/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2012-03-10T23:10:59+11:00</updated>
+  <updated>2012-05-18T21:15:38+10:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
