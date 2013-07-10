@@ -9,8 +9,12 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
+<<<<<<< HEAD
   <meta name="description" content="Have just watched the Developer Abuse video.
 Though it is probably meant to be funny, it made me very sad. Sad from the fact that there are a lot &hellip;">
+=======
+  <meta name="description" content="Just a reminder about the agile manifesto. The purpose of this post is to read and write all that again and keep in mind both left and right parts &hellip;">
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +90,7 @@ Though it is probably meant to be funny, it made me very sad. Sad from the fact 
       
   <header>
     
+<<<<<<< HEAD
       <h1 class="entry-title"><a href="/blog/developer-abuse/">Developer Abuse</a></h1>
     
     
@@ -160,6 +165,8 @@ what&#39;s that? didn&#39;t get it.</div>
       
   <header>
     
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
       <h1 class="entry-title"><a href="/blog/agile-manifesto-reminder/">Agile Manifesto - Reminder</a></h1>
     
     
@@ -927,6 +934,87 @@ Thanks for the feedback. Regarding the Fragment part in URL Routing, how could w
 
     </article>
   
+<<<<<<< HEAD
+=======
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/embarrassment-with-net-uri/">Embarrassment With .NET URI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-29T10:40:00+10:00" pubdate data-updated="true">Sep 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I need to work with the <a href="http://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">URI</a> in .NET. What I need to do is:<br />
+<ul>
+<li>Parse URI from a poor string to be able to extracts its parts      <br />
+<ul>
+<li>name/value pairs of a <i>query</i>; </li>
+<li>scheme </li>
+<li>host </li>
+<li>path </li>
+</ul>
+</li>
+<li>Generate URI based on      <br />
+<ul>
+<li>name/value pairs of a <i>query</i>; </li>
+<li>scheme </li>
+<li>host </li>
+<li>scheme + host parts</li>
+<li>path </li>
+</ul>
+</li>
+<li>Modify URI the same way      <br />
+<ul>
+<li>name/value pairs of a <i>query</i>; </li>
+<li>scheme </li>
+<li>host </li>
+<li>scheme + host parts</li>
+<li>path </li>
+</ul>
+</li>
+</ul>
+There are basically 2 types in .NET that can help with it: <a href="http://msdn.microsoft.com/en-us/library/system.uribuilder.aspx" target="_blank">Uri</a> and <a href="http://msdn.microsoft.com/en-us/library/system.uribuilder.aspx" target="_blank">UriBuilder</a>. Neither of them allows me to do all the things I mentioned <b><i>properly</i></b>.<br />
+Uri class does not give name/value pairs. So I have set of extensions to do that. Not a big deal, but it is not there, in .NET.<br />
+UriBuilder has a <a href="http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=96242" target="_blank">ridiculous bug</a>; and guess what. The status is Closed as by Design. WTF! Just insane!<br />
+What a shame on .NET. How long should I concatenate the strings and use my own utils when things are a bit more complicated that just absolutely simple? Sick and tired of that.<br />
+I definitely need to get my hands on some RFC and <a href="http://labs.apache.org/webarch/uri/rfc/rfc3986.html#collected-abnf" target="_blank">implement it properly</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Have to agree that .NET&#39;s Uri class is dreadful, especially when it comes to handling query strings.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -962,10 +1050,13 @@ Thanks for the feedback. Regarding the Fragment part in URL Routing, how could w
   <ul id="recent_posts">
     
       <li class="post">
+<<<<<<< HEAD
         <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
       </li>
     
       <li class="post">
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
         <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
       </li>
     
@@ -981,6 +1072,13 @@ Thanks for the feedback. Regarding the Fragment part in URL Routing, how could w
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
+<<<<<<< HEAD
+=======
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   </ul>
 </section>
 
@@ -1011,7 +1109,11 @@ Thanks for the feedback. Regarding the Fragment part in URL Routing, how could w
     </div>
   </div>
   <footer role="contentinfo"><p>
+<<<<<<< HEAD
   Copyright &copy; 2013 - Dmytrii Nagirniak -
+=======
+  Copyright &copy; 2012 - Dmytrii Nagirniak -
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

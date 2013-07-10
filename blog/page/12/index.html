@@ -9,7 +9,11 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
+<<<<<<< HEAD
   <meta name="description" content="I just need to sort by custom property (by FirstName, LastName). Before writing something I&#8217;ve check what is the best option to do it in Linq &hellip;">
+=======
+  <meta name="description" content="Tried to align div in IE7 and FF3. The code is similar to this one: 1: &lt;div class=&quot;container&quot;&gt; 2: &lt;div class=&quot;child&quot;&gt &hellip;">
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +89,7 @@
       
   <header>
     
+<<<<<<< HEAD
       <h1 class="entry-title"><a href="/blog/linq-greatest-finding-of-day/">Linq - Greatest Finding of the Day</a></h1>
     
     
@@ -122,6 +127,8 @@
       
   <header>
     
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
       <h1 class="entry-title"><a href="/blog/css-trcik-of-day/">CSS Trcik of the Day</a></h1>
     
     
@@ -876,6 +883,94 @@ Very nice.  Thank you!</div>
 
     </article>
   
+<<<<<<< HEAD
+=======
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/playing-with-linq2sql-no-inserts-on/">Playing With Linq2Sql - No INSERTs on SubmitChanges</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-07T11:54:00+10:00" pubdate data-updated="true">May 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I spent the whole evening trying to figure out what&#8217;s going on when I run the code:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">private</span> <span style="color: #0000ff">static</span> Product GetProduct(MyDbDataContext db)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>     Product p = db.Products.FirstOrDefault(x =&gt; <span style="color: #0000ff">true</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     <span style="color: #0000ff">if</span> (p == <span style="color: #0000ff">null</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>         <span style="color: #008000">// Insert a a product if not available yet</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>         p = <span style="color: #0000ff">new</span> Product</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>             Name = <span style="color: #006080">&quot;PROD &quot;</span> + DateTime.Now.ToString()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>         };</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>         db.Products.InsertOnSubmit(p);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>         db.UpdateDatabase();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>     }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>     <span style="color: #0000ff">return</span> p;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span> }</pre>
+  </div>
+</div>
+
+<p>After I run the code and check the database there are <strong>no records</strong> available in the table.
+
+  <br />What can be wrong with this really simple code? (Well, I&#8217;m just playing with it so there&#8217;s lots of place of improvement).</p>
+
+<p>The answer is <em>nothing</em>. It is a console application and uses a database copied to Debug directory. So the debug database is used instead of the one you design and work with.</p>
+
+<p><strong>Solutions.</strong></p>
+
+<ol>
+  <li>User absolute path in the connection string. So instead of this one &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>DataDirectory</strong>|\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot; use something like &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>D:\YourPath</strong>\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot;</li>
+
+  <li>Override DataDirectory at runtime (step 2 directories up from current path .\bin\Debug) using <font face="Courier New">AppDomain.CurrentDomain.SetData(&quot;DataDirectory&quot;, Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName);</font></li>
+
+  <li>Something else?</li>
+</ol>
+
+<p>Thanks to this <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3208988&amp;SiteID=1" target="_blank">forum post</a> for figuring it out.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -911,10 +1006,13 @@ Very nice.  Thank you!</div>
   <ul id="recent_posts">
     
       <li class="post">
+<<<<<<< HEAD
         <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
       </li>
     
       <li class="post">
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
         <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
       </li>
     
@@ -930,6 +1028,13 @@ Very nice.  Thank you!</div>
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
+<<<<<<< HEAD
+=======
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   </ul>
 </section>
 
@@ -960,7 +1065,11 @@ Very nice.  Thank you!</div>
     </div>
   </div>
   <footer role="contentinfo"><p>
+<<<<<<< HEAD
   Copyright &copy; 2013 - Dmytrii Nagirniak -
+=======
+  Copyright &copy; 2012 - Dmytrii Nagirniak -
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

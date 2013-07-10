@@ -682,11 +682,15 @@
     </url>
     <url>
         <loc>http://ApproachE.com/blog/increase-your-productivity-with-vim-and-terminal/</loc>
+<<<<<<< HEAD
         <lastmod>2013-07-10T11:33:19+10:00</lastmod>
     </url>
     <url>
         <loc>http://ApproachE.com/blog/testing-rails-across-time-zones/</loc>
         <lastmod>2013-07-10T11:44:44+10:00</lastmod>
+=======
+        <lastmod>2012-05-18T21:14:46+10:00</lastmod>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
     </url>
     <url>
         <loc>http://ApproachE.com/404.html</loc>
@@ -698,11 +702,19 @@
     </url>
     <url>
         <loc>http://ApproachE.com/blog/archives/</loc>
+<<<<<<< HEAD
         <lastmod>2013-07-10T11:44:44+10:00</lastmod>
     </url>
     <url>
         <loc>http://ApproachE.com/blog/</loc>
         <lastmod>2013-07-10T11:44:44+10:00</lastmod>
+=======
+        <lastmod>2012-05-18T21:14:46+10:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ApproachE.com/blog/</loc>
+        <lastmod>2012-05-18T21:14:46+10:00</lastmod>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
     </url>
     <url>
         <loc>http://ApproachE.com/</loc>

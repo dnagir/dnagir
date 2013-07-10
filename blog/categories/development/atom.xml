@@ -4,7 +4,11 @@
   <title><![CDATA[development | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
+<<<<<<< HEAD
   <updated>2013-07-10T11:49:46+10:00</updated>
+=======
+  <updated>2012-10-09T14:32:42+11:00</updated>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -14,6 +18,7 @@
 
   
   <entry>
+<<<<<<< HEAD
     <title type="html"><![CDATA[Testing Rails across time zones]]></title>
     <link href="http://ApproachE.com/blog/testing-rails-across-time-zones/"/>
     <updated>2013-07-10T11:14:00+10:00</updated>
@@ -144,6 +149,8 @@ that use (in PostgreSQL terms) dates, times and times with time zone, maybe <cod
   </entry>
   
   <entry>
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
     <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
     <link href="http://ApproachE.com/blog/knockoutjs-validations-video/"/>
     <updated>2011-12-22T20:31:00+11:00</updated>
@@ -523,4 +530,27 @@ duzn&#39;t work</div>
 ]]></content>
   </entry>
   
+<<<<<<< HEAD
+=======
+  <entry>
+    <title type="html"><![CDATA[Stuff learned today - Ruby and Rails]]></title>
+    <link href="http://ApproachE.com/blog/stuff-learned-today-ruby-and-rails/"/>
+    <updated>2010-12-09T09:50:00+11:00</updated>
+    <id>http://ApproachE.com/blog/stuff-learned-today-ruby-and-rails</id>
+    <content type="html"><![CDATA[<div class='post'>
+<ol>
+<li>Ruby ignores underscores in numbers, so you can write 53782156 as&nbsp;53_782_156 which is much nicer.</li>
+<li><a href="https://groups.google.com/group/formtastic/browse_thread/thread/d4b200e3d8073329">Suggested</a> localisation for Formtastic's collections.&nbsp;Not sure whether it is important as it is still pretty easy to workaround.</li>
+<li>To use all the ActiveSupport (v3), do <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">require 'active_support/all'</span> (note the underscore!).</li>
+<li>We can add methods to associations by opening a block and (but scopes are much cleaner on the other end of association class).</li>
+<li>Testing "access denied" and "requires user" is easier with custom matchers.</li>
+<li>Rails URL helpers are not available in custom matchers for some reason.</li>
+<li>Shoulda's RSpec matcher validates_presence_of does not work with non-persistent models.</li>
+<li>Rails params hash has string keys, not symbols. Got issues with it when relying on keys being symbols.</li>
+</ol></div>
+
+]]></content>
+  </entry>
+  
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 </feed>

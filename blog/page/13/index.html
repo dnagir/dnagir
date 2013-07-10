@@ -9,7 +9,11 @@
   <meta name="author" content="Dmytrii Nagirniak">
 
   
+<<<<<<< HEAD
   <meta name="description" content="I spent the whole evening trying to figure out what&#8217;s going on when I run the code: 1: private static Product GetProduct(MyDbDataContext db) 2 &hellip;">
+=======
+  <meta name="description" content="I have just found very useful page on MSDN: 101 Linq Samples. Should be very useful reference for lots devs. Here&#8217;s just a quick copy-paste: &hellip;">
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +89,7 @@
       
   <header>
     
+<<<<<<< HEAD
       <h1 class="entry-title"><a href="/blog/playing-with-linq2sql-no-inserts-on/">Playing With Linq2Sql - No INSERTs on SubmitChanges</a></h1>
     
     
@@ -170,6 +175,8 @@
       
   <header>
     
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
       <h1 class="entry-title"><a href="/blog/learning-linq-101-samples/">Learning LINQ - 101 Samples</a></h1>
     
     
@@ -674,6 +681,59 @@ Good recap! Hope your posting helps .net developers do the right thing. Of cours
 
     </article>
   
+<<<<<<< HEAD
+=======
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mvc-concerns-databinding-and-security/">MVC Concerns - DataBinding and Security</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-06T12:16:00+11:00" pubdate data-updated="true">Mar 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>One of my biggest concerns about MVC is automatic data binding that processes the HTTP request and populates values of objects. It applies for both <a href="http://www.asp.net/downloads/3.5-extensions/" target="_blank">ASP.NET MVC</a> and <a href="http://www.castleproject.org/monorail/index.html" target="_blank">MonoRail</a>.</p>  <h5>THE PROBLEM:</h5>  <p>HTTP request can be easily &quot;spoofed&quot; by simply adding appropriate values to it. It will lead to modifying not-allowed properties, associations and even whole model.</p> <hr /> <h5>Solutions 1 (Manual):</h5> <p>Don&#8217;t use automatic DataBinding from HTTP requests and <strong>populate all the values manually</strong>.</p> <p>Pros</p> <ul>   <li>Full control over the values.</li> </ul> <p>Cons</p> <ul>   <li>Lots of additional code.</li> </ul>  <hr />  <h5>Solution 2 (Allow):</h5> <p>Explicitly define which properties are allowed to be data bound. It can be done in both MonoRail and ASP.NET MVC by specifying a string with list of object properties. Like so: <font face="Courie" size="2"><strong>Allow=&quot;FirstName,LastName&quot;</strong></font>. See more in <a href="http://www.castleproject.org/monorail/documentation/trunk/usersguide/smartcontrolleradv.html" target="_blank">MonoRail</a>.   <br /></p> <p>Pros</p> <ul>   <li>Easy to define.</li>   <li>No additional code.</li> </ul> <p>Cons</p> <ul>   <li>Hard to keep track of a real property and its name as a string.</li>   <li>Impossible to allow binding of different properties for different users (eg: <em>Admin</em> can also assign value to <em>Enabled</em> property of a user).</li> </ul>  <hr /> <h5>Solution 3 (DTO):</h5> <p>Wrap real business objects with poor <a href="http://en.wikipedia.org/wiki/Data_Transfer_Object" target="_blank"><strong>Data Transfer Objects</strong></a> and expose them to external world (outside of controllers).</p> <p>Pros</p> <ul>   <li>Safe to pass to external world.</li>   <li>Save to pass to view (in case views are developed by somebody else)</li>   <li>No additinal code because of automatic binding.</li>   <li>Easier to test.</li>   <li>Reusable for automatic binding for different user roles (using at least inheritance of DTOs).</li>   <li>Reusable for JSON, XML serialization.</li> </ul> <p>Cons</p> <ul>   <li>A <em>bit</em> more code.</li> </ul>  <hr /> <h4>SUMMARY</h4> <p>Automatic data-binding in ASP.NET MVC and MonoRail is insecure by default. Dot.    <br />Always use one of these 3 solutions. There, of course, are more, but this is what you can get out of the box.</p> <p>I think the decision should be made this way:</p> <ul>   <li>Solution 1 (Manual) - you are too concerned or really need full control over everything.</li>   <li>Solution 2 (Allow) - only one user&#8217;s role can execute the page and you don&#8217;t need JSON, XML serialization.</li>   <li>Solution 3 (DTO) - all other cases.</li> </ul>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Ben, I <I>think</I> large number of MonoRail, RubyOnRails sites can be &#8220;hacked&#8221; by spoofing HTTP requests.<BR/>So this is really an important thing and some why little of people pay attention to it.</div>
+</div>
+<div class='comment'>
+<div class='author'>BenL</div>
+<div class='content'>
+I followed your comment on my blog to this post&#8230; Interesting point you raised regarding security. Another nice reason to favour screen DTOs!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -709,10 +769,13 @@ Good recap! Hope your posting helps .net developers do the right thing. Of cours
   <ul id="recent_posts">
     
       <li class="post">
+<<<<<<< HEAD
         <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
       </li>
     
       <li class="post">
+=======
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
         <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
       </li>
     
@@ -728,6 +791,13 @@ Good recap! Hope your posting helps .net developers do the right thing. Of cours
         <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
       </li>
     
+<<<<<<< HEAD
+=======
+      <li class="post">
+        <a href="/blog/issues-switching-to-jruby-from-mri-19/">Issues switching to JRuby from MRI 1.9</a>
+      </li>
+    
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   </ul>
 </section>
 
@@ -758,7 +828,11 @@ Good recap! Hope your posting helps .net developers do the right thing. Of cours
     </div>
   </div>
   <footer role="contentinfo"><p>
+<<<<<<< HEAD
   Copyright &copy; 2013 - Dmytrii Nagirniak -
+=======
+  Copyright &copy; 2012 - Dmytrii Nagirniak -
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

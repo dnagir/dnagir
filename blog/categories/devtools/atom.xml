@@ -4,7 +4,11 @@
   <title><![CDATA[devtools | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/devtools/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
+<<<<<<< HEAD
   <updated>2013-07-10T11:49:46+10:00</updated>
+=======
+  <updated>2012-10-09T14:32:42+11:00</updated>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -21,8 +25,13 @@
     <content type="html"><![CDATA[<p>This post will give you <em>minimal</em> suggestions that
 you can apply in your daily work to immediately increase your productivity.</p>
 
+<<<<<<< HEAD
 <p>I&rsquo;m writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik&rsquo;s screencast</a>
 where he is working <em>&ldquo;in a wild&rdquo;</em>.</p>
+=======
+<p>I'm writing this after watching the <a href="http://blog.steveklabnik.com/posts/2012-02-22-two-pomodoros">Steve Klabnik's screencast</a>
+where he is working <em>"in a wild"</em>.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>I love this idea and have done videoing
 how I work on a little <a href="http://approache.com/blog/rails-plugin-with-tested-assets/">ios-checkboxes</a>
@@ -41,7 +50,11 @@ Well done Steve!</p>
 <p><blockquote><p>Vim is one of a select bunch of tools for which I have no substitute.<br/>It is a brilliant piece of work!</p><footer><strong>Biju Chacko</strong> <cite>Vim Quotes</cite></footer></blockquote></p>
 
 <p>The power of vim is huge. Very small number of people actually do know how to use most of it.
+<<<<<<< HEAD
 I&rsquo;m certainly not one of them.</p>
+=======
+I'm certainly not one of them.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>But let me suggest some of the things that keep myself more productive.</p>
 
@@ -53,6 +66,7 @@ while <em>CapsLock</em> is right under your baby-finger. All the time.</p>
 <p><em>How?</em> Follow <a href="http://www.manicai.net/comp/swap-caps-ctrl.html">this guide</a>.</p>
 
 <p>I blindly trusted the <em>command</em> given by <a href="http://twitter.com/garybernhardt">Garry Bernhard</a>
+<<<<<<< HEAD
 in his <a href="http://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips">DestroyAllSoftware &ndash; Some Vim Tips</a>
 on this. Never regretted.</p>
 
@@ -62,13 +76,29 @@ on this. Never regretted.</p>
 
 <p><em>Why?</em> A lot of times you need to jump forth and back between 2 place or go to where you&rsquo;ve been a minute ago.
 A log of people just find that line/file again. It&rsquo;s a waste of time.</p>
+=======
+in his <a href="http://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips">DestroyAllSoftware - Some Vim Tips</a>
+on this. Never regretted.</p>
+
+<p>Don't think about it. Just do it and I'm sure you won't go back.</p>
+
+<h2>Use Vim jumps</h2>
+
+<p><em>Why?</em> A lot of times you need to jump forth and back between 2 place or go to where you've been a minute ago.
+A log of people just find that line/file again. It's a waste of time.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p><em>How?</em></p>
 
 <ul>
 <li><code>Ctrl-o</code> and <code>Ctrl-i</code> to go to the previous/next location you jumped to.</li>
+<<<<<<< HEAD
 <li><code>``</code> (two backticks) &ndash; jump back to where you were.</li>
 <li><code>gi</code> &ndash; go to the last place you inserted a text.</li>
+=======
+<li><code>``</code> (two backticks) - jump back to where you were.</li>
+<li><code>gi</code> - go to the last place you inserted a text.</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 </ul>
 
 
@@ -79,11 +109,19 @@ A log of people just find that line/file again. It&rsquo;s a waste of time.</p>
 <p><em>How?</em></p>
 
 <ul>
+<<<<<<< HEAD
 <li><code>{</code> and <code>}</code> &ndash; jump <em>paragraph</em> back and forth.</li>
 <li><code>Ctrl-F/B</code> &ndash; move one <em>screen</em> back and forth.</li>
 <li><code>Ctrl-E/Y</code> &ndash; <em>scroll</em> the screen.</li>
 <li><code>*</code> (star) &ndash; search for the word under cursor, then <code>n/p</code> to jump to next/previous.</li>
 <li>add <code>imap jj &lt;Esc&gt;</code> to your <code>.vimrc</code> and don&rsquo;t use <code>Esc</code> anymore.</li>
+=======
+<li><code>{</code> and <code>}</code> - jump <em>paragraph</em> back and forth.</li>
+<li><code>Ctrl-F/B</code> - move one <em>screen</em> back and forth.</li>
+<li><code>Ctrl-E/Y</code> - <em>scroll</em> the screen.</li>
+<li><code>*</code> (star) - search for the word under cursor, then <code>n/p</code> to jump to next/previous.</li>
+<li>add <code>imap jj &lt;Esc&gt;</code> to your <code>.vimrc</code> and don't use <code>Esc</code> anymore.</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 </ul>
 
 
@@ -94,20 +132,33 @@ A log of people just find that line/file again. It&rsquo;s a waste of time.</p>
 <p><em>How?</em></p>
 
 <ul>
+<<<<<<< HEAD
 <li><code>~</code> (tilde) &ndash; toggle the casing of a letter/selection (upper-case/down-case).</li>
 <li><code>.</code> (dot) &ndash; repeat the last set of commands (use in a combination with search, such as <code>*</code>, and jumps).</li>
+=======
+<li><code>~</code> (tilde) - toggle the casing of a letter/selection (upper-case/down-case).</li>
+<li><code>.</code> (dot) - repeat the last set of commands (use in a combination with search, such as <code>*</code>, and jumps).</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 </ul>
 
 
 <h2>Temporarily map commands you run</h2>
 
+<<<<<<< HEAD
 <p><em>Why?</em> Because you don&rsquo;t want to type the same command over and over again.</p>
+=======
+<p><em>Why?</em> Because you don't want to type the same command over and over again.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p><em>How?</em> One example is <code>nmap &lt;leader&gt;s :! bundle exec rspec % --colour --focus&lt;cr&gt;</code>.
 This will run the current spec file when you press <code>,s</code> (in my case).</p>
 
 <p><strong>Rule of thumb</strong>: if you do something more then twice in the terminal outside of Vim, map it using <code>nmap</code>.
+<<<<<<< HEAD
 Don&rsquo;t switch windows, <em>don&rsquo;t lose your context</em>.</p>
+=======
+Don't switch windows, <em>don't lose your context</em>.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <h1>Terminal productivity</h1>
 
@@ -123,7 +174,11 @@ Don&rsquo;t switch windows, <em>don&rsquo;t lose your context</em>.</p>
 
 <h2>Use <code>!!</code> (double bang) or arrow up</h2>
 
+<<<<<<< HEAD
 <p><em>Why?</em> Because it repeats the previous command that you should have mapped in Vim but didn&rsquo;t.</p>
+=======
+<p><em>Why?</em> Because it repeats the previous command that you should have mapped in Vim but didn't.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p><em>How?</em> Just type <code>!!</code> and it will execute last command.
 This is simple, but strangely enough I can see people are actually retyping commands.</p>
@@ -138,6 +193,7 @@ add <code>set editing-mode vi</code> to it.</p>
 <h1>Useful links</h1>
 
 <ul>
+<<<<<<< HEAD
 <li><a href="http://blog.sanctum.geek.nz/vim-anti-patterns/">Vim anti-patterns</a> &ndash; must-read if you want to be better at Vim.</li>
 <li><a href="http://peepcode.com/products/smash-into-vim-i">Smash into Vim</a> &ndash; always awesome PeepCode series on Vim.</li>
 <li><a href="https://workshops.thoughtbot.com/vim">Vim for Rails developers</a> &ndash; nice overview of the plug-ins and more productive use of Vim.</li>
@@ -147,6 +203,17 @@ add <code>set editing-mode vi</code> to it.</p>
 
 
 <p>The DestroyAllSoftware stands out here because Gary covers range of extremely focused, professional topics that you can&rsquo;t ignore.</p>
+=======
+<li><a href="http://blog.sanctum.geek.nz/vim-anti-patterns/">Vim anti-patterns</a> - must-read if you want to be better at Vim.</li>
+<li><a href="http://peepcode.com/products/smash-into-vim-i">Smash into Vim</a> - always awesome PeepCode series on Vim.</li>
+<li><a href="https://workshops.thoughtbot.com/vim">Vim for Rails developers</a> - nice overview of the plug-ins and more productive use of Vim.</li>
+<li><a href="http://peepcode.com/products/meet-the-command-line">Meet the Command Line</a> and <a href="http://peepcode.com/products/advanced-command-line">Advanced Command Line</a> - great screencasts if you want to get better with command line.</li>
+<li><a href="http://www.destroyallsoftware.com">DestroyAllSoftware screencasts</a> - screencasts covering Vim, Unix, Ruby.</li>
+</ul>
+
+
+<p>The DestroyAllSoftware stands out here because Gary covers range of extremely focused, professional topics that you can't ignore.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>Hope this post will help you to leverage your tools a bit better and will teach you a thing or two.</p>
 ]]></content>
@@ -157,7 +224,11 @@ add <code>set editing-mode vi</code> to it.</p>
     <link href="http://ApproachE.com/blog/migrating-from-blogger-to-octopress/"/>
     <updated>2012-03-04T20:09:00+11:00</updated>
     <id>http://ApproachE.com/blog/migrating-from-blogger-to-octopress</id>
+<<<<<<< HEAD
     <content type="html"><![CDATA[<p>I&rsquo;ve been a Blogger user since 2006 and decided to switch over to something more geeky.</p>
+=======
+    <content type="html"><![CDATA[<p>I've been a Blogger user since 2006 and decided to switch over to something more geeky.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>This post will cover some of the reasons for that and also will provide an overview
 of how to migrate from Blogger to Octopress.</p>
@@ -165,7 +236,11 @@ of how to migrate from Blogger to Octopress.</p>
 <h2>What do I want to achieve?</h2>
 
 <ul>
+<<<<<<< HEAD
 <li><strong>Merging</strong> my personal site and blog &ndash; those were totally separate, unrelated entities, not good enough.</li>
+=======
+<li><strong>Merging</strong> my personal site and blog - those were totally separate, unrelated entities, not good enough.</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 <li>Write <strong>more often</strong>, using the same tools I use on a daily basis (Vim ATM).</li>
 <li>More <strong>hands-on</strong> kind of blogging, I actually do want to do the dirty work messing with HTML/CSS etc.</li>
 </ul>
@@ -175,16 +250,27 @@ of how to migrate from Blogger to Octopress.</p>
 
 <ul>
 <li><strong>Markdown, HAML, bare bones HTML</strong>. I wanted to have a bit more control over how my blog looks like.</li>
+<<<<<<< HEAD
 <li><strong>Blogging software</strong> isn&rsquo;t good enough. Unfortunately I haven&rsquo;t found yet a good <strong>geeky</strong> S/W for blogging.</li>
+=======
+<li><strong>Blogging software</strong> isn't good enough. Unfortunately I haven't found yet a good <strong>geeky</strong> S/W for blogging.</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 <li><strong>Easier to write</strong> from Vim. Writing is much easier, not moving my hands off the keyboard and staying in the terminal.</li>
 <li><strong>Version controlled</strong>. Nice to have, but not crucial for me.</li>
 </ul>
 
 
+<<<<<<< HEAD
 <h2>Why I didn&rsquo;t want to switch:</h2>
 
 <ul>
 <li>Losing <strong>PageRank</strong>, which shouldn&rsquo;t really be an issue (see below).</li>
+=======
+<h2>Why I didn't want to switch:</h2>
+
+<ul>
+<li>Losing <strong>PageRank</strong>, which shouldn't really be an issue (see below).</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 <li><strong>Uncerteinities</strong>. So now I have to maintain it myself? Take care of updates? Hell, yeah!</li>
 <li><strong>Self-hosted</strong>. Nothing to say here.</li>
 <li>I have never ever needed to do anything with the blog in terms of maintenance while being on Blogger. I really just worked.</li>
@@ -192,7 +278,11 @@ of how to migrate from Blogger to Octopress.</p>
 
 
 <p>Switching to a self-hosted blog/site will require a bit of involvement from me.
+<<<<<<< HEAD
 But this is something I am willing to take. It&rsquo;s time to take my ass out of the comfy couch of Blogger.</p>
+=======
+But this is something I am willing to take. It's time to take my ass out of the comfy couch of Blogger.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <h2>So how to actually migrate?</h2>
 
@@ -209,9 +299,15 @@ But this is something I am willing to take. It&rsquo;s time to take my ass out o
 
 <p>At this stage you need to <a href="http://octopress.org/docs/setup">setup the Octopress itself</a>, <a href="http://octopress.org/docs/configuring">configure</a> it and import your existing posts from Blogger.</p>
 
+<<<<<<< HEAD
 <p>I won&rsquo;t go into details how to <a href="http://octopress.org/docs/theme">customise</a> and set it up, you see the links.</p>
 
 <p>I&rsquo;ll go directly into the migrating the Blogger posts over to Octopress.</p>
+=======
+<p>I won't go into details how to <a href="http://octopress.org/docs/theme">customise</a> and set it up, you see the links.</p>
+
+<p>I'll go directly into the migrating the Blogger posts over to Octopress.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>What you need to do is</p>
 
@@ -221,12 +317,17 @@ But this is something I am willing to take. It&rsquo;s time to take my ass out o
 </ol>
 
 
+<<<<<<< HEAD
 <p>After you do this, all you&rsquo;ll get a bunch of posts that are already part of your site.
+=======
+<p>After you do this, all you'll get a bunch of posts that are already part of your site.
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 Double check whether everything is correct or not. You may want to tweak the script for your needs.</p>
 
 <p><em>Note</em> that the script also imports the comments, but in a little ugly way.
 (<em>TIP</em>, you may want to disable commenting before exporting the posts from Blogger).</p>
 
+<<<<<<< HEAD
 <p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won&rsquo;t be lost.
 I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
 
@@ -237,11 +338,27 @@ You definitely want to fork and tweak it to your needs. Note that I&rsquo;m not 
 I just use the <code>blog/title</code> format.</p>
 
 <p>Now go ahead and deploy this app. I&rsquo;ve decided to use Heroku for that which is the simplest and easiest way to go.</p>
+=======
+<p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won't be lost.
+I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
+
+<p>Now that you've got your posts, you want to set-up the redirection from your blog to your new site.</p>
+
+<p>I prepared <a href="https://github.com/dnagir/approache-redirects/blob/master/app.rb">simple Sinatra application</a> for that.
+You definitely want to fork and tweak it to your needs. Note that I'm not using the <code>blog/YYYY/MM/DD/title</code> format.
+I just use the <code>blog/title</code> format.</p>
+
+<p>Now go ahead and deploy this app. I've decided to use Heroku for that which is the simplest and easiest way to go.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>But <strong>make sure you deploy to the domain of your blog</strong>. For example, my Blogger blog was hosted on the <code>blog.approache.com</code> and I deployed it to this domain.</p>
 
 <p>It of course will not take any affect until you change your DNS settings.
+<<<<<<< HEAD
 But this will enable permanent redirects immediately when you&rsquo;ll do that (thus preserving all your old links).</p>
+=======
+But this will enable permanent redirects immediately when you'll do that (thus preserving all your old links).</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <h2>Deployment</h2>
 
@@ -253,12 +370,17 @@ But this will enable permanent redirects immediately when you&rsquo;ll do that (
 </ul>
 
 
+<<<<<<< HEAD
 <p>It&rsquo;s time to go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.</p>
+=======
+<p>It's time to go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>I wanted to merge <code>blog.approache.com</code> into the <code>approache.com</code> so I deployed the new site to <code>approache.com</code>
 (hosted on <em>Github Pages</em>).</p>
 
 <p>Now make sure everything is working properly and you have dome everything right.
+<<<<<<< HEAD
 If you&rsquo;ve missed something out, then go ahead and fix it. Then redeploy.</p>
 
 <p>This may take a couple of iterations to get it right.</p>
@@ -267,6 +389,16 @@ If you&rsquo;ve missed something out, then go ahead and fix it. Then redeploy.</
 You can experiment with the Octopress here, but don&rsquo;t do it for too long (I would say max of 1 day).</p>
 
 <p>After you&rsquo;re happy with the new site and blog it&rsquo;s time to finalise everything.</p>
+=======
+If you've missed something out, then go ahead and fix it. Then redeploy.</p>
+
+<p>This may take a couple of iterations to get it right.</p>
+
+<p>The point here is that you basically now have 2 blogs - one is the old Blogger, the other - the Octopress.
+You can experiment with the Octopress here, but don't do it for too long (I would say max of 1 day).</p>
+
+<p>After you're happy with the new site and blog it's time to finalise everything.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <h2>Finalisation</h2>
 
@@ -284,14 +416,22 @@ For that:</p>
 <p>You probably will do it simply by changing your DNS record to point to your Octopress server.
 In my case I had to change the DNS record from <code>blog - CNAME - ghs.google.com</code> to <code>. - A - 207.97.227.245</code> (dot means top-level domain here).</p>
 
+<<<<<<< HEAD
 <p>Since you&rsquo;ve already deployed your redirection app, all the old links will still work.
+=======
+<p>Since you've already deployed your redirection app, all the old links will still work.
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 All the PageRank should be preserved.</p>
 
 <p>The very last thing to do is to <strong>disable the Blogger</strong> if you want to.</p>
 
 <h2>Summary</h2>
 
+<<<<<<< HEAD
 <p>Switching to Octopress was relatively painless thanks to Blogger&rsquo;s ability to export posts and the script that could import it into Octopress.</p>
+=======
+<p>Switching to Octopress was relatively painless thanks to Blogger's ability to export posts and the script that could import it into Octopress.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>Preserving URL was relatively easy too and the rest was left to FeedBurner and DNS hosting.</p>
 

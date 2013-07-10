@@ -4,7 +4,11 @@
   <title><![CDATA[people | Art Of Programming]]></title>
   <link href="http://ApproachE.com/blog/categories/people/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
+<<<<<<< HEAD
   <updated>2013-07-10T11:49:46+10:00</updated>
+=======
+  <updated>2012-10-09T14:32:42+11:00</updated>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -18,7 +22,11 @@
     <link href="http://ApproachE.com/blog/how-to-care-for-introverts/"/>
     <updated>2012-03-08T08:25:00+11:00</updated>
     <id>http://ApproachE.com/blog/how-to-care-for-introverts</id>
+<<<<<<< HEAD
     <content type="html"><![CDATA[<p>I&rsquo;ve just found an <a href="http://afterwordss.tumblr.com/post/5274763919">interesting poster</a> that describes how to deal with introverts.</p>
+=======
+    <content type="html"><![CDATA[<p>I've just found an <a href="http://afterwordss.tumblr.com/post/5274763919">interesting poster</a> that describes how to deal with introverts.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 
 <p>Being an introvert myself I agree with most of the points:</p>
 
@@ -26,19 +34,32 @@
 <li>Respect their <strong>need for privacy</strong>.</li>
 <li>Never embarrass them in <strong>public</strong>.</li>
 <li>Let them observe first in <strong>new situations</strong>.</li>
+<<<<<<< HEAD
 <li>Give them <strong>time to think</strong>. Don&rsquo;t demand instant answers.</li>
 <li><strong>Don&rsquo;t interrupt </strong>them.</li>
+=======
+<li>Give them <strong>time to think</strong>. Don't demand instant answers.</li>
+<li><strong>Don't interrupt </strong>them.</li>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 <li>Give them <strong>advance notice</strong> of expected changes in their lives.</li>
 <li>Give them <strong>15 minute warnings</strong> to finish whatever they are doing before calling them to dinner or moving on to the next activity.</li>
 <li>Reprimand them <strong>privately</strong>.</li>
 <li><strong>Teach</strong> them new skills privately rather than in public.</li>
 <li>Enable them to find <strong>one best friend</strong> who has similar interests and abilities; encourage this relationship even if the friend moves.</li>
 <li>Do not push them to make <strong>lots of friends</strong>.</li>
+<<<<<<< HEAD
 <li><strong>Respect</strong> their introversion. Don&rsquo;t try to remake them into extroverts.</li>
 </ul>
 
 
 <p>I&rsquo;m pretty sure it is just a common sense. But it helps when people do know it.</p>
+=======
+<li><strong>Respect</strong> their introversion. Don't try to remake them into extroverts.</li>
+</ul>
+
+
+<p>I'm pretty sure it is just a common sense. But it helps when people do know it.</p>
+>>>>>>> 6472a47d4858bde71a9f9f6992c1c60a4d7205e1
 ]]></content>
   </entry>
   
