@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[development | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Testing Rails across time zones]]></title>
+    <link href="http://ApproachE.com/blog/testing-rails-across-time-zones/"/>
+    <updated>2013-07-10T11:14:00+10:00</updated>
+    <id>http://ApproachE.com/blog/testing-rails-across-time-zones</id>
+    <content type="html"><![CDATA[<h2>Why?</h2>
+
+<p>Because it is easy to get the dates/times wrong without even realising it.</p>
+
+<h2>How?</h2>
+
+<ol>
+<li>Randomise time zone when running specs</li>
+<li>Run the specific specs across the different time zones</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>Usage: Randomise time zone when running specs</h2>
+
+<p>The RSpec support file will (part of this Gist) sets the Rails' <code>Time.zone</code> to a random time zone.
+So if something is wrong then your CI should eventually fail.</p>
+
+<p>When it will, you should look for the message at the very beginning:</p>
+
+<p><code>
+Current rand time zone: (GMT+06:30) Rangoon. Repro: Time.zone = ActiveSupport::TimeZone["Rangoon"]
+</code></p>
+
+<p>Then go to your failing spec and in the context of it add the following
+(assuming you copy pasted the &ldquo;Repro&rdquo; part from the message):</p>
+
+<p><code>ruby
+  before { Time.zone = ActiveSupport::TimeZone["Rangoon"] }
+</code></p>
+
+<p>Now you can re-run the spec and it should repeatably and predictably fail (much like RSpec&rsquo;s random order with a given seed).</p>
+
+<p>This works without changing any of the existing specs and relies on
+the fact that your CI is running specs often enough.</p>
+
+<h2>Run the specific specs across the different time zones</h2>
+
+<p>You may have some specs that you want to specifically test across all the time zones.</p>
+
+<p>This can be used, for example, with tests on reports that are sensitive to time zone.
+(All financial/sales reports probably).</p>
+
+<p>So how do you do it?</p>
+
+<p>Just write the normal specs without thinking about the time zone.
+Let&rsquo;s take this as an example:</p>
+
+<p>```ruby
+require &lsquo;spec_helper&rsquo;</p>
+
+<p>module SalesReport
+  describe SalesChart  do</p>
+
+<pre><code>it "should return chart with data for a week as daily summary" do
+  create_three_reservations_per_day 0..1
+  chart = SalesChart.for_company(reservations, company)
+  chart.data_table.cols.size.should == 4
+  rows_from(chart).should == [
+    [1.day.ago.to_date, 3, 2, 1],
+    [Date.current, 3, 2, 1]
+  ]
+end
+
+# helpers ommited...
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>Make sure it passes in your timezone.</p>
+
+<p>Then just wrap your spec in <code>across_time_zones</code>, like so:</p>
+
+<p>```ruby
+require &lsquo;spec_helper&rsquo;</p>
+
+<p>module SalesReport
+  describe SalesChart  do</p>
+
+<pre><code>across_time_zones step: 2.hours do
+  it "should return chart with data for a week as daily summary" do
+    create_three_reservations_per_day 0..1
+    chart = SalesChart.for_company(reservations, company)
+    chart.data_table.cols.size.should == 4
+    rows_from(chart).should == [
+      [1.day.ago.to_date, 3, 2, 1],
+      [Date.current, 3, 2, 1]
+    ]
+  end
+end
+
+# helpers ommited...
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>You&rsquo;ll be surprised how many things can go wrong. Especially if you have some more advanced DB queries
+that use (in PostgreSQL terms) dates, times and times with time zone, maybe <code>DATE_TRUNC</code> etc.</p>
+
+<p>Now that spec will be created for each time zone with the given step.</p>
+
+<h2>Tips/Gotchas</h2>
+
+<ul>
+<li>The default <code>step</code> here is set to 8 hours (it is optional), meaning that only 3 time zones will be tested. It may be sufficient or may not. So prefer to provide it expclicitly.</li>
+<li>The smaller the <code>step</code> is, the more specs will be created and the slower the example will become. So choose the number wisely (less than 2 hours is <em>usually</em> not necessary).</li>
+<li>Always, always use <code>Time.zone.now</code> (or <code>Time.current</code>) instead of <code>Time.now</code>.</li>
+<li>Always, always use <code>Date.current</code> instead of <code>Date.today</code>.</li>
+<li>Move any <code>let!</code> (with bang) and <code>before</code> blocks under the <code>across_time_zones</code> to ensure the correct time zone is used at all times.</li>
+</ul>
+
+
+<p>You can grab the RSpec <a href="https://gist.github.com/dnagir/5962765">support file</a> to leaverage it.
+<div><script src='https://gist.github.com/5962765.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[KnockoutJS Validations Screencast]]></title>
+    <link href="http://ApproachE.com/blog/knockoutjs-validations-video/"/>
+    <updated>2011-12-22T20:31:00+11:00</updated>
+    <id>http://ApproachE.com/blog/knockoutjs-validations-video</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div>
+If you wonder how you can use KnockoutJS with Rails in a similar way to Backbone.js or Spine.js then <a href="http://www.youtube.com/watch?v=cJzQl-bpmUI">watch the video</a>. It also shows how easy it is to apply client side validations that work alongsite with the server-side validations.<br />
+<br />
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/cJzQl-bpmUI?hd=1" frameborder="0" allowfullscreen></iframe>
+
+<div>
+Have a look at the <a href="https://github.com/dnagir/knockout-rails">knockout-rails</a> project for more details.
+</div>
+
+</div></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+This is actually <a href="https://gist.github.com/9ca5dce0524927d69655" rel="nofollow">one of the options</a> of validating in the background: <br /><br />It doesn&#39;t include the bindings, but gives idea how it can be done. Easier than I thought actually.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Pre-validating on the server can technically be done with the Model Events. But it&#39;s not supported out of the box.<br /><br />It is a good idea, but there&#39;s a bit more complexity involved on both client and server. But I&#39;ll gladly accept pull requests to knockout-rails if somebody needs to support that.</div>
+</div>
+<div class='comment'>
+<div class='author'>Aleksey Gureiev</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
+    <link href="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
+    <updated>2011-11-29T11:51:00+11:00</updated>
+    <id>http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
+<br />
+This is just a quick recap of what issues I have had trying to switch existing app from MRI Ruby (1.9.3) to JRuby (1.6.4).<br />
+<br />
+Unfortunately I stepped back and didn't want to spend more time as it felt an unbreakable chain of issues. Resolving one, you think "huh, awesome". But very soon you hit the next.<br />
+And I couldn't see it stopping.<br />
+<br />
+<b>But PLEASE bear in mind</b> that I only spent a couple of hours on that. With a little bit more persistence, you may be able to the end of the tunnel.<br />
+<br />
+The overall impression is that it is not a big deal really. The problems arise when trying to use other libraries. And unfortunately, not all of the gems <b>care deep enough to support JRuby</b>. And this is the biggest issue in my opinion, there are very little issues with JRuby itself. The transition (from the syntax perspective) was extremely easy.<br />
+<br />
+The application is pretty standard Rails 3.1 app that uses gems like Dragonfly, inherited_resources, cancan, paper_trail, Authlogic, CoffeeScript, Haml, Sass, Formtastic etc. For testing - things like rspec-rails, cucumber-rails, capybara-webkit, guard (rspec and cucumber), database_cleaner etc.<br />
+<br />
+So here is a quick list of the things that I faced on my way.<br />
+<br />
+Before everything else I enabled support for 1.9 syntax in JRuby (export JRUBY_OPTS=--1.9).<br />
+<br />
+It all first started with <a href="https://gist.github.com/1402753">the weird issue</a> where the <b>wrong arguments were passed to RSpec shared example</b>.<br />
+Unfortunately I did not figure out why it happened and just patched it as you can see in the comments there.<br />
+<script src="https://gist.github.com/1402753.js?file=sample_spec.rb">
+</script>
+
+<br />
+<br />
+<br />
+After fixing this issue I had another one related to <b>database_cleaner</b>. So I ended up with a <a href="https://github.com/bmabey/database_cleaner/pull/83">pull request</a> that worked for me.<br />
+<br />
+The other issue was a<b> huge stack trace</b>. I scrolled 3 pages in the terminal to get to the top. Most of that stack trace is deep inside Java. Additionally I got <b>wrong line number</b> on exception. This "features/step_definitions/company_steps.rb:234" makes me thing that the exception is at line 234. But that file only had 49 lines of code. Now, go figure.<br />
+<br />
+Going on... <a href="https://github.com/colszowka/simplecov">SimpleCov</a> gem didn't work out of the box and gave the warning that I need to enable debugging. That's fine and understandable. But after half an hour of debugging of unrelated exception, it turned out that <b>SimpleCove threw an exception</b> because of that. So had to go and explicitly disable it.<br />
+<br />
+Then I managed to run all of my specs. But I was pretty surprised how <b>slow</b> it was:<br />
+<pre><code>
+# rvm use 1.9.3
+# time rspec # real=14s, rspec time ~ 12s
+
+# rvm use jruby
+# time rspec # real=52s, rspec time ~ 30s
+
+</code>
+</pre>
+But this is expected as JRuby doesn't have enough time to optimise here. It should be much better in production. But it will be also shit slow after deployment.<br />
+Ok. That's fine. <b>I can trust it's fast</b>.<br />
+<br />
+Then I tried running the cucumber specs and had to file the <a href="http://jira.codehaus.org/browse/JRUBY-6237">issue</a> to support <b>new Ruby 1.9.3 syntax</b> (a = b = f 1). Not a big deal, easily fixed with parens: a = b = f(1).<br />
+<br />
+Next and the <b>final issue</b> - I could not run the <b>headless cucumber specs</b> (capybara-webkit). It just got stuck (no CPU used) and feels like there is a <b>dead-lock</b> or something similar.<br />
+<br />
+I couldn't see way of fixing it easily and decided that for now I am <b>done with</b> it. So going <b>back to Ruby 1.9.3</b>.<br />
+<br />
+<br />
+<b>To summarise</b>, I <b>did not feel like it's a problem</b> to switch to JRuby. But it's really a <b>big deal to actually use</b> it due to the number of <b>C extensions</b> that JRuby doesn't really support.<br />
+<br />
+Again, to emphasise, there is nothing horribly wrong with JRuby and it seems to be pretty good. But the real showstoppers are the C extensions.</div></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Totally with you on this. But real world seems to be a bit different :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Postmodern</div>
+<div class='content'>
+Yet another reason to avoid C-extensions. When selecting dependencies for a new project, I prefer to select pure-Ruby libraries or FFI bindings (https://github.com/ffi/ffi#readme). Pure-Ruby libraries should be faster on Rubinius/JRuby. FFI bindings work perfectly on both MRI and JRuby.<br /><br />If developers want faster Ruby code, they should help make MRI faster (or switch to Rubinius/JRuby), instead of writing more code in C.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Use your Terminal like a Pro]]></title>
+    <link href="http://ApproachE.com/blog/tips-on-usingterminal-in-mac/"/>
+    <updated>2011-10-04T12:53:00+11:00</updated>
+    <id>http://ApproachE.com/blog/tips-on-usingterminal-in-mac</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div>
+Keep your config in a separate dotfiles directory and under source control with the structure like:<br />
+
+<pre><code>
+~/dotfiles:
+--+ bashrc, bash_profile
+--+ ssh/config
+-->--bash -&gt; (env, config, aliases). bash has source bach/env, bash/config etc.
+</code></pre>
+
+<br />
+Then:<br />
+<code>ln -s ~/.bashrc ~/bin/dotfiles</code>
+<br />
+<code>echo ". ~/.bashrc" > ~/.bash_profile</code>
+
+<br />
+<br />
+
+Put everything into .bashrc except any long running tasks.<br />
+.bash_profile - for interactive shells. But you can just usually source .bashrc.<br />
+
+Now some keyboard shortcuts:<br />
+<br />
+
+<ul>
+<li>Cntrl-a - go to the beginning of line</li>
+<li>Cntrl-e - go to the end of line</li>
+<li>Cntrl-k - delete everything to the right</li>
+<li>Cntrl-w - delete previous word</li>
+<li>ESC->-b - go back one word</li>
+<li>ESC->-f - go forward one word</li>
+</ul>
+
+<br />
+If you often connect via SSH like so:
+<code>ssh -p 2323 username@my-server.example.com</code>
+
+Then you can shorten it to <code>ssh my-server</code> if you will add entry to <code>~/.ssh/config</code>:
+<pre><code>
+Host my-server
+    HostName my-server.example.com
+    Port 2323
+    User username
+</code></pre>
+
+Then you can use it as:
+
+<pre><code>
+# Tunnelling
+ssh -L7997:127.0.0.1:7979 my-server
+
+# Copy folder to server
+scp my_folder my-server:my_other_folder/
+
+# Or even use it with git
+git clone my-server:repo-name.git
+
+</code></pre>
+
+<br /><br />
+
+Now some useful things you can do in the terminal:
+
+<ul>
+<li><code>!!</code> - run previously executed command (you can do `sudo !!` for example)</li>
+<li><code>!$</code> - last argument of previous command</li>
+<li><code>!60</code> - run the command #60. Number comes from <code>history</code> command</li>
+(for example: run <code>tail file.log</code> and then <code>cat !$</code> is same as <code>cat file.log</code></li>
+<li><code>!echo</code> - rerun last command starting with echo</li>
+<li>Ctrl-r - interactive search on history of commands; Use Ctrl-j to abandon.</li>
+<li><code>!?file.log?!</code> - run the last matching command (not interactive)</li>
+<li><code>^file.log^another-file.log</code> - run the last matching command replacing file.log with another-file.log</li>
+<li><code>!?file.log?!</code> - run the last matching command (not interactive)</li>
+<li><code>mv README.{txt,markdown}</code> - same as <code>mv README.txt README.markdown</code>.</li>
+</ul>
+
+<br /><br />
+
+You will also appreciate power of the shell when using aliases and functions:
+<pre><code>
+alias ss=&quot;./script/server&quot;
+alias s=&quot;git status&quot;
+alias gca=&quot;git commit -am&quot;
+alias zipr=&quot;zip -r&quot;
+
+function take {
+  mkdir $1
+  cd $1
+}
+# take create-and-go-here
+
+function gg() {
+  git commit -v -a -m &quot;$*&quot;
+}
+# gg Commit message with no quotes
+</code></pre>
+
+<br /> <br />
+But when functions get more complicated, you might want to use a scripting language (Ruby, Python etc).
+
+<br />
+Put those scripts into your ~/bin directory and add it to your PATH variable.
+
+<br /><br />
+There are also number of Mac specific tricks.
+<br />
+One is is <code>open anything</code> command that will open the file/directory in the default application.
+<br />
+You can also force it to use a specific app:
+<code>open -a /Applications/Firefox.app index.html</code>.
+<br />
+This one becomes a good candiate for an alias.
+
+<br /> <br />
+You can also pipe output of any command into <code>pbcopy</code> command to copy it to the clipboard.
+<br />
+For example:
+<code>cat index.html | pbcopy</code> will copy the content of the file into clipboard.
+<br /><br />
+You can also do it the other way around: <code>pbpaste &gt; index.html</code> or 
+<code>pbpaste | grep "jquery"</code>.
+<br /><br /><br />
+
+Another useful thing <a href='http://homepage.mac.com/thomasw/OpenTerminal/'>OpenTerminal</a> (drag the app to finder toolbar).
+It allows you to open terminal with the current directory set to the Finder window.
+
+<br /><br /><br />
+You can also use the keyboard to open terminal using <a href='http://www.obdev.at/products/launchbar/'>LaunchBar</a>. It does much more though. It acts like a global terminal for the system.
+
+
+<br /><br /><br />
+You can also try to use <code>zsh</code> shell. It will work with the existing bash aliases just fine.
+<br /><br /><br />
+
+Most of the tips here come from the PeepCode's Advanced Command Line screencast.
+<br />
+
+Hope this helps you on your way to becoming a Terminal Guru.
+
+</div></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
+    <link href="http://ApproachE.com/blog/unit-test-actions-with/"/>
+    <updated>2011-03-18T11:35:00+11:00</updated>
+    <id>http://ApproachE.com/blog/unit-test-actions-with</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> CurrentUserController controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> Mock&lt;ICurrentUserService&gt; userService;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> FakeHttpContext http;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService = <span style="color: #0000ff">new</span> Mock&lt;ICurrentUserService&gt;();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller = <span style="color: #0000ff">new</span> CurrentUserController(Services.Account, userService.Object)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .FakeContext(context =&gt; http = context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CanSeeSecuritySettingsPage() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService.Setup(x =&gt; x.ViewUser()).Returns(<span style="color: #0000ff">new</span> User {SecurityQuestion = &quot;<span style="color: #8b0000">sq</span>&quot;});
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.SecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldHaveModel&lt;CurrentUserController.SecuritySettingsInfo&gt;()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .User.SecurityQuestion.Should().Be(&quot;<span style="color: #8b0000">sq</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> SuccesfulUpdateRedirects() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.UpdateSecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldRedirectTo(action: &quot;<span style="color: #8b0000">Index</span>&quot;, controller: &quot;<span style="color: #8b0000">Dashboard</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>The most relevant piece of code here is the extension method <strong>FakeContext</strong>. It ensures the controller is not going to access real HttpContext. The main difference between MVC2 and 3 is that the latter uses HttpContext in FormValueProviderFactory and QueryStringValueProviderFactory. So we need to get rid of it. And of course we don’t want to modify all our tests and complicate them providing explicitly <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx#six">FormCollection</a>. Additionally we definitely do not want to go into trouble <a href="http://stackoverflow.com/questions/1686778/why-mock-httpcontext-if-it-can-be-constructed">instantiating HttpContext</a>.</p>
+
+<p>Fortunately MVC is extensible enough and has number of hook that we can use. In this case we need to replace those two bustards (FormValueProviderFactory and QueryStringValueProviderFactory). Which can be done with this simple extension method:</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ValueProviderFactoresExtensions {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> ValueProviderFactoryCollection ReplaceWith&lt;TOriginal&gt;(<span style="color: #0000ff">this</span> ValueProviderFactoryCollection factories, Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        var original = factories.FirstOrDefault(x =&gt; <span style="color: #0000ff">typeof</span>(TOriginal) == x.GetType());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">if</span> (original != <span style="color: #0000ff">null</span>) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            var index = factories.IndexOf(original);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            factories[index] = <span style="color: #0000ff">new</span> TestValueProviderFactory(sourceAccessor);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">return</span> factories;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">class</span> TestValueProviderFactory : ValueProviderFactory {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> TestValueProviderFactory(Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.sourceAccessor = sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> IValueProvider GetValueProvider(ControllerContext controllerContext) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> NameValueCollectionValueProvider(sourceAccessor(controllerContext), CultureInfo.CurrentCulture);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>&#160;</p>
+
+<p>And the final implementation of FakeContext extension that I use (you will need to trim it to your particular case) is:</p>
+
+<p>&#160;</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> TController FakeContext&lt;TController&gt;(this TController controller, Action&lt;FakeHttpContext&gt; exposeAction = null) where TController: Controller {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ApplicationMetaData.RegisterAll(); // Additionally register all ModelBinder so tests behave <span style="color: #0000ff">is</span> <span style="color: #0000ff">in</span> production
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (ViewEngines.Engines.Where(x =&gt; x <span style="color: #0000ff">is</span> SparkViewEngine).Empty()) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        // We only use Spar view engine that can render view during testing
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Clear();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Insert(0, GetTestViewFactory());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }            
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // That <span style="color: #0000ff">is</span> the entry <span style="color: #0000ff">to</span> all the fakes, implementation <span style="color: #0000ff">is</span> trivial so <span style="color: #0000ff">not</span> here
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var context = <span style="color: #0000ff">new</span> FakeHttpContext();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.ControllerContext = <span style="color: #0000ff">new</span> ControllerContext(context, <span style="color: #0000ff">new</span> RouteData(), controller);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.Url = <span style="color: #0000ff">new</span> UrlHelper(<span style="color: #0000ff">new</span> RequestContext(context, <span style="color: #0000ff">new</span> RouteData()));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // <span style="color: #0000ff">And</span> <span style="color: #0000ff">finally</span>, here we ensure no ValueProviders access HttpContext
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ValueProviderFactories.Factories
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;FormValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.Form))
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;QueryStringValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.QueryString));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (exposeAction != null)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        exposeAction.Invoke(context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}        </pre></pre>
+
+<p>&#160;</p>
+
+<p>Hope that helps. Have fun!</p>  </div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I can&#39;t remember already, but there are couple of the ValueProviders that you need to replace. Just look at the exceptions you get. Should be pretty straight forward. Worked for all other people.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+duzn&#39;t work</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

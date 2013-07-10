@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[testing | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/testing/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Issues switching to JRuby from MRI 1.9]]></title>
+    <link href="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/"/>
+    <updated>2011-11-29T11:51:00+11:00</updated>
+    <id>http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
+<br />
+This is just a quick recap of what issues I have had trying to switch existing app from MRI Ruby (1.9.3) to JRuby (1.6.4).<br />
+<br />
+Unfortunately I stepped back and didn't want to spend more time as it felt an unbreakable chain of issues. Resolving one, you think "huh, awesome". But very soon you hit the next.<br />
+And I couldn't see it stopping.<br />
+<br />
+<b>But PLEASE bear in mind</b> that I only spent a couple of hours on that. With a little bit more persistence, you may be able to the end of the tunnel.<br />
+<br />
+The overall impression is that it is not a big deal really. The problems arise when trying to use other libraries. And unfortunately, not all of the gems <b>care deep enough to support JRuby</b>. And this is the biggest issue in my opinion, there are very little issues with JRuby itself. The transition (from the syntax perspective) was extremely easy.<br />
+<br />
+The application is pretty standard Rails 3.1 app that uses gems like Dragonfly, inherited_resources, cancan, paper_trail, Authlogic, CoffeeScript, Haml, Sass, Formtastic etc. For testing - things like rspec-rails, cucumber-rails, capybara-webkit, guard (rspec and cucumber), database_cleaner etc.<br />
+<br />
+So here is a quick list of the things that I faced on my way.<br />
+<br />
+Before everything else I enabled support for 1.9 syntax in JRuby (export JRUBY_OPTS=--1.9).<br />
+<br />
+It all first started with <a href="https://gist.github.com/1402753">the weird issue</a> where the <b>wrong arguments were passed to RSpec shared example</b>.<br />
+Unfortunately I did not figure out why it happened and just patched it as you can see in the comments there.<br />
+<script src="https://gist.github.com/1402753.js?file=sample_spec.rb">
+</script>
+
+<br />
+<br />
+<br />
+After fixing this issue I had another one related to <b>database_cleaner</b>. So I ended up with a <a href="https://github.com/bmabey/database_cleaner/pull/83">pull request</a> that worked for me.<br />
+<br />
+The other issue was a<b> huge stack trace</b>. I scrolled 3 pages in the terminal to get to the top. Most of that stack trace is deep inside Java. Additionally I got <b>wrong line number</b> on exception. This "features/step_definitions/company_steps.rb:234" makes me thing that the exception is at line 234. But that file only had 49 lines of code. Now, go figure.<br />
+<br />
+Going on... <a href="https://github.com/colszowka/simplecov">SimpleCov</a> gem didn't work out of the box and gave the warning that I need to enable debugging. That's fine and understandable. But after half an hour of debugging of unrelated exception, it turned out that <b>SimpleCove threw an exception</b> because of that. So had to go and explicitly disable it.<br />
+<br />
+Then I managed to run all of my specs. But I was pretty surprised how <b>slow</b> it was:<br />
+<pre><code>
+# rvm use 1.9.3
+# time rspec # real=14s, rspec time ~ 12s
+
+# rvm use jruby
+# time rspec # real=52s, rspec time ~ 30s
+
+</code>
+</pre>
+But this is expected as JRuby doesn't have enough time to optimise here. It should be much better in production. But it will be also shit slow after deployment.<br />
+Ok. That's fine. <b>I can trust it's fast</b>.<br />
+<br />
+Then I tried running the cucumber specs and had to file the <a href="http://jira.codehaus.org/browse/JRUBY-6237">issue</a> to support <b>new Ruby 1.9.3 syntax</b> (a = b = f 1). Not a big deal, easily fixed with parens: a = b = f(1).<br />
+<br />
+Next and the <b>final issue</b> - I could not run the <b>headless cucumber specs</b> (capybara-webkit). It just got stuck (no CPU used) and feels like there is a <b>dead-lock</b> or something similar.<br />
+<br />
+I couldn't see way of fixing it easily and decided that for now I am <b>done with</b> it. So going <b>back to Ruby 1.9.3</b>.<br />
+<br />
+<br />
+<b>To summarise</b>, I <b>did not feel like it's a problem</b> to switch to JRuby. But it's really a <b>big deal to actually use</b> it due to the number of <b>C extensions</b> that JRuby doesn't really support.<br />
+<br />
+Again, to emphasise, there is nothing horribly wrong with JRuby and it seems to be pretty good. But the real showstoppers are the C extensions.</div></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Totally with you on this. But real world seems to be a bit different :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Postmodern</div>
+<div class='content'>
+Yet another reason to avoid C-extensions. When selecting dependencies for a new project, I prefer to select pure-Ruby libraries or FFI bindings (https://github.com/ffi/ffi#readme). Pure-Ruby libraries should be faster on Rubinius/JRuby. FFI bindings work perfectly on both MRI and JRuby.<br /><br />If developers want faster Ruby code, they should help make MRI faster (or switch to Rubinius/JRuby), instead of writing more code in C.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unit test actions with ValueProviderFactories in ASP.NET MVC3]]></title>
+    <link href="http://ApproachE.com/blog/unit-test-actions-with/"/>
+    <updated>2011-03-18T11:35:00+11:00</updated>
+    <id>http://ApproachE.com/blog/unit-test-actions-with</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p><strong>The problem:</strong> In the process of upgrading from MVC2 to MVC3 we have faced an issue where some of the <a href="http://stackoverflow.com/questions/4603741/how-to-unit-test-valueproviderfactories-in-asp-net-mvc3">ValueProviders gain explicit access to static HttpContext</a> thus making it too hard to test complex actions.</p>  <p>The solution was not obvious at first and I want to provide enough context before the solution. The way I test the controllers is this:</p>  <p>&#160;</p>  <p>&#160;</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CurrentUserControllerTest : BaseTestFixture {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> CurrentUserController controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> Mock&lt;ICurrentUserService&gt; userService;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">private</span> FakeHttpContext http;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> Init() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService = <span style="color: #0000ff">new</span> Mock&lt;ICurrentUserService&gt;();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller = <span style="color: #0000ff">new</span> CurrentUserController(Services.Account, userService.Object)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .FakeContext(context =&gt; http = context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CanSeeSecuritySettingsPage() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        userService.Setup(x =&gt; x.ViewUser()).Returns(<span style="color: #0000ff">new</span> User {SecurityQuestion = &quot;<span style="color: #8b0000">sq</span>&quot;});
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.SecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldHaveModel&lt;CurrentUserController.SecuritySettingsInfo&gt;()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .User.SecurityQuestion.Should().Be(&quot;<span style="color: #8b0000">sq</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    [Test]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> SuccesfulUpdateRedirects() {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        controller.UpdateSecuritySettings()
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .ShouldRedirectTo(action: &quot;<span style="color: #8b0000">Index</span>&quot;, controller: &quot;<span style="color: #8b0000">Dashboard</span>&quot;);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>The most relevant piece of code here is the extension method <strong>FakeContext</strong>. It ensures the controller is not going to access real HttpContext. The main difference between MVC2 and 3 is that the latter uses HttpContext in FormValueProviderFactory and QueryStringValueProviderFactory. So we need to get rid of it. And of course we don’t want to modify all our tests and complicate them providing explicitly <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx#six">FormCollection</a>. Additionally we definitely do not want to go into trouble <a href="http://stackoverflow.com/questions/1686778/why-mock-httpcontext-if-it-can-be-constructed">instantiating HttpContext</a>.</p>
+
+<p>Fortunately MVC is extensible enough and has number of hook that we can use. In this case we need to replace those two bustards (FormValueProviderFactory and QueryStringValueProviderFactory). Which can be done with this simple extension method:</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> ValueProviderFactoresExtensions {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> ValueProviderFactoryCollection ReplaceWith&lt;TOriginal&gt;(<span style="color: #0000ff">this</span> ValueProviderFactoryCollection factories, Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        var original = factories.FirstOrDefault(x =&gt; <span style="color: #0000ff">typeof</span>(TOriginal) == x.GetType());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">if</span> (original != <span style="color: #0000ff">null</span>) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            var index = factories.IndexOf(original);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            factories[index] = <span style="color: #0000ff">new</span> TestValueProviderFactory(sourceAccessor);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">return</span> factories;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">class</span> TestValueProviderFactory : ValueProviderFactory {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">private</span> <span style="color: #0000ff">readonly</span> Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> TestValueProviderFactory(Func&lt;ControllerContext, NameValueCollection&gt; sourceAccessor) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">this</span>.sourceAccessor = sourceAccessor;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">public</span> <span style="color: #0000ff">override</span> IValueProvider GetValueProvider(ControllerContext controllerContext) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> NameValueCollectionValueProvider(sourceAccessor(controllerContext), CultureInfo.CurrentCulture);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>&#160;</p>
+
+<p>And the final implementation of FakeContext extension that I use (you will need to trim it to your particular case) is:</p>
+
+<p>&#160;</p>
+
+<pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> TController FakeContext&lt;TController&gt;(this TController controller, Action&lt;FakeHttpContext&gt; exposeAction = null) where TController: Controller {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ApplicationMetaData.RegisterAll(); // Additionally register all ModelBinder so tests behave <span style="color: #0000ff">is</span> <span style="color: #0000ff">in</span> production
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (ViewEngines.Engines.Where(x =&gt; x <span style="color: #0000ff">is</span> SparkViewEngine).Empty()) {
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        // We only use Spar view engine that can render view during testing
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Clear();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        ViewEngines.Engines.Insert(0, GetTestViewFactory());
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }            
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // That <span style="color: #0000ff">is</span> the entry <span style="color: #0000ff">to</span> all the fakes, implementation <span style="color: #0000ff">is</span> trivial so <span style="color: #0000ff">not</span> here
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    var context = <span style="color: #0000ff">new</span> FakeHttpContext();
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.ControllerContext = <span style="color: #0000ff">new</span> ControllerContext(context, <span style="color: #0000ff">new</span> RouteData(), controller);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    controller.Url = <span style="color: #0000ff">new</span> UrlHelper(<span style="color: #0000ff">new</span> RequestContext(context, <span style="color: #0000ff">new</span> RouteData()));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    // <span style="color: #0000ff">And</span> <span style="color: #0000ff">finally</span>, here we ensure no ValueProviders access HttpContext
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    ValueProviderFactories.Factories
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;FormValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.Form))
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        .ReplaceWith&lt;QueryStringValueProviderFactory&gt;(ctx =&gt; ctx.HttpContext.Request.QueryString));
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (exposeAction != null)
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        exposeAction.Invoke(context);
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> controller;
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}        </pre></pre>
+
+<p>&#160;</p>
+
+<p>Hope that helps. Have fun!</p>  </div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I can&#39;t remember already, but there are couple of the ValueProviders that you need to replace. Just look at the exceptions you get. Should be pretty straight forward. Worked for all other people.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+duzn&#39;t work</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RSpec 2.0 cheat sheet by example]]></title>
+    <link href="http://ApproachE.com/blog/rspec-hints-and-techniques/"/>
+    <updated>2010-11-05T20:33:00+11:00</updated>
+    <id>http://ApproachE.com/blog/rspec-hints-and-techniques</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>The Ruby developers know and hear a lot of buzz about RSpec BDD framework. The RSpec specifications code is so easy to read, but for my it is often hard to write. So I intend to produce a small cheat-sheet for RSpec syntax for myself.</p>  <p>Most of it come from the <a href="http://www.pragprog.com/titles/achbd/the-rspec-book">RSpec Book</a> in rather unusual way. As a RSpec itself (unfortunately not runnable for now).</p>  <p>Please feel free to use it in any way you want and correct the mistakes.</p>  <p>So <a href="https://gist.github.com/663876">here we go</a>:</p> <script src="https://gist.github.com/663876.js?file=rspec-syntax-cheat-sheet.rb"></script>  </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[There is Such a Thing as Too Much Testing]]></title>
+    <link href="http://ApproachE.com/blog/there-is-such-thing-as-too-much-testing/"/>
+    <updated>2010-02-18T09:13:00+11:00</updated>
+    <id>http://ApproachE.com/blog/there-is-such-thing-as-too-much-testing</id>
+    <content type="html"><![CDATA[<div class='post'>
+Have been watching the RubyConf 2009 <a href="http://rubyconf2009.confreaks.com/21-nov-2009-13-15-there-is-such-a-thing-as-too-much-testing-jake-scruggs.html" target="_blank">video</a>. And I liked the matrix which is based on 3 dimensions to determine level of testing. The questions you have to ask to determine how much testing you need should include:<br />
+<ul>
+<li>Did your tests stop/find bugs?      <br />
+<br />
+<ul>
+<li>How often? </li>
+<li>How soon? </li>
+</ul>
+</li>
+<li>Was there good design?      <br />
+<br />
+<ul>
+<li>Did the tests encourage good design? </li>
+<li>How easy was it to write new features? </li>
+</ul>
+</li>
+<li>What's the level of developer buy-in for testing? </li>
+<li>What's the level of buy-in for managers? </li>
+<li>What level of assurance do you need? Are you really sure? (Lose a tweet – not a big deal, lose a life – thing you're dead too). </li>
+</ul>
+The lessons are:<br />
+<ul>
+<li>Start small (do not do Selenium at least!). </li>
+<li>Do not get new resources just to run your tests. They MUST be fast enough.      <br />
+<br />
+<ul>
+<li>Paralllelise. </li>
+<li>Use fast machine or cloud. </li>
+<li>Do not hit external resources (including DB if possible). </li>
+<li>Profile and examine slow tests. </li>
+<li>remove redundant tests. </li>
+</ul>
+</li>
+<li>Distinguish between model and integration test clearly. You often assert in model test instead of integration ones. </li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Testing expected exception, revisited]]></title>
+    <link href="http://ApproachE.com/blog/testing-expected-exception-revisited/"/>
+    <updated>2009-10-16T14:40:00+11:00</updated>
+    <id>http://ApproachE.com/blog/testing-expected-exception-revisited</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have been using NUnit for a long time and really got used to it. Nowadays it is very sweet, especially with NUnitEx.<br />
+It does have a simple syntax for testing exception. Pretty much <a href="http://dnagir.blogspot.com/2008/05/unit-test-granular-expected-exception.html" target="_blank">what I did</a> long time ago.<br />
+It looks like this:<br />
+<pre class="csharpcode">[Test]
+<span class="kwrd">public</span> <span class="kwrd">void</span> ThrowsAndGivesMessage() {
+    Assert.Throws&lt;FormModelProviderException&gt;(() =&gt; <span class="kwrd">new</span> XmlFormModelProvider().CreateModel());
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>BUT, it does not allow me to <i><b>verify the actual message</b></i> of the exception. I want to write the code like this to do that:<br />
+<pre class="csharpcode">[Test]
+<span class="kwrd">public</span> <span class="kwrd">void</span> ThrowsAndGivesMessage() {
+    Action act = () =&gt; <span class="kwrd">new</span> XmlFormModelProvider().CreateModel();
+    act.Throws&lt;FormModelProviderException&gt;()
+        .Message
+        .Should().Contain(<span class="str">"Form/Form element is not found"</span>);
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+The point here is that I <i><b>verify the exception type</b></i> thrown AND get the <i><b>TYPED exception as the result</b></i> of the verification so I can do whatever I want with it. One more thing I like is that we explicitly see the <b><i>acting code</i></b>.<br />
+Ohh, yes. The code to support this:<br />
+<pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">static</span> TExpected Throws&lt;TExpected&gt;(<span class="kwrd">this</span> Action a) <span class="kwrd">where</span> TExpected : Exception {
+    <span class="kwrd">try</span> {
+        a.Invoke();
+    } <span class="kwrd">catch</span> (TExpected expected) {
+        <span class="kwrd">return</span> expected;     
+    } <span class="kwrd">catch</span> (Exception other) {
+        Assert.Fail(<span class="kwrd">string</span>.Format(<span class="str">"Expected exception of type {0} but {1} was raised."</span>, <span class="kwrd">typeof</span>(TExpected).Name, other.GetType().Name));
+    }
+    Assert.Fail(<span class="kwrd">string</span>.Format(<span class="str">"The expected exception {0} has not been raised"</span>, <span class="kwrd">typeof</span>(TExpected).Name));
+    <span class="kwrd">return</span> <span class="kwrd">null</span>; <span class="rem">// This NULL smells - should be refactored :)</span>
+}</pre>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+ font-size: small;
+ color: black;
+ font-family: consolas, "Courier New", courier, monospace;
+ background-color: #ffffff;
+ /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+ background-color: #f4f4f4;
+ width: 100%;
+ margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<br />
+Enjoy.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

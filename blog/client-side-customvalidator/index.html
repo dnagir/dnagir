@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Client-side CustomValidator - overcomplicating things - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="One more time using WebForms I was struggling because of overcomplicated things. I just needed to validate client-side using CustomValidator. So &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/client-side-customvalidator">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Client-side CustomValidator - Overcomplicating Things</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-06T16:48:00+11:00" pubdate data-updated="true">Feb 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>One more time using WebForms I was struggling because of overcomplicated things.</p>  <p>I just needed to validate client-side using <a href="http://msdn2.microsoft.com/en-us/library/9eee01cx%28VS.71%29.aspx" target="_blank">CustomValidator</a>. So what&#8217;s a problem? There is a ClientValidationFunction that does exactly this.</p>  <p>The most important problem with this approach: it&#8217;s impossible to set ControlToValidate property to controls that don&#8217;t have values (there&#8217;re plenty of them). It just gives a runtime error.</p>  <p>I could of course write <a href="http://aspnet.4guysfromrolla.com/articles/073102-1.aspx" target="_blank">another server control</a> and it would be the best option. But I was lazzy for that and didn&#8217;t feel it&#8217;s good to write it for simple things.</p>  <p>So I have the problem in my ClientValidationFunction: It doesn&#8217;t receive any data except value (that is not available). So I decided to extend this approach and make the validation function to look like this:</p>  <pre class="csharpcode"><span class="kwrd">function</span> ValidateAgreement(src, args, <strong>extParam</strong>)
+{
+<span class="kwrd">if</span> (extParam) {
+    args.IsValid = <strong>extParam</strong>.<span class="kwrd">checked</span>;
+}
+}</pre><p>This is just a simple example but shows the idea. We can pass any data via <strong>extParam</strong> in our validator. So how is it used? Of course we need to get this parameter somewhere.</p><p>So the server&#8217;s code looks like this:</p><pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">asp:CustomValidator</span> <span class="attr">id</span><span class="kwrd">="AgreementValidator"</span> <span class="attr">runat</span><span class="kwrd">="server"</span>
+<span class="attr">Display</span><span class="kwrd">="Dynamic"</span>
+C<span class="attr">lientValidationFunction</span><span class="kwrd">='&lt;%# string.Format("<span style="color: rgb(0, 128, 64);">CVH.createFunction</span>(ValidateAgreement, {0})", Agreement.ClientID) %&gt;'</span> <span class="kwrd">/&gt;</span></pre>
+
+<p>What&#8217;s happening there? ClientValidationFunction is assigned a method created by CVH.createFunction JavaScript.</p><p>What&#8217;s CVH.createFunction? Here it is:
+</p><pre class="csharpcode"><span class="rem">// CVH=CustomValidatorHelper</span>
+<span class="kwrd">var</span> CVH={
+createFunction: <span class="kwrd">function</span>(validationFunction, extParamData) {
+    <span class="kwrd">var</span> originalFunction = validationFunction;
+    <span class="kwrd">var</span> extParam = extParamData;
+
+    <span class="kwrd">return</span> <span class="kwrd">function</span>(src, args) {
+        <span class="rem">// Proxy the call...</span>
+        <span class="kwrd">return</span> originalFunction(src, args, extParam);
+    }
+}
+}
+<span class="kwrd">var</span> CustomValidatorHelper=CVH;</pre>So this just creates a function that becomes a proxy between CustomValidator internals and the actual validation function. This allows to pass more parameters to the validation function.
+
+<p>Other possible usage. Just don&#8217;t allow user to submit form if some content is not visible (for example, license agreement has not ben read).</p><pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">asp:CustomValidator</span> <span class="attr">id</span><span class="kwrd">="AgreementScrolledDivValidator"</span> <span class="attr">runat</span><span class="kwrd">="server"</span>
+<span class="attr">ClientValidationFunction</span><span class="kwrd">="CVH.createFunction(</span><span><span class="kwrd">VisibleDivValidator</span></span><span class="kwrd">, 'contentDiv')"</span> <span class="kwrd">/&gt;</span></pre><pre class="csharpcode"><span class="kwrd">function</span> VisibleDivValidator(src, args, extParam) {
+args.IsValid = (!!extParam &amp;&amp; document.getElementById(extParam).style.display == <span class="str">'block'</span>);
+}</pre><p>I don&#8217;t need anymore to create server controls to validate on the client. And I like this.</p><p>It&#8217;s a power of JavaScript.</p><p>But all the validation stuff is a bit ugly with WebForms. I wish it could use some JS validation framework&#8230; Like <a href="http://www.blogger.com/fValidate" target="_blank">fValidate</a>, <a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/" target="_blank">Validation jQuery Plugin</a>.</p></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+You are welcome.</div>
+</div>
+<div class='comment'>
+<div class='author'>Nick Pearce</div>
+<div class='content'>
+Brilliant. Worked immediately and was easy to expand to three parameters. THANK YOU.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Dude, You are just awesome&#8230;&#8230;&#8230;.Millions Thanks to you. I have spent  more than a day to but couldn&#8217;t.<br /><br />Thanks for this post.<br />Keep posting&#8230;&#8230;..</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+This is brilliant! I have been looking for a way to pass extra parameters for hours! <br />Many thanks, Jeroen</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+You can put the JS code wherever you like (I prefer external JS file).<BR/><BR/>With my approach you&#8217;ll need to iterate all checkboxes and return true if there&#8217;s one checked.<BR/><BR/>But in your case You can do this without my approach at all:<BR/>First thing you need to do is to determine the number of items checked. You can do it by adding onclick attribute to each CheckBox in the grid, like <A HREF="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdatabound.aspx" REL="nofollow">so</A>:<BR/><BR/>void GridView_RowDataBound(Object sender, GridViewRowEventArgs e) {<BR/>  CheckBox check = FindYourCheckBoxInTheRow(sender, e);<BR/>  if (ckeck != null) {<BR/>    check.Attributes[&quot;onclick&quot;] = string.Format(&quot;itemClicked(&#39;{0}&#39;)&quot;, check.ClientID);<BR/>  }<BR/>}<BR/><BR/>Next, implement your itemClicked JS function like this:<BR/>var globalNumberOfItemsChecked = 0;<BR/>function itemClicked(id) {<BR/>  var justChecked = document.getElementById(id).value;<BR/><BR/>  globalNumberOfItemsChecked = justChecked ? globalNumberOfItemsChecked+1 : globalNumberOfItemsChecked-1;<BR/>}<BR/><BR/>Ok. Now we know how many items are checked at any time. So we can just check that in the validator function:<BR/>&lt;asp:CustomValidator id=&quot;ItemCheckedValidator&quot; runat=&quot;server&quot;<BR/>Display=&quot;Dynamic&quot;<BR/>ClientValidationFunction=&#39;ValidateItemChecked&#39; /&gt;<BR/><BR/>and:<BR/>function ValidateItemChecked(src, args) {<BR/>  args.IsValid = globalNumberOfItemsChecked &gt; 0;<BR/>}<BR/><BR/>That&#39;s it. If I haven&#39;t forgotten anything it should work.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hi, <BR/><BR/>I have problem with above technique. I want to use the above validation to validate the gridview for selection of at least one checkbox.<BR/>I am using external .js file. Should I write createFunction script in aspx page or .js file?<BR/><BR/>Can u please help me as I am not able to call the client validation function(eg. TestCheckBox)?<BR/><BR/>Thanks in advance&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Great post!!!! I have searched for this. Helped me a lot.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Glad you found it helpful.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Awesome!!! I have been searching for something like this all over the web.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-06T16:48:00+11:00" pubdate data-updated="true">Feb 6<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/client-side-customvalidator/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/client-side-customvalidator/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/one-more-antispam-javascript/" title="Previous Post: One more AntiSpam JavaScript">&laquo; One more AntiSpam JavaScript</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/first-look-at-selenium-brought-to-watin/" title="next Post: First look at Selenium brought to WatiN">First look at Selenium brought to WatiN &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/client-side-customvalidator/';
+        var disqus_url = 'http://ApproachE.com/blog/client-side-customvalidator/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

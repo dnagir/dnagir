@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[mstest | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/mstest/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[From MsTest to NUnit]]></title>
+    <link href="http://ApproachE.com/blog/from-mstest-to-nunit/"/>
+    <updated>2009-04-21T17:32:00+10:00</updated>
+    <id>http://ApproachE.com/blog/from-mstest-to-nunit</id>
+    <content type="html"><![CDATA[<div class='post'>
+That’s pretty easy to switch from MsTest to NUnit (or other xUnit framework, but I’ve decided I want NUnit). You need to do following steps:<br />
+<ol>
+<li>Change the Visual Studio project type:</li>
+<br />
+<ol>
+<li>Unload the project with tests.</li>
+<li>Remove &lt;ProjectTypeGuids&gt; node from there.</li>
+<li>Save and reload the project.</li>
+</ol>
+<br />
+<li>Replace Reference from MsTest to your xUnit.</li>
+<li>Replace using statements (Remove Microsoft.VisualStudio.TestTools.UnitTesting, add NUnit.Framework and optionally NUnit.Framework.SyntaxHelpers).</li>
+<li>Replace (just use Find and Replace in Files) [TestClass] to [TestFixture].</li>
+<li>Replace [TestMethod] to [Test].</li>
+<li>Replace [TestInitialize] to [SetUp].</li>
+<li>Replace [TestCleanup] to [TearDown]</li>
+<li>Now you should be able to compile the tests.</li>
+<li>Clean all the stuff from MsTest (TestResults folder, Solution Items that describe test data).</li>
+</ol>
+Pretty easy.<br />
+The note is (if you don’t know) that there’s no build-in runner for Visual Studio (unlike MsTes), so you’ll need to run tests:<br />
+<ol>
+<li>from outside of Visual Studio by GUI runner</li>
+<li>using <a href="http://testdriven.net/" target="_blank">TestDriven.NET</a></li>
+<li>using <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a>.</li>
+</ol>
+That’s it. I’m back with old good NUnit.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kit</div>
+<div class='content'>
+Very handy, thanks :)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MsTest - Not Executed – Time to go to normal xUnit]]></title>
+    <link href="http://ApproachE.com/blog/mstest-not-executed-time-to-go-to/"/>
+    <updated>2009-04-21T13:45:00+10:00</updated>
+    <id>http://ApproachE.com/blog/mstest-not-executed-time-to-go-to</id>
+    <content type="html"><![CDATA[<div class='post'>
+For last couple of days I was trying to figure out why I’m getting “Not Executed” result for all my tests in a project.<br />
+The <a href="http://stackoverflow.com/questions/525578/why-are-all-my-visual-studio-test-results-not-executed" target="_blank">solution</a> (Is it that <a href="http://mrpmorris.blogspot.com/" target="_blank">Peter Morris</a> who posted it?) is to Unblock an assembly (in my case it was Microsoft.Web.Mvc.dll).<br />
+This issue, probably,&nbsp; is a typical example when exceptions are handled and eaten.<br />
+I’m not sure i want something similar to occur again and will probably move to more common unit testing framework like nUnit, MbUnit or xUnit later.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Convert class library to MS Test project]]></title>
+    <link href="http://ApproachE.com/blog/convert-class-library-to-ms-test/"/>
+    <updated>2009-01-08T16:50:00+11:00</updated>
+    <id>http://ApproachE.com/blog/convert-class-library-to-ms-test</id>
+    <content type="html"><![CDATA[<div class='post'>
+If you:<br />
+<ul>
+<li>Use MS Test.</li>
+<li>Create Class Library instead of Test Project.</li>
+</ul>
+You need to know how to <a href="http://beta.blogs.microsoft.co.il/blogs/dhelper/archive/2008/12/08/how-to-convert-a-net-class-library-to-ms-test-project.aspx" target="_blank">convert Class Library to MS-Test project</a>.<br />
+Thanks to the post.<br />
+The guy says "simple isn't it?". I say NO!</div>
+
+]]></content>
+  </entry>
+  
+</feed>

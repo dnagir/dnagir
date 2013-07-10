@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>OnActionExecuting in ASP.NET MVC unit tests - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="I&#8217;m doing some initialisation in my application base controller class. Let&#8217;s say for our example that some of our controllers of our &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">OnActionExecuting in ASP.NET MVC Unit Tests</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-06T15:39:00+11:00" pubdate data-updated="true">Jan 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I&#8217;m doing some initialisation in my application base controller class. Let&#8217;s say for our example that <b>some</b> of our controllers of our application need to have Language object defined. So that every page knows how to be localised.<br />
+Let&#8217;s also say we are not sure at this stage how we want to define the language. Possible options are:<br />
+<ul>
+<li>App/Lang-1/Something/Else.aspx </li>
+<li>App/Something/Else.aspx?lang=1 </li>
+<li>etc </li>
+</ul>
+But we just need that Language object now. So the things we need to do are:<br />
+<ol>
+<li>Add CurrentLanguage property to base controller. </li>
+<li>Retrieve CurrentLanguage using my <a href="http://dnagir.blogspot.com/2009/01/aspnet-mvc-request-valueproviderresult.html">GetObjectFromRrequest</a>. </li>
+<li>Define the route(s). </li>
+</ol>
+<br />
+No problems at all. All is done:<br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: blue;">public abstract</span> <span style="color: blue;">class</span> LanguageEnabledController :  BaseAppController {
+
+    <span style="color: blue;">private</span> Language currentLanguage;
+
+    <span style="color: blue;">public</span> Language CurrentLanguage {
+        get {
+            <span style="color: blue;">if</span> (currentLanguage == <span style="color: blue;">null</span>)
+                <span style="color: blue;">throw</span> <span style="color: blue;">new</span> InvalidOperationException(<span style="color: #006080;">"The language should be explicitly assigned. We don't want to provide a fallback."</span>);
+            <span style="color: blue;">return</span> currentLanguage;
+        }
+    }
+
+
+    <span style="color: blue;">public</span> IWorkSpace WorkSpace {
+        get {
+            <span style="color: green;">// Stripped...</span>
+        }
+    }
+
+    <span style="color: blue;">protected</span> <span style="color: blue;">override</span> <span style="color: blue;">void</span> OnActionExecuting(ActionExecutingContext context) {
+        <span style="color: blue;">base</span>.OnActionExecuting(filterContext);
+        currentLanguage = GetObjectFromRequest&lt;Language&gt;(<span style="color: #006080;">"language"</span>);
+        <span style="color: blue;">if</span> (currentLanguage == <span style="color: blue;">null</span>) {
+            <span style="color: green;">// Invalid language object or missing URL</span>
+            context.Result = RedirectToAction(<span style="color: #006080;">"WrongLanguage"</span>, <span style="color: #006080;">"Error"</span>, <span style="color: blue;">new</span> { language = ValueProvider.GetValue(<span style="color: #006080;">"language"</span>) });
+        }
+    }
+
+
+    <span style="color: blue;">public</span> TObject GetObjectFromRequest&lt;TObject&gt;(<span style="color: blue;">string</span> name) <span style="color: blue;">where</span> TObject: <span style="color: blue;">class</span>, ILoopBack {
+        var vpr = ValueProvider.GetValue(name);
+        <span style="color: blue;">if</span> (vpr == <span style="color: blue;">null</span>)
+            <span style="color: blue;">return</span> <span style="color: blue;">null</span>;
+        <span style="color: blue;">return</span> WorkSpace.GetObject&lt;TObject&gt;(vpr.AttemptedValue);
+    }
+
+}
+
+<span style="color: green;">/*</span>
+<span style="color: green;">Also add the route like this:</span>
+<span style="color: green;">*/</span>
+routes.MapRoute(
+    <span style="color: #006080;">"DefaultWithLanguage"</span>,
+    <span style="color: #006080;">"Lang-{language}/{controller}/{action}.aspx"</span>,
+    <span style="color: blue;">new</span> { controller = <span style="color: #006080;">"Home"</span>, action = <span style="color: #006080;">"Index"</span> }
+    );</pre>
+</div>
+<br />
+Ok. This works just great. Every controller now has CurrentLanguage property set correctly. If not, it will give us a message about that. So far so good.<br />
+But I spot a problem trying to test my class. Of course, the CurrentLanguage property is never set in tests because of OnActionExecuting is never called.<br />
+So what I need now is making this property accessible in tests. I see following options:<br />
+<ol>
+<li>Reward CurrentLanguage property with a setter. </li>
+<li>Inject a service into controllers&#8217; constructor for that.</li>
+<li>Simulate OnActnioExecuting.</li>
+</ol>
+The easiest one is 1st, but we don&#8217;t look for an easy way. I don&#8217;t like this because of CurrentLanguage is really read-only. We&#8217;ll have test code in production. It will also avoid using Routes and binding which I prefer to stay and be part of the test (thou we don&#8217;t actuall test it).<br />
+The 2nd is probably the most correct one, but I don&#8217;t want to have service and implementation of it for a single property. I don&#8217;t want to use dependency injection in for now. And I don&#8217;t want to rewrite number of controller for that.<br />
+So I choose the 3rd one. Why is it bad? Because of we&#8217;ll have to simulate ControllerInvoker or some part of it. So let&#8217;s get to it.<br />
+But we have a problem with this approach: OnContextExecuting is PROTECTED method. We need to do following:<br />
+<ol>
+<li>Publish OnActionExecuting somehow to make it callable from tests.</li>
+<li>Simulate the Controllerinvoker.</li>
+</ol>
+The 2st step sounds like test-code in productino, but what it really is - just initialisation of the controller. Nothing wrong if it will be public (yes, publishing OnActionExecuting).<br />
+So let&#8217;s now put it all together and see the code.<br />
+<b>Controller:</b><br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: blue;">public</span> <span style="color: blue;">class</span> LanguageEnabledController :  BaseAppController {
+
+    <span style="color: blue;">public</span> IWorkSpace WorkSpace {
+        get {
+            <span style="color: green;">// Stripped</span>
+        }
+    }
+
+    <span style="color: blue;">protected</span> <span style="color: blue;">override</span> <span style="color: blue;">void</span> OnActionExecuting(ActionExecutingContext filterContext) {
+        <span style="color: blue;">base</span>.OnActionExecuting(filterContext);
+        InitAppController(filterContext);
+    }
+
+    <span style="color: blue;">public</span> <span style="color: blue;">virtual</span> <span style="color: blue;">void</span> InitAppController(ActionExecutingContext context) {
+        currentLanguage = GetObjectFromRequest&lt;Language&gt;(<span style="color: #006080;">"language"</span>);
+        <span style="color: blue;">if</span> (currentLanguage == <span style="color: blue;">null</span>) {
+            <span style="color: green;">// Invalid language object or missing URL</span>
+            context.Result = RedirectToAction(<span style="color: #006080;">"WrongLanguage"</span>, <span style="color: #006080;">"Error"</span>, <span style="color: blue;">new</span> { language = ValueProvider.GetValue(<span style="color: #006080;">"language"</span>) });
+        }
+    }
+
+
+    <span style="color: blue;">public</span> TObject GetObjectFromRequest&lt;TObject&gt;(<span style="color: blue;">string</span> name) <span style="color: blue;">where</span> TObject: <span style="color: blue;">class</span>, ILoopBack {
+        var vpr = ValueProvider.GetValue(name);
+        <span style="color: blue;">if</span> (vpr == <span style="color: blue;">null</span>)
+            <span style="color: blue;">return</span> <span style="color: blue;">null</span>;
+        <span style="color: blue;">return</span> WorkSpace.GetObject&lt;TObject&gt;(vpr.AttemptedValue);
+    }
+
+}</pre>
+</div>
+<br />
+<b>And the base test class:</b><br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: blue;">public</span> <span style="color: blue;">abstract</span> <span style="color: blue;">class</span> BaseControllerTest&lt;TController&gt; <span style="color: blue;">where</span> TController : BaseAppController {
+
+    [TestInitialize]
+    <span style="color: blue;">public</span> <span style="color: blue;">void</span> TestInit() {
+        SetUp();
+    
+        var methodParameterValues = <span style="color: blue;">new</span> Dictionary&lt;<span style="color: blue;">string</span>, <span style="color: blue;">object</span>&gt;(StringComparer.OrdinalIgnoreCase);
+        var preContext = <span style="color: blue;">new</span> ActionExecutingContext(<span style="color: blue;">this</span>.Controller.ControllerContext, methodParameterValues);
+        Controller.InitAppController(preContext);            
+    }
+    
+    <span style="color: blue;">protected</span> <span style="color: blue;">virtual</span> <span style="color: blue;">void</span> SetUp() {           
+    }
+    
+    
+    <span style="color: blue;">private</span> TController controller;
+    <span style="color: blue;">public</span> TController Controller {
+        get {
+            <span style="color: blue;">if</span> (controller == <span style="color: blue;">null</span>)
+                controller = CreateTestController();
+            <span style="color: blue;">return</span> controller;
+        }
+    }
+    <span style="color: blue;">private</span> TController CreateTestController() {
+        TController c = Activator.CreateInstance&lt;TController&gt;();
+        PrepareTestController(c);
+        <span style="color: blue;">return</span> c;
+    }
+    
+    
+    IWorkSpace CreateNewSpace() {
+        var ws = <span style="color: blue;">new</span> UnitTestsWorkSpace();
+        <span style="color: blue;">return</span> ws;
+    }
+    
+    <span style="color: blue;">private</span> <span style="color: blue;">void</span> PrepareTestController(TController c) {
+        c.ProviderOfWorkSpace = <span style="color: blue;">new</span> LocalInstanceWorkSpaceProvider(() =&gt; CreateNewSpace());
+        c.SetTestContext(); <span style="color: green;">// Extension to set Fake HttpContext</span>
+    }
+    
+    <span style="color: blue;">protected</span> IWorkSpace WorkSpace {
+        get {
+            <span style="color: blue;">return</span> Controller.WorkSpace;
+        }
+    }
+}</pre>
+</div>
+<br />
+Now we can easily execute tests like in this example:<br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;">[TestClass]
+<span style="color: blue;">public</span> <span style="color: blue;">class</span> TestBusinessObjectController : BaseControllerTest&lt;TopicController&gt; {
+
+    Language defaultLanguage;
+    Language french;
+
+    <span style="color: blue;">protected</span> <span style="color: blue;">override</span> <span style="color: blue;">void</span> SetUp() {
+        french = <span style="color: blue;">new</span> Language(WorkSpace) {
+            Code = <span style="color: #006080;">"fr-FR"</span>,
+            Name = <span style="color: #006080;">"French"</span>
+        };
+        defaultLanguage = <span style="color: blue;">new</span> Language(WorkSpace) {
+            Code = <span style="color: #006080;">"en-AU"</span>
+            Name = <span style="color: #006080;">"Aussie English"</span>
+        }
+        WorkSpace.UpdateDatabase();
+        
+        <span style="color: green;">// We need to put the ID of the language into any place that ValueProvider searches in...</span>
+        Controller.RouteData.Values[<span style="color: #006080;">"language"</span>] = defaultLanguage.ExternalId(); <span style="color: green;">// Extension to get an ID</span>
+    }
+
+
+    [TestMethod]
+    <span style="color: blue;">public</span> <span style="color: blue;">void</span> SelfCheck_ControllerHasLanguageSet() {
+        Assert.IsNotNull(Controller.CurrentLanguage);
+        Assert.AreEqual(<span style="color: #006080;">"en-AU"</span>, Controller.CurrentLanguage.Code);
+    }
+
+    [TestMethod]
+    <span style="color: blue;">public</span> <span style="color: blue;">void</span> ListTopicsReturnsAussieTopic() {
+        var expected = <span style="color: blue;">new</span> Topic(WorkSpace) {
+            Content = <span style="color: #006080;">"Aussie"</span>
+            Language = defaultLanguage
+        };
+        <span style="color: blue;">new</span> Topic(WorkSpace) {
+            Content = <span style="color: #006080;">"Who knows"</span>,
+            Language = french
+        }
+
+        <span style="color: green;">// We expect the Index returs all topics of current language only</span>
+        var topic = Controller.Index().ViewData.AsObject&lt;IEnumerable&lt;Topic&gt;&gt;(<span style="color: #006080;">"data"</span>).First();
+        Assert.AreEqual(expected, topic);
+    }
+}</pre>
+</div>
+<br />
+The keys are:<br />
+<ul>
+<li>public virtual InitAppController.</li>
+<li>Using <a href="http://dnagir.blogspot.com/2009/01/aspnet-mvc-request-valueproviderresult.html">GetObjectFromRrequest</a>. </li>
+<li>Creating ActionExecutingContext.</li>
+</ul>
+<br />
+Enjoy!</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-06T15:39:00+11:00" pubdate data-updated="true">Jan 6<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/asp-dot-net-mvc/'>asp.net mvc</a>, <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/mocking/'>mocking</a>, <a class='category' href='/blog/categories/testing/'>testing</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/aspnet-mvc-request-valueproviderresult/" title="Previous Post: ASP.NET MVC Request  ValueProviderResult: AttemptedValue or RawValue">&laquo; ASP.NET MVC Request  ValueProviderResult: AttemptedValue or RawValue</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/reusing-controller-without-inheritance/" title="next Post: Reusing Controller without inheritance">Reusing Controller without inheritance &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/';
+        var disqus_url = 'http://ApproachE.com/blog/onactionexecuting-in-aspnet-mvc-unit/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

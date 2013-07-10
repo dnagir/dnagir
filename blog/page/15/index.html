@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="I am using the draw2d library and implemented quite a lot of stuff already. I used one of samples to get started and was testing and playing with my &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/page/15">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/draw2d-unpleasant-bug/">Draw2d - Unpleasant Bug</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-07T16:57:00+11:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I am using the <a href="draw2d " target="_blank">draw2d</a> library and implemented quite a lot of stuff already. I used one of samples to get started and was testing and playing with my implementation on a separate HTML page.</p>  <p><img style="margin: 0px 5px 0px 0px" height="162" src="http://crazygirlclub.files.wordpress.com/2006/10/angry-face.gif" width="162" align="left" /> It was time to integrate client-side part with the server. I haven&#8217;t expected any problems.     <br />So I just put all the stuff on a real page, implemented some C# code.</p>  <p>But after I started to play with my diagram I could not get context menu or double click on the connectors, I could not connect two figures&#8230;    <br />Well, actually I could, but the <em>connectors </em>were at incorrect location of the screen and it looked like it is &quot;shifted&quot;&#8230;     <br />See the problem now?</p>  <p>The problem is that a paint area should always start at top left absolute position. What a horrible discovery.</p>  <p>I spent lots of my time for this stuff and now it seems to be unacceptable.</p>  <p>The <a href="http://www.openjacob.org/forum/viewtopic.php?t=77" target="_blank">solution</a> I found should solve the problem, BUT (as always, there&#8217;s a <em>but</em>) I should use NO NAMESPACE version of this library. I don&#8217;t really like it because of 2 reasons:</p>  <ol>   <li>I have to rewrite lots of code. </li>    <li>It&#8217;s much more error prone and might conflict with other JavaScript implementation. </li> </ol>  <p>But I don&#8217;t see any choice for now. I have to start removing all the namespaces I used so carefully&#8230;</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/pretty-days/">Pretty Days</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-29T11:16:00+11:00" pubdate data-updated="true">Dec 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I have just heard <a href="http://www.westegg.com/nash/halcyon.html">Pretty Days by Ogden Nash</a> and like the words.
+People sometimes just need to be nowhere and think about nothing.
+Or maybe something infinite&#8230;
+
+Anyway read these lines and do your best to enjoy the New Year.
+
+<blockquote>
+<span style="font-weight: bold;">How pleasant to sit on the beach,</span>
+<span style="font-weight: bold;">On the beach, on the sand, in the sun,</span>
+<span style="font-weight: bold;">With ocean galore within reach,</span>
+<span style="font-weight: bold;">And nothing at all to be done!</span>
+<span style="font-weight: bold;">No letters to answer,</span>
+<span style="font-weight: bold;">No bills to be burned,</span>
+<span style="font-weight: bold;">No work to be shirked,</span>
+<span style="font-weight: bold;">No cash to be earned,</span>
+<span style="font-weight: bold;">It is pleasant to sit on the beach</span>
+<span style="font-weight: bold;">With nothing at all to be done!</span></blockquote></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>JohnBrady</div>
+<div class='content'>
+Your preference for Nash is admirable and I&#8217;ve noted in a post on <A HREF="http://blog.ogdennash.org/2007/12/enthralled-about-nothing.html" REL="nofollow">Blogden Nash</A> where I report on the reach and influence of Ogden Nash on contemporary life.<BR/><BR/>Cheers!<BR/><BR/>John</div>
+</div>
+<div class='comment'>
+<div class='author'>CresceNet</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/first-australian-holidays/">First Australian Holidays</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-28T23:41:00+11:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><img border="0" src="http://lh6.google.com/dnagir/R3TfFgPzQkI/AAAAAAAACeo/3ecrJpEvbCo/DSC08151.JPG?imgmax=512" style="margin: 0pt 10px 10px 0pt; float: right; width: 300px"/>
+Christmas has gone some days ago, New Year will be at our doors in some days.
+I am now having my season holidays on the <a href="http://www.goldcoast.qld.gov.au/">Gold Coast</a> in Queensland.
+</p>
+<p><img border="0" src="http://lh6.google.com/dnagir/R3TevgPzQWI/AAAAAAAACc0/F73gfjcaev4/DSC08118.JPG?imgmax=512" style="margin: 0pt 10px 10px 0pt; float: left; width: 300px"/>
+<br />
+Very interesting and also tiresome thing is that we were driving from Melbourne to Gold Cost.
+It&#8217;s a very long distance and it took us 2 days to get there. On the way we met friends in Sydney and took some relax.
+I was very glad when we had arrived to our apartments. I could fall asleep for a very long time. I just like sleeping :)
+Here are some photos: <a href="http://picasaweb.google.com/dnagir/GoldCoastOnTheWay">Gold Coast - on the way</a>.
+</p>
+<p><img border="0" src="http://lh6.google.com/dnagir/R3TkJgPzQ5I/AAAAAAAAChU/zmNzm9P1yjo/DSC08175.JPG?imgmax=512" style="margin: 0pt 10px 10px 0pt; float: right; width: 300px"/>
+After some lazzy, realy lazzy days there I, at last, went for a walk around Broadbeach and Surfers Paradise. I found there Australian Shooting Academy (ASA) and decided to try small Magnum pistol. I put some of the photos into <a href="http://picasaweb.google.com/dnagir/GoldCoastMisc">this album</a>.
+</p>
+<p><img border="0" src="http://lh3.google.com/dnagir/R3TvcwPzSBI/AAAAAAAACrI/6R6YbqgKqg8/DSC08305.JPG?imgmax=512" style="margin: 0pt 10px 10px 0pt; float: left; width: 300px"/>
+And finally today I have been in the <a href="http://seaworld.myfun.com.au/">Sea World</a> - very nice and beautiful place. I was trying to shoot dolphins on the fly with my old K750 phone and it seems i succeeded. I couldn&#8217;t believe it. There are some amazing photos with dolphins. Have a look <a href="http://picasaweb.google.com/dnagir/GoldCoastSeaWorld">here</a>.
+</p>
+<p>
+<hr />
+Now waiting for a New Year and will see if I&#8217;ll take some more good shoots with my camera&#8230;
+This place is really kind of paradise&#8230;
+But I miss so much here one beautiful, lovely and loved person. If Nina could only be here with me&#8230; This would be a real paradise.
+</p></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ie-error-expected-identifier-string-or/">IE Error - Expected Identifier, String or Number</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-21T15:02:00+11:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I spent two days for this error.
+Everything works just fine in Firefox.
+It doesn&#8217;t in IE.
+
+When I had found the cause of the problem I remembered how often my mom told me to be attentive.
+Compare the Javascript code:<code>
+var root = {
+    name: "hello world",
+}
+</code>
+with this one:<code>
+var root = {
+    name: "hello world"
+}
+</code>
+
+See the error?
+Can you imagine such a mistake in a large file?
+
+I like JavaScript a lot, but I hate how much it is (and me) error prone.
+I hope I have learned the lesson.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>matt</div>
+<div class='content'>
+Thank you man! I am quite new to JS and you saved me one sleepless night on coffes with your post =)</div>
+</div>
+<div class='comment'>
+<div class='author'>franklt69</div>
+<div class='content'>
+Yes dmitriy I am using ExtJS v2 and eco for (Enterprise Core Objects)<BR/><BR/>regards<BR/>Frank</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I&#8217;m not writing lots of JS, but <A HREF="http://www.aptana.com" REL="nofollow">Aptana IDE</A> is the best one for me.<BR/><BR/>What do you mean sayng Ext2 + eco?<BR/>Is Ext2 for <A HREF="http://extjs.com/blog/2007/12/04/ext-20-final-released/" REL="nofollow">ExtJS v2</A> and eco for (<A HREF="http://www.capableobjects.com" REL="nofollow">Enterprise Core Objects</A>)?</div>
+</div>
+<div class='comment'>
+<div class='author'>franklt69</div>
+<div class='content'>
+Hi, Dmitriy is sad spent two days, I spent many time in that also,  the error is in &#8220;hello world&#8221;, it &#8220;,&#8221; don&#8217;t work in IE, I am using Ext2 + Eco,  how javascript editor I am using IntelliJ IDEA and many other errors the IDE report its, but if I forget &#8220;,&#8221; I get this error. Which IDE to JS are you using?<BR/><BR/>regards<BR/>Frank</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007-ajax-tools-usage-survey/">2007 Ajax Tools Usage Survey</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-20T22:32:00+11:00" pubdate data-updated="true">Dec 20<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I have just read the &#8221;<a href="http://rmh.blogs.com/weblog/2007/12/2007-ajax-tools.html"><span style="font-style: italic; font-weight: bold;">2007 Ajax Tools Usage Survey</span></a>&#8221;.
+Very interesting results are published on the site:
+<table style="border-width: 1px;" border="1" cellpadding="1" cellspacing="0">
+<tbody><tr><th>Answer</th><th>Percents (Dec-07)</th></tr><tr><td><b>Prototype</b></td><td><b>34.10%</b></td></tr><tr><td>jQuery</td><td>29.30%</td></tr><tr><td>Ext JS</td><td>22.50%</td></tr><tr><td><b>Script.aculo.us</b></td><td><b>22.30%</b></td></tr><tr><td>Mootools</td><td>14.30%</td></tr><tr><td>YUI</td><td>13.00%</td></tr><tr><td>I use raw Ajax</td><td>13.00%</td></tr><tr><td>JSON</td><td>12.90%</td></tr><tr><td>Dojo</td><td>11.90%</td></tr><tr><td>Backbase</td><td>8.30%</td></tr></tbody></table>
+
+I&#8217;m especially impressed how <a href="http://extjs.com/">Ext JS</a>&#8217; popularity is rising with time.
+
+
+There is at least one thing I can disagree. The <span style="font-style: italic; font-weight: bold;">Prototype+Scriptaculous</span> are presented as separate libraries which is not really correct. Scriptaculous is built on top of Prototype.
+
+Some people might tell &#8221;<b><i>Well, this means Prototype is the most popular library because of 34.10%+22.30%=56.40%</i></b>&#8221;.
+
+But it is not correct at all. All this means for me that Prototype+Scriptaculous gets less responses. This is because of ALL Scriptaculous users do also use Prototype. This is not just a mathematical addition. Especially keeping in mind that the question was <span style="font-weight: bold;">multiple choice</span>.
+
+So please do not double the results here. They are separate. According to this I would rewrite the resulting table different way.
+
+My interpretation includes Prototype as a standalone (relatively to Scriptaculous) and Scriptaculous+Prototype which seems to be more correct.
+<table style="border-width: 1px;" border="1" cellpadding="1" cellspacing="0"><tbody><tr><th>Answer</th><th>Percents (Dec-07)</th></tr><tr><td>jQuery</td><td>29.30%</td></tr><tr><td>Ext JS</td><td>22.50%</td></tr><tr><td><b>Script.aculo.us (+Prototype)</b></td><td><b>22.30%</b></td></tr><tr><td>Mootools</td><td>14.30%</td></tr><tr><td>YUI</td><td>13.00%</td></tr><tr><td>I use raw Ajax</td><td>13.00%</td></tr><tr><td>JSON</td><td>12.90%</td></tr><tr><td>Dojo</td><td>11.90%</td></tr><tr><td><b>Prototype(Standalone)</b></td><td><b>11.80%</b>(34.10-22.30)</td></tr><tr><td>Backbase</td><td>8.30%</td></tr></tbody></table>
+
+As we can see the picture has changed. I think Prototype is losing the rating with time and, as we can see, used more often for visual effects (eg: with Scriptaculous).
+
+I think I can explain why jQuery in this table is on top. It seems it is better for visual tricks than Prototype standalone. I also think Prototype is still heavily used because of large and mature communities like Ruby On Rails developers.
+
+The most interesting animal is ExtJS. This library wasn&#8217;t even in top on the previous results. Now it got 2nd winning place. Just during one year.
+And it is also might be because of it is a good visual (user interface) library.
+
+ExtJS team, congratulation! Great work!
+
+On the other hand I am a bit disappointed with YUI and don&#8217;t know why it is bitten by Mootools (I haven&#8217;t even tried this library). Anyway if so many people use Mootools, I am sure - it deserves it.
+
+As a summary I should mention that I feel people choose JavaScript libraries according to &#8220;visual&#8221; requirements.
+And this is where jQuery and ExtJS come to the world.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+My interpretation might not be perfect :)<BR/><BR/>But I haven&#8217;t said that &#8221;<I>everybody who uses scriptaculous doesn&#8217;t use prototype</I>&#8221;. This would be just wrong. Script.aculo.us should always be used together with Prototype.<BR/><BR/>What I really wanted to say is that the survey had not not probably been well thought before it was published.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I think you are wrong with your interpretation b/c:<BR/><BR/>38% use Prototype and 20-something% use script.aculo.us !<BR/><BR/>You cant&#8217;s just make it that simple, saying: everybody who uses scriptaculous doesnt use (really) prototype&#8230; It is the other way round.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/enterprise-core-objects-survey-results/">Enterprise Core Objects Survey Results</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-18T23:25:00+11:00" pubdate data-updated="true">Nov 18<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Once I created <a href="http://www.capableobjects.com/">ECO</a> Survey on the <a href="http://dcportal.argocomputing.com.au/">DC Portal®</a> to know how developers are happy with it and what they actually develop with ECO. The <a href="http://dcportal.argocomputing.com.au/">DC Portal®</a> always helps me in such situations and I highly recommend it for everybody who wants to gather some data online.
+
+<span style="font-style: italic; font-weight: bold;">UPDATE:</span> Please notice the survey was originally oriented to ECOIII, but it seems it got responses from ECOIV usesrs as well.
+
+And now I want to share some interesting facts.
+
+I&#8217;ll start from some diagrams and at the end will summarise peoples&#8217; opinion on ECO.
+I don&#8217;t try to express my personal opinion and do my best to avoid it and only operate the facts and results of the survey.
+If you think I&#8217;m not correct or push my opinion, please let me know.
+<hr /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp2.blogger.com/_6a0bIbZ1HXw/R0Awwfqne1I/AAAAAAAACYw/SlhtMLYrUNw/s1600-h/ECOSurvey-AppType.png"><img style="cursor: pointer;" src="http://bp2.blogger.com/_6a0bIbZ1HXw/R0Awwfqne1I/AAAAAAAACYw/SlhtMLYrUNw/s400/ECOSurvey-AppType.png" alt="" id="BLOGGER_PHOTO_ID_5134157184894466898" border="0" /></a><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp0.blogger.com/_6a0bIbZ1HXw/R0Aw9_qne2I/AAAAAAAACY4/hGeEa0wZABc/s1600-h/ECOSurvey-IDE.png"><img style="cursor: pointer;" src="http://bp0.blogger.com/_6a0bIbZ1HXw/R0Aw9_qne2I/AAAAAAAACY4/hGeEa0wZABc/s400/ECOSurvey-IDE.png" alt="" id="BLOGGER_PHOTO_ID_5134157416822700898" border="0" /></a><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp2.blogger.com/_6a0bIbZ1HXw/R0Azsfqne3I/AAAAAAAACZA/uLKdhYuTOhs/s1600-h/ECOSurvey-Language.png"><img style="cursor: pointer;" src="http://bp2.blogger.com/_6a0bIbZ1HXw/R0Azsfqne3I/AAAAAAAACZA/uLKdhYuTOhs/s400/ECOSurvey-Language.png" alt="" id="BLOGGER_PHOTO_ID_5134160414709873522" border="0" /></a><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp0.blogger.com/_6a0bIbZ1HXw/R0A0a_qne5I/AAAAAAAACZQ/aSI6ZIDlYWQ/s1600-h/ECOSurvey-ConcurrentUsers.png"><img style="cursor: pointer;" src="http://bp0.blogger.com/_6a0bIbZ1HXw/R0A0a_qne5I/AAAAAAAACZQ/aSI6ZIDlYWQ/s400/ECOSurvey-ConcurrentUsers.png" alt="" id="BLOGGER_PHOTO_ID_5134161213573790610" border="0" /></a><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp3.blogger.com/_6a0bIbZ1HXw/R0A0Fvqne4I/AAAAAAAACZI/8ywUw9zVLVA/s1600-h/ECOSurvey-Satisfaction.png"><img style="cursor: pointer;" src="http://bp3.blogger.com/_6a0bIbZ1HXw/R0A0Fvqne4I/AAAAAAAACZI/8ywUw9zVLVA/s400/ECOSurvey-Satisfaction.png" alt="" id="BLOGGER_PHOTO_ID_5134160848501570434" border="0" /></a><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp3.blogger.com/_6a0bIbZ1HXw/R0A8hvqne6I/AAAAAAAACZY/S__a93FUXRw/s1600-h/ECOSurvey-Improve.png"><img style="cursor: pointer;" src="http://bp3.blogger.com/_6a0bIbZ1HXw/R0A8hvqne6I/AAAAAAAACZY/S__a93FUXRw/s400/ECOSurvey-Improve.png" alt="" id="BLOGGER_PHOTO_ID_5134170125630929826" border="0" /></a><hr />
+<h3>Application Type</h3>It is a great thing to see developers producing both Windows and Web applications which means that ECO can be generally used in most projects of different complexity.
+<hr /><h3>IDE and Language
+</h3>The most interesting fact for me is that people want to or already do develop ECO applications using both C# and Delphi.NET and both Microsot Visual Studio and CodeGear RadStudio.
+The difference in IDEs is pretty small.
+But the C# language is a bit more required than Delphi.NET.
+Many respondents noticed they want to use both C# and Delphi.NET.
+
+Other IDEs and languages are not worth to mention in this case.
+
+It means for me that ECO should (and it looks like it does) extend its influence to other markets as well as keeping existing one (Delphi.NET).
+
+<hr /><h3>Concurrent Users
+</h3>Most of ECO applications handle less than 10, and less than 100 concurrent users.
+But this is worth to mention that definition of number of concurrent users can vary depending on type of application. It also just has different definitions. This is how <a href="http://en.wikipedia.org/wiki/Concurrent_user">Wiki</a> defines it: &#8221;<span style="font-style: italic;">the number of concurrent users for a resource in a location, with the location being a computing network or a single computer, refers to the total number of people using the resource at the same time</span>&#8221;.
+I had to add some description to the survey to explain what actually I meant under concurrent users.
+So this part might not be very objective.
+
+<hr /> <h3>Satisfaction</h3>Most respondents are satisfied well enough to use ECO (53%) or feel it is acceptable for them (35%).
+The &#8220;highest option&#8221; (ECO is the Best Possible solution) got about 5%.
+On the other hand 4% told that ECO is Bad and 3% - worst possible.
+
+This obviously means ECO is a very good and mature enough product for real-life applications.
+But it also has lots of space for improvement.
+
+<hr /> <h3>ECO Improvements</h3>Most of developers believe that ECO should be much better in terms of performance. Query Generation and OCL are also very important.
+It looks like ECO API is very good because of it is the least required to be improved.
+&#8221;<span style="font-style: italic;">Other</span>&#8221; section got more than API ratings, so there are other major areas not included in the survey people would like to see better.
+
+The other question was about how many records the largest table contains. It varies a lot.
+But most people (22%) told about less than one million. Less then 10 millions - 15%. Only about 1 and a half percents of respondents provided value of &#8220;less than thousand&#8221;.
+
+&#8220;Above 10 millions&#8221; got about 12%. All that looks like ECO can successfully be used in very complex systems with large data volume.
+
+<hr /> <h3>Respondents&#8217; Comments
+</h3>During the survey completion respondents were able to provide some comments. I&#8217;m not going to publish all of them here and will try to summarise them as accurately as I can.
+
+All people are pretty much sure: ECO is just a great framework and allows them to produce qualitative, maintainable applications with hight speed. This is the general idea of all (or at least most) of the respondents. Many of them say something like &#8221;<span style="font-style: italic;">I can&#8217;t imagine my .Net developments without it any more</span>&#8221; (quotation).
+
+But the same time lots of people are not happy with the following things:
+<ul><li>No WinForms support. Some people just don&#8217;t like, but some experience problems porting their applications.</li><li>IDE. Some respondents experience problems/crashes working in BDS2006.</li><li>Slow evolution and issue management. <span style="font-style: italic;">This hopefully will be improved - CapableObjects can manage it by themselves.</span>
+</li><li>Lack of good documentation. <span style="font-style: italic; font-weight: bold;">UPDATE:</span> <span style="font-style: italic;">EcoIV should has much better documentation thanks to </span><span style="font-style: italic;">Peter Morris. I suppose it is mainly about EcoIII.</span>
+</li><li>Other platforms/DBs. Some requirements to run ECO on <a href="http://www.mono-project.com/">Mono</a> and different DBs (like Firebird).</li><li>Bad handling of large datasets.</li></ul>
+<hr />  <h3>Summary: The Verdict
+</h3>The <a href="http://en.wikipedia.org/wiki/CodeGear_ECO">Enterprise Core Objects</a> Framework has some inconveniences and minor problems. But based on the response of experienced users, ECO is one of the best available frameworks that allows achieving development goals faster, produce applications of the best quality in shorter terms.
+It seems nobody who ever used ECO left it.
+
+New users feel some knowledge leak about ECO, but even they realise usefulness of ECO. It seems like they cannot stop learning it.
+
+<hr />  <h3>My 2 cents
+</h3>Here I express my own opinion :-)
+Personally I have had some performance issues, bugs and other difficulties (and most of them were solved thanks to Jonas Hogstrom). But even in such situations it is always faster and better to apply workaround than produce the same system without ECO. Most of performance issues can be solved just by tidying ECO queries (OCL), choosing right components etc. But if even nothing helps in a particular situation, it is always possible to use old good DataSets with direct SQL (especially in Eco4).
+
+ECO becomes a kind of a high-level language over .NET platform with similarity to Delphi over Win32 (or even assembler :-)).
+
+So I wish ECO good luck and all the best.
+Thanks to Peter Morris for beeing a great helper for the community.
+Thanks a lot to Jonas Hogstrom for his invaluable contribution into ECO and always beeing helpful for the people.
+Thanks to Jesper Hogstrom and Jan Norden for all the help provided in Newsgroups.
+Thanks to all the <a href="http://www.capableobjects.com/team">ECO Team</a> for keeping good work.
+
+
+Happy development with ECO and decision making with <a href="http://dcportal.argocomputing.com.au/">DC Portal®</a>!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/i-love-roboform/">I Love RoboForm</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-09T15:23:00+11:00" pubdate data-updated="true">Nov 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+The <a href="http://www.roboform.com/">RoboForm</a> is really a great tool.
+It allows saving web forms securely. You don&#8217;t have to remember and enter passwords and other details every time on the web. You just click a button and it&#8217;s done.
+
+I realized that I really cannot live without it.
+I found I have more than 100 logins and notes in RoboForm.
+So I backed it up one more time :-)
+
+It&#8217;s just a pleasure to use it.
+You don&#8217;t have to remember all your usernames (which can be different) for hundred of sites that you rarely visit.
+Before RoboForm era when I visited such a site I often proceeded with a password restore process.
+This is mainly because of I don&#8217;t write any sensitive information on paper or store in PC&#8217;s file PC. This means I often forgot it :-)
+
+Now it&#8217;s no longer the case. I never know the password, I never type, I never think what password to choose (RoboForm can generate very complex ones).
+I only press a button on my toollbar.
+
+I just love it and recommend to everybody who still doesn&#8217;t use it.
+Visit the site: <a href="http://www.roboform.com/">http://www.roboform.com</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/web-20-why-everything-youve-been-taught/">Web 2.0 - Why Everything You&#8217;ve Been Taught Is Wrong</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-02T11:34:00+11:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I had been watching some videos from <a href="http://developer.yahoo.com/yui/theater/">YUI Theater</a>. A lot of interesting stuff is there about client-side and front-end web development.
+
+Must see videos are from <a href="http://video.yahoo.com/video/play?vid=111593">Douglas Crockford — &#8220;The JavaScript Programming Language&#8221;</a> (see all the 4 parts there).
+
+But I really like one from from Joseph Smarr — <a href="http://video.yahoo.com/video/play?vid=1041101">High-performance JavaScript: Why Everything You&#8217;ve Been Taught Is Wrong</a>.
+He gives overview of a real-world Web 2.0 web application (<a href="http://www.plaxo.com/">Plaxo</a>) and explains that many things that are in general a good practice (including patterns) are not always good. Just because of the performance.
+
+Joseph says he met a guy who was so proud that he applied all of the patterns (that he knows?). But was there a need of it? Maybe yes, maybe not. But:
+
+<span style="font-weight: bold;">Always think about performance, from the beginning to the end.</span>
+
+
+See the video:
+<embed flashvars="id=3881103&amp;emailUrl=http%3A%2F%2Fvideo.yahoo.com%2Futil%2Fmail%3Fei%3DUTF-8%26vid%3D1041101&amp;imUrl=http%253A%252F%252Fvideo.yahoo.com%252Fvideo%252Fplay%253Fei%253DUTF-8%2526vid%253D1041101&amp;imTitle=Joseph%2BSmarr%253A%2B%2526quot%253BHigh-performance%2BJavaScript%253A%2BWhy%2BEverything%2BYou%2526%252339%253Bve%2BBeen%2BTaught%2BIs%2BWrong%2526quot%253B&amp;searchUrl=http://video.yahoo.com/search/video?p=&amp;profileUrl=http://video.yahoo.com/video/profile?yid=&amp;creatorValue=ZXJpY21pcmFnbGlh&amp;vid=1041101" height="350" src="http://us.i1.yimg.com/cosmos.bcst.yahoo.com/player/media/swf/FLVVideoSolo.swf" type="application/x-shockwave-flash" width="425"></embed></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/monorail-second-look/">MonoRail - Second Look</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-26T12:45:00+10:00" pubdate data-updated="true">Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I was playing with <a href="http://www.castleproject.org/monorail/index.html">Mono Rail</a> framework after my <a href="http://dnagir.blogspot.com/2007/08/glance-at-monorails-framework.html">first look</a> at it.
+
+I always remember MonoRail after I need to do tricky parts in WebForms. Sometimes I&#8217;m just struggling with WebForms, fighting against it&#8230; There&#8217;s so much pain if it is needed to do something &#8220;unusual&#8221; in WebForms, but usual and common for WEB.
+
+What can I mention about Monorail now, since that time.
+<br />
+<ol>
+<li>It&#8217;s powerful thing.</li>
+<li>It&#8217;s very pluggable and expandable.</li>
+<li>It&#8217;s testable.</li>
+<li>It&#8217;s controllable.</li>
+<li>It&#8217;s cool!
+</li>
+</ol>
+Now, what does prevent me from using MonoRail. I think it is only one thing - 3-rd party controls. I already own <a href="http://www.telerik.com/">Telerik</a> Web Controls Suite and don&#8217;t want to loose it.
+
+On the other hand there&#8217;re plenty client-side libraries to do most of that stuff. Such as <a href="http://extjs.com/">ExtJS</a>.
+But in most cases it will be needed to write some helpers to work with them server-side. Not a big time consumer, but it needs to be done (lazy devs don&#8217;t like to do it).
+
+I don&#8217;t think I&#8217;ll move away from WebForms in my current projects.
+But new projects will be considered to be implemented with MVC and without WebForms.
+
+Also it seems like Microsoft just steals (is this a right word?) Castle Project&#8217;s implementation of MVC. Have a look at <a href="http://www.hanselman.com/silverlight/ScottGuAtAltnetConf/">MS MVC Presentation</a>.
+The license of MR allows to reproduce it, but it&#8217;s not very honest from MS side (as always :))&#8230;
+I&#8217;m only looking forward they will support it in some &#8220;native&#8221; way for ASP.NET&#8230;
+
+And I really, really, really want MonoRail and MS MVC would not become competitors. I would like them to see as contributors to the same MVC idea.
+
+And one more notice about Castle Project. I got source code from their SVN repository and it is very good structured, easy to read and understand. There&#8217;re set of unit tests that I can easily use to find how to use particular feature. They also try to do as many comments as possible. Good job!
+
+OSS Project contributors are great people. Will I have a chance to become such one sometime?
+Will you or maybe you already are?</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/matrix-can-you-read-it/">Matrix. Can You Read It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-26T11:30:00+10:00" pubdate data-updated="true">Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I&#8217;ve just read an <a href="http://ayende.com/Blog/archive/2007/10/26/Must-resist.-decoding.aspx">article</a>.
+Ayende links to this <a href="http://blog.wekeroad.com/2007/10/25/thoughts-for-a-thursday/">message</a> which is just a text represented in binary.
+Like in a Matrix :)&#8230;
+
+If you want to decode it - you&#8217;ll find the message interesting&#8230; A bit depressing, but I like to think about such kind of things.
+
+<span style="font-size: 55%;">If you are too lazy to decode it&#8230; <a href="http://dnagir.googlepages.com/RobConery-decoded.txt" target="_blank">Here it is.</a>
+</span>
+
+<span style="font-size: 55%;">And <a href="http://dnagir.googlepages.com/Ayende-decoded.txt" target="_blank">here</a> is what Ayende says about it :)
+</span></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/16/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/14/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

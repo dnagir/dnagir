@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>MVC Concerns - DataBinding and Security - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="One of my biggest concerns about MVC is automatic data binding that processes the HTTP request and populates values of objects. It applies for both &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/mvc-concerns-databinding-and-security">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">MVC Concerns - DataBinding and Security</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-06T12:16:00+11:00" pubdate data-updated="true">Mar 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>One of my biggest concerns about MVC is automatic data binding that processes the HTTP request and populates values of objects. It applies for both <a href="http://www.asp.net/downloads/3.5-extensions/" target="_blank">ASP.NET MVC</a> and <a href="http://www.castleproject.org/monorail/index.html" target="_blank">MonoRail</a>.</p>  <h5>THE PROBLEM:</h5>  <p>HTTP request can be easily &quot;spoofed&quot; by simply adding appropriate values to it. It will lead to modifying not-allowed properties, associations and even whole model.</p> <hr /> <h5>Solutions 1 (Manual):</h5> <p>Don&#8217;t use automatic DataBinding from HTTP requests and <strong>populate all the values manually</strong>.</p> <p>Pros</p> <ul>   <li>Full control over the values.</li> </ul> <p>Cons</p> <ul>   <li>Lots of additional code.</li> </ul>  <hr />  <h5>Solution 2 (Allow):</h5> <p>Explicitly define which properties are allowed to be data bound. It can be done in both MonoRail and ASP.NET MVC by specifying a string with list of object properties. Like so: <font face="Courie" size="2"><strong>Allow=&quot;FirstName,LastName&quot;</strong></font>. See more in <a href="http://www.castleproject.org/monorail/documentation/trunk/usersguide/smartcontrolleradv.html" target="_blank">MonoRail</a>.   <br /></p> <p>Pros</p> <ul>   <li>Easy to define.</li>   <li>No additional code.</li> </ul> <p>Cons</p> <ul>   <li>Hard to keep track of a real property and its name as a string.</li>   <li>Impossible to allow binding of different properties for different users (eg: <em>Admin</em> can also assign value to <em>Enabled</em> property of a user).</li> </ul>  <hr /> <h5>Solution 3 (DTO):</h5> <p>Wrap real business objects with poor <a href="http://en.wikipedia.org/wiki/Data_Transfer_Object" target="_blank"><strong>Data Transfer Objects</strong></a> and expose them to external world (outside of controllers).</p> <p>Pros</p> <ul>   <li>Safe to pass to external world.</li>   <li>Save to pass to view (in case views are developed by somebody else)</li>   <li>No additinal code because of automatic binding.</li>   <li>Easier to test.</li>   <li>Reusable for automatic binding for different user roles (using at least inheritance of DTOs).</li>   <li>Reusable for JSON, XML serialization.</li> </ul> <p>Cons</p> <ul>   <li>A <em>bit</em> more code.</li> </ul>  <hr /> <h4>SUMMARY</h4> <p>Automatic data-binding in ASP.NET MVC and MonoRail is insecure by default. Dot.    <br />Always use one of these 3 solutions. There, of course, are more, but this is what you can get out of the box.</p> <p>I think the decision should be made this way:</p> <ul>   <li>Solution 1 (Manual) - you are too concerned or really need full control over everything.</li>   <li>Solution 2 (Allow) - only one user&#8217;s role can execute the page and you don&#8217;t need JSON, XML serialization.</li>   <li>Solution 3 (DTO) - all other cases.</li> </ul>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Ben, I <I>think</I> large number of MonoRail, RubyOnRails sites can be &#8220;hacked&#8221; by spoofing HTTP requests.<BR/>So this is really an important thing and some why little of people pay attention to it.</div>
+</div>
+<div class='comment'>
+<div class='author'>BenL</div>
+<div class='content'>
+I followed your comment on my blog to this post&#8230; Interesting point you raised regarding security. Another nice reason to favour screen DTOs!</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-06T12:16:00+11:00" pubdate data-updated="true">Mar 6<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/mvc-concerns-databinding-and-security/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/mvc-concerns-databinding-and-security/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/wladimir-klitschko-unified-heavyweight/" title="Previous Post: Wladimir Klitschko - unified heavyweight champion">&laquo; Wladimir Klitschko - unified heavyweight champion</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/define-web-site-breadcrumbs/" title="next Post: Define Web Site Breadcrumbs">Define Web Site Breadcrumbs &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/mvc-concerns-databinding-and-security/';
+        var disqus_url = 'http://ApproachE.com/blog/mvc-concerns-databinding-and-security/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

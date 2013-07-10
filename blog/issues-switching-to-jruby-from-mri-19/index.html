@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Issues switching to JRuby from MRI 1.9 - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="UDPATE: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI. This is just a quick recap of what issues I have had &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Issues Switching to JRuby From MRI 1.9</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T11:51:00+11:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<b>UDPATE</b>: The reason for switching to JRuby the native neo4j API. Have to use REST API with MRI.<br />
+<br />
+This is just a quick recap of what issues I have had trying to switch existing app from MRI Ruby (1.9.3) to JRuby (1.6.4).<br />
+<br />
+Unfortunately I stepped back and didn&#8217;t want to spend more time as it felt an unbreakable chain of issues. Resolving one, you think &#8220;huh, awesome&#8221;. But very soon you hit the next.<br />
+And I couldn&#8217;t see it stopping.<br />
+<br />
+<b>But PLEASE bear in mind</b> that I only spent a couple of hours on that. With a little bit more persistence, you may be able to the end of the tunnel.<br />
+<br />
+The overall impression is that it is not a big deal really. The problems arise when trying to use other libraries. And unfortunately, not all of the gems <b>care deep enough to support JRuby</b>. And this is the biggest issue in my opinion, there are very little issues with JRuby itself. The transition (from the syntax perspective) was extremely easy.<br />
+<br />
+The application is pretty standard Rails 3.1 app that uses gems like Dragonfly, inherited_resources, cancan, paper_trail, Authlogic, CoffeeScript, Haml, Sass, Formtastic etc. For testing - things like rspec-rails, cucumber-rails, capybara-webkit, guard (rspec and cucumber), database_cleaner etc.<br />
+<br />
+So here is a quick list of the things that I faced on my way.<br />
+<br />
+Before everything else I enabled support for 1.9 syntax in JRuby (export JRUBY_OPTS=&#8211;1.9).<br />
+<br />
+It all first started with <a href="https://gist.github.com/1402753">the weird issue</a> where the <b>wrong arguments were passed to RSpec shared example</b>.<br />
+Unfortunately I did not figure out why it happened and just patched it as you can see in the comments there.<br />
+<script src="https://gist.github.com/1402753.js?file=sample_spec.rb">
+</script>
+
+<br />
+<br />
+<br />
+After fixing this issue I had another one related to <b>database_cleaner</b>. So I ended up with a <a href="https://github.com/bmabey/database_cleaner/pull/83">pull request</a> that worked for me.<br />
+<br />
+The other issue was a<b> huge stack trace</b>. I scrolled 3 pages in the terminal to get to the top. Most of that stack trace is deep inside Java. Additionally I got <b>wrong line number</b> on exception. This &#8220;features/step_definitions/company_steps.rb:234&#8221; makes me thing that the exception is at line 234. But that file only had 49 lines of code. Now, go figure.<br />
+<br />
+Going on&#8230; <a href="https://github.com/colszowka/simplecov">SimpleCov</a> gem didn&#8217;t work out of the box and gave the warning that I need to enable debugging. That&#8217;s fine and understandable. But after half an hour of debugging of unrelated exception, it turned out that <b>SimpleCove threw an exception</b> because of that. So had to go and explicitly disable it.<br />
+<br />
+Then I managed to run all of my specs. But I was pretty surprised how <b>slow</b> it was:<br />
+<pre><code>
+# rvm use 1.9.3
+# time rspec # real=14s, rspec time ~ 12s
+
+# rvm use jruby
+# time rspec # real=52s, rspec time ~ 30s
+
+</code>
+</pre>
+But this is expected as JRuby doesn&#8217;t have enough time to optimise here. It should be much better in production. But it will be also shit slow after deployment.<br />
+Ok. That&#8217;s fine. <b>I can trust it&#8217;s fast</b>.<br />
+<br />
+Then I tried running the cucumber specs and had to file the <a href="http://jira.codehaus.org/browse/JRUBY-6237">issue</a> to support <b>new Ruby 1.9.3 syntax</b> (a = b = f 1). Not a big deal, easily fixed with parens: a = b = f(1).<br />
+<br />
+Next and the <b>final issue</b> - I could not run the <b>headless cucumber specs</b> (capybara-webkit). It just got stuck (no CPU used) and feels like there is a <b>dead-lock</b> or something similar.<br />
+<br />
+I couldn&#8217;t see way of fixing it easily and decided that for now I am <b>done with</b> it. So going <b>back to Ruby 1.9.3</b>.<br />
+<br />
+<br />
+<b>To summarise</b>, I <b>did not feel like it&#8217;s a problem</b> to switch to JRuby. But it&#8217;s really a <b>big deal to actually use</b> it due to the number of <b>C extensions</b> that JRuby doesn&#8217;t really support.<br />
+<br />
+Again, to emphasise, there is nothing horribly wrong with JRuby and it seems to be pretty good. But the real showstoppers are the C extensions.</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Totally with you on this. But real world seems to be a bit different :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Postmodern</div>
+<div class='content'>
+Yet another reason to avoid C-extensions. When selecting dependencies for a new project, I prefer to select pure-Ruby libraries or FFI bindings (https://github.com/ffi/ffi#readme). Pure-Ruby libraries should be faster on Rubinius/JRuby. FFI bindings work perfectly on both MRI and JRuby.<br /><br />If developers want faster Ruby code, they should help make MRI faster (or switch to Rubinius/JRuby), instead of writing more code in C.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T11:51:00+11:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/devtools/'>devtools</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/testing/'>testing</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/rails-plugin-with-tested-assets/" title="Previous Post: Rails Plugin with Tested Assets Screencast">&laquo; Rails Plugin with Tested Assets Screencast</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/knockoutjs-validations-video/" title="next Post: KnockoutJS Validations Screencast">KnockoutJS Validations Screencast &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/';
+        var disqus_url = 'http://ApproachE.com/blog/issues-switching-to-jruby-from-mri-19/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

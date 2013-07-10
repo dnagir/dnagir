@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[smile | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/smile/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Apologetic Coder]]></title>
+    <link href="http://ApproachE.com/blog/apologetic-coder/"/>
+    <updated>2008-12-24T11:23:00+11:00</updated>
+    <id>http://ApproachE.com/blog/apologetic-coder</id>
+    <content type="html"><![CDATA[<div class='post'>
+Read <a href="http://thedailywtf.com/Articles/The_Apologetic_Coder.aspx" target="_blank">this</a> if the comment below has got your interest :)<br />
+<div>
+<pre style="background-color: #f4f4f4; border-style: none; color: black; font-family: consolas,'Courier New',courier,monospace; font-size: 8pt; line-height: 12pt; margin: 0em; overflow: visible; padding: 0px; width: 100%;"><span style="color: green;">/* This is bad. Reaaly bad. It's a really, really bad hack. If you're an employee of </span>
+<span style="color: green;"> * Intertrode Communication, then I'm really, really sorry that you have to maintain</span>
+<span style="color: green;"> * this. I was honestly planning on removing this tomorrow, but I've been known to </span>
+<span style="color: green;"> * forget things like this. It happens.</span>
+<span style="color: green;"> *</span>
+<span style="color: green;"> * So here's the thing. I can't seem to figure out why the AccountId variable isn't </span>
+<span style="color: green;"> * set. I've looked and looked, but I gotta leave now. Anyway, I've found that I can</span>
+<span style="color: green;"> * just grab the AccountID from the debugging logs.  I suppose that to fix it, you'd</span>
+<span style="color: green;"> * have to locate where it's clearing out the ID.</span>
+<span style="color: green;"> *</span>
+<span style="color: green;"> * Again, I'm sorry.</span>
+<span style="color: green;"> */</span></pre>
+</div>
+<br />
+I like some comments there:<br />
+<blockquote>
+<i>At least the code is<b> thoroughly</b> commented!!</i></blockquote>
+<blockquote>
+<i>Pre-emptive apology. The wave of the future.</i></blockquote>
+<blockquote>
+<i>I would like to hire this guy. Good laughs garanteed. He can generate new WTFs at a daily basis for team amusement.</i></blockquote>
+<blockquote>
+<i>So you wondered why you're bank's online site ran so slow?&nbsp; Now you know!&nbsp; ROFL</i></blockquote>
+<blockquote>
+<i>At least he was polite! And at least he didn't pretend that his solution was any good.</i></blockquote>
+<br />
+Just curious, where is this <a href="http://www.google.com/search?q=Intertrode+Communication" target="_blank">Intertrode Communication</a> company :)</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Viktor</div>
+<div class='content'>
+This is the first program code I've understood from the beginning till the end!</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Matrix. Can you read it?]]></title>
+    <link href="http://ApproachE.com/blog/matrix-can-you-read-it/"/>
+    <updated>2007-10-26T11:30:00+10:00</updated>
+    <id>http://ApproachE.com/blog/matrix-can-you-read-it</id>
+    <content type="html"><![CDATA[<div class='post'>
+I've just read an <a href="http://ayende.com/Blog/archive/2007/10/26/Must-resist.-decoding.aspx">article</a>.
+Ayende links to this <a href="http://blog.wekeroad.com/2007/10/25/thoughts-for-a-thursday/">message</a> which is just a text represented in binary.
+Like in a Matrix :)...
+
+If you want to decode it - you'll find the message interesting... A bit depressing, but I like to think about such kind of things.
+
+<span style="font-size: 55%;">If you are too lazy to decode it... <a href="http://dnagir.googlepages.com/RobConery-decoded.txt" target="_blank">Here it is.</a>
+</span>
+
+<span style="font-size: 55%;">And <a href="http://dnagir.googlepages.com/Ayende-decoded.txt" target="_blank">here</a> is what Ayende says about it :)
+</span></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Namespace called NUnit]]></title>
+    <link href="http://ApproachE.com/blog/namespace-called-nunit/"/>
+    <updated>2007-09-14T15:35:00+10:00</updated>
+    <id>http://ApproachE.com/blog/namespace-called-nunit</id>
+    <content type="html"><![CDATA[<div class='post'>
+Today I was looking for a compact and fast CSV reader and found one.
+It satisfies all my requirements.
+
+But when I was reading comments some guy had a problem and didn't know what to do with it.
+Ready? He wrote following:
+<span style="color: #660000; font-family: verdana; font-style: italic;"><span style="font-family: arial;">I downloaded the .NET 2.0 demo version, and it won't run because it is looking for a </span><span style="font-family: arial; font-weight: bold;">namespace called NUnit</span>.</span>
+
+The author is a really good guy - he politely answered to add reference to NUnit or remove NUnit project from solution.
+
+I was laughing some minutes of this. Are there people (developers) in the world who don't know about xUnit?
+
+Or maybe he is just not a developer... Or maybe he's just having fun asking it...
+There can be some excuses for him. But anyway it was very funny for me to see such kind of a question.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

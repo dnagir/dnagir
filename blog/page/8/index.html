@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="Very interesting solution to copying transferring data between objects: AutoMapper. AutoMapper uses a fluent configuration API to define an object- &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/page/8">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/automapper-object-to-object/">AutoMapper: Object-to-object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-05T10:00:00+10:00" pubdate data-updated="true">May 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Very interesting solution to copying transferring data between objects: <a href="http://www.codeplex.com/AutoMapper" target="_blank">AutoMapper</a>.<br />
+<blockquote>
+AutoMapper uses a fluent configuration API to define an object-object mapping strategy. AutoMapper uses a convention-based matching algorithm to match up source to destination values.</blockquote></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/nullreferenceexception-accessing-aspnet/">NullReferenceException Accessing ASP.NET MVC Route Values</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-28T10:33:00+10:00" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If by any chance you get NullReferenceException trying to access RouteValues in ASP.NET MVC make sure you have <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en" target="_blank">Visual Studio 2008 SP1</a> installed.<br />
+I’d recommend to <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=27673c47-b3b5-4c67-bd99-84e525b5ce61&amp;displaylang=en" target="_blank">download the ISO</a> because I had some problems using the web installer.<br />
+Have a look at <a href="http://forums.asp.net/p/1414895/3123105.aspx" target="_blank">this thread</a> for more details.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/elmah-error-logging-modules-and/">ELMAH – Error Logging Modules and Handlers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-24T10:13:00+10:00" pubdate data-updated="true">Apr 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+It seems it’s <a href="http://www.hanselman.com/blog/ELMAHErrorLoggingModulesAndHandlersForASPNETAndMVCToo.aspx" target="_blank">getting more popular</a>.<br />
+Located at: <a href="http://code.google.com/p/elmah/" title="http://code.google.com/p/elmah/">http://code.google.com/p/elmah/</a><br />
+The features (from the site):<br />
+<blockquote>
+<ul>
+<li>Logging of nearly all unhandled exceptions. </li>
+<li>A web page to remotely view the entire log of recoded exceptions. </li>
+<li>A web page to remotely view the full details of any one logged exception. </li>
+<li>In many cases, you can review the original <a href="http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#ASP.NET">yellow screen of death</a> that ASP.NET generated for a given exception, even with <tt>customErrors</tt> mode turned off. </li>
+<li>An e-mail notification of each error at the time it occurs. </li>
+<li>An RSS feed of the last 15 errors from the log. </li>
+<li>A number of backing storage implementations for the log, including in-memory, <a href="http://www.microsoft.com/sql/">Microsoft SQL Server</a> and several <a href="http://groups.google.com/group/elmah/files">contributed by the community</a>. </li>
+</ul>
+</blockquote>
+<br />
+<ul>
+<li>License: New BSD.</li>
+<li>Status at the time of this writing: 1.0 BETA 3 (build 10617)</li>
+</ul>
+<img src="http://elmah.googlecode.com/svn/wiki/homeshot.png" /></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/from-mstest-to-nunit/">From MsTest to NUnit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-21T17:32:00+10:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+That’s pretty easy to switch from MsTest to NUnit (or other xUnit framework, but I’ve decided I want NUnit). You need to do following steps:<br />
+<ol>
+<li>Change the Visual Studio project type:</li>
+<br />
+<ol>
+<li>Unload the project with tests.</li>
+<li>Remove &lt;ProjectTypeGuids&gt; node from there.</li>
+<li>Save and reload the project.</li>
+</ol>
+<br />
+<li>Replace Reference from MsTest to your xUnit.</li>
+<li>Replace using statements (Remove Microsoft.VisualStudio.TestTools.UnitTesting, add NUnit.Framework and optionally NUnit.Framework.SyntaxHelpers).</li>
+<li>Replace (just use Find and Replace in Files) [TestClass] to [TestFixture].</li>
+<li>Replace [TestMethod] to [Test].</li>
+<li>Replace [TestInitialize] to [SetUp].</li>
+<li>Replace [TestCleanup] to [TearDown]</li>
+<li>Now you should be able to compile the tests.</li>
+<li>Clean all the stuff from MsTest (TestResults folder, Solution Items that describe test data).</li>
+</ol>
+Pretty easy.<br />
+The note is (if you don’t know) that there’s no build-in runner for Visual Studio (unlike MsTes), so you’ll need to run tests:<br />
+<ol>
+<li>from outside of Visual Studio by GUI runner</li>
+<li>using <a href="http://testdriven.net/" target="_blank">TestDriven.NET</a></li>
+<li>using <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a>.</li>
+</ol>
+That’s it. I’m back with old good NUnit.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kit</div>
+<div class='content'>
+Very handy, thanks :)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mstest-not-executed-time-to-go-to/">MsTest - Not Executed – Time to Go to Normal xUnit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-21T13:45:00+10:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+For last couple of days I was trying to figure out why I’m getting “Not Executed” result for all my tests in a project.<br />
+The <a href="http://stackoverflow.com/questions/525578/why-are-all-my-visual-studio-test-results-not-executed" target="_blank">solution</a> (Is it that <a href="http://mrpmorris.blogspot.com/" target="_blank">Peter Morris</a> who posted it?) is to Unblock an assembly (in my case it was Microsoft.Web.Mvc.dll).<br />
+This issue, probably,&nbsp; is a typical example when exceptions are handled and eaten.<br />
+I’m not sure i want something similar to occur again and will probably move to more common unit testing framework like nUnit, MbUnit or xUnit later.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/simian-similarity-analyser/">Simian - Similarity Analyser</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-21T11:37:00+10:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>A new tool that I’ve discovered: “<em><strong>Simian can be used on any human readable files such as ini files, deployment descriptors, you name it.</strong></em>”</p>  <p><a title="http://www.redhillconsulting.com.au/products/simian/" href="http://www.redhillconsulting.com.au/products/simian/">http://www.redhillconsulting.com.au/products/simian/</a></p>  <blockquote>   <p>Simian catches these and other instances of duplication [as described on the original page] and can be configured to either flag them as warnings or even <i>&quot;break the build&quot;</i>, ensuring that copy and pasting never again causes you or your project problems.</p></blockquote>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/javascript-library-survey/">JavaScript Library Survey</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-17T16:18:00+10:00" pubdate data-updated="true">Apr 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Please help me to decide what library to choose for my everyday usage.<br />
+If you have some experience in that area please tell your word <a href="http://dcportal.argocomputing.com.au/CompleteForm.aspx?form=4:447" target="_blank">here</a>. Also please distribute this to as many colleges as you can.<br />
+Much appreciated!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Hi Alex,<br /><br />Thanks for that. I&#8217;m aware of that. But had to mention that I&#8217;m not looking for server-side specific library. Instead I want it to be platform independent. Or at the very bad end - .NET specific :)<br /><br />Another thing is that I really had to include MootTools. But, honestly, for me the choice is between jQuery and YUI at this stage.<br /><br />I had enough licensing problems with ExtJS and I don&#8217;t want to deal with it again.<br /><br />Cheers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Well, you have forgot Google Web Toolkit (http://code.google.com/webtoolkit/) and MooTools (http://mootools.net/) <br /><br />First one is really coooool for large javascript projects - it performs some optimizations during java2js compilation, and second one is one used by some people for small projects well. <br /><br />By the way ,there&#8217;s analog of extjs built for google web tookit. Here&#8217;s their demo: http://extjs.com/explorer/<br /><br />It is called ext-gwt</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/whats-around-for-last-months/">What’s Around for Last Months</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-09T17:01:00+10:00" pubdate data-updated="true">Apr 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I haven’t been blogging for a while and even thought about giving it up. Sometimes I just didn&#8217;t have time.<br />
+But i want to recover a bit and write at least summary of thing I would like to write about.<br />
+<br />
+For now I’ll just post the summary of the most interesting/exciting thing that happened during last months. So here we go:<br />
+<ul>
+<li>Official ASP.NET MVC Release. It still has a lot of thing to improve, but I enjoy it. I mean it. I really do. And even wrote my own library with different extensions. Also MvcContrib’s <a href="http://www.jeremyskinner.co.uk/2009/02/08/rewriting-the-mvccontrib-grid/" target="_blank">Grid</a> is pretty exciting now (not very good with paging, filtering, sorting but still).</li>
+<li><a href="http://extjs.com/blog/2009/04/04/ext-core-30-beta-released/" target="_blank">Recently release ExtJs Core</a>. This is MIT licensed, cut version of ExtJS (whiGPL-licensed). It supports the DOM manipulations, Ajax, effects etc. Well. everything that any other JavaScript library does. Why I put this here? We need to remember that ExtJS used to <b>L</b>GPL licensed which allowed to deploy it. A lot of <a href="http://extjs.com/forum/showthread.php?t=33096" target="_blank">issues were raised</a> when it became GPL licensed. So they release part of it with very permissive MIT license. Good for those to transfer from old LGPL ExtJS to this one, even if it’s cut down. (I think I would still prefer jQuery instead, they did change license to more strict once, so they can completely make it commercial).</li>
+<li>A lot of talks around <a href="http://www.google.com.au/search?q=Google+becomes+evil" target="_blank">Google becomes evil</a> (yep, the link is Google search:)).</li>
+<li><a href="http://blog.codeville.net/2009/03/27/first-steps-with-lightweight-test-automation-framework/" target="_blank">Lightweight Test Automation Framework</a>. Wanted to play with it. No time found.</li>
+<li>IE8 has been released. Get ready to go and fix all the things on all websites. I don’t like when a new major version of any browser is released :)</li>
+<li>Real-life code sample: <a href="http://ayende.com/Blog/archive/2009/03/19/how-not-to-write-a-logger.aspx" target="_blank">How NOT to write a logger</a> (have fun).</li>
+<li><a href="http://www.hanselman.com/blog/FreeASPNETMVCEBookNerdDinnercomWalkthrough.aspx" target="_blank">Free ASP.NET MVC Book</a>.</li>
+<li><a href="http://www.capableobjects.com/apps/InstantKB13/KnowledgebaseArticle50020.aspx" target="_blank">ECO5</a> gets released soon. It seems there’s still no ability to extend operations executed on the Database Server. Linq2Eco is far from supporting everything that Linq2Sql does. All other is great.</li>
+<li>Reminder. ding, ding: <a href="http://www.codinghorror.com/blog/archives/001210.html" target="_blank">Most Dangerous Programming mistakes</a>.</li>
+<li><a href="http://blog.codeville.net/2009/01/10/xval-a-validation-framework-for-aspnet-mvc/" target="_blank">xVal</a> – validation framework for MVC. Woth looking at.</li>
+<li><a href="http://mrpmorris.blogspot.com/2009/04/my-first-aop_08.html" target="_blank">AOP</a> in Delphi – it’s better than just PostSharp because you can use the Aspects (PostSharp just postcompiles it)</li>
+<li>Probably something else…</li>
+</ul>
+I have been working on a project with Ms Access fron-end and Sql Server back-end. I’ll write another story about it. Can tell in a short that I had a lot of fun (mostly hysterical). Sometimes I hated it, sometimes I loved. Good old client-server DOESN’T suck.<br />
+<br />
+Now leaving office and going for holidays!<br />
+<br />
+<b>Happy Easter!</b></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/my-car/">My Car</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-02T17:56:00+11:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>We<img style="margin: 0px 20px 0px 0px" height="207" src="http://lh5.ggpht.com/_6a0bIbZ1HXw/SYaXHRRZ-sI/AAAAAAAAEGE/7X4riRbiuMg/s720/DSCN2600.JPG" width="276" align="left" />&#8216;ve recently bought a car. Nothing funky, just a good one to drive from point A to point B. </p>  <p>That&#8217;s 2000 Mazda 323 Astina 1.6 Hatchback (Manual). Despite it&#8217;s economical and small engine (1.6L) it drives very good even with air-con turned on at maximum.</p>  <p>Couple of problems I have had so far are:</p>  <ul>   <li>Wipers&#8217; liquid seems to be leaking. Not found where yet. </li>    <li>Replaced right lamp of breaking light. </li> </ul>  <p>The official name of this car is <em><strong>Astina Mazdovna</strong></em> :)     <br /></p>  <p>&#160;</p>  <p>I actually was looking for good car no more than 100000 KM and 5 years old and we would not buy this car at all if would not been so well service with only one lady owner for all the 9 years.</p>  <p>It looks just a new one. I hardly was able to find any rust. It has all the factory appliances, including 6 disks CD changer. But it&#8217;s located in a weird place - under the front passenger seat, which is pretty much a factory standard (probably just to save place).</p>  <p>The car itself is pretty small but it was made the way to increase interior space. Sounds interesting. Mazda decreased general size of the car, but increased the space inside. The interior space is comparable to Toyota Corolla.</p>  <p>See couple of <a href="http://picasaweb.google.com/dnagir/MyCar" target="_blank">photos</a>.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I do :) Thanks</div>
+</div>
+<div class='comment'>
+<div class='author'>ZAM</div>
+<div class='content'>
+Nice car! Good choice! Drive with pleasure!</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Thanks</div>
+</div>
+<div class='comment'>
+<div class='author'>KrugVS</div>
+<div class='content'>
+I congratulate you! Happy driving!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/comments-in-ms-access/">Comments in MS Access</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-16T10:43:00+11:00" pubdate data-updated="true">Jan 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+It turns out that MS Access 2003 just doesn&#8217;t support comments in the SQL statement. I never new it because of I didn&#8217;t use Access much. But it is ridiculous.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

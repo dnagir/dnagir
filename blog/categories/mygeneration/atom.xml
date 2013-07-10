@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[mygeneration | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/mygeneration/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MyGeneration]]></title>
+    <link href="http://ApproachE.com/blog/mygeneration/"/>
+    <updated>2009-05-27T13:38:00+10:00</updated>
+    <id>http://ApproachE.com/blog/mygeneration</id>
+    <content type="html"><![CDATA[<div class='post'>
+Another useful code generation tool.<br />
+Site: <a href="http://www.mygenerationsoftware.com/" title="http://www.mygenerationsoftware.com">http://www.mygenerationsoftware.com</a><br />
+Licence: Proprietary, free. Does not allow distribution or linking to the product.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

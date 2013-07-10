@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[web | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating from Blogger to Octopress]]></title>
+    <link href="http://ApproachE.com/blog/migrating-from-blogger-to-octopress/"/>
+    <updated>2012-03-04T20:09:00+11:00</updated>
+    <id>http://ApproachE.com/blog/migrating-from-blogger-to-octopress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been a Blogger user since 2006 and decided to switch over to something more geeky.</p>
+
+<p>This post will cover some of the reasons for that and also will provide an overview
+of how to migrate from Blogger to Octopress.</p>
+
+<h2>What do I want to achieve?</h2>
+
+<ul>
+<li><strong>Merging</strong> my personal site and blog &ndash; those were totally separate, unrelated entities, not good enough.</li>
+<li>Write <strong>more often</strong>, using the same tools I use on a daily basis (Vim ATM).</li>
+<li>More <strong>hands-on</strong> kind of blogging, I actually do want to do the dirty work messing with HTML/CSS etc.</li>
+</ul>
+
+
+<h2>Reasons for switching:</h2>
+
+<ul>
+<li><strong>Markdown, HAML, bare bones HTML</strong>. I wanted to have a bit more control over how my blog looks like.</li>
+<li><strong>Blogging software</strong> isn&rsquo;t good enough. Unfortunately I haven&rsquo;t found yet a good <strong>geeky</strong> S/W for blogging.</li>
+<li><strong>Easier to write</strong> from Vim. Writing is much easier, not moving my hands off the keyboard and staying in the terminal.</li>
+<li><strong>Version controlled</strong>. Nice to have, but not crucial for me.</li>
+</ul>
+
+
+<h2>Why I didn&rsquo;t want to switch:</h2>
+
+<ul>
+<li>Losing <strong>PageRank</strong>, which shouldn&rsquo;t really be an issue (see below).</li>
+<li><strong>Uncerteinities</strong>. So now I have to maintain it myself? Take care of updates? Hell, yeah!</li>
+<li><strong>Self-hosted</strong>. Nothing to say here.</li>
+<li>I have never ever needed to do anything with the blog in terms of maintenance while being on Blogger. I really just worked.</li>
+</ul>
+
+
+<p>Switching to a self-hosted blog/site will require a bit of involvement from me.
+But this is something I am willing to take. It&rsquo;s time to take my ass out of the comfy couch of Blogger.</p>
+
+<h2>So how to actually migrate?</h2>
+
+<p>I would split it into the following larger steps:</p>
+
+<ol>
+<li>Preparation.</li>
+<li>Deployment.</li>
+<li>Finalisation.</li>
+</ol>
+
+
+<h2>Preparation</h2>
+
+<p>At this stage you need to <a href="http://octopress.org/docs/setup">setup the Octopress itself</a>, <a href="http://octopress.org/docs/configuring">configure</a> it and import your existing posts from Blogger.</p>
+
+<p>I won&rsquo;t go into details how to <a href="http://octopress.org/docs/theme">customise</a> and set it up, you see the links.</p>
+
+<p>I&rsquo;ll go directly into the migrating the Blogger posts over to Octopress.</p>
+
+<p>What you need to do is</p>
+
+<ol>
+<li>Export your Blogger posts.</li>
+<li>Use <a href="https://gist.github.com/1765496">this script</a> to import it into Octopress.</li>
+</ol>
+
+
+<p>After you do this, all you&rsquo;ll get a bunch of posts that are already part of your site.
+Double check whether everything is correct or not. You may want to tweak the script for your needs.</p>
+
+<p><em>Note</em> that the script also imports the comments, but in a little ugly way.
+(<em>TIP</em>, you may want to disable commenting before exporting the posts from Blogger).</p>
+
+<p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won&rsquo;t be lost.
+I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
+
+<p>Now that you&rsquo;ve got your posts, you want to set-up the redirection from your blog to your new site.</p>
+
+<p>I prepared <a href="https://github.com/dnagir/approache-redirects/blob/master/app.rb">simple Sinatra application</a> for that.
+You definitely want to fork and tweak it to your needs. Note that I&rsquo;m not using the <code>blog/YYYY/MM/DD/title</code> format.
+I just use the <code>blog/title</code> format.</p>
+
+<p>Now go ahead and deploy this app. I&rsquo;ve decided to use Heroku for that which is the simplest and easiest way to go.</p>
+
+<p>But <strong>make sure you deploy to the domain of your blog</strong>. For example, my Blogger blog was hosted on the <code>blog.approache.com</code> and I deployed it to this domain.</p>
+
+<p>It of course will not take any affect until you change your DNS settings.
+But this will enable permanent redirects immediately when you&rsquo;ll do that (thus preserving all your old links).</p>
+
+<h2>Deployment</h2>
+
+<p>By now you should have:</p>
+
+<ul>
+<li>The Octopress site ready to go (with all the posts migrated).</li>
+<li>Blogger redirection deployed.</li>
+</ul>
+
+
+<p>It&rsquo;s time to go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.</p>
+
+<p>I wanted to merge <code>blog.approache.com</code> into the <code>approache.com</code> so I deployed the new site to <code>approache.com</code>
+(hosted on <em>Github Pages</em>).</p>
+
+<p>Now make sure everything is working properly and you have dome everything right.
+If you&rsquo;ve missed something out, then go ahead and fix it. Then redeploy.</p>
+
+<p>This may take a couple of iterations to get it right.</p>
+
+<p>The point here is that you basically now have 2 blogs &ndash; one is the old Blogger, the other &ndash; the Octopress.
+You can experiment with the Octopress here, but don&rsquo;t do it for too long (I would say max of 1 day).</p>
+
+<p>After you&rsquo;re happy with the new site and blog it&rsquo;s time to finalise everything.</p>
+
+<h2>Finalisation</h2>
+
+<p>Next step is to make sure your subscribers will still receive updates through the FeedBurner.
+For that:</p>
+
+<ol>
+<li>Sign in into FeedBurner.</li>
+<li>Replace the original feed URL by the Octopress' one (which is something like <code>http://ApproachE.com/atom.xml</code>).</li>
+</ol>
+
+
+<p>By now you should be ready to switch your your Blogger domain to your main site.</p>
+
+<p>You probably will do it simply by changing your DNS record to point to your Octopress server.
+In my case I had to change the DNS record from <code>blog - CNAME - ghs.google.com</code> to <code>. - A - 207.97.227.245</code> (dot means top-level domain here).</p>
+
+<p>Since you&rsquo;ve already deployed your redirection app, all the old links will still work.
+All the PageRank should be preserved.</p>
+
+<p>The very last thing to do is to <strong>disable the Blogger</strong> if you want to.</p>
+
+<h2>Summary</h2>
+
+<p>Switching to Octopress was relatively painless thanks to Blogger&rsquo;s ability to export posts and the script that could import it into Octopress.</p>
+
+<p>Preserving URL was relatively easy too and the rest was left to FeedBurner and DNS hosting.</p>
+
+<p>Hope this is helpful for you.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Screencasts for this weekend]]></title>
+    <link href="http://ApproachE.com/blog/screencasts-for-this-weekend/"/>
+    <updated>2010-12-13T09:53:00+11:00</updated>
+    <id>http://ApproachE.com/blog/screencasts-for-this-weekend</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>This weekend I was watching the screencasts instead of Sunday movies. It left me with a lot of inspiration and impressions. So I thought I would share the stuff you might also be interested in:</p>  <ol>   <li><a href="http://tekpub.com/conferences/ndc2010/aspnet-mvc-vs-ruby-on-rails---the-net-rocks-smackdown">ASP.NET MVC vs Ruby on Rails - The .NET Rocks Smackdown</a></li>    <li><a href="http://tekpub.com/conferences/rubyconf2010/dhh">Why Ruby?</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/testing-csharp-and-aspnet-applications-with-ruby">Testing C# and ASP.NET Applications with Ruby</a></li>    <li><a href="http://tekpub.com/conferences/ndc2010/ruby-for-net-developers">Ruby for .NET developers</a> (Scott Belware is awesome BTW)</li>    <li><a href="http://tekpub.com/conferences/ndc2010/riding-ironruby-on-rails">Riding IronRuby On Rails</a></li> </ol>  <p>&#160;</p>  <p>Other things are:</p>  <ol>   <li><a title="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive" href="http://tekpub.com/conferences/ndc2010/monotouch-deep-dive">MonoTouch DeepDive</a></li>    <li><a href="http://peepcode.com/pages/rails-3-screencasts">Meet Rails 3</a> by PeepCode (a producer of high-quality screencasts)</li> </ol>  <p>I think if you are a software engineer with open mind then you do need to watch some of the videos. This is especially true if you are a .NET developer who wants to explore other areas and technologies.</p>  </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby On Rails vs ASP.NET MVC]]></title>
+    <link href="http://ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc/"/>
+    <updated>2010-11-28T23:59:00+11:00</updated>
+    <id>http://ApproachE.com/blog/ruby-on-rails-vs-aspnet-mvc</id>
+    <content type="html"><![CDATA[<div class='post'>
+I have been watching the ASP.NET MVC vs Ruby On Rails talk from the <a href="http://tekpub.com/conferences/ndc2010">Norwegian Developers Conference 2010</a> and just want to make a number of quotes that I particularly liked. My apologies if I missed something, but I believe it would be interesting to read it for those who don’t want to spend 48 minutes to watch the whole thing. I believe the quotes here really summarise the atmosphere during the talk.<br />
+So here we go:<br />
+<blockquote>
+Rails was extracted from the real world work sweat, blood, tears, everything..</blockquote>
+And it feels like it is.<br />
+<blockquote>
+ASP.NET MVC is a "me too" framework - trying to compete with other solutions. ASP.NET MVC is not part of the story for WebForms, not quite fit.</blockquote>
+Aha. Try to tell WebForms guy about MVC :)<br />
+<blockquote>
+Microsoft promotes it as an option. Option for what?</blockquote>
+These words from Rob Conery probably mean that MVC is something that was not “designed” to be mainstream. But rather an “option” for… well web development on .NET.<br />
+<blockquote>
+[About TekPub]…rewrite point for startup - reconsidered BizSpark. We wanted to stay small.We needed fast, easy framework. Up in the cloud, scalable, zero cost, everything.</blockquote>
+There was a lot of buzz behind the <a href="http://blog.approache.com/2010/05/quotes-moving-from-aspnet-mvc-to-ruby.html">decision to move to Rails</a> by Rob Conery who was a .NET advocate. But it was a happy business AND technical decision.<br />
+<blockquote>
+Rails came out of a need. MVC hasn't. NHibernate came out of a need. Entity Framework hasn't. It's always the same: solving problems they personally don't have, so they are not in the context of their problems.<br />
+Microsoft projects often come out of suppositions.</blockquote>
+That is very common with Microsoft. They have to be everywhere and at the same time nowhere. Anything “new” that comes out from Microsoft has already been adopted and they are just catching up.<br />
+<blockquote>
+Dell is rebuilding everything in <a href="http://asp.net/">ASP.NET</a> MVC (instead of WebForms).</blockquote>
+Good for them. In any case, ASP.NET MVC&nbsp; IS a good thing to have in .NET world. And that’s my preference for Web development in .NET. Probably same goes with Dell.<br />
+<blockquote>
+MVC redirected the attention back to .NET after .NET Web developers started moving to Rails.</blockquote>
+True. And in fact, most of the features of ASP.NET MVC were borrowed from Rails. So that was one of the easiest ways to hold .NET gurus back.<br />
+<blockquote>
+Why would .NET developers move to Rails?      <br />Testing in rails is…uhh… it’s something you realise when you do it. Testing tools like RSpec and Cucumbet are just natural.       <br />Deployment – Capistrano, Heroku – just unbelievable.</blockquote>
+Cannot agree more on this. Testing “just works”, deployment “just works” it all “just works”.<br />
+<blockquote>
+In .NET we like to overcomplicate ourselves. Something too simplistic can’t be good. [No worries with SRP principle – objects aware of the persistence and similar].      <br />In .NET we question more.</blockquote>
+Speaking about myself, I do agree with it. Partially due to the nature of .NET (C#), partially because testing is harder, but also just because .NET developers try to solve problems in advance assuming those will exists (while in many cases they will not).<br />
+<blockquote>
+The MVC/MonoRail and Ruby On Rails have the same features.</blockquote>
+Read on…<br />
+<blockquote>
+You have the same names of the features, but the experience is dramatically different. There’s incredible amount of software out of the box to do anything.      <br />ASP.NET NVC hasn’t even got a plug-in mechanism.</blockquote>
+So true! So true!<br />
+<blockquote>
+Why do we have to wait for 2 years to get the innovation that we already have available to us right now in Rails?</blockquote>
+The rails community moves with small changes all the time, while .NET – with large in couple of years time. So for Rails it is a normal evolution, while for .NET it is rather a revolution.<br />
+<blockquote>
+[about Rails]… it means you are building a web site, and you are not rebuilding the stuff that has already been built. You are building Business.</blockquote>
+Oh, yes. Having higher level plug-ins (nearly as Service-Oriented-Architecture components) it opens much more opportunities for business.<br />
+<blockquote>
+Not everybody is fortunate of making decisions at work [on choosing technology].</blockquote>
+Try to push a new technology in a corporate environment with all the bureaucratic procedures. No f…ing way! Unless you are the one who decides.<br />
+<blockquote>
+Building web sites on .NET is about building web sites in a corporate environment. And that’s not about productivity. That’s not about really, really, really compressed budget where every decision is your life and death decision…[and then] It’s like we have a budget, but is is rather a suggestion.</blockquote>
+Not much to comment on here. Don’t care about money – you are a .NET shop. Otherwise – probably Rails.<br />
+<blockquote>
+It’s about how fast you can turn your ideas into money.</blockquote>
+Well said!<br />
+<blockquote>
+Most of the cost of long lived projects is re-learning. Ruby code is just scan and get it.</blockquote>
+Indeed, Rails, would not even exist without such a beautiful language as Ruby. It makes code easy to understand.<br />
+<blockquote>
+In Ruby there is just less code to see where a problem might be. A lot less code! And the code is so usable that you can really spot the problems really quickly.</blockquote>
+Again so true. Just have a look, for example, at some OSS projects. They do so much with so little code. That’s just amazing.<br />
+<br />
+At the end, I must admit that I do like the .NET platform, but Ruby and Rails just feels much better to me and ALL of the things I currently do for myself, I do using Ruby/Rails.<br />
+It is just much more fun!</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Twitter ...<br /><br />Remember running your site in .NET or RoR is not going to make a whole lot of difference in speed if your database architecture sucks or your website does alot of IO.<br /><br />ex. alot of Google&#39;s products are written in Python but thats just a front alot of the actual business logic is probably implemented in the back in Java or whatever they prefer.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Check benchmarks on the web, java and .net have better performance.<br /><br />Also, i&#39;d like to know a big app (300 tables and millions of entries) on RoR.<br /><br />Visual Studio is a big thing also.<br /><br />But, normally i use rails for blogs and websites x)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I expected a serious comparison but instead I get an idiot ranting about no further innovation needed because he found something he likes.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+So biased. One more thing, rails is designed as dsl for web apps while .net is platform for everything in windows.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+haha, soooo biased.... and lame.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alex Kaushovik</div>
+<div class='content'>
+Rails is the best!</div>
+</div>
+<div class='comment'>
+<div class='author'>4nkh</div>
+<div class='content'>
+Long live to ROR!!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>p()thesis</div>
+<div class='content'>
+Good post.  I&#39;m a PHP/Rails developer considering venturing into .NET development, so I find this helpful.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What realy "Web 2.0" is...]]></title>
+    <link href="http://ApproachE.com/blog/what-realy-web-20-is/"/>
+    <updated>2007-01-31T18:38:00+11:00</updated>
+    <id>http://ApproachE.com/blog/what-realy-web-20-is</id>
+    <content type="html"><![CDATA[<div class='post'>
+Web 2.0 is new generation of web based applications.
+<span id="intellitTxt"><a class="pageTitle" href="" id="#Page7">
+<span style="font-weight: bold;">Key Principles
+</span></a></span>In the opening talk of the first <a href="http://www.web2con.com/">web 2.0 conference</a>, Tim O’Reily and John Battelle summarized key principles of web 2.0 applications:              <br />
+<ol>
+<li>Web as platform, reach out to the entire web not just the center.
+</li>
+<li>Harnessing collective intelligence, turning the web into a kind of global brain.
+</li>
+<li>Data is the next Intel inside.
+</li>
+<li>End of Software release cycle, i.e. Operations must become a core competency and Users must be treated as co-developers, in a reflection of open source development practices.
+</li>
+<li>Lightweight programming models to build loosely coupled systems and allow syndication.
+</li>
+<li>Software above the level of a single device i.e. not limited to any specific platform, technology and devices.
+</li>
+<li>Rich user experience i.e. enabling user to use web as a medium to collaborate, classify and editing etc.</li>
+</ol>
+Also read full <a href="http://aspalliance.com/1135_Myths_and_Realities_of_Web_20">article</a> about it.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

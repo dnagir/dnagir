@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[blogging | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/blogging/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating from Blogger to Octopress]]></title>
+    <link href="http://ApproachE.com/blog/migrating-from-blogger-to-octopress/"/>
+    <updated>2012-03-04T20:09:00+11:00</updated>
+    <id>http://ApproachE.com/blog/migrating-from-blogger-to-octopress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been a Blogger user since 2006 and decided to switch over to something more geeky.</p>
+
+<p>This post will cover some of the reasons for that and also will provide an overview
+of how to migrate from Blogger to Octopress.</p>
+
+<h2>What do I want to achieve?</h2>
+
+<ul>
+<li><strong>Merging</strong> my personal site and blog &ndash; those were totally separate, unrelated entities, not good enough.</li>
+<li>Write <strong>more often</strong>, using the same tools I use on a daily basis (Vim ATM).</li>
+<li>More <strong>hands-on</strong> kind of blogging, I actually do want to do the dirty work messing with HTML/CSS etc.</li>
+</ul>
+
+
+<h2>Reasons for switching:</h2>
+
+<ul>
+<li><strong>Markdown, HAML, bare bones HTML</strong>. I wanted to have a bit more control over how my blog looks like.</li>
+<li><strong>Blogging software</strong> isn&rsquo;t good enough. Unfortunately I haven&rsquo;t found yet a good <strong>geeky</strong> S/W for blogging.</li>
+<li><strong>Easier to write</strong> from Vim. Writing is much easier, not moving my hands off the keyboard and staying in the terminal.</li>
+<li><strong>Version controlled</strong>. Nice to have, but not crucial for me.</li>
+</ul>
+
+
+<h2>Why I didn&rsquo;t want to switch:</h2>
+
+<ul>
+<li>Losing <strong>PageRank</strong>, which shouldn&rsquo;t really be an issue (see below).</li>
+<li><strong>Uncerteinities</strong>. So now I have to maintain it myself? Take care of updates? Hell, yeah!</li>
+<li><strong>Self-hosted</strong>. Nothing to say here.</li>
+<li>I have never ever needed to do anything with the blog in terms of maintenance while being on Blogger. I really just worked.</li>
+</ul>
+
+
+<p>Switching to a self-hosted blog/site will require a bit of involvement from me.
+But this is something I am willing to take. It&rsquo;s time to take my ass out of the comfy couch of Blogger.</p>
+
+<h2>So how to actually migrate?</h2>
+
+<p>I would split it into the following larger steps:</p>
+
+<ol>
+<li>Preparation.</li>
+<li>Deployment.</li>
+<li>Finalisation.</li>
+</ol>
+
+
+<h2>Preparation</h2>
+
+<p>At this stage you need to <a href="http://octopress.org/docs/setup">setup the Octopress itself</a>, <a href="http://octopress.org/docs/configuring">configure</a> it and import your existing posts from Blogger.</p>
+
+<p>I won&rsquo;t go into details how to <a href="http://octopress.org/docs/theme">customise</a> and set it up, you see the links.</p>
+
+<p>I&rsquo;ll go directly into the migrating the Blogger posts over to Octopress.</p>
+
+<p>What you need to do is</p>
+
+<ol>
+<li>Export your Blogger posts.</li>
+<li>Use <a href="https://gist.github.com/1765496">this script</a> to import it into Octopress.</li>
+</ol>
+
+
+<p>After you do this, all you&rsquo;ll get a bunch of posts that are already part of your site.
+Double check whether everything is correct or not. You may want to tweak the script for your needs.</p>
+
+<p><em>Note</em> that the script also imports the comments, but in a little ugly way.
+(<em>TIP</em>, you may want to disable commenting before exporting the posts from Blogger).</p>
+
+<p>Next thing you want to do is to update your Octopress RSS feed URL so that existing subscribers won&rsquo;t be lost.
+I am using FeedBurner and I had to set <code>subscribe_rss: http://feeds.feedburner.com/DmitriyNagirnyak</code> in the <code>_config.yml</code></p>
+
+<p>Now that you&rsquo;ve got your posts, you want to set-up the redirection from your blog to your new site.</p>
+
+<p>I prepared <a href="https://github.com/dnagir/approache-redirects/blob/master/app.rb">simple Sinatra application</a> for that.
+You definitely want to fork and tweak it to your needs. Note that I&rsquo;m not using the <code>blog/YYYY/MM/DD/title</code> format.
+I just use the <code>blog/title</code> format.</p>
+
+<p>Now go ahead and deploy this app. I&rsquo;ve decided to use Heroku for that which is the simplest and easiest way to go.</p>
+
+<p>But <strong>make sure you deploy to the domain of your blog</strong>. For example, my Blogger blog was hosted on the <code>blog.approache.com</code> and I deployed it to this domain.</p>
+
+<p>It of course will not take any affect until you change your DNS settings.
+But this will enable permanent redirects immediately when you&rsquo;ll do that (thus preserving all your old links).</p>
+
+<h2>Deployment</h2>
+
+<p>By now you should have:</p>
+
+<ul>
+<li>The Octopress site ready to go (with all the posts migrated).</li>
+<li>Blogger redirection deployed.</li>
+</ul>
+
+
+<p>It&rsquo;s time to go ahead and actually <a href="http://octopress.org/docs/deploying">deploy</a> your Octopress site.</p>
+
+<p>I wanted to merge <code>blog.approache.com</code> into the <code>approache.com</code> so I deployed the new site to <code>approache.com</code>
+(hosted on <em>Github Pages</em>).</p>
+
+<p>Now make sure everything is working properly and you have dome everything right.
+If you&rsquo;ve missed something out, then go ahead and fix it. Then redeploy.</p>
+
+<p>This may take a couple of iterations to get it right.</p>
+
+<p>The point here is that you basically now have 2 blogs &ndash; one is the old Blogger, the other &ndash; the Octopress.
+You can experiment with the Octopress here, but don&rsquo;t do it for too long (I would say max of 1 day).</p>
+
+<p>After you&rsquo;re happy with the new site and blog it&rsquo;s time to finalise everything.</p>
+
+<h2>Finalisation</h2>
+
+<p>Next step is to make sure your subscribers will still receive updates through the FeedBurner.
+For that:</p>
+
+<ol>
+<li>Sign in into FeedBurner.</li>
+<li>Replace the original feed URL by the Octopress' one (which is something like <code>http://ApproachE.com/atom.xml</code>).</li>
+</ol>
+
+
+<p>By now you should be ready to switch your your Blogger domain to your main site.</p>
+
+<p>You probably will do it simply by changing your DNS record to point to your Octopress server.
+In my case I had to change the DNS record from <code>blog - CNAME - ghs.google.com</code> to <code>. - A - 207.97.227.245</code> (dot means top-level domain here).</p>
+
+<p>Since you&rsquo;ve already deployed your redirection app, all the old links will still work.
+All the PageRank should be preserved.</p>
+
+<p>The very last thing to do is to <strong>disable the Blogger</strong> if you want to.</p>
+
+<h2>Summary</h2>
+
+<p>Switching to Octopress was relatively painless thanks to Blogger&rsquo;s ability to export posts and the script that could import it into Octopress.</p>
+
+<p>Preserving URL was relatively easy too and the rest was left to FeedBurner and DNS hosting.</p>
+
+<p>Hope this is helpful for you.</p>
+]]></content>
+  </entry>
+  
+</feed>

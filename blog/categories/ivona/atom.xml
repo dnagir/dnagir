@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[ivona | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/ivona/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ivonna – ASP.NET Testing Tool]]></title>
+    <link href="http://ApproachE.com/blog/ivonna-aspnet-testing-tool/"/>
+    <updated>2009-05-06T12:20:00+10:00</updated>
+    <id>http://ApproachE.com/blog/ivonna-aspnet-testing-tool</id>
+    <content type="html"><![CDATA[<div class='post'>
+<blockquote>
+<a href="http://sm-art.biz/Ivonna.aspx" target="_blank">Ivonna</a> is an Asp.Net testing tool that allows writing unit tests for your Asp.Net applications. What makes it different is that Ivonna runs in the same process as the test runner.</blockquote>
+The tool has 21 day fully functional trial period. It tightly relies on <a href="http://www.typemock.com/" target="_blank">TypeMock</a> (you should even buy it from there).<br />
+Might be worth to check it out.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

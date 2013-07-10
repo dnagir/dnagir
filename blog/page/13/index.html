@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="I spent the whole evening trying to figure out what&#8217;s going on when I run the code: 1: private static Product GetProduct(MyDbDataContext db) 2 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/page/13">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/playing-with-linq2sql-no-inserts-on/">Playing With Linq2Sql - No INSERTs on SubmitChanges</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-07T11:54:00+10:00" pubdate data-updated="true">May 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I spent the whole evening trying to figure out what&#8217;s going on when I run the code:</p>  <div>   <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">     <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">private</span> <span style="color: #0000ff">static</span> Product GetProduct(MyDbDataContext db)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>     Product p = db.Products.FirstOrDefault(x =&gt; <span style="color: #0000ff">true</span>);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>     <span style="color: #0000ff">if</span> (p == <span style="color: #0000ff">null</span>)</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>         <span style="color: #008000">// Insert a a product if not available yet</span></pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>         p = <span style="color: #0000ff">new</span> Product</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         {</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>             Name = <span style="color: #006080">&quot;PROD &quot;</span> + DateTime.Now.ToString()</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>         };</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>         db.Products.InsertOnSubmit(p);</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>         db.UpdateDatabase();</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>     }</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>     <span style="color: #0000ff">return</span> p;</pre>
+
+    <pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span> }</pre>
+  </div>
+</div>
+
+<p>After I run the code and check the database there are <strong>no records</strong> available in the table.
+
+  <br />What can be wrong with this really simple code? (Well, I&#8217;m just playing with it so there&#8217;s lots of place of improvement).</p>
+
+<p>The answer is <em>nothing</em>. It is a console application and uses a database copied to Debug directory. So the debug database is used instead of the one you design and work with.</p>
+
+<p><strong>Solutions.</strong></p>
+
+<ol>
+  <li>User absolute path in the connection string. So instead of this one &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>DataDirectory</strong>|\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot; use something like &quot;<font face="Courier New">Data Source=.\SQLEXPRESS;AttachDbFilename=|<strong>D:\YourPath</strong>\MyDb.mdf;Integrated Security=True;User Instance=True</font>&quot;</li>
+
+  <li>Override DataDirectory at runtime (step 2 directories up from current path .\bin\Debug) using <font face="Courier New">AppDomain.CurrentDomain.SetData(&quot;DataDirectory&quot;, Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName);</font></li>
+
+  <li>Something else?</li>
+</ol>
+
+<p>Thanks to this <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3208988&amp;SiteID=1" target="_blank">forum post</a> for figuring it out.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learning-linq-101-samples/">Learning LINQ - 101 Samples</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-06T18:20:00+10:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have just found very useful page on MSDN: <a href="http://msdn.microsoft.com/en-us/vcsharp/aa336746.aspx" target="_blank">101 Linq Samples</a>. Should be very useful reference for lots devs.</p>  <p>Here&#8217;s just a quick copy-paste:</p>  <h5>Restriction Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple1">Where - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple2">Where - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereSimple3">Where - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereDrilldown">Where - Drilldown</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336760#WhereIndexed">Where - Indexed</a></li> </ul>  <h5>Projection Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple1">Select - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectSimple2">Select - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectTransformation">Select - Transformation</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes1">Select - Anonymous Types 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes2">Select - Anonymous Types 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectAnonymousTypes3">Select - Anonymous Types 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectIndexed">Select - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectFiltered">Select - Filtered</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom1">SelectMany - Compound from 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom2">SelectMany - Compound from 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyCompoundfrom3">SelectMany - Compound from 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyfromAssignment">SelectMany - from Assignment</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyMultiplefrom">SelectMany - Multiple from</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336758#SelectManyIndexed">SelectMany - Indexed</a></li> </ul>  <h5>Partitioning Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeSimple">Take - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeNested">Take - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipSimple">Skip - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipNested">Skip - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#TakeWhileSimple">TakeWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileSimple">SkipWhile - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336757#SkipWhileIndexed">SkipWhile - Indexed</a></li> </ul>  <h5>Ordering Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple1">OrderBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple2">OrderBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#simple3">OrderBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#comparer">OrderBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple1">OrderByDescending - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descSimple2">OrderByDescending - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#descComparer">OrderByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenBySimple">ThenBy - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByComparer">ThenBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescendingSimple">ThenByDescending - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#thenByDescComparer">ThenByDescending - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336756#reverse">Reverse</a></li> </ul>  <h5>Grouping Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple1">GroupBy - Simple 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple2">GroupBy - Simple 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#simple3">GroupBy - Simple 3</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#nested">GroupBy - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparer">GroupBy - Comparer</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336754.aspx#comparerMapped">GroupBy - Comparer, Mapped</a></li> </ul>  <h5>Set Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct1">Distinct - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#distinct2">Distinct - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union1">Union - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#union2">Union - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect1">Intersect - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#intersect2">Intersect - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except1">Except - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336761.aspx#except2">Except - 2</a></li> </ul>  <h5>Conversion Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToArray">To Array</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToList">To List</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#ToDictionary">To Dictionary</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336748#OfType">OfType</a></li> </ul>  <h5>Element Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstSimple">First - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstIndexed">First - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultSimple">FirstOrDefault - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultCondition">FirstOrDefault - Condition</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#FirstOrDefaultIndexed">FirstOrDefault - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336750#aa336750#">ElementAt</a></li> </ul>  <h5>Generation Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#range">Range</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336752.aspx#repeat">Repeat</a></li> </ul>  <h5>Quantifiers</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anySimple">Any - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyIndexed">Any - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#anyGrouped">Any - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allSimple">All - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allIndexed">All - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336759.aspx#allGrouped">All - Grouped</a></li> </ul>  <h5>Aggregate Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countSimple">Count - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countConditional">Count - Conditional</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#CountIndexed">Count - Indexed</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countNested">Count - Nested</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#countGrouped">Count - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumSimple">Sum - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumProjection">Sum - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#sumGrouped">Sum - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minSimple">Min - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minProjection">Min - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minGrouped">Min - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#minElements">Min - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxSimple">Max - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxProjection">Max - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxGrouped">Max - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#maxElements">Max - Elements</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgSimple">Average - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgProjection">Average - Projection</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#avgGrouped">Average - Grouped</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSimple">Fold - Simple</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336747#foldSeed">Fold - Seed</a></li> </ul>  <h5>Miscellaneous Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#Concat1">Concat - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#concat2">Concat - 2</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll1">EqualAll - 1</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336755#equalAll2">EqualAll - 2</a></li> </ul>  <h5>Custom Sequence Operators</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336749#combine">Combine</a></li> </ul>  <h5>Query Execution</h5>  <ul>   <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Deferred">Deferred</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#Immediate">Immediate</a></li>    <li><a href="http://msdn.microsoft.com/en-us/vcsharp/aa336751#QueryReuse">Query Reuse</a></li> </ul>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Evan</div>
+<div class='content'>
+Great reference Dmitriy, I found it really useful.  Nice blog too by the way, good posts.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/contributing-information-via-recaptcha/">Contributing Information via reCAPTCHA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-02T11:14:00+10:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Computers are very powerful these days. But it&#8217;s not still enough to solve <a href="http://en.wikipedia.org/wiki/Mathematical_problem" target="_blank">mathematical problems</a>. One way to leverage the calculating power is distributing it among users all around the world.</p>  <p>People can just run small applications to help scientific world. Not a problem at all. The software will just do its stuff silently.</p>  <p>Also people can help science manually. Who is going to spend time for that? Will you do it? Well, maybe. But there is very good solution to this problem: <strong>let people contribute even not letting them know about it</strong>.</p>  <p>This is exactly what <a href="http://recaptcha.net/learnmore.html" target="_blank">reCAPTCHA</a> is doing. It digitises old books using <a href="http://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">OCR</a>. But prompts users to decipher unrecognised words.</p>  <p><strong>What does user see?</strong></p>  <p>Users generally see prompt to enter two words to prove they are not robots, but humans. Nothing special. Nothing at all.</p>  <p><a href="http://lh3.ggpht.com/dnagir/SBpq3RS_uAI/AAAAAAAAC3E/rtTOhIwKdNU/s1600-h/reCAPTCHA-Sample%5B3%5D.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="127" alt="reCAPTCHA Sample" src="http://lh4.ggpht.com/dnagir/SBpq4hS_uBI/AAAAAAAAC3M/Nshg9b367lc/reCAPTCHA-Sample_thumb%5B1%5D.png?imgmax=800" width="317" border="0" /></a></p>  <p><strong>What is behind the scene?</strong></p>  <p>This is the most interesting thing. reCAPTCHA has its own <a href="http://recaptcha.net/apidocs/captcha/client.html" target="_blank">API</a> (ASP.NET Control is also <a href="http://recaptcha.net/plugins/aspnet/" target="_blank">available</a>), so it is easy to integrate it with any server.</p>  <p>And here&#8217;s how it works:</p>  <ol>   <li>User enters TWO words.</li>    <li>One of the words is <em>known</em> for reCAPTCHA, another - isn&#8217;t (<em>unknown)</em>.</li>    <li>If the <em>known</em> word is correct, reCAPTCHA assumes that user entered <em>unknown</em> word correctly. It also tells user about correct answer.</li>    <li>To be more confident that <em>unknown</em> word is deciphered correctly it is shown on other images.</li> </ol>  <p>As simple as that.</p>  <p>We also can try to enter <strong>only</strong> one word correctly and after several times we will pass the CAPTCHA! It doesn&#8217;t look good for the user, but it still does the job. You have to be a human to recognise at least one word. And wrong word should not abuse the system because of it will be sent to many people and it is so unlikely they all will provide the same and wrong word.</p>  <p>There&#8217;s one note about it. If you want to distribute your (web) application you will push your clients to obtain public key for their domain in order to use the reCAPTCHA.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/telerik-on-google-picasa/">Telerik on Google Picasa</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-01T10:04:00+10:00" pubdate data-updated="true">May 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I have received announcement from <a href="http://www.telerik.com" target="_blank">Telerik</a>. Lots of interesting and exciting stuff is there. But there&#8217;s one thing that caught my eyes - a link to Google Picasa Web Album (<a href="http://picasaweb.google.com/telerikwatch" target="_blank">TelerikWatch</a>). They host some screenshots and pictures related to the products and company in general.</p>  <p>Nothing really special but it seems even so &quot;Microsoft-ish&quot; company uses Google services and even for public newsletter.</p>  <p>Some pictures from the album:</p>  <p><img alt="Telerik at DevConnections 2008" src="http://lh4.ggpht.com/telerikwatch/SAy6dsTRqUI/AAAAAAAACXU/QPo9Xx5zi7w/IMG_0263.JPG?imgmax=400" /> <img alt="RadTreeView on the iPhone" src="http://lh3.ggpht.com/telerikwatch/Rqpt6fc_o0I/AAAAAAAAB1k/QOajoOucnYY/TelerikOnIPhone_Part3 019.jpg?imgmax=400" /></p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/21-suggestions-for-success/">21 Suggestions for Success</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-27T02:27:00+10:00" pubdate data-updated="true">Apr 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p></p>  <p>In one of houses I visited I saw a large poster titled <a href="http://www.21suggestions.com/" target="_blank">21 Suggestions for Success</a> from Jackson Brown.</p>  <p>I really was impressed of all those things. It seems like Jackson could bring lots of important things together. In many people&#8217;s brains there&#8217;re lots of mess (in mine as well) and these suggestions can help you sort it out.</p>  <p>Here they are:</p>  <ol>   <li><strong>Marry the right person</strong>. This one decision will determine 90% of your happiness or misery. </li>    <li><strong>Work</strong> at something you enjoy and that&#8217;s worthy of your time and talent. </li>    <li><strong>Give people more</strong> than they expect and do it cheerfully. </li>    <li>Become the <strong>most positive and enthusiastic</strong> person you know.</li>    <li><strong>Be forgiving</strong> of yourself and others. </li>    <li><strong>Be generous</strong>. </li>    <li>Have a <strong>grateful heart</strong>. </li>    <li><strong>Persistence</strong>, persistence, persistence. </li>    <li>Discipline yourself to <strong>save money</strong> on even the most modest salary. </li>    <li><strong>Treat everyone</strong> you meet like you want <strong>to be treated</strong>. </li>    <li>Commit yourself to constant <strong>improvement</strong>. </li>    <li>Commit yourself to <strong>quality</strong>. </li>    <li>Understand that happiness is not based on possessions, power or prestige, but on <strong>relationships</strong> with people you love and respect. </li>    <li><strong>Be loyal</strong>. </li>    <li><strong>Be honest</strong>. </li>    <li><strong>Be a self-starter</strong>. </li>    <li><strong>Be decisive</strong> even if it means you&#8217;ll sometimes be wrong. </li>    <li>Stop <strong>blaming others</strong>. Take responsibility for every area of your life. </li>    <li>Be bold and courageous. When you look back on your life, you&#8217;ll regret the <strong>things you didn&#8217;t do </strong>more than the ones you did. </li>    <li>Take <strong>good care</strong> of those you love. </li>    <li>Don&#8217;t do anything that wouldn&#8217;t <strong>make your Mom proud</strong>. </li> </ol>  <p>&#160;</p>  <p>Think about each of the things. It might become something like a Holy Book if you are not very religious. Or even if you are, it seems it doesn&#8217;t contradict to Bible (at least). </p>  <p>I have some friends who don&#8217;t know English enough. So I want to translate it into Russian just for them.</p>  <hr />  <p>Когда я был в одном из домов, я увидел там большой плакат на стене. Он назывался <strong><em>21 совет к успеху</em></strong> Джексона Брауна. Мне эти советы очень понравились я был очень впечетлен. Кажеться что автор смог вынести главные идеи из бесорядка, который есть в голове многих людей (включая меня).</p>  <p>Вот их перевод:</p>  <ol>   <li>Правильно вступи в брак. Это единственное решение определит 90% твоего счастья или несчастья. </li>    <li>Работай над тем, что ты любишь и что достойно твоего времени и таланта. </li>    <li>Отдавай людям больше, чем они ожидают и делай это с удовольствием. </li>    <li>Стань наиболее положительным и полным энтузиазма человеком, какого ты только знаешь. </li>    <li>Умей прощать себя и других. </li>    <li>Будь великодушным. </li>    <li>Имей благодарное сердце. </li>    <li>Настойчивость, настойчивость и еще раз настойчивость. </li>    <li>Дисциплинируй себя сохранять деньги даже при самой скромной зарплате. </li>    <li>Обращайся с другими так, как ты хочешь, чтобы они обращались с тобой. </li>    <li>Постоянно совершенствуй себя.</li>    <li>Возьми качество за правило.</li>    <li>Пойми, что счастье основано не на владении, могуществе или престиже, а на отношениях с людьми, которых ты любишь и уважаешь. </li>    <li>Будь лоялен.</li>    <li>Буль честен.</li>    <li>Будь стимулом для себя.</li>    <li>Будь решительным. Даже если ты иногда будешь не прав.</li>    <li>Не осуждай других. Возьми ответсвенность за каждую область своей жизни.</li>    <li>Будь храбрым и смелым. Когда ты оглянешся назад в прошлое, то будешь больше сожалеть о вещах которые ты не сделал, нежели которые сделал.</li>    <li>Хорошо заботься о тех, кого любишь.</li>    <li>Не сделай то, от чего твоя мама не была бы гордой за тебя.</li> </ol>  <p>Подумай об этих вещах. Они могут стать некой святой книгой в жизни для тех кто не сильно религиозен. Хотя и для людей, глубоко верающих, эти советы, по моему, не противоречат святому писанию (по крайней мере Библии).</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Wow. Sounds cool.<BR/>:)<BR/>Dumayu mne by ochen stoilo priderzhivatsia vsego etogo.<BR/>Da sobstvenno, i nam vsem. <BR/><BR/>THanx</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/i-can-top-that/">I Can&#8217;t Top That</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-20T13:02:00+11:00" pubdate data-updated="true">Mar 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p></p>  <p>Picture is worth thousands of words. Sometimes people are saying &quot;<em>hmm&#8230; no problem&#8230; I&#8217;m gonna do it now</em>&quot;. Time goes and&#8230; nothing is still finished. This hacker-mice must be a professional :)    <br /><img src="http://www.comics.com/wash/pcnpixel/archive/images/pcnpixel2008149780312.gif" /></p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mvc-controller-action-return-values/">MVC Controller Action Return Values</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-17T23:16:00+11:00" pubdate data-updated="true">Mar 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, &#8220;Courier New&#8221;, courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }</style>  <p>Just a quick thought about actions in MVC (MonoRail or ASP.NET MVC).</p>  <p>Often there is a need to return JSON or XML result from an action.    <br />Common solution is rendering specific view or some kind of &quot;Response.Write&quot;-ing; so the code usually looks like this:</p>  <div class="csharpcode">   <pre><span class="lnum">   1:  </span>        <span class="kwrd">public</span> <span class="kwrd">void</span> FindProducts(<span class="kwrd">string</span> query)</pre>
+
+  <pre><span class="lnum">   2:  </span>        {</pre>
+
+  <pre><span class="lnum">   3:  </span>            IProductList products = GetProducts(query);</pre>
+
+  <pre><span class="lnum">   4:  </span>            PropertyBag.Add(<span class="str">&quot;products&quot;</span>, products);</pre>
+
+  <pre><span class="lnum">   5:  </span>&#160;</pre>
+
+  <pre><span class="lnum">   6:  </span>            RenderView(<span class="str">&quot;ProductsJsonResult&quot;</span>);</pre>
+
+  <pre><span class="lnum">   7:  </span>        }</pre>
+
+  <pre><span class="lnum">   8:  </span>&#160;</pre>
+
+  <pre><span class="lnum">   9:  </span>        <span class="rem">// Or this way</span></pre>
+
+  <pre><span class="lnum">  10:  </span>&#160;</pre>
+
+  <pre><span class="lnum">  11:  </span>        <span class="kwrd">public</span> <span class="kwrd">void</span> FindProducts(<span class="kwrd">string</span> query)</pre>
+
+  <pre><span class="lnum">  12:  </span>        {</pre>
+
+  <pre><span class="lnum">  13:  </span>            IProductList products = GetProducts(query);</pre>
+
+  <pre><span class="lnum">  14:  </span>            Response.Write( JsonSerialize(products) );</pre>
+
+  <pre><span class="lnum">  15:  </span>        }</pre>
+</div>
+
+<p>It seems for me that the returning value is much more logical. Why don&#8217;t we ever use return values and mark actions with <strong>void</strong>&#8230; 
+
+  <br />&#8230;the code would be looking much better:</p>
+
+<div class="csharpcode">
+  <pre><span class="lnum">   1:  </span>        [<strong>ResultConverter</strong>(JsonConverter)]</pre>
+
+  <pre><span class="lnum">   2:  </span>        <span class="kwrd">public</span> <strong>IProductList</strong> FindProducts(<span class="kwrd">string</span> query)</pre>
+
+  <pre><span class="lnum">   3:  </span>        {</pre>
+
+  <pre><span class="lnum">   4:  </span>            <span class="kwrd">return</span> GetProducts(query);</pre>
+
+  <pre><span class="lnum">   5:  </span>        }</pre>
+</div>
+
+<p>&#160;</p>
+
+<p>If the <em>ResultConverter</em> attribute is not applied, than Json or Xml should be used by default.</p>
+
+<p>I like this stuff. I believe it&#8217;s not that hard to introduce such a feature in both MonoRail and ASP.NET MVC.</p>
+
+<p>I don&#8217;t know why nobody has asked about it before. Maybe I just haven&#8217;t seen or don&#8217;t know, maybe even it&#8217;s already implemented and I&#8217;m not aware of it.</p>
+
+<p>Anyway ASP.NET already supports it in Web Services (different things to compare, but still). I personally don&#8217;t like to write Web Service just to allow some page to get data from it (yes, that&#8217;s about WebForms). And would not prefer web service for HTML pages over controller actions. </p>
+
+<p>&#160;</p>
+
+<p><strong>UPDATE (19/03/2008):</strong></p>
+
+<p>Returning (serialising) an object is a very simple procedure and in many cases applying attribute to serialise Object becomes non-practical. But I have another idea of using a return value.</p>
+
+<p>Most of actions end with <em>RenderView</em> call, even if the view is chosen dynamically.
+
+  <br />In most cases there is no code after the <em>RenderView</em> is called and the result of a common action is a View. <strong>This is exactly returning a value</strong>. </p>
+
+<p>So why not return a <em>ViewDetails</em> as a return value? </p>
+
+<p>Imaginary code:</p>
+
+<pre class="csharpcode"><span class="kwrd">public</span> ViewDetails Find(<span class="kwrd">string</span> name)
+{
+    <span class="kwrd">if</span> (<span class="kwrd">string</span>.IsNullOrEmpty(name))
+        <span class="kwrd">return</span> <span class="kwrd">new</span> InvalidArgumentView(<span class="str">&quot;name&quot;</span>, name);
+    var result = GetTheObjectsFromSomewhere(name);
+    <span class="kwrd">if</span> (result.Count &gt; 0)
+        <span class="kwrd">return</span> <span class="kwrd">new</span> SearchResultView(result);
+    <span class="kwrd">else</span>
+        <span class="kwrd">return</span> <span class="kwrd">new</span> NoResultsView(name);
+}</pre>
+
+<p>It <a href="http://forums.asp.net/t/1234577.aspx#2241063">seems</a> like some some stuff is going to be implemented with return values&#8230;</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>TV Digital</div>
+<div class='content'>
+Hello. This post is likeable, and your blog is very interesting, congratulations :-). I will add in my blogroll =). If possible gives a last there on my blog, it is about the <A HREF="http://tv-digital-brasil.blogspot.com" REL="nofollow">TV Digital</A>, I hope you enjoy. The address is http://tv-digital-brasil.blogspot.com. A hug.<A HREF="5161088561" REL="nofollow"></A></div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/typical-applications/">Typical Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-16T01:11:00+11:00" pubdate data-updated="true">Mar 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><img style="margin: 0px 40px 0px 0px" src="http://bitsandpieces.us/wp-content/uploads/2008/03/imagesapple-20google-20and-20you.png" align="left" />Fun stuff from &quot;<a href="http://bitsandpieces.us/?p=1209">Apple, Google and you</a>&quot; post. Can&#8217;t keep myself not to copy the picture:</p>  <ul>   <li>Typical Apple product.</li>    <li>A Google Product.</li>    <li>Your Company&#8217;s Application.</li> </ul>  <p>&#160;</p>  <p>From here some questions have arised:</p>  <ul>   <li>Do large companies always have everything &quot;simple and easy&quot;?..</li>    <li>How often do you design overcomplicated applications?</li> </ul>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Dima, you are completely right.<BR/>An worse, people usually don&#8217;t even try to think how hard work would be for the end users.<BR/><BR/>But - and this is a plus - being usability expert and user interface expert makes you really needed and paid professional :)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aspnet-readers-choice-award-2008/">ASP.NET Readers&#8217; Choice Award 2008 Products</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-14T12:18:00+11:00" pubdate data-updated="true">Mar 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><img src="http://www.aspnetpro.com/Images/RCA2008_Generic_125.gif" align="left" /> The <a href="http://www.aspnetpro.com/ReadersChoice/Default.asp">ASP.NET Readers&#8217; Choice</a> voting is on.     <br />There are lots of companies and products listed. But I don&#8217;t even know lots of them. I think many developers also don&#8217;t.</p>  <p>So I just decided to put all the listings together here. Just to make sure we&#8217;ll be able at least to have a look on each one from a sinlge page.   <br />And this is a nice bookmark for me :)</p>  <p>&#160; </p>  <p>&#160;</p>  <hr />  <h4>Add-in</h4>  <p><b>C# Refactory</b>     <br />Xtreme Simplicity     <br /><a href="http://www.xtreme-simplicity.net">www.xtreme-simplicity.net</a></p>  <p><b>Chant SpeechKit</b>     <br />Chant     <br /><a href="http://www.chant.net">www.chant.net</a></p>  <p><b>CodeObject - Visual Studio .NET</b>     <br />Madinina Software     <br /><a href="http://www.codeobject.com">www.codeobject.com</a></p>  <p><b>CodeRush for Visual Studio .NET</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com">www.devexpress.com</a></p>  <p><b>CodeSMART VS.NET</b>     <br />AxTools     <br /><a href="http://www.axtools.com">www.axtools.com</a></p>  <p><b>DeKlarit</b>     <br />Artech     <br /><a href="http://www.deklarit.com">www.deklarit.com</a></p>  <p><b>DevPartner Studio Professional Edition</b>     <br />Compuware     <br /><a href="http://www.compuware.com/products/devpartner/studio.htm">www.compuware.com/products/devpartner/studio.htm</a></p>  <p><b>IntraWeb</b>     <br />Atozed Computer Software     <br /><a href="http://www.atozed.com/intraWeb/index.iwp">www.atozed.com/intraWeb/index.iwp</a></p>  <p><b>ModelMaker Code Explorer for VS</b>     <br />ModelMaker Tools     <br /><a href="http://www.modelmakertools.com">www.modelmakertools.com</a></p>  <p><b>MySQL Developer Tools</b>     <br />Core Lab     <br /><a href="http://crlab.com/mysqldevtools/">crlab.com/mysqldevtools/</a></p>  <p><b>NetAdvantage AppStylist</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/appstylist">www.infragistics.com/appstylist</a></p>  <p><b>Peter&#8217;s Interactive Pages</b>     <br />PeterBlum.com     <br /><a href="http://www.peterblum.com">www.peterblum.com</a></p>  <p><b>ReSharper</b>     <br />JetBrains     <br /><a href="http://www.jetbrains.com/resharper/">www.jetbrains.com/resharper/</a></p>  <p><b>TierDeveloper</b>     <br />Alachisoft     <br /><a href="http://www.alachisoft.com">www.alachisoft.com</a></p>  <p><b>Total .NET SourceBook</b>     <br />FMS     <br /><a href="http://www.fmsinc.com/dotnet/SourceBook">www.fmsinc.com/dotnet/SourceBook</a></p>  <p>&#160;</p>  <hr />  <h4>Charting &amp; Graphics Tool</h4>  <p><b>.netCHARTING </b>    <br />WebAvail Productions &amp; Corporate Web Solutions     <br /><a href="http://www.dotnetcharting.com">www.dotnetcharting.com</a></p>  <p><b>Altova MapForce</b>     <br />Altova     <br /><a href="http://www.altova.com/products/mapforce/data_mapping.html">www.altova.com/products/mapforce/data_mapping.html</a></p>  <p><b>Aspose.Chart</b>     <br />Aspose     <br /><a href="http://www.aspose.com">www.aspose.com</a></p>  <p><b>Chart FX for .NET</b>     <br />Software FX     <br /><a href="http://www.softwarefx.com">www.softwarefx.com</a></p>  <p><b>ChartingControl.NET</b>     <br />Outside Software     <br /><a href="http://www.outsidesoftware.ro">www.outsidesoftware.ro</a></p>  <p><b>ComponentArt WebChart for ASP.NET</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com/charting/webChart_overview.aspx">www.componentart.com/charting/webChart_overview.aspx</a></p>  <p><b>ComponentOne WebChart for ASP.NET</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>DotImage</b>     <br />Atalasoft     <br /><a href="http://www.atalasoft.com">www.atalasoft.com</a></p>  <p><b>Dundas Chart for .NET</b>     <br />Dundas Software     <br /><a href="http://www.dundas.com">www.dundas.com</a></p>  <p><b>Essential Chart</b>     <br />Syncfusion     <br /><a href="http://www.syncfusion.com/products/Chart/web/default.aspx">www.syncfusion.com/products/Chart/web/default.aspx</a></p>  <p><b>Graphics Server .NET</b>     <br />Graphics Server Technologies     <br /><a href="http://www.graphicsserver.com">www.graphicsserver.com</a></p>  <p><b>I-Load</b>     <br />RADactive     <br /><a href="http://www.radactive.com">www.radactive.com</a></p>  <p><b>ImageDraw for ASP.NET</b>     <br />Neodynamic SRL     <br /><a href="http://www.neodynamic.com/Products/IDWebC/ImageDrawWebControl.aspx?tabid=24&amp;prodid=4">www.neodynamic.com/Products/IDWebC/ImageDrawWebControl.aspx?tabid=24&amp; prodid=4</a></p>  <p><b>ImageGear for .NET</b>     <br />AccuSoft     <br /><a href="http://www.accusoft.com">www.accusoft.com</a></p>  <p><b>Instrumentation ModelKit</b>     <br />Perpetuum Software     <br /><a href="http://www.perpetuumsoft.com">www.perpetuumsoft.com</a></p>  <p><b>Measurement Studio</b>     <br />National Instruments     <br /><a href="http://www.ni.com">www.ni.com</a></p>  <p><b>NetAdvantage for .NET</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/hot/charting.aspx">www.infragistics.com/hot/charting.aspx</a></p>  <p><b>Nevron Chart for .NET</b>     <br />Nevron     <br /><a href="http://www.nevron.com">www.nevron.com</a></p>  <p><b>Organization Chart .Net</b>     <br />AASoftech     <br /><a href="http://www.aasoftech.com">www.aasoftech.com</a></p>  <p><b>ProEssentials</b>     <br />GigaSoft     <br /><a href="http://www.gigasoft.com">www.gigasoft.com</a></p>  <p><b>QCRTGraph Real-Time Graphics Tools for .Net</b>     <br />Quinn-Curtis, Inc.     <br /><a href="http://www.quinn-curtis.com/DotNetProducts.htm">www.quinn-curtis.com/DotNetProducts.htm</a></p>  <p><b>SharpGraph for .NET</b>     <br />Data Dynamics     <br /><a href="http://www.datadynamics.com">www.datadynamics.com</a></p>  <p><b>Telerik RadChart</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>XtraCharts Suite</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com/Products/NET/WinForms/Xtracharts/">www.devexpress.com/Products/NET/WinForms/Xtracharts/</a></p>  <p>&#160;</p>  <hr />  <h4>Chat Application</h4>  <p><b>Absolute Live Support .NET</b>     <br />Xigla Software     <br /><a href="http://www.xigla.com">www.xigla.com</a></p>  <p><b>Adventia Chat Server .NET</b>     <br />Adventia     <br /><a href="http://www.adventia.com">www.adventia.com</a></p>  <p><b>ChatSpace</b>     <br />Akiva Corp.     <br /><a href="http://www.chatspace.com">www.chatspace.com</a></p>  <p><b>Cute Chat</b>     <br />CuteSoft Components     <br /><a href="http://cutesoft.net/ASP.NET+Chat/default.aspx">cutesoft.net/ASP.NET+Chat/default.aspx</a></p>  <p><b>JaxterChat ASP.NET Chat Control</b>     <br />WebFurbish     <br /><a href="http://www.webfurbish.com">www.webfurbish.com</a></p>  <p><b>SightMax</b>     <br />SmartMax Software     <br /><a href="http://www.sightmax.com">www.sightmax.com</a></p>  <p>&#160;</p>  <hr />  <h4>Code Editor</h4>  <p><b>ASP Express</b>     <br />ASP Express     <br /><a href="http://aspexpress.com">aspexpress.com</a></p>  <p><b>Editor.NET</b>     <br />Quantum Whale LLC     <br /><a href="http://www.qwhale.net/products/editor/">www.qwhale.net/products/editor/</a></p>  <p><b>HomeSite</b>     <br />Macromedia     <br /><a href="http://www.macromedia.com/software/homesite">www.macromedia.com/software/homesite</a></p>  <p><b>ModelMaker (for C#)</b>     <br />ModelMaker Tools     <br /><a href="http://www.modelmakertools.com">www.modelmakertools.com</a></p>  <p><b>Multi-Edit</b>     <br />Multi Edit Software     <br /><a href="http://www.multiedit.com">www.multiedit.com</a></p>  <p><b>PrimalScript</b>     <br />Sapien Technologies     <br /><a href="http://www.sapien.com">www.sapien.com</a></p>  <p><b>SlickEdit</b>     <br />SlickEdit     <br /><a href="http://www.slickedit.com">www.slickedit.com</a></p>  <p><b>TextPad</b>     <br />Helios Software Solutions     <br /><a href="http://www.textpad.com">www.textpad.com</a></p>  <p><b>UltraEdit</b>     <br />IDM Computer Solutions, Inc.     <br /><a href="http://www.ultraedit.com">www.ultraedit.com</a></p>  <p>&#160;</p>  <hr />  <h4>Communications Tool</h4>  <p><b>aspNetTraceRoute</b>     <br />advancedIntellect     <br /><a href="http://www.aspNetTraceRoute.com">www.aspNetTraceRoute.com</a></p>  <p><b>IP*Works!</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>PowerTCP for .NET</b>     <br />Dart Communications&#160; <br /><a href="http://www.dart.com">www.dart.com</a></p>  <p><b>Rebex FTP for .NET</b>     <br />Rebex     <br /><a href="http://www.rebex.net">www.rebex.net</a></p>  <p><b>SocketTools .NET Edition</b>     <br />Catalyst Development Corp.     <br /><a href="http://www.catalyst.com/products/sockettools/standard/dotnet/index.html">www.catalyst.com/products/sockettools/standard/dotnet/index.html</a>     <br /></p>  <p>&#160;</p>  <hr />  <h4>Community Resource</h4>  <p><b>15seconds.com</b>     <br />Jupitermedia Corp.     <br /><a href="http://www.15seconds.com">www.15seconds.com</a></p>  <p><b>4GuysFromRolla.com</b>     <br />4GuysFromRolla.com     <br /><a href="http://www.4guysfromrolla.com">www.4guysfromrolla.com</a></p>  <p><b>angryCoder</b>     <br />angryCoder     <br /><a href="http://www.angryCoder.com">www.angryCoder.com</a></p>  <p><b>ASP Free</b>     <br />ASP Free     <br /><a href="http://www.aspfree.com">www.aspfree.com</a></p>  <p><b>AspAdvice</b>     <br />AspAdvice     <br /><a href="http://aspadvice.com">aspadvice.com</a></p>  <p><b>ASPAlliance.com&#160; </b>    <br />ASPAlliance.com&#160;&#160; <br /><a href="http://www.aspalliance.com">www.aspalliance.com</a></p>  <p><b>ASPNet101</b>     <br />ASPNet101     <br /><a href="http://aspnet101.com">aspnet101.com</a></p>  <p><b>Asptoday</b>     <br />Apress     <br /><a href="http://www.asptoday.com">www.asptoday.com</a></p>  <p><b>ClubFarPoint.com</b>     <br />FarPoint Technologies     <br /><a href="http://www.clubFarPoint.com">www.clubFarPoint.com</a></p>  <p><b>Dev Direct</b>     <br />Dev Direct Ltd.     <br /><a href="http://www.devdirect.com">www.devdirect.com</a></p>  <p><b>DotNetBips.com</b>     <br />DotNetBips.com     <br /><a href="http://www.dotnetbips.com">www.dotnetbips.com</a></p>  <p><b>DotNetJunkies</b>     <br />DotNetJunkies     <br /><a href="http://www.dotnetjunkies.com">www.dotnetjunkies.com</a></p>  <p><b>Infragistics Community</b>     <br />Infragistics     <br /><a href="http://community.infragistics.com/">community.infragistics.com/</a></p>  <p><b>International .NET Association</b>     <br />Ineta     <br /><a href="http://www.ineta.org">www.ineta.org</a></p>  <p><b>Microsoft&#8217;s ASP.NET Site</b>     <br />Microsoft&#8217;s ASP.NET     <br /><a href="http://www.asp.net">www.asp.net</a></p>  <p><b>SharpToolbox</b>     <br />SharpToolbox     <br /><a href="http://sharptoolbox.com">sharptoolbox.com</a></p>  <p><b>SQL Server Worldwide Users Group</b>     <br />SSWUG     <br /><a href="http://www.sswug.org">www.sswug.org</a></p>  <p><b>Syncfusion ASP.NET FAQ</b>     <br />Syncfusion     <br /><a href="http://www.syncfusion.com/faq/aspnet/default.aspx">www.syncfusion.com/faq/aspnet/default.aspx</a></p>  <p><b>Telerik&#8217;s Community</b>     <br />Telerik     <br /><a href="http://www.telerik.com/community/home.aspx">www.telerik.com/community/home.aspx</a></p>  <p><b>The Code Project</b>     <br />CodeProject     <br /><a href="http://www.codeproject.com">www.codeproject.com</a></p>  <p><b>VB.NET Forums</b>     <br />VB.NET Forums     <br /><a href="http://www.vbdotnetforums.com">www.vbdotnetforums.com</a></p>  <p>&#160;</p>  <p>&#160;</p>  <hr />  <h4>Component Set</h4>  <p><b>.Net ModelKit Suite</b>     <br />Perpetuum Software     <br /><a href="http://www.perpetuumsoft.com">www.perpetuumsoft.com</a></p>  <p><b>AspLib Component Library</b>     <br />Astron Digital     <br /><a href="http://asplib.net">asplib.net</a></p>  <p><b>Aspose.Total</b>     <br />Aspose     <br /><a href="http://www.aspose.com">www.aspose.com</a></p>  <p><b>ComponentArt Web.UI for ASP.NET</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com/webui.aspx">www.componentart.com/webui.aspx</a></p>  <p><b>ComponentOne Studio Enterprise</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>DXperience ASP.NET</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com/Products/NET/DXperienceASPNET/">www.devexpress.com/Products/NET/DXperienceASPNET/</a></p>  <p><b>Essential Studio ASP.NET Edition</b>     <br />Syncfusion     <br /><a href="http://www.syncfusion.com/products/aspnet/default.aspx">www.syncfusion.com/products/aspnet/default.aspx</a></p>  <p><b>GPS ToolKit.NET</b>     <br />Scientific Component     <br /><a href="http://www.scientificcomponent.com/gps_toolkit_net.htm">www.scientificcomponent.com/gps_toolkit_net.htm</a></p>  <p><b>Klik! EntryLib.Net</b>     <br />Klik! Software     <br /><a href="http://www.kliksoft.com/?S=2&amp;SS=14">www.kliksoft.com/?S=2&amp;SS=14</a></p>  <p><b>MyDirect .NET Data Provider</b>     <br />Core Lab     <br /><a href="http://crlab.com/mysqlnet/">crlab.com/mysqlnet/</a></p>  <p><b>NetAdvantage for ASP.NET</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/aspnet">www.infragistics.com/aspnet</a></p>  <p><b>Nevron .NET Vision</b>     <br />Nevron     <br /><a href="http://www.nevron.com">www.nevron.com</a></p>  <p><b>Peter&#8217;s Data Entry Suite</b>     <br />PeterBlum.com     <br /><a href="http://www.PeterBlum.com">www.PeterBlum.com</a></p>  <p><b>PowerWEB LiveControls for ASP.NET</b>     <br />Dart Communications     <br /><a href="http://www.dart.com/powerweb.aspx">www.dart.com/powerweb.aspx</a></p>  <p><b>Red Carpet Subscription</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>SharpUI for .NET</b>     <br />Data Dynamics     <br /><a href="http://www.datadynamics.com">www.datadynamics.com</a></p>  <p><b>Spread for .NET</b>     <br />FarPoint Technologies     <br /><a href="http://www.fpoint.com/netproducts/spreadnet/spreadnet.aspx">www.fpoint.com/netproducts/spreadnet/spreadnet.aspx</a></p>  <p><b>Telerik RadControls for ASP.NET</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>TMS ASP.NET Component Pack</b>     <br />tmssoftware     <br /><a href="http://www.tmssoftware.com/asp/aspnet.asp">www.tmssoftware.com/asp/aspnet.asp</a></p>  <p><b>UISuite</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com">www.karamasoft.com</a></p>  <p><b>WebUI Studio.NET</b>     <br />Intersoft Solutions     <br /><a href="http://www.intersoftpt.com">www.intersoftpt.com</a></p>  <p>&#160;</p>  <hr />  <h4>Content Management System</h4>  <p><b>ADXSTUDIO CMS</b>     <br />ADXSTUDIO     <br /><a href="http://www.adxstudio.com">www.adxstudio.com</a></p>  <p><b>CMS2005</b>     <br />Tectonic Concepts     <br /><a href="http://www.cms2005.com">www.cms2005.com</a></p>  <p><b>CMS400.NET</b>     <br />Ektron     <br /><a href="http://www.ektron.com">www.ektron.com</a></p>  <p><b>emagiC CMS.Net</b>     <br />Emagine     <br /><a href="http://www.emagiccms.com">www.emagiccms.com</a></p>  <p><b>GMP CMS 2.0</b>     <br />GMP Services     <br /><a href="http://www.gmpservices.com">www.gmpservices.com</a></p>  <p><b>Graffiti CMS</b>     <br />Telligent     <br /><a href="http://graffiticms.com/">graffiticms.com/</a></p>  <p><b>Kentico CMS for ASP.NET</b>     <br />Kentico     <br /><a href="http://www.kentico.com">www.kentico.com</a></p>  <p><b>Microsoft Office SharePoint Server 2007 &#8211; Web Content Management</b>     <br />Microsoft     <br /><a href="http://office.microsoft.com/en-us/sharepointserver/FX100492001033.aspx">office.microsoft.com/en-us/sharepointserver/FX100492001033.aspx</a></p>  <p><b>MonoX Portal Engine</b>     <br />Mono Software     <br /><a href="http://monox.mono-software.com">monox.mono-software.com</a></p>  <p><b>Power Portal Pro</b>     <br />ActiveWebSoftwares.com     <br /><a href="http://www.activewebsoftwares.com">www.activewebsoftwares.com</a></p>  <p><b>Sitefinity Web CMS</b>     <br />Telerik     <br /><a href="http://www.sitefinity.com">www.sitefinity.com</a></p>  <p>&#160;</p>  <hr />  <h4>e-Commerce Package</h4>  <p><b>.netCART</b>     <br />Corporate Web Solutions     <br /><a href="http://www.dotnetcart.com">www.dotnetcart.com</a></p>  <p><b>AbleCommerce Asp.Net Shopping Cart</b>     <br />Able Solutions Corporation     <br /><a href="http://www.ablecommerce.com">www.ablecommerce.com</a></p>  <p><b>AspDotNetStorefront</b>     <br />AspDotNetStorefront.com     <br /><a href="http://www.aspdotnetstorefront.com">www.aspdotnetstorefront.com</a></p>  <p><b>BV Commerce</b>     <br />BV Software     <br /><a href="http://www.bvsoftware.com">www.bvsoftware.com</a></p>  <p><b>IBiz E-Payment Integrator</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>pbAuthorizeNet</b>     <br />Primal Blue Software     <br /><a href="http://www.primalblue.com/software/net/authorizenet.aspx">www.primalblue.com/software/net/authorizenet.aspx</a></p>  <p><b>StoreFront</b>     <br />LaGarde     <br /><a href="http://www.storefront.net">www.storefront.net</a></p>  <p>&#160;</p>  <hr />  <h4>E-mail Control</h4>  <p><b>ASP.NET Auto Email</b>     <br />360 IMPACT     <br /><a href="http://www.360impact.com/products/auto_email.aspx">www.360impact.com/products/auto_email.aspx</a></p>  <p><b>aspNet Email</b>     <br />advancedIntellect     <br /><a href="http://www.aspNetEmail.com">www.aspNetEmail.com</a></p>  <p><b>Chilkat .NET Email Component</b>     <br />Chilkat Software     <br /><a href="http://www.chilkatsoft.com">www.chilkatsoft.com</a></p>  <p><b>EasyMail .Net Edition</b>     <br />Quiksoft     <br /><a href="http://www.quiksoft.com">www.quiksoft.com</a></p>  <p><b>FireMail for .NET</b>     <br />ceTe Software     <br /><a href="http://www.cete.com/Products/FireMailForNET/">www.cete.com/Products/FireMailForNET/</a></p>  <p><b>IP*Works! S/MIME</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>PowerTCP Mail for .NET</b>     <br />Dart Communications&#160; <br /><a href="http://www.dart.com/dotnet/mail.asp">www.dart.com/dotnet/mail.asp</a></p>  <p><b>Smtp.NET</b>     <br />ExclamationSoft     <br /><a href="http://www.SmtpDotNet.com">www.SmtpDotNet.com</a></p>  <p><b>TemplateMailer</b>     <br />Tectonic Concepts     <br /><a href="http://www.templatemailer.com">www.templatemailer.com</a></p>  <p><b>UltimateEmail</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com/?component=UltimateEmail">www.karamasoft.com/?component=UltimateEmail</a></p>  <p><b>ZANTAZ EAS</b>     <br />Essential Computing     <br /><a href="http://www.exchangearchivesolution.com">www.exchangearchivesolution.com</a></p>  <p>&#160;</p>  <hr />  <h4>Forum Application</h4>  <p><b>Active Data Online Discussion Board</b>     <br />Active Data Online     <br /><a href="http://www.activedataonline.com.au">www.activedataonline.com.au</a></p>  <p><b>Active Forums</b>     <br />Active Modules     <br /><a href="http://www.activemodules.com">www.activemodules.com</a></p>  <p><b>ASPPlayground.NET</b>     <br />ASPPlayground.NET     <br /><a href="http://www.aspplayground.net">www.aspplayground.net</a></p>  <p><b>ChitChat.NET</b>     <br />Clickcess     <br /><a href="http://www.clickcess.com/chitchatdotnet.asp">www.clickcess.com/chitchatdotnet.asp</a></p>  <p><b>Community Server</b>     <br />Telligent Systems, Inc.     <br /><a href="http://communityserver.org">communityserver.org</a></p>  <p><b>DotNetBB Forums</b>     <br />BV Software     <br /><a href="http://www.dotnetbb.com">www.dotnetbb.com</a></p>  <p><b>InstantForum.NET</b>     <br />Instant ASP     <br /><a href="http://www.instantasp.co.uk">www.instantasp.co.uk</a></p>  <p>&#160;</p>  <hr />  <h4>Grid</h4>  <p><b>Aspose.Grid</b>     <br />Aspose     <br /><a href="http://www.aspose.com">www.aspose.com</a></p>  <p><b>ASPxGridView</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com">www.devexpress.com</a></p>  <p><b>ComponentArt Grid for ASP.NET</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com/webui.aspx">www.componentart.com/webui.aspx</a></p>  <p><b>ComponentOne WebGrid for ASP.NET</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>DbNetGrid</b>     <br />DbNetGrid&#160;&#160; <br /><a href="http://www.dbnetgrid.com">www.dbnetgrid.com</a></p>  <p><b>Essential Grid</b>     <br />Syncfusion     <br /><a href="http://www.syncfusion.com/products/Grid/web/default.aspx">www.syncfusion.com/products/Grid/web/default.aspx</a></p>  <p><b>Grid FX</b>     <br />Software FX     <br /><a href="http://www.softwarefx.com">www.softwarefx.com</a></p>  <p><b>Janus Web GridEX Control for .NET</b>     <br />Janus Systems     <br /><a href="http://www.janusys.com">www.janusys.com</a></p>  <p><b>NetAdvantage for ASP.NET WebGrid</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/webgrid">www.infragistics.com/webgrid</a></p>  <p><b>Spread for Web Forms</b>     <br />FarPoint Technologies     <br /><a href="http://www.fpoint.com">www.fpoint.com</a></p>  <p><b>TEdit.NET</b>     <br />DVXP     <br /><a href="http://www.tedit.net">www.tedit.net</a></p>  <p><b>Telerik RadGrid</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>WebGrid.NET Enterprise 6.0</b>     <br />Intersoft Solutions&#160;&#160; <br /><a href="http://www.intersoftpt.com">www.intersoftpt.com</a></p>  <p>&#160;</p>  <hr />  <h4>Hosting Service</h4>  <p><b>ActiveHost</b>     <br />ActiveHost     <br /><a href="http://www.activehost.com">www.activehost.com</a></p>  <p><b>Coasis</b>     <br />Coasis     <br /><a href="http://www.coasis.com">www.coasis.com</a></p>  <p><b>CrystalTech Web Hosting</b>     <br />CrystalTech Web Hosting     <br /><a href="http://www.crystaltech.com">www.crystaltech.com</a></p>  <p><b>CWS Hosting</b>     <br />Corporate Web Services     <br /><a href="http://www.cws.net">www.cws.net</a></p>  <p><b>Dedicated 2 Developers</b>     <br />Defined Systems     <br /><a href="http://www.defined.net">www.defined.net</a></p>  <p><b>DiscountASP.NET</b>     <br />DiscountASP.NET     <br /><a href="http://www.discountasp.net">www.discountasp.net</a></p>  <p><b>MaximumASP</b>     <br />MaximumASP     <br /><a href="http://www.maximumasp.com">www.maximumasp.com</a></p>  <p><b>Millennium Data Solutions</b>     <br />Millennium Data Solutions     <br /><a href="http://www.mds-corp.com">www.mds-corp.com</a></p>  <p><b>netFirms</b>     <br />netFirms     <br /><a href="http://www.netfirms.com">www.netfirms.com</a></p>  <p><b>ORCS Web</b>     <br />ORCS Web     <br /><a href="http://www.orcsweb.com">www.orcsweb.com</a></p>  <p><b>Protec Web Solutions - UK</b>     <br />Protec Web Solutions     <br /><a href="http://www.protecweb.co.uk">www.protecweb.co.uk</a></p>  <p><b>Re-invent</b>     <br />Reinvent Technologies LLC     <br /><a href="http://www.re-invent.com/aspnet20hosting/aspnet20hosting.aspx">www.re-invent.com/aspnet20hosting/aspnet20hosting.aspx</a></p>  <p><b>Server Intellect</b>     <br />Server Intellect     <br /><a href="http://www.serverintellect.com">www.serverintellect.com</a></p>  <p><b>WebSecureStores</b>     <br />WebSecureStores     <br /><a href="http://www.websecurestores.com">www.websecurestores.com</a></p>  <hr />  <h4>IDE</h4>  <p><b>Delphi</b>     <br />Borland Software Corporation     <br /><a href="http://www.codegear.com">www.codegear.com</a></p>  <p><b>Iron Speed Designer</b>     <br />Iron Speed     <br /><a href="http://www.ironspeed.com">www.ironspeed.com</a></p>  <p><b>Microsoft Visual Studio</b>     <br />Microsoft     <br /><a href="http://msdn.microsoft.com/vstudio">msdn.microsoft.com/vstudio</a></p>  <p><b>RapTier</b>     <br />SharpPower     <br /><a href="http://www.sharppower.com">www.sharppower.com</a></p>  <p><b>Studio 8</b>     <br />Adobe     <br /><a href="http://www.adobe.com">www.adobe.com</a></p>  <p>&#160;</p>  <hr />  <h4>Navigation Control</h4>  <p><b>allinasp.NET TabStrip</b>     <br />allinasp.NET     <br /><a href="http://www.allinasp.net">www.allinasp.net</a></p>  <p><b>ASPxNavBar</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com">www.devexpress.com</a></p>  <p><b>ComponentArt Web.UI Navigation Controls</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com/webui.aspx">www.componentart.com/webui.aspx</a></p>  <p><b>ComponentOne WebMenus and WebBars</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>FlyTreeView for ASP.NET</b>     <br />9Rays.Net     <br /><a href="http://www.truedotnet.com/asp.net_2/treeview/TreeView.aspx">www.truedotnet.com/asp.net_2/treeview/TreeView.aspx</a></p>  <p><b>Navigation Package within Essential Tools</b>     <br />Syncfusion     <br /><a href="http://www.syncfusion.com/products/tools/web/features/Navigation_Package/default.aspx">www.syncfusion.com/products/tools/web/features/Navigation_Package/default.aspx</a></p>  <p><b>NetAdvantage for ASP.NET WebMenu</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/webmenu">www.infragistics.com/webmenu</a></p>  <p><b>SmartLinks Framework PRO for ASP.NET</b>     <br />DevMansion.Com     <br /><a href="http://www.devmansion.com">www.devmansion.com</a></p>  <p><b>Telerik RadMenu</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>UltimateMenu</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com/UltimateMenu/Overview.aspx">www.karamasoft.com/UltimateMenu/Overview.aspx</a></p>  <p><b>WebDesktop.NET</b>     <br />Intersoft Solutions     <br /><a href="http://www.intersoftpt.com">www.intersoftpt.com</a></p>  <p>&#160;</p>  <hr />  <h4>Online Editor</h4>  <p><b>Asbru Web Content Editor</b>     <br />Asbru Software     <br /><a href="http://editor.asbrusoft.com">editor.asbrusoft.com</a></p>  <p><b>ASPxHTML Editor</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com">www.devexpress.com</a></p>  <p><b>ComponentArt Editor for ASP.NET</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com">www.componentart.com</a></p>  <p><b>Cute Editor for ASP.NET</b>     <br />CuteSoft Components     <br /><a href="http://cutesoft.net">cutesoft.net</a></p>  <p><b>DevEdit</b>     <br />Interspire     <br /><a href="http://www.devedit.com">www.devedit.com</a></p>  <p><b>FreeTextBox Pro License</b>     <br />FreeTextBox     <br /><a href="http://www.freetextbox.com">www.freetextbox.com</a></p>  <p><b>Html TextBox</b>     <br />ActiveUp     <br /><a href="http://www.activeup.com/products/components/htmltextbox">www.activeup.com/products/components/htmltextbox</a></p>  <p><b>NetAdvantage for ASP.NET WebHtmlEditor</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/webhtmleditor">www.infragistics.com/webhtmleditor</a></p>  <p><b>Peter&#8217;s TextBoxes</b>     <br />PeterBlum.com     <br /><a href="http://www.PeterBlum.com">www.PeterBlum.com</a></p>  <p><b>pinEdit</b>     <br />Pintexx     <br /><a href="http://www.pintexx.com">www.pintexx.com</a></p>  <p><b>PowerWEB TextBox for ASP.NET</b>     <br />Dart Communications&#160;&#160; <br /><a href="http://www.dart.com/powerweb/textbox.asp">www.dart.com/powerweb/textbox.asp</a></p>  <p><b>RichTextBox for ASP.NET</b>     <br />Richer Components     <br /><a href="http://www.richercomponents.com">www.richercomponents.com</a></p>  <p><b>Telerik RadEditor</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>TX Text Control .NET</b>     <br />Text Control     <br /><a href="http://www.textcontrol.com">www.textcontrol.com</a></p>  <p><b>UltimateEditor</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com/?component=UltimateEditor">www.karamasoft.com/?component=UltimateEditor</a></p>  <p>&#160;</p>  <hr />  <h4>Polling Tool</h4>  <p><b>Online Voting/Survey Web-App</b>     <br />Comrie Software Solutions     <br /><a href="http://www.comriesoftware.net">www.comriesoftware.net</a></p>  <p><b>Peter&#8217;s Polling Package</b>     <br />PeterBlum.com     <br /><a href="http://www.PeterBlum.com">www.PeterBlum.com</a></p>  <p>&#160;</p>  <hr />  <h4>Printing/Reporting Tool</h4>  <p><b>ActiveReports for .NET</b>     <br />Data Dynamics     <br /><a href="http://www.datadynamics.com">www.datadynamics.com</a></p>  <p><b>Altova StyleVision</b>     <br />Altova     <br /><a href="http://www.altova.com/products/stylevision/xslt_stylesheet_designer.html">www.altova.com/products/stylevision/xslt_stylesheet_designer.html</a></p>  <p><b>ComponentOne WebReports for ASP.NET</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>Crystal Reports</b>     <br />Business Objects     <br /><a href="http://www.businessobjects.com">www.businessobjects.com</a></p>  <p><b>DynamicPDF Suite for .NET</b>     <br />ceTe Software     <br /><a href="http://www.cete.com">www.cete.com</a></p>  <p><b>Flexcel Studio for .NET</b>     <br />tmssoftware     <br /><a href="http://www.tmssoftware.com/go.asp?flexcelnet">www.tmssoftware.com/go.asp?flexcelnet</a></p>  <p><b>Izenda Reports</b>     <br />Izenda     <br /><a href="http://www.izenda.com/adhoc">www.izenda.com/adhoc</a></p>  <p><b>List &amp; Label</b>     <br />combit GmbH     <br /><a href="http://www.combit.net/us">www.combit.net/us</a></p>  <p><b>Logi 9</b>     <br />LogiXML     <br /><a href="http://www.logixml.com">www.logixml.com</a></p>  <p><b>Report Sharp-Shooter</b>     <br />Perpetuum Software     <br /><a href="http://www.perpetuumsoft.com">www.perpetuumsoft.com</a></p>  <p><b>Telerik Reporting</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>XtraReports Suite</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com/products/net/xtrareports">www.devexpress.com/products/net/xtrareports</a></p>  <p>&#160;</p>  <hr />  <h4>Project Management/Defect Tracking</h4>  <p><b>Active! Focus</b>     <br />Falafel Software     <br /><a href="http://www.falafel.com">www.falafel.com</a></p>  <p><b>Altova DiffDog</b>     <br />Altova     <br /><a href="http://www.altova.com/products_diffdog.html">www.altova.com/products_diffdog.html</a></p>  <p><b>AQdevTeam</b>     <br />AutomatedQA     <br /><a href="http://www.automatedqa.com/products/aqdevteam">www.automatedqa.com/products/aqdevteam</a></p>  <p><b>FogBugz</b>     <br />Fog Creek Software     <br /><a href="http://www.fogcreek.com/FogBUGZ">www.fogcreek.com/FogBUGZ</a></p>  <p><b>OnTime 2008</b>     <br />Axosoft     <br /><a href="http://www.axosoft.com">www.axosoft.com</a></p>  <p><b>Parabuild Server</b>     <br />Viewtier Systems     <br /><a href="http://www.viewtier.com">www.viewtier.com</a></p>  <p><b>TargetProcess</b>     <br />TargetProcess     <br /><a href="http://www.targetprocess.com">www.targetprocess.com</a></p>  <p><b>TestTrack Pro</b>     <br />Seapine Software     <br /><a href="http://www.seapine.com">www.seapine.com</a></p>  <p>&#160;</p>  <hr />  <h4>Scheduling/Calendar Tool</h4>  <p><b>allinasp.NET DatePicker</b>     <br />allinasp.NET     <br /><a href="http://www.allinasp.net">www.allinasp.net</a></p>  <p><b>ASP.NET DateTime Selector</b>     <br />Silk Webware     <br /><a href="http://www.silkwebware.net">www.silkwebware.net</a></p>  <p><b>ASP.NET EventCalendar</b>     <br />Quickwebsoft.com     <br /><a href="http://www.quickwebsoft.com">www.quickwebsoft.com</a></p>  <p><b>Aspose.iCalendar</b>     <br />Aspose     <br /><a href="http://www.aspose.com">www.aspose.com</a></p>  <p><b>ASPxScheduler</b>     <br />Developer Express     <br /><a href="http://www.devexpress.com">www.devexpress.com</a></p>  <p><b>Basic Date Picker</b>     <br />Basic Date Picker     <br /><a href="http://www.basicdatepicker.com">www.basicdatepicker.com</a></p>  <p><b>ComponentArt Calendar for ASP.NET</b>     <br />ComponentArt     <br /><a href="http://www.componentart.com/webui.aspx">www.componentart.com/webui.aspx</a></p>  <p><b>ComponentOne WebSchedule/WebCalendar</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>Mediachase Calendar.NET</b>     <br />Mediachase     <br /><a href="http://www.mediachase.com/Product/ProductInfo.aspx?id=1">www.mediachase.com/Product/ProductInfo.aspx?id=1</a></p>  <p><b>Mono Scheduler</b>     <br />Mono Software     <br /><a href="http://www.mono-software.com">www.mono-software.com</a></p>  <p><b>NetAdvantage for ASP.NET WebSchedule</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/webschedule">www.infragistics.com/webschedule</a></p>  <p><b>Peter&#8217;s Date and Time</b>     <br />PeterBlum.com     <br /><a href="http://www.PeterBlum.com">www.PeterBlum.com</a></p>  <p><b>PortSight Task Scheduler for .NET</b>     <br />PortSight     <br /><a href="http://www.portsight.com">www.portsight.com</a></p>  <p><b>RichCalendar</b>     <br />Richer Components     <br /><a href="http://www.richercomponents.com">www.richercomponents.com</a></p>  <p><b>Telerik RadCalendar</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>TMS ASP.NET WebPlanner</b>     <br />tmssoftware     <br /><a href="http://www.tmssoftware.com/go/?webplanner">www.tmssoftware.com/go/?webplanner</a></p>  <p><b>UltimateCalendar</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com/?component=UltimateCalendar">www.karamasoft.com/?component=UltimateCalendar</a></p>  <p><b>WebInput.NET 3.0</b>     <br />Intersoft Solutions     <br /><a href="http://www.intersoftpt.com">www.intersoftpt.com</a></p>  <p>&#160;</p>  <hr />  <h4>Security Tool</h4>  <p><b>Demeanor for .NET</b>     <br />Wise Owl     <br /><a href="http://www.wiseowl.com">www.wiseowl.com</a></p>  <p><b>DevPartner SecurityChecker</b>     <br />Compuware     <br /><a href="http://www.compuware.com">www.compuware.com</a></p>  <p><b>Dotfuscator</b>     <br />PreEmptive Solutions     <br /><a href="http://www.preemptive.com/products/dotfuscator/index.html">www.preemptive.com/products/dotfuscator/index.html</a></p>  <p><b>IP*Works! SSL</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>Peter&#8217;s Input Security</b>     <br />PeterBlum.com     <br /><a href="http://www.peterblum.com">www.peterblum.com</a></p>  <p><b>PortSight Secure Access</b>     <br />PortSight     <br /><a href="http://www.portsight.com">www.portsight.com</a></p>  <p><b>PowerTCP Secure FTP for .NET</b>     <br />Dart Communications&#160;&#160; <br /><a href="http://www.dart.com/ptftpnet.aspx">www.dart.com/ptftpnet.aspx</a></p>  <p><b>Secret Server</b>     <br />Thycotic Software     <br /><a href="http://www.thycotic.com/products_secretserver_overview.html">www.thycotic.com/products_secretserver_overview.html</a></p>  <p><b>Visual Guard for .NET</b>     <br />Novalys     <br /><a href="http://www.visual-guard.com">www.visual-guard.com</a></p>  <p>&#160;</p>  <hr />  <h4>Testing/QA Tool</h4>  <p><b>.TEST</b>     <br />Parasoft     <br /><a href="http://www.parasoft.com">www.parasoft.com</a></p>  <p><b>ANTS Profiler</b>     <br />Red Gate Software     <br /><a href="http://www.red-gate.com">www.red-gate.com</a></p>  <p><b>Gemini</b>     <br />CounterSoft     <br /><a href="http://www.countersoft.com">www.countersoft.com</a></p>  <p><b>Infragistics TestAdvantage</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/dotnet/testadvantageoverview.aspx">www.infragistics.com/dotnet/testadvantageoverview.aspx</a></p>  <p><b>QA Wizard PRO</b>     <br />Seapine Software     <br /><a href="http://www.seapine.com/qawizard.html">www.seapine.com/qawizard.html</a></p>  <p><b>QACenter Performance Edition</b>     <br />Compuware     <br /><a href="http://www.compuware.com/products/qacenter/performance.htm">www.compuware.com/products/qacenter/performance.htm</a></p>  <p><b>Raize CodeSite</b>     <br />Raize Software     <br /><a href="http://www.raize.com">www.raize.com</a></p>  <p><b>SmartInspect</b>     <br />Gurock Software GmbH     <br /><a href="http://www.gurock.com/products/smartinspect/">www.gurock.com/products/smartinspect/</a></p>  <p><b>TestComplete</b>     <br />AutomatedQA     <br /><a href="http://www.automatedqa.com">www.automatedqa.com</a></p>  <p>&#160;</p>  <hr />  <h4>Utility</h4>  <p><b>Adillis smartDBforms.NET</b>     <br />Adillis     <br /><a href="http://www.adillis.com/smartDBforms.NET/info.aspx">www.adillis.com/smartDBforms.NET/info.aspx</a></p>  <p><b>Altova XMLSpy</b>     <br />Altova     <br /><a href="http://www.altova.com/products/xmlspy/xml_editor.html">www.altova.com/products/xmlspy/xml_editor.html</a></p>  <p><b>Aqtime</b>     <br />AutomatedQA     <br /><a href="http://www.automatedqa.com">www.automatedqa.com</a></p>  <p><b>ASP Turbine 7</b>     <br />Blue Pacific Software     <br /><a href="http://www.blue-pacific.com/products/ASPTurbine/">www.blue-pacific.com/products/ASPTurbine/</a></p>  <p><b>Aspose.Spell</b>     <br />Aspose     <br /><a href="http://www.aspose.com">www.aspose.com</a></p>  <p><b>BrowserHawk</b>     <br />cyScape     <br /><a href="http://www.cyscape.com">www.cyscape.com</a></p>  <p><b>CodeSmith</b>     <br />CodeSmith Tools, LLC     <br /><a href="http://www.codesmithtools.com">www.codesmithtools.com</a></p>  <p><b>ComponentOne WebSpell IDE</b>     <br />ComponentOne     <br /><a href="http://www.componentone.com">www.componentone.com</a></p>  <p><b>dtSearch</b>     <br />dtSearch     <br /><a href="http://www.dtsearch.com">www.dtsearch.com</a></p>  <p><b>DynamicPDF Generator for .NET</b>     <br />ceTe Software     <br /><a href="http://www.cete.com">www.cete.com</a></p>  <p><b>EasyListBox</b>     <br />EasyListBox     <br /><a href="http://www.easylistbox.com">www.easylistbox.com</a></p>  <p><b>EasyQuery.NET</b>     <br />Korzh.com     <br /><a href="http://devtools.korzh.com/eq/dotnet/">devtools.korzh.com/eq/dotnet/</a></p>  <p><b>IP*Works! Zip</b>     <br />/n software     <br /><a href="http://www.nsoftware.com">www.nsoftware.com</a></p>  <p><b>Mono FileManager</b>     <br />Mono Software     <br /><a href="http://www.mono-software.com">www.mono-software.com</a></p>  <p><b>Ndepend</b>     <br />SMACCHIA.COM SARL     <br /><a href="http://www.NDepend.com">www.NDepend.com</a></p>  <p><b>NetAdvantage for ASP.NET WebSpellChecker</b>     <br />Infragistics     <br /><a href="http://www.infragistics.com/webspellchecker">www.infragistics.com/webspellchecker</a></p>  <p><b>OraDirect .NET Data Provider</b>     <br />Core Lab Software Development     <br /><a href="http://crlab.com/oranet/">crlab.com/oranet/</a></p>  <p><b>Peter&#8217;s Professional Validation</b>     <br />PeterBlum.com     <br /><a href="http://www.peterblum.com">www.peterblum.com</a></p>  <p><b>RichSlider</b>     <br />Richer Components     <br /><a href="http://www.richercomponents.com">www.richercomponents.com</a></p>  <p><b>SlickUpload</b>     <br />Krystalware     <br /><a href="http://krystalware.com/Products/SlickUpload/">krystalware.com/Products/SlickUpload/</a></p>  <p><b>Telerik RadSpell</b>     <br />Telerik     <br /><a href="http://www.telerik.com">www.telerik.com</a></p>  <p><b>Total .NET Analyzer</b>     <br />FMS     <br /><a href="http://www.fmsinc.com/dotnet/analyzer/index.asp">www.fmsinc.com/dotnet/analyzer/index.asp</a></p>  <p><b>TX Text Control .NET Server</b>     <br />Text Control     <br /><a href="http://www.textcontrol.com">www.textcontrol.com</a></p>  <p><b>UltimateSpell</b>     <br />Karamasoft     <br /><a href="http://www.karamasoft.com/?component=UltimateSpell">www.karamasoft.com/?component=UltimateSpell</a></p>  <p><b>VistaDB</b>     <br />VistaDB Software     <br /><a href="http://www.vistadb.com">www.vistadb.com</a></p>  <p><b>Visual WebGui</b>     <br />Visual WebGui     <br /><a href="http://www.visualwebgui.com">www.visualwebgui.com</a></p>  <p><b>WebCombo.NET 4.0</b>     <br />Intersoft Solutions     <br /><a href="http://www.intersoftpt.com">www.intersoftpt.com</a></p>  <p><b>xPort Tools for .NET</b>     <br />Valeriy Mazur     <br /><a href="http://xport.mvps.org">xport.mvps.org</a></p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>jerry</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/define-web-site-breadcrumbs/">Define Web Site Breadcrumbs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-06T15:40:00+11:00" pubdate data-updated="true">Mar 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p></p>  <p>People often misuse and misunderstand what Web site Breadcrumbs really are. The term “<strong>breadcrumb</strong>” is used for several different concepts – causing confusion during design discussions.    
+It especially applies to those who use ASP.NET. I think it is related to the Site Map controls available since ASP.NET 2.0. They provide <em>location breadcrumbs</em>. See <a href="http://geekswithblogs.net/azamsharp/archive/2006/08/16/88197.aspx">here</a> for example.</p>  <p>Let&#8217;s sort out all the breadcrumbs-related stuff and have a look at following sources:</p>  <ul>   <li><a href="http://en.wikipedia.org/wiki/Breadcrumb_%28navigation%29">Breadcrumb Navigation</a> on Wiki. </li>  <li>   <a href="http://instone.org/files/KEI-Breadcrumbs-IAS.pdf">Work on breadcrumbs</a> (PDF) at <a href="http://www.asis.org/Conferences/IASummit2002/index.html">3rd Annual Information Architecture Summit</a>. </li>  </ul>  <p>Basically there are 3 categories of breadcrumbs:</p>  <ol>   <li>Location Breadcrumbs </li>    <li>Path Breadcrumbs </li>    <li>Attribute Breadcrumbs </li> </ol>  <p>Lets have a look at each one deeper.</p>  <p> </p>  <h4>Location Breadcrumbs</h4>  <p>Location breadcrumbs are static and show where the page is located in the website hierarchy. It tells you <strong>where you are</strong>.    
+Use it for a web site with <a href="http://en.wikipedia.org/wiki/Tree_%28graph_theory%29">tree</a>-like hierarchical structure.    
+Typical example is a <a href="http://www.argocomputing.com.au/">company web site</a>.</p>  <p> </p>  <h4>Path Breadcrumbs</h4>  <p>Path breadcrumbs are dynamic and show the path that the user has taken to arrive at a page. It tells you <strong>how you got here</strong>.    
+Use it for a web site with <a href="http://en.wikipedia.org/wiki/Graph_theory">graph</a>-like structure or where it is hard to define the structure.</p>  <p> </p>  <h4>Attribute Breadcrumbs</h4>  <p>Attribute breadcrumbs give meta-information that categorizes the current page. It tells you <strong>what categories the page is in</strong>.    
+This type of breadcrumb can be represented as both Path or Location Breadcrumbs but is not intended represent the whole page, but its attributes instead.    
+I can think about a blog where categories can be organized hierarchically (<span style="font-family:Courier New;">CategoryRoot-&gt;[SubCategory1, SubCategory12]</span>). When you open a page that lists all the posts of a category, it might show Attribute Breadcrumbs with hierarchy of categories.</p>  <p> </p>  <h4>Why avoid breadcrumbs?</h4>  <p>Don&#8217;t be fanatic using the breadcrumbs wherever possible. <strong>Remember that browsers perfectly handle <em>Path breadcrumbs</em></strong> and partially Location Breadcrumbs.    
+Path Breadcrumbs are probably the most confusing ones because of:</p>  <ol>   <li>The depth might be unlimited and it should be cut at some stage. </li>    <li>It can has circles or closures (Example: <span style="font-family:Courier New;"><strong>Products-&gt;Product 1-&gt;Details-&gt;Products-&gt;Product 1</strong></span>) which might make the Path Breadcrumb confusing (if not useless). </li> </ol>  <p>So please weight all the pros and cons before implementing any type of breadcrumbs on your site.</p></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+efdee, cannot agree more.<BR/>But they probably might be useful on dynamic sites when users should submit pages. That&#8217;s because of browsers record page submits in the history.</div>
+</div>
+<div class='comment'>
+<div class='author'>efdee</div>
+<div class='content'>
+I&#8217;d go as far as to say that Path Breadcrumbs are relatively useless and clutter your interface since this is exactly what is behind the Back and Forward buttons in your browser itself.</div>
+</div>
+<div class='comment'>
+<div class='author'>Keith Instone</div>
+<div class='content'>
+Good recap! Hope your posting helps .net developers do the right thing. Of course, &#8220;it depends&#8221; what the right thing is.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/14/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/12/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

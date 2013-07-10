@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[challenge | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/challenge/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Challenge for Newbies reborn]]></title>
+    <link href="http://ApproachE.com/blog/ruby-challenge-for-newbies-reborn/"/>
+    <updated>2010-08-09T18:53:00+10:00</updated>
+    <id>http://ApproachE.com/blog/ruby-challenge-for-newbies-reborn</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>A question has been raised whether or not <a href="http://ruby-challenge.rubylearning.org/">Ruby Challenge for Newbies</a> should exist or not. The main concern is:</p>  <blockquote>   <p>…today, probably due to lack of time or other commitments, not many experienced Rubyists are willing to set a Ruby challenge for the newbies</p> </blockquote>  <p>I guess many Rubysts DO want to set the challenges, but unfortunately very few people these days have enough time.</p>  <p>Another problem with such challenges is that they are somewhat “detached” from the real life. Though I am not saying they are not interesting or educating. Don’t get me wrong, definitely they ARE. But still, I guess, many people would love to see how Ruby should be used correctly (the Rubyish way) in real-world applications. Especially in web apps.</p>  <p>So if there is the problem trying to find new challenges, then either WE need to set up new challenges and recommend people who can do that or, if that is not possible, the challenge itself might need to be &quot;converted&quot; to something different.</p>  <p>It seems the latter is the better choice at this moment.</p>  <p>Having said that, I believe that a good challenge should have attributes:</p>  <ul>   <li>driven by people; </li>    <li>not dependent on one person (though may be controlled by one or a group); </li>    <li>winner(s) appointed by the people (though influenced by the owner/controller); </li>    <li>collaborative; </li>    <li>“shareable”; </li>    <li>role-playing; </li> </ul>  <p>These are the ideas from the top of my head, but it is possible to play around those…</p>  <p>I personally feel like it brings us to the following idea of a challenge: <strong>Ruby Project Development challenge</strong>.</p>  <p>Somebody suggests an idea to implement (interesting web application, some kind of useful tool, etc). Then the challenge becomes a project that people have to deliver. There are main two roles in this challenge:</p>  <ol>   <li>product owners; </li>    <li>development team. </li> </ol>  <p>The <em>product owners</em> group consists of number of people who do like the idea but may not have time, ability to develop that. This group decides where the <em>development team</em> is heading to, and negotiates the requirements.</p>  <p>The <em>development team</em> is a group of self-organised people who do the actual development. Multiple development teams may exist to develop the same application.</p>  <p>The duration for the challenge may vary from weeks to couple of months. The winner of the challenge is the person who gets most number of votes from either product owners/development team or both (not sure yet). If there are multiple teams – then the winning team may also be chosen.</p>  <p>So the process of the challenge would be something like this:</p>  <ol>   <li>Somebody comes up with a project idea. </li>    <li>People join this project either as <em>product owner</em> or as <em>development team</em>. </li>    <li>People get organised in couple of development teams and a couple of product owners if too many guys have joined. </li>    <li>The countdown begins: <em>product owners</em> and <em>development teams</em> start working together (not necessarily at the same time). </li>    <li>During the work people should be able to see what others do, and help each other to deliver the product. </li>    <li>At the end of the challenge winners in following categories may be selected:      <ul>       <li>best developer; </li>        <li>best team; </li>        <li>best team-mate; </li>        <li>incredible inventor; </li>        <li>etc </li>     </ul>   </li> </ol>  <p>This of course is the basic idea, but it has sooo many variations.</p>  <p>So I propose the first challenge of this kind: <strong>Web applications supporting the challenge itself</strong>.</p>  </div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Thanks for your comment, nice to know about all that.<br /><br />My idea was to start the challenge for a real application so that people can discuss what is happening.<br />The Ruby quiz and similar are pretty isolated (though a reaaallly interesting).<br />TopCoder is probably a good choice here, I was not aware of that at the moment I wrote the article.<br /><br />Thanks again for the suggestions.</div>
+</div>
+<div class='comment'>
+<div class='author'>spyromus</div>
+<div class='content'>
+Check TopCoder if you haven&#39;t yet. They don&#39;t have Ruby competitions there, but they do have .Net and Java (and now Objective-C) and they pay real money for your time. So you can combine the pleasure of learning with receiving money for your work.<br /><br />As for the Ruby Challenge, there&#39;s enough groups like that around. Take Ruby Quiz for instance, that is out there what it seems for ages. They pose interesting challenges and discuss the solutions. Also, you can turn to Code Kata which is intended to develop the sense of the problem and practise your ability to think, while giving you a real-world problems to toy with.<br /><br />As I said, there&#39;s plenty, and there&#39;s totally no need to drive anything in existence to what you think the ideal. If you can&#39;t find what you need, imagine it as your next assignment -- to create a web site like what you just described -- and go implement it.<br /><br />Satish doesn&#39;t have time to work on the Ruby Challenge as he is riding a cool new wave of Clojure now, and you are concerned about his old favorite far more than he is. Take it easy. Projects come and go every day. :)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Matrix. Can you read it?]]></title>
+    <link href="http://ApproachE.com/blog/matrix-can-you-read-it/"/>
+    <updated>2007-10-26T11:30:00+10:00</updated>
+    <id>http://ApproachE.com/blog/matrix-can-you-read-it</id>
+    <content type="html"><![CDATA[<div class='post'>
+I've just read an <a href="http://ayende.com/Blog/archive/2007/10/26/Must-resist.-decoding.aspx">article</a>.
+Ayende links to this <a href="http://blog.wekeroad.com/2007/10/25/thoughts-for-a-thursday/">message</a> which is just a text represented in binary.
+Like in a Matrix :)...
+
+If you want to decode it - you'll find the message interesting... A bit depressing, but I like to think about such kind of things.
+
+<span style="font-size: 55%;">If you are too lazy to decode it... <a href="http://dnagir.googlepages.com/RobConery-decoded.txt" target="_blank">Here it is.</a>
+</span>
+
+<span style="font-size: 55%;">And <a href="http://dnagir.googlepages.com/Ayende-decoded.txt" target="_blank">here</a> is what Ayende says about it :)
+</span></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Personality Game]]></title>
+    <link href="http://ApproachE.com/blog/personality-game/"/>
+    <updated>2007-09-30T19:42:00+10:00</updated>
+    <id>http://ApproachE.com/blog/personality-game</id>
+    <content type="html"><![CDATA[<div class='post'>
+Today I've been in Melbourne museum and there's nice area about human brain.
+
+
+Just if you are not sure about you personality type follow the instructions below.
+Choose a letter from each question that best describes you:
+<br />
+<ol>
+<li>Are you most comfortable as quite introvert (<span style="font-weight: bold;">I</span>) or a social extrovert (<span style="font-weight: bold;">E</span>)?</li>
+<li>Do you prefer your information as detailed facts (<span style="font-weight: bold;">S</span>) or big picture ideas (<span style="font-weight: bold;">N</span>)?</li>
+<li>Do you prefer to make decisions by thinking with your head (<span style="font-weight: bold;">T</span>) or feeling with your heart (<span style="font-weight: bold;">F</span>)?</li>
+<li>Do you prefer dealing with things an orderly systematic (<span style="font-weight: bold;">J</span>) or a freely spontaneous manner (<span style="font-weight: bold;">P</span>)?</li>
+</ol>
+Take combination of four letters and discover you personality:
+<br />
+<ol>
+<li><span style="font-weight: bold;">ISTJ</span>, realistic.</li>
+<li><span style="font-weight: bold;">ISFJ</span>, harmonious.</li>
+<li><span style="font-weight: bold;">INFJ</span>, diligent.</li>
+<li><span style="font-weight: bold;">INTJ</span>, independent.</li>
+<li><span style="font-weight: bold;">ISTP</span>, flexible.</li>
+<li><span style="font-weight: bold;">ISFP</span>, committed.</li>
+<li><span style="font-weight: bold;">INFP</span>, idealistic.</li>
+<li><span style="font-weight: bold;">INTP</span>, focused.</li>
+<li><span style="font-weight: bold;">ESTP</span>, pragmatic.</li>
+<li><span style="font-weight: bold;">ESFP</span>, spontaneous.</li>
+<li><span style="font-weight: bold;">ENFP</span>, imaginative.</li>
+<li><span style="font-weight: bold;">ENTP</span>, ingenious.</li>
+<li><span style="font-weight: bold;">ESTJ</span>, decisive.</li>
+<li><span style="font-weight: bold;">ESFJ</span>, conscientious.</li>
+<li><span style="font-weight: bold;">ENFJ</span>, empathetic.</li>
+<li><span style="font-weight: bold;">ENTJ</span>, strategic.</li>
+</ol>
+That's how your personality is described in Melbourne museum and, probably, in some books.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Kostyantyn</div>
+<div class='content'>
+<B>INTP</B>, focused</div>
+</div>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Me too, my Friend :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Viktor</div>
+<div class='content'>
+independent</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[pc | Art Of Programming]]></title>
+  <link href="http://ApproachE.com/blog/categories/pc/atom.xml" rel="self"/>
+  <link href="http://ApproachE.com/"/>
+  <updated>2013-07-10T11:49:46+10:00</updated>
+  <id>http://ApproachE.com/</id>
+  <author>
+    <name><![CDATA[Dmytrii Nagirniak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Prototype Game]]></title>
+    <link href="http://ApproachE.com/blog/prototype-game/"/>
+    <updated>2009-09-07T09:26:00+10:00</updated>
+    <id>http://ApproachE.com/blog/prototype-game</id>
+    <content type="html"><![CDATA[<div class='post'>
+Last weekend I’ve got the <a href="http://www.prototypegame.com/" target="_blank">Prototype Game</a>. I like it a lot and the game play is very enjoying. But all that came did not come such simple. After I installed the game and tried it on me Athlon XP 64 6000+ and GeForce 6500 512 MB system I had probably about 5 FPS in the game. The system still satisfies minimum requirements.<br />
+I though that my systems is already old for the game, so I upgrades CPU and graphic card to x4 Phenom 9650 and Radeon 4850 1GB graphic card. I expected at least <i>some</i> improvement in the game experience, to play the game at least a bit smoother… But the hardware upgrade did not change anything (at least visually I could not mention the difference).<br />
+And this is at 640x480 resolution with everything set to minimum (though there are no many options in the game itself).<br />
+I went to their forum and found that many people have performance issues with this game. And the suggestion to fix it is to <b>disable all HID devices (USB devices) except ones in use (mouse/keyboard)</b>.<br />
+It is weird but it worked for me. Now I can play the game pretty smoothly at its max.<br />
+I probably did not need to upgrade at all. But I like the new system :). I hardly ever need the QUAD processor at home except for gaming. The rating on my Vista is 5.9 which is neither best ever score nor worst. I have 5.9 on each item in the system. On the prev system lowest score was 5.4: HDD; 5.6 - Memory. After upgrading CPU and graphic card I got 5.9 on every item. So far so good. Waiting for the next hungry game.<br />
+And one more time, I really enjoy the game… Even knowing that I don’t like so much killing and stuff like that.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+I really enjoy this game. Go on, it won&#39;t disappoint.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sergey Litvinov</div>
+<div class='content'>
+Thanks for suggestion about HID devices.<br />I liked the sample video of Prototype game. And want to try it :)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[99.99% available ASP.NET and SQL Server Architecture]]></title>
+    <link href="http://ApproachE.com/blog/9999-available-aspnet-and-sql-server/"/>
+    <updated>2008-12-16T13:46:00+11:00</updated>
+    <id>http://ApproachE.com/blog/9999-available-aspnet-and-sql-server</id>
+    <content type="html"><![CDATA[<div class='post'>
+I'll summarise a very nice <a href="http://www.codeproject.com/KB/aspnet/ProdArch.aspx">article</a> here:<br />
+<a href="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" target="_blank" title="Open in a new window"><img align="right" alt="Architecture" height="417" src="http://www.codeproject.com/KB/aspnet/ProdArch/ProdArch.png" width="300" /></a>   <br />
+<ul>
+<li>Always use public <b>firewall </b>and:       <br />
+<ul>
+<li>only expose 80, 443 ports; </li>
+<li>do not open FTP; </li>
+<li>do not open file sharing ports; </li>
+</ul>
+</li>
+<li>Use <b>two Ethernet ports</b>: one for to serve external requests, one for local access. </li>
+<li>"Keep your <b>load balancer dead simple</b> – use basic round robin". </li>
+<li>Each router and firewall has a <b>standby </b>one. </li>
+<li>Get moderately powerful Web servers with <b>enough storage</b>. </li>
+<li>Run <b>64bit </b>version of Windows. </li>
+<li>The whole internal network is fully <b>1Gbit </b>(network cables, routers/switches, NICs etc). </li>
+<li><b>Only use VPN</b> to access your server. </li>
+<li>Database servers must be the most powerful (<b>RAID 10 </b>Disks, Memory, CPU). </li>
+<li>Store Database files on a separate <b>physical</b> disk. </li>
+<li>Always <b>perform backup and log shipping</b> to different physical disks, preferably on RAID 1. </li>
+<li>Use <b>Windows Clustering </b>for high availability with Storage Area Network. </li>
+<li>RAM,<b> lots of RAM</b> for Database servers (2 GB + 60% of MDF size). </li>
+<li>Get <b>Dual Path Fiber</b> Channel connection to SAN from your servers. </li>
+<li>Have a <b>separate server for moving IIS logs</b> from webserver. </li>
+<li>Have a large<b> detachable external storage</b> like External USB drives. </li>
+<li>Use<b> fast SCSI RAID 1</b> disks. </li>
+<li>Use <b>separate NIC</b> on all servers that is connected to a separate private network via separate switch <b>for bulk operations</b>. </li>
+</ul>
+Please keep in mind these suggestions are for really heavy duty web applications.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Melbourne Museum]]></title>
+    <link href="http://ApproachE.com/blog/melbourne-museum/"/>
+    <updated>2007-10-02T09:08:00+10:00</updated>
+    <id>http://ApproachE.com/blog/melbourne-museum</id>
+    <content type="html"><![CDATA[<div class='post'>
+Some <a href="http://picasaweb.google.com/dnagir/MelbourneMuseum">photos</a> from Melbourne Museum.
+Very nice one.
+I like area about first Australian computer. Huge one :)
+I haven't had pleasure to work with it :)</div>
+
+]]></content>
+  </entry>
+  
+</feed>

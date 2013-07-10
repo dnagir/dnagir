@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>CSS Cross Browser compatibility tips - Art Of Programming</title>
+  <meta name="author" content="Dmytrii Nagirniak">
+
+  
+  <meta name="description" content="I have been reading the very interesting topic and just decided to keep a note on that. Just for myself. Blog is sometimes useful&#160; as a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ApproachE.com/blog/css-cross-browser-compatibility-tips">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="alternate" title="Art Of Programming" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17928352-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Art Of Programming</a></h1>
+  
+    <h2>musings by Dmytrii Nagirniak</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/DmitriyNagirnyak" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=DmitriyNagirnyak" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ApproachE.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives/">Blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">CSS Cross Browser Compatibility Tips</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-20T13:57:00+10:00" pubdate data-updated="true">Jun 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>I have been reading the very interesting <a href="http://anthonyshort.com.au/blog/comments/how-to-get-cross-browser-compatibility-everytime/">topic</a> and just decided to keep a note on that. Just for myself. Blog is sometimes useful&#160; as a notebook for myself. And it might help other people.</p>  <p>So what I want to note here: I often fight with different issues across Firefox and Internet Explorer (only these 2 browsers, but it&#8217;s already enough for me).</p>  <p>I prefer to style pages in Firefox (just because it&#8217;s more convenient using Firebug). Then I hope everything will work in IE (6,7) as well. But it has have did.   <br />So I have to tweak CSS for IE and watch not to break what&#8217;s done for FF. It&#8217;s just a real PITA.</p>  <p>There are <a href="http://www.google.com/search?q=cross+browser+css">tons</a> of guides how to write cross browser CSS.</p>  <p>But the <a href="http://anthonyshort.com.au/blog/comments/how-to-get-cross-browser-compatibility-everytime/">one</a> I particularly like has some short and useful tips. Let&#8217;s quickly move through them:</p>  <ul>   <li><strong>Reset styles</strong> to make consistent look in all browsers. <a href="http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/">Sample</a>. Note: <em>Most JS libraries (YUI, ExtJS etc) provide reset CSS rules.</em></li>    <li><strong>Do not resize images</strong> via CSS/HTML because not all browsers do it well.</li>    <li><strong>Do not use light font on dark background</strong> because of issues in Safari that causes other issues fixing this one.</li>    <li><strong>Use only common fonts</strong> (Arial, Georgia, Verdana etc) because of different browsers and OS&#8217;s render it differently. </li>    <li><strong>Size font</strong> in <strong>em</strong> through the page, but initialise in <strong>%</strong> for body. <em>I&#8217;m not exactly sure about this, but the reason is that &quot;The ability to resize text differs amongst browsers and OS&#8217;s&quot;.</em></li>    <li>All layout divs that are floated <strong>should include display:inline and overflow:hidden</strong>. This is due to IE doubles margins on the float side and IE 6 layout problems.</li>    <li><strong>Carefully clear floats</strong> using <font face="Courier New">overflow:auto</font> or <font face="Courier New">overflow:hidden</font>. Be aware of issues. See <a href="http://www.sitepoint.com/blogs/2005/02/26/simple-clearing-of-floats/">Samle</a>.</li>    <li>Use CSS selectors subset that all of your browser support. See <a href="http://www.evotech.net/blog/2008/05/browser-css-selector-support/">browser CSS selectors support</a>.</li>    <li><strong>Do not use PNG transparency</strong> if you need to support <strong>IE 6</strong>.</li> </ul>  <p>The general idea I prefer to stick is just using minimum subset of a features available in all supported browsers intersected with W3C standard.</p>  <p>So if one browser doesn&#8217;t support particular descendant selector - never use it. If there&#8217;s no such W3C description - never use it (<em>not always possible</em>).</p>  <p>But still the biggest problem is when browsers behave different ways with the same supported feature.   <br />I hope couple of these tips and links will help to solve you (and me) some of the cross-browser compatibility issues.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Dmytrii Nagirniak</div>
+<div class='content'>
+Thanks Alexander. I&#8217;ll remember the fix.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+btw, ie6 png transparency is easily fixed with applying specific htc behaviour for the img element, see http://www.twinhelix.com/css/iepngfix/<BR/><BR/>seems to work at our&#8217;s</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Dmytrii Nagirniak</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-20T13:57:00+10:00" pubdate data-updated="true">Jun 20<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ApproachE.com/blog/css-cross-browser-compatibility-tips/" data-via="dnagir" data-counturl="http://ApproachE.com/blog/css-cross-browser-compatibility-tips/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/annoying-untyped-redirects-in-aspnet/" title="Previous Post: Annoying untyped redirects in ASP.NET MVC">&laquo; Annoying untyped redirects in ASP.NET MVC</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/building-web-applications-with-aspnet/" title="next Post: Building Web Applications with ASP.NET MVC">Building Web Applications with ASP.NET MVC &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Dmytrii Nagirniak</h1>
+  <img src="/about/me.jpg" title="Dmytrii Nagirniak photo" >
+  <ul>
+    <li>
+      <a href="http://twitter.com/dnagir">Twitter</a>
+    </li>
+    <li>
+      <a href="http://github.com/dnagir">Github</a>
+    </li>
+    <li>
+      <a href="http://au.linkedin.com/in/dmitriynagirnyak">LinkedIn</a>
+    </li>
+    <li>
+      <a href="mailto:d@ApproachE.com?subject=Just saying hi">d@ApproachE.com</a>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/testing-rails-across-time-zones/">Testing Rails across time zones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/increase-your-productivity-with-vim-and-terminal/">Increase your productivity in Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-to-care-for-introverts/">How to care for Introverts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/migrating-from-blogger-to-octopress/">Migrating from Blogger to Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/knockoutjs-validations-video/">KnockoutJS Validations Screencast</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dnagir", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dnagir" class="twitter-follow-button" data-show-count="false">Follow @dnagir</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Dmytrii Nagirniak -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'approache';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ApproachE.com/blog/css-cross-browser-compatibility-tips/';
+        var disqus_url = 'http://ApproachE.com/blog/css-cross-browser-compatibility-tips/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
