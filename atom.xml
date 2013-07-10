@@ -4,7 +4,7 @@
   <title><![CDATA[Art Of Programming]]></title>
   <link href="http://ApproachE.com/atom.xml" rel="self"/>
   <link href="http://ApproachE.com/"/>
-  <updated>2013-07-10T13:18:24+10:00</updated>
+  <updated>2013-07-10T13:44:45+10:00</updated>
   <id>http://ApproachE.com/</id>
   <author>
     <name><![CDATA[Dmytrii Nagirniak]]></name>
@@ -20,7 +20,9 @@
     <id>http://ApproachE.com/blog/testing-rails-across-time-zones</id>
     <content type="html"><![CDATA[<h2>Why?</h2>
 
-<p>Because it is easy to get the dates/times wrong without even realising it.</p>
+<p>Because it is easy to get the dates/times wrong without even realising it.
+Even if you don&rsquo;t need to support multiple time zones, you can catch a lot of
+the edge cases.</p>
 
 <h2>How?</h2>
 
@@ -35,7 +37,7 @@
 
 <h2>Usage: Randomise time zone when running specs</h2>
 
-<p>The RSpec support file will (part of this Gist) sets the Rails&#8217; <code>Time.zone</code> to a random time zone.
+<p>The RSpec support file (see below) will set the Rails&#8217; <code>Time.zone</code> to a random time zone.
 So if something is wrong then your CI should eventually fail.</p>
 
 <p>When it will, you should look for the message at the very beginning:</p>
@@ -57,12 +59,15 @@ So if something is wrong then your CI should eventually fail.</p>
 <p>This works without changing any of the existing specs and relies on
 the fact that your CI is running specs often enough.</p>
 
-<h2>Run the specific specs across the different time zones</h2>
+<h2>Usage: Run the specific specs across the different time zones</h2>
 
-<p>You may have some specs that you want to specifically test across all the time zones.</p>
+<p>You may have some specs that you want to specifically test across all the time zones.
+That doesn&rsquo;t mean you want to support all time zone, it just means that the transitions
+between the dates are very important.
+Getting it run for all timezones will give good confidence about the correctness of the functionality, even for one time zone.</p>
 
-<p>This can be used, for example, with tests on reports that are sensitive to time zone.
-(All financial/sales reports probably).</p>
+<p>This can be used, for example, with tests on reports that are quite sensitive
+(all financial/sales reports probably).</p>
 
 <p>So how do you do it?</p>
 
@@ -171,7 +176,8 @@ that use (in PostgreSQL terms) dates, times and times with time zone, maybe <cod
 </ul>
 
 
-<p>You can grab the RSpec <a href="https://gist.github.com/dnagir/5962765">support file</a> to leaverage it.</p>
+<p>You can grab the RSpec <a href="https://gist.github.com/dnagir/5962765">support file</a> to leaverage it.
+Feedback on this is welcome.</p>
 
 <div><script src='https://gist.github.com/5962765.js'></script>
 <noscript><pre><code></code></pre></noscript></div>
